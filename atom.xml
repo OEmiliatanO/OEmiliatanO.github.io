@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-19T14:05:12.478Z</updated>
+  <updated>2020-04-19T14:17:01.870Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mo&#39;s algorithm</title>
+    <link href="http://yoursite.com/2020/04/19/mo-s-algorithm/"/>
+    <id>http://yoursite.com/2020/04/19/mo-s-algorithm/</id>
+    <published>2020-04-19T14:11:48.000Z</published>
+    <updated>2020-04-19T14:17:01.870Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="莫隊算法"><a href="#莫隊算法" class="headerlink" title="莫隊算法"></a>莫隊算法</h3><blockquote><p>給定一長度為 $n$的數列，有 $q$個詢問，問區間 $l,r$內眾數出現幾次? 有幾個眾數?<br>!可以離線</p></blockquote><p>這題目乍看下是要刻一個比較特殊的線段樹，但是真的需要嗎?</p><p>首先，我們把問題reduce成</p><blockquote><p>給定一長度為 $n$的數列，有兩個索引 $l,r$，有 $q$個操作，使 $l$變大或變小1、使 $r$變大或變小1，問每次操作區間 $l,r$內眾數出現幾次? 有幾個眾數?</p></blockquote><p>這個問題看起來就簡單多了。<br>設<code>app[x]</code>, <code>cnt[c]</code>, <code>maxcur</code>為 $x$出現幾次、出現 $c$次的有幾種數字、目前的眾數是出現幾次。<br>每次移動雙指標時，都去維護<code>app[x], cnt[c], maxcur</code>，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    --cnt[app[x]];</span><br><span class="line">    --app[x];</span><br><span class="line">    ++cnt[app[x]];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (cnt[maxcur] == <span class="number">0</span>)</span><br><span class="line">        --maxcur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    --cnt[app[x]];</span><br><span class="line">    ++app[x];</span><br><span class="line">    ++cnt[app[x]];</span><br><span class="line">    </span><br><span class="line">    maxcur = max(maxcur, app[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//~~</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(q--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//~~</span></span><br><span class="line">    <span class="keyword">if</span> (op == <span class="string">"L l"</span>)</span><br><span class="line">        add(arr[--l]);    <span class="comment">//左指標左移</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="string">"L r"</span>)</span><br><span class="line">        sub(arr[l++]);    <span class="comment">//左指標右移</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="string">"R l"</span>)</span><br><span class="line">        sub(arr[r--]);    <span class="comment">//右指標左移</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="string">"R r"</span>)</span><br><span class="line">        add(arr[++r]);    <span class="comment">//右指標右移</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; maxcur &lt;&lt; <span class="string">' '</span> &lt;&lt; cnt[maxcur] &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>這樣的複雜度是$O(q)$。完美解決。</p><p>但是這個問題跟原始問題比起來，差在一個 <strong>移動是連續的</strong>；一個是 <strong>左界右界亂跳</strong>。<br>那我們不妨讓原始題目的詢問左右界排序成連續的樣子。</p><p>依照左界大小將詢問排序，再依照剛剛的做法去做，但是這樣會有一個問題</p><blockquote><p>右界怎麼辦?</p></blockquote><p>如果有很多筆操作，左界都相同，但是右界差距極大，這樣複雜度最差是$O(n^2)$</p><p>有沒有一種辦法去同時把左界排序又能維護好右界遞增呢?<br>有，但是左右界都需要犧牲一點單調性。</p><p>利用分塊的思想，將$n$個元素切成$K$塊，接著將所有詢問按照$L_i$所在的區塊排序，如果在同一個區塊，就再對</p><p>$R_i$做排序。</p><ul><li><p><strong>複雜度分析</strong>:<br>  因為分塊的特性，在同一塊的左界不會移動超過$\frac{N}{K}$次，而左界屬於不同塊的操作，移動次數最多也不會超過N次。所以左界移動複雜度是$O(\frac{NQ}{K})$。<br>  對於右界因為$R_i$是遞增，所以對於同一塊複雜度最多$O(N)$，對不同塊因為交界最多$K$次，每次最多也$O(N)$，所以維護右界複雜度為$O(NK)$。<br>  取$K=\sqrt N$，複雜度為 $O(Q\sqrt N +N \sqrt N)$</p></li><li><p><strong>奇偶優化</strong>:<br>  每一塊的$R_i$都是遞增，因此在遇到交界處時會有一個”大斷層”，導致右界必須移動許多次，但是如果反過來變成奇數塊遞增，而偶數塊遞減，就會讓右界的移動接近連續<br>  實做判斷區塊是否為偶數進行遞增或遞減排序。</p></li><li><p><strong>code:</strong><br>  因為有點長，所以貼連結: <a href="https://pastebin.com/sLbTNxmP" target="_blank" rel="noopener">Mo’s alogrithm</a></p></li></ul><p>練習題: <a href="https://zerojudge.tw/ShowProblem?problemid=b417" target="_blank" rel="noopener">zj b417</a>(模板題),<a href="https://tioj.ck.tp.edu.tw/problems/1699" target="_blank" rel="noopener">tioj 1699</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;莫隊算法&quot;&gt;&lt;a href=&quot;#莫隊算法&quot; class=&quot;headerlink&quot; title=&quot;莫隊算法&quot;&gt;&lt;/a&gt;莫隊算法&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;給定一長度為 $n$的數列，有 $q$個詢問，問區間 $l,r$內眾數出現幾次? 有幾個眾數?&lt;b
+      
+    
+    </summary>
+    
+    
+    
+      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Treap</title>
