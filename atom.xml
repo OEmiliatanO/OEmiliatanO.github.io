@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-19T11:22:04.844Z</updated>
+  <updated>2020-04-19T11:31:42.854Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>base article</title>
+    <title>序</title>
     <link href="http://yoursite.com/2020/04/19/base-article/"/>
     <id>http://yoursite.com/2020/04/19/base-article/</id>
     <published>2020-04-19T11:22:04.000Z</published>
-    <updated>2020-04-19T11:22:04.844Z</updated>
+    <updated>2020-04-19T11:31:42.854Z</updated>
+    
+    <content type="html"><![CDATA[<p>這是原$blog$ <a href="https://emiliatancoding.blogspot.com/" target="_blank" rel="noopener">https://emiliatancoding.blogspot.com/</a></p><p>由於我太無聊了，所以我換成了新的地方去開blog，我可能會更新不只競程的東西，比如Arduino、或是一些奇奇怪怪的東西(?。</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;這是原$blog$ &lt;a href=&quot;https://emiliatancoding.blogspot.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://emiliatancoding.blogspot.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p
+      
     
     </summary>
     
