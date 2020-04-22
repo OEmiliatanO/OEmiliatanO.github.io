@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-21T12:40:54.855Z</updated>
+  <updated>2020-04-22T14:33:12.157Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python - 可視化函數</title>
+    <link href="http://yoursite.com/2020/04/22/3D-functions/"/>
+    <id>http://yoursite.com/2020/04/22/3D-functions/</id>
+    <published>2020-04-22T14:25:19.000Z</published>
+    <updated>2020-04-22T14:33:12.157Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天一個心血來潮，想自己做看看可視化函數。<br><img src="https://i.imgur.com/nHKmZlc.png" alt=""></p><p>我一開始想用C++寫，但是想到python在這方面似乎比較簡單，所以我就決定使用python來做(懶)</p><p>我是用Anaconda做的，畢竟裡面都已經裝好了，不用白不用。</p><p>首先我第一個做的是二維平面的圖:<br><img src="https://i.imgur.com/9QijOUV.png" alt=""></p><p><strong>code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line">f = <span class="keyword">lambda</span> x: x * x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 產生一段從-10到10的數字，間隔 0.125</span></span><br><span class="line"><span class="comment"># 0.125是為了減少誤差，可以想想看浮點數實作方式</span></span><br><span class="line">x = np.arange(<span class="number">-10</span>, <span class="number">10</span>, <span class="number">.125</span>)</span><br><span class="line">y = f(x)</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line">plt.plot(x, y)</span><br></pre></td></tr></table></figure></p><p>非常之簡單。</p><p>接著是兩個圖交疊的:<br><img src="https://i.imgur.com/aNHenMI.png" alt=""></p><p><strong>code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將上面的code改一下就好了</span></span><br><span class="line">f = <span class="keyword">lambda</span> x: <span class="number">10</span> * np.sin(x)</span><br><span class="line">g = <span class="keyword">lambda</span> x: x * x</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">-10</span>, <span class="number">10</span>, <span class="number">.125</span>)</span><br><span class="line">y1 = f(x)</span><br><span class="line">y2 = g(x)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2)</span><br></pre></td></tr></table></figure></p><p>似乎有點過於簡單了?</p><p>接著是3D的圖形，根據我上網找的資料，需要用到<code>mpl_toolkits.mplot3d</code>裡面的<code>Axes3D</code>。<br>因為現在是x, y會產生一個面，然後再根據在面上的某個位置，決定畫在Z軸的哪裡。<br>所以我們需要<code>np.meshgrid(x, y)</code>這個函式來產生這個面。</p><p>三維:<br><img src="https://i.imgur.com/tcf81OH.png" alt=""></p><p><strong>code:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = Axes3D(fig)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">'x'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'y'</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">'z'</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">.125</span>)</span><br><span class="line">y = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">.125</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 產生輸入面</span></span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line"></span><br><span class="line">Z = X + Y</span><br><span class="line"></span><br><span class="line">ax.plot_surface(X, Y, Z)</span><br></pre></td></tr></table></figure></p><p>覺得好像只是單一顏色好像太單調了。<br>順便也把圖形弄得複雜一點。</p><p>$f(x, y) = x^2+y^2$:<br><img src="https://i.imgur.com/dX6inWg.png" alt=""></p><p>$f(x, y) = \sqrt{x^2+y^2}$:<br><img src="https://i.imgur.com/an0LC6v.png" alt=""></p><p>$f(x, y) = cos(\sqrt{x^2+y^2})$:<br><img src="https://i.imgur.com/UyBqdjK.png" alt=""></p><p>$f(x, y) = sin(\sqrt{x^2+y^2})$:<br><img src="https://i.imgur.com/xhifgrA.png" alt=""></p><p>$f(x, y) = sin(exp(x^2 + y^2))$: (xy平面上視角)<br><img src="https://i.imgur.com/UPJvyDW.png" alt=""></p><p>未完待續…</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天一個心血來潮，想自己做看看可視化函數。&lt;br&gt;&lt;img src=&quot;https://i.imgur.com/nHKmZlc.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我一開始想用C++寫，但是想到python在這方面似乎比較簡單，所以我就決定使用python來做(懶)&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="隨筆" scheme="http://yoursite.com/categories/%E9%9A%A8%E7%AD%86/"/>
+    
+    
+      <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
   
   <entry>
     <title>before world 序章:無題</title>
