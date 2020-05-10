@@ -15,6 +15,9 @@
     
 
     
+        <meta name="description" content="最近在出題目，必須弄出一顆隨機的樹。我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。很明顯這是一棵樹，但是這只有一條鍊==
+後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後dfs，重複這個動作"/>
+    
 
     <!--Author-->
     
@@ -23,10 +26,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Emilia&#39;s Blog"/>
+        <meta property="og:title" content="如何隨機的建一棵樹"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="最近在出題目，必須弄出一顆隨機的樹。我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。很明顯這是一棵樹，但是這只有一條鍊==
+後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後dfs，重複這個動作"/>
     
 
     <!--Open Graph Site Name-->
@@ -34,7 +40,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -53,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>offline algorithm - Emilia&#39;s Blog</title>
+    <title>如何隨機的建一棵樹 - Emilia&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -158,49 +164,86 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>offline algorithm</h1>
+                <div class="post-heading">
+                    <h1>如何隨機的建一棵樹</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-05-10
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/algorithm/">#algorithm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/04/19/mo-s-algorithm/">
-        <h1 class="post-title archive">
-            mo's algorithm
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>最近在出題目，必須弄出一顆隨機的樹。<br>我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。<br>很明顯這是一棵樹，但是這只有一條鍊==</p>
+<p>後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後dfs，重複這個動作。<br>同樣的，這個方法也有漏洞，由於沒有限制深度，所以第一個子樹會很深，一點都不像是隨機的。<br>而加上限制深度後，有時候會無法將所有點都排上去，不過限制深度不失為一個好方法，但是與”隨機”還是有點差距。</p>
+<p>如果改成bfs呢?<br>選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中以及queue中，再從queue中拿出點，之後，重複這個動作。<br>還是有一個漏洞，因為放入queue的順序是有序的，所以一樣會跟dfs的結果一樣，不過這個比較好解決，直接在queue裡面shuffle就好了。</p>
+<p>這樣複雜度只有$O(n)$</p>
+<p>在洗澡時又想出了一個方法，不過複雜度比較高。<br>將每個點賦予兩個隨機數字$(x,y)$，分別灑在平面上，$n^2$建邊，距離當權值，接著選取最中心的點做根，再用最小生成樹的方法來做成樹即可。</p>
+<p>複雜度$O(n^2)$，也沒有比較快。<del>但是感覺比較帥(笑</del></p>
+<p>寫這篇文章時發現只要將第一個方法改良一下就行了，從那些未使用的點中選取$k$個，做成一條鍊，從樹集合中挑出一個點，接上剛剛的鍊就好。</p>
+<p>複雜度$O(n)$</p>
+<p>至於賦值的部分，可以依需求直接random在陣列上，或是因應樹的結構dfs動態賦值。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
