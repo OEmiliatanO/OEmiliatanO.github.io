@@ -15,9 +15,14 @@
     
 
     
-        <meta name="description" content="又重回到這個熟悉的又有點討厭的領域了@@
-這次做的跟以前國中的循跡自走車不太一樣(其實只是我還沒想好:P )。現在的構思是穿戴式裝置，放一個加速度感應在手上，大概控制機械手臂之類的?反正就先照著這個思路先去做模組測試吧，之後的應用再想想……
-我擁有的材料: 藍牙模組 HC-05 x2, 加速度模組 "/>
+        <meta name="description" content="極限應該是大部分人學習微積分第一個學的吧。
+
+序列極限:
+
+
+設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&amp;gt;N$，存在$|x_n - L| &amp;lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。
+
+"/>
     
 
     <!--Author-->
@@ -27,14 +32,19 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Arduino專題製作 part 1"/>
+        <meta property="og:title" content="Re:ゼロから始める びせきぶん Limitation"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="又重回到這個熟悉的又有點討厭的領域了@@
-這次做的跟以前國中的循跡自走車不太一樣(其實只是我還沒想好:P )。現在的構思是穿戴式裝置，放一個加速度感應在手上，大概控制機械手臂之類的?反正就先照著這個思路先去做模組測試吧，之後的應用再想想……
-我擁有的材料: 藍牙模組 HC-05 x2, 加速度模組 "/>
+        <meta property="og:description" content="極限應該是大部分人學習微積分第一個學的吧。
+
+序列極限:
+
+
+設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&amp;gt;N$，存在$|x_n - L| &amp;lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。
+
+"/>
     
 
     <!--Open Graph Site Name-->
@@ -61,7 +71,7 @@
 
     <!-- Title -->
     
-    <title>Arduino專題製作 part 1 - Emilia&#39;s Blog</title>
+    <title>Re:ゼロから始める びせきぶん Limitation - Emilia&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -174,13 +184,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Arduino專題製作 part 1</h1>
+                    <h1>Re:ゼロから始める びせきぶん Limitation</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2020-06-18
+                            2020-07-16
                         
                     </span>
                 </div>
@@ -201,7 +211,7 @@
                         
 
 
-<a href="/tags/Arduino/">#Arduino</a>
+<a href="/tags/math/">#math</a>
 
 
                     
@@ -210,7 +220,7 @@
                     
                         
 
-<a href="/categories/Project/">Project</a>
+<a href="/categories/筆記/">筆記</a>
 
                     
                 </div>
@@ -221,16 +231,69 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>又重回到這個熟悉的又有點討厭的領域了@@</p>
-<p>這次做的跟以前國中的循跡自走車不太一樣(其實只是我還沒想好:P )。<br>現在的構思是穿戴式裝置，放一個加速度感應在手上，大概控制機械手臂之類的?<br>反正就先照著這個思路先去做模組測試吧，之後的應用再想想……</p>
-<p>我擁有的材料: 藍牙模組 <strong>HC-05</strong> x2, 加速度模組 <strong>Adafruit ADXL345</strong> x(很多個，因為怕壞掉), <strong>arduino Nano</strong> x1, <strong>arduino</strong>(純的) x(要幾個有幾個)。</p>
-<p>這次先測試 <strong>Adafruit ADXL345</strong>。<br><img src="https://i.imgur.com/UNZCJM9.jpg" alt=""></p>
-<p>在寫code之前要先將<a href="https://github.com/adafruit/Adafruit_ADXL345" target="_blank" rel="noopener">Adafruit_ADXL345_U.h</a> , <a href="https://github.com/adafruit/Adafruit_Sensor" target="_blank" rel="noopener">Adafruit_Sensor.h</a> 這兩個程式庫include</p>
-<p>然後 <strong>配線</strong>: SDA -&gt; A4, SCL -&gt; A5<br>不講廢話直上 <strong>code</strong>:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Adafruit_Sensor.h&gt;</span></span></span><br><span class="line"><span class="comment">// https://github.com/adafruit/Adafruit_Sensor</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Adafruit_ADXL345_U.h&gt;</span></span></span><br><span class="line"><span class="comment">// https://github.com/adafruit/Adafruit_ADXL345</span></span><br><span class="line"> </span><br><span class="line">Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(<span class="number">923</span>); <span class="comment">//923只是編號，可自取，不要重複就好</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">while</span>(!accel.begin())</span><br><span class="line">    Serial.println(<span class="string">"Error"</span>);</span><br><span class="line"> </span><br><span class="line">  accel.setRange(ADXL345_RANGE_16_G); <span class="comment">//簡單講一下2,4,8,16_G的差別，越低的對於低速動作越敏銳，越高對於高速則越敏銳。</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">sensors_event_t</span> event;</span><br><span class="line">  accel.getEvent(&amp;event);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">float</span> now[<span class="number">3</span>] = &#123;event.acceleration.x, event.acceleration.y, event.acceleration.z&#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (byte i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">  &#123;</span><br><span class="line">	Serial.print(now[i]);</span><br><span class="line">	Serial.print(<span class="string">" "</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Serial.println();</span><br><span class="line">  </span><br><span class="line">  delay(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其實挺簡單的。 當初在測試時，z軸的數字是9.4多，還以為是壞了，但是覺得這數字挺熟悉但是又不像，嗯…學校是在半山腰，這點誤差好像很正常(?</p>
-<p>嘛，就先這樣吧。下次做HC-05的測試。</p>
+                <p>極限應該是大部分人學習微積分第一個學的吧。</p>
+<ul>
+<li>序列極限:</li>
+</ul>
+<blockquote>
+<p>設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&gt;N$，存在$|x_n - L| &lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。</p>
+</blockquote>
+<p>這是柯西在19世紀給出的極限的定義，雖然說是序列上的極限，卻同時可以理解為函數極限(提示: 把輸出值寫下來)。<br>而正是這種定義使現代微積分(極限微積分)與古典微積分(無窮小微積分)畫上了界線，給了微積分一個穩固的基礎。</p>
+<ul>
+<li>函數極限:</li>
+</ul>
+<p><img src="https://i.imgur.com/rRIjuNg.jpg" alt=""></p>
+<blockquote>
+<p>假設有一個實函數$f(x)$，而對於動點$x$可以任意靠近一個點$c$，從而找到任意實數$\delta$使得$|x - c|&lt; \delta$，</p>
+</blockquote>
+<p>後文先不管，應該有很多人會對最後那一句”找到任意實數$\delta$使得$|x - c|&lt; \delta$”感到疑惑，實際上這就是”趨近”的定義。<br>舉個例子，0.999…=1，我剛上高中時覺得很不合理，直到知道實數基本定理跟極限的定義後才了解。</p>
+<p>當時柯西提出極限概念時，實數還是不完備的。也就是說，數軸上可能除了實數還有其他數。<br>若是還有其他數在數軸上，那麼上述的定義將會失效。<br>後來由許多數學家寫出了實數基本定理，實數是稠密且連續，且若當兩實數中間無任何實數，則兩實數相等。(實數基本定理我真的看不懂= .= 所以我無法解釋太多)</p>
+<p>接著是”找到任意實數$\delta$使得$|x - c|&lt; \delta$”這句話的涵義。<br>舉剛剛的0.999…當例子，可以找到任意一個實數小於|0.999…-1|，無論你找到多小的實數，|0.999…-1|永遠可以比你小一點，又因為實數的性質，所以可以說他們兩個”相等”。</p>
+<p>前文明白了就可以講後文了</p>
+<blockquote>
+<p>而如果我們可以找到任意實數$\epsilon$，以及一個實數$L$，使得$|f(x)- L|&lt; \epsilon$，則我們說$\lim\limits_{x\to c} f(x) = L$</p>
+</blockquote>
+<p>因為$x$的趨近，所以$f(x)$也會同時趨近於某個點，這時候在極限的定義下”他們相等”。<br>但是注意這裡我們只能找”一個實數$L$”，也就是說，$frac{|x|}{x}$，x趨近於0的時候沒有定義，為甚麼呢，如果我們從左邊趨近於0那就會是-1，但是如果從右邊則會是1，我們沒辦法找到一個數字同時代表這兩個數，所以我們說$frac{|x|}{x}$，x趨近於0時，極限不存在。<br>這就是為什麼我們需要左極限相等、右極限相等才能說極限存在。</p>
+<ul>
+<li><p>極限の性質<br>只有當右側極限存在才成立。<br>$\lim\limits_{n\to c} k\times f(n) = k \times \lim\limits_{n\to c} f(n)$<br>$\lim\limits_{n\to c} [f(n) + g(n)] = \lim\limits_{n\to c} f(n) + \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) - g(n)] = \lim\limits_{n\to c} f(n) - \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) \times g(n)] = \lim\limits_{n\to c} f(n) \times \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} \frac{f(n)}{g(n)} = \frac{\lim\limits_{n\to c} f(n)}{\lim\limits_{n\to c} g(n)}$</p>
+</li>
+<li><p>精選題目區:</p>
+</li>
+</ul>
+<ol>
+<li>$\lim\limits_{x\to 0} \frac{|x|}{x}$</li>
+<li>$\lim\limits_{x\to 3^+} \lfloor x \rfloor$, $\lim\limits_{x\to 3^-} \lfloor x \rfloor$</li>
+<li>$\lim\limits_{x\to 2^+} \frac{x-3}{x^2-4}, \lim\limits_{x\to 2^-} \frac{x-3}{x^2-4}$</li>
+<li>$\lim\limits_{x\to 2} \frac{(x-2)^2}{x^2-4}$</li>
+<li>$\lim\limits_{x\to 2^+} tan^{-1} \frac{1}{x-2}$</li>
+<li>$\lim\limits_{\theta \to 0} \frac{\sin \theta}{\theta}$</li>
+<li>$\lim\limits_{\theta \to 0} \frac{\sin (\theta - 1)}{\theta - 1}, \lim\limits_{\theta \to 1} \frac{\sin (\theta - 1)}{\theta - 1}$</li>
+<li>$\lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta}, \lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta ^2}$</li>
+<li>$\lim\limits_{x\to 0} tan x \sin \frac{1}{x}$</li>
+</ol>
+<ul>
+<li>題目講解區:</li>
+</ul>
+<ol>
+<li><p>左極限、右極限不同，所以不存在極限。<br><strong>Answer:不存在極限</strong></p>
+</li>
+<li><p>如果你把它的函數圖形畫出來，你就會知道了。<br><img src="https://i.imgur.com/reuzeIU.png" alt=""><br><strong>Answer:3,2</strong></p>
+</li>
+<li><p>(a)上方極限為-1，下方為0，則極限值為$- \infty$(或不存在也可以)<br>(b)上方極限為-1，下方為-0，則極限值為$\infty$(或不存在)<br><strong>Answer:</strong> $- \infty$,$\infty$</p>
+</li>
+<li><p>先把x-2這個因式消掉就可以了。<br><strong>Answer:0</strong></p>
+</li>
+<li><p>實際上這個等同於$\lim\limits_{x\to 0^+} tan^{-1} \frac{1}{x}$，而又等同於$\lim\limits_{x\to \infty ^+} tan^{-1} x$，這下你就知道了。<br><strong>Answer:</strong> $\frac{\pi}{2}$</p>
+</li>
+<li><p>需要用到夾擠定理(三明治定理)，依下圖可以寫出不等式$\frac{\sin \theta}{2} \leq \frac{\pi \theta}{2 \pi} \leq \frac{tan \theta}{2}$(三角形與扇形面積)，解出來就得到答案。<br><img src="https://i.imgur.com/69xvwLs.png" alt=""><br><strong>Answer:1</strong></p>
+</li>
+<li><p>同樣的，兩個都可以將$\theta -1$替換掉，跟第五題一樣。<br><strong>Answer:</strong> $\sin 1$, <strong>1</strong></p>
+</li>
+<li><p>$\frac{\cos \theta -1}{2}= \sin^2 \frac{\theta}{2}$，使用這個公式就好。<br><strong>Answer:0</strong>, $- \frac{1}{2}$</p>
+</li>
+<li><p>$-1 \leq \sin \frac{1}{x} \leq 1$，$-tan x \leq \sin \frac{1}{x} \leq tan x$，當x趨近於0，$0 \leq \sin \frac{1}{x} \leq 0$(夾擠定理)。<br><strong>Answer:0</strong></p>
+</li>
+</ol>
 
 
                 
