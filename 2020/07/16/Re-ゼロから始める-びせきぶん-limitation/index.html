@@ -15,14 +15,12 @@
     
 
     
-        <meta name="description" content="極限應該是大部分人學習微積分第一個學的吧。
+        <meta name="description" content="極限應該是大部分人學習微積分第一個學的吧。很多人都會把極限當成純粹把數字帶進去，尤其是初學者，實際上極限是有嚴格的規定，唯有了解其定義才可以穩固之後的概念。
 
 序列極限:
 
 
-設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&amp;gt;N$，存在$|x_n - L| &amp;lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。
-
-"/>
+設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n"/>
     
 
     <!--Author-->
@@ -37,14 +35,12 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="極限應該是大部分人學習微積分第一個學的吧。
+        <meta property="og:description" content="極限應該是大部分人學習微積分第一個學的吧。很多人都會把極限當成純粹把數字帶進去，尤其是初學者，實際上極限是有嚴格的規定，唯有了解其定義才可以穩固之後的概念。
 
 序列極限:
 
 
-設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&amp;gt;N$，存在$|x_n - L| &amp;lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。
-
-"/>
+設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n"/>
     
 
     <!--Open Graph Site Name-->
@@ -231,14 +227,15 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>極限應該是大部分人學習微積分第一個學的吧。</p>
+                <p>極限應該是大部分人學習微積分第一個學的吧。<br>很多人都會把極限當成純粹把數字帶進去，尤其是初學者，實際上極限是有嚴格的規定，唯有了解其定義才可以穩固之後的概念。</p>
 <ul>
 <li>序列極限:</li>
 </ul>
 <blockquote>
 <p>設${x_n}, x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&gt;N$，存在$|x_n - L| &lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。</p>
 </blockquote>
-<p>這是柯西在19世紀給出的極限的定義，雖然說是序列上的極限，卻同時可以理解為函數極限(提示: 把輸出值寫下來)。<br>而正是這種定義使現代微積分(極限微積分)與古典微積分(無窮小微積分)畫上了界線。</p>
+<p>這是柯西在19世紀給出的極限的定義，雖然說是序列上的極限，卻同時可以理解為函數極限(把輸出值寫下來)。<br>而正是這種定義使現代微積分(極限微積分)與古典微積分(無窮小微積分)畫上了界線。</p>
+<p>至於這句話的解釋，繼續往下看吧。</p>
 <ul>
 <li>函數極限:</li>
 </ul>
@@ -248,14 +245,19 @@
 </blockquote>
 <p>後文先不管，應該有很多人會對最後那一句”找到任意實數$\delta$使得$|x - c|&lt; \delta$”感到疑惑，實際上這就是”趨近”的定義。<br>舉個例子，0.999…=1，我剛上高中時覺得很不合理，直到知道實數基本定理跟極限的定義後才了解。</p>
 <p>當時柯西提出極限概念時，實數還是不完備的。也就是說，數軸上可能除了實數還有其他數。<br>若是還有其他數在數軸上，那麼上述的定義將會失效。<br>後來由許多數學家寫出了實數基本定理，實數是稠密且連續，且若當兩實數中間無任何實數，則兩實數相等。(實數基本定理我真的看不懂= .= 所以我無法解釋太多)</p>
-<p>接著是”找到任意實數$\delta$使得$|x - c|&lt; \delta$”這句話的涵義。<br>舉剛剛的0.999…當例子，可以找到任意一個實數小於|0.999…-1|，無論你找到多小的實數，|0.999…-1|永遠可以比你小一點，又因為實數的性質，所以可以說他們兩個”相等”。</p>
+<p>接著是”找到任意實數$\delta$使得$|x - c|&lt; \delta$”這句話的涵義。<br>舉剛剛的0.999…當例子，可以找到任意一個實數小於|0.999…-1|，無論你找到多小的實數，|0.999…-1|永遠可以比你小一點，又因為實數的性質，所以在極限下可以說他們兩個”相等”。</p>
 <p>前文明白了就可以講後文了</p>
 <blockquote>
 <p>而如果我們可以找到任意實數$\epsilon$，以及一個實數$L$，使得$|f(x)- L|&lt; \epsilon$，則我們說$\lim\limits_{x\to c} f(x) = L$</p>
 </blockquote>
-<p>因為$x$的趨近，所以$f(x)$也會同時趨近於某個點，這時候在極限的定義下”他們相等”。<br>但是注意這裡我們只能找”一個實數$L$”，也就是說，$frac{|x|}{x}$，x趨近於0的時候沒有定義，為甚麼呢，如果我們從左邊趨近於0那就會是-1，但是如果從右邊則會是1，我們沒辦法找到一個數字同時代表這兩個數，所以我們說$frac{|x|}{x}$，x趨近於0時，極限不存在。<br>這就是為什麼我們需要左極限相等、右極限相等才能說極限存在。</p>
+<p>因為$x$的趨近，所以$f(x)$也會同時趨近於某個點，這時候在極限的定義下”他們相等”。<br>但是注意這裡我們只能找”一個實數$L$”，也就是說，$frac{|x|}{x}$，x趨近於0的時候沒有定義，為甚麼呢，如果我們從左邊趨近於0那就會是-1，但是如果從右邊則會是1，我們沒辦法找到一個數字同時代表這兩個數，所以我們說$frac{|x|}{x}$，x趨近於0時，極限不存在。<br>這就是為什麼我們需要左極限、右極限相等才能說極限存在。</p>
+<p>*常見問題</p>
+<blockquote>
+<p>“趨近”是否就是”等於”?</p>
+</blockquote>
+<p>有沒有注意到上面的”相等”前面都會有”在極限的定義下”，因為我認為這兩種觀念不應該混為一談。<br>極限的定義是一個序列，不能說這個序列等於某個數，但是這個序列的極限值是一個數。<br>求極限時應當想成x是序列上的某個元素，不斷的靠近某個數，同時函數的輸出也是一個序列，不斷的靠近某個數，最後我們才會說這個序列的極限值是”某個數字”。</p>
 <ul>
-<li><p>極限の性質<br>只有當右側極限存在才成立。<br>$\lim\limits_{n\to c} k\times f(n) = k \times \lim\limits_{n\to c} f(n)$<br>$\lim\limits_{n\to c} [f(n) + g(n)] = \lim\limits_{n\to c} f(n) + \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) - g(n)] = \lim\limits_{n\to c} f(n) - \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) \times g(n)] = \lim\limits_{n\to c} f(n) \times \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} \frac{f(n)}{g(n)} = \frac{\lim\limits_{n\to c} f(n)}{\lim\limits_{n\to c} g(n)}$</p>
+<li><p>極限の性質<br><em>只有當右側極限存在才成立。</em><br>$\lim\limits_{n\to c} k\times f(n) = k \times \lim\limits_{n\to c} f(n)$<br>$\lim\limits_{n\to c} [f(n) + g(n)] = \lim\limits_{n\to c} f(n) + \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) - g(n)] = \lim\limits_{n\to c} f(n) - \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) \times g(n)] = \lim\limits_{n\to c} f(n) \times \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} \frac{f(n)}{g(n)} = \frac{\lim\limits_{n\to c} f(n)}{\lim\limits_{n\to c} g(n)}$</p>
 </li>
 <li><p>精選題目區:</p>
 </li>
