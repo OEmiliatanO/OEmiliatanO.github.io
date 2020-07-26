@@ -16,7 +16,11 @@
 
     
         <meta name="description" content="有了極限的概念，微分就比較好理解了(或許吧lul
-(施工中)"/>
+
+微分
+
+
+定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}"/>
     
 
     <!--Author-->
@@ -32,7 +36,11 @@
     <!--Open Graph Description-->
     
         <meta property="og:description" content="有了極限的概念，微分就比較好理解了(或許吧lul
-(施工中)"/>
+
+微分
+
+
+定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}"/>
     
 
     <!--Open Graph Site Name-->
@@ -178,7 +186,7 @@
                         <!-- Date and Author -->
                         
                         
-                            2020-07-17
+                            2020-07-24
                         
                     </span>
                 </div>
@@ -220,6 +228,40 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>有了極限的概念，微分就比較好理解了(或許吧lul</p>
+<ul>
+<li>微分</li>
+</ul>
+<blockquote>
+<p>定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$</p>
+</blockquote>
+<p>有些人會把$\frac{df(x)}{dx}$當作一種表示方法:$f(x)$對$x$微分，但是我認為以另一種方式去理解的話會有更加深刻的看法。</p>
+<p>對於一個曲線，我們可以取兩點$a, b$，並且得知兩點之間的平均變化率。<br><img src="https://i.imgur.com/6SHD6c1.png" alt=""><br>而現在我們把$|b-a|$慢慢縮小<br><img src="https://i.imgur.com/3LotS8m.png" alt=""><br>越來越小…<br><img src="https://i.imgur.com/l2gYfeP.png" alt=""><br>我們可以寫成$dx = b - a$，表示一個微小的$x$變化，同樣的這個曲線的輸出值$f(x)$，也會有個微小的輸出變化$dy = f(b) - f(a) = f(a + dx) - f(a)$，而這段的平均變化率寫成$\frac{dy}{dx}$。<br>所以$dx, dy$是可以有意義的，不只是表示而已，至少我這樣理解一直都是對的，知道這點會讓以後的微積分運算變得直覺許多。</p>
+<ul>
+<li>具象化微分公式:</li>
+</ul>
+<p><strong>加法:</strong> $\frac{d(f(x) + g(x))}{dx}=\frac{df(x)}{dx} + \frac{dg(x)}{dx}$<br>$f(x)+g(x)$可以看成兩條線相連，而$df(x)$、$dg(x)$則是微小的變化量，寫成$d(f(x) + g(x))=df(x) + dg(x)$，同除$dx$，取極限，噹噹(｡A｡)</p>
+<p><strong>乘法:</strong> $\frac{d(f(x)g(x))}{dx}=\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx}$<br>$f(x)\times g(x)$可以看成一個矩形的面積，<br><img src="https://i.imgur.com/niLqoBt.png" alt=""><br>求面積變化量相當於微小的變化量$df(x)g(x)$、$dg(x)f(x)$與$dg(x)df(x)$的和。<br>寫成$d(f(x)g(x)) = df(x)g(x) + dg(x)f(x) + df(x)dg(x)$，兩邊同除$dx$，取極限$\lim\limits_{dx\to 0}$，得到$\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx} + \frac{dg(x)df(x)}{dx}$<br>最後一項會因為$dg(x)$取了極限而為0(或是$df(x)$都可以，看你的$dx$要跟誰除)。<br>最後就成為了$\frac{f(x)\times g(x)}{dx}=\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx}$</p>
+<p><strong>減法:</strong> $\frac{d(f(x) - g(x))}{dx}=\frac{df(x)}{dx} - \frac{dg(x)}{dx}$<br>就跟加法一樣的想法，不多贅述。</p>
+<p><strong>除法:</strong> $\frac{d\frac{f(x)}{g(x)}}{dx} = \frac{\frac{df(x)g(x)}{dx}-\frac{dg(x)f(x)}{dx}}{g^2(x)}$<br>這個我不知道怎麼具象化出來…只能用代數去解了(´・ω・`)<br>$h(x) = \frac{f(x)}{g(x)}$<br>$h(x)g(x) = f(x)$<br>$\frac{dh(x)g(x)}{dx} + \frac{dg(x)h(x)}{dx} = \frac{df(x)}{dx}$</p>
+<p>$\frac{dh(x)g(x)}{dx} = \frac{df(x)}{dx} - \frac{dg(x)h(x)}{dx}$</p>
+<p>$\frac{dh(x)}{dx} = \frac{\frac{df(x)}{dx} - \frac{dg(x)h(x)}{dx}}{g(x)}$</p>
+<p>$\frac{dh(x)}{dx} = \frac{\frac{df(x)}{dx} - \frac{dg(x)\frac{f(x)}{g(x)}}{dx}}{g(x)}$</p>
+<p>$\frac{dh(x)}{dx} = \frac{df(x)g(x)}{dx g^2(x)} - \frac{dg(x)f(x)}{dx g^2(x)}$</p>
+<p>$\frac{d\frac{f(x)}{g(x)}}{dx} = \frac{\frac{df(x)g(x)}{dx}-\frac{dg(x)f(x)}{dx}}{g^2(x)}$</p>
+<p><strong>冪次:</strong> $\frac{dx^n}{dx} = nx^{n-1}$</p>
+<ul>
+<li>從$n=2$開始，可以想像一個$x\times x$的正方形，其變化量是$d(x^2)=2dx \times x + dx^2$，同除$dx$，取$dx\to 0$的極限下，會讓$dx$接近0而被消去</li>
+<li>$n=3$，想像一個$x\times x\times x$的立方體，變化量是$d(x^3) = 3dx\times x^2 + 3dx^2\times x + dx^3$，同上面的操作。</li>
+<li>$n=4$，無法想像但是可以找到一些規律，變化量是$d(x^4) = 4dx\times x^3 …$之類的，因為之後的項全都有$dx$，所以都會被忽略掉。</li>
+<li>$n=n$，可以想到$d(x^n) = ndx\times x^{n-1}…$，得到$\frac{dx^n}{dx} = nx^{n-1}$</li>
+</ul>
+<p><strong>鏈式:</strong> $\frac{dg(f(x))}{dx} = \frac{dg(f(x))}{df(x)}\frac{df(x)}{dx}$<br><img src="https://i.imgur.com/GHv9s4W.png" alt=""><br>把$f(x)$看做一個數$k$<br><img src="https://i.imgur.com/AgxsFsW.png" alt=""><br>可以寫出$\frac{dg(k)}{dk} \times dk = dg(k)$，其中$dg(k)$為這個函數$g(x)$的變化量。<br>將$k$寫回去後，$\frac{dg(f(x))}{df(x)} \times df(x) = dg(f(x))$，同除$dx$，$\frac{dg(f(x))}{df(x)} \times \frac{df(x)}{dx} = \frac{dg(f(x))}{dx}$</p>
+<ul>
+<li>隱微分</li>
+</ul>
+<ul>
+<li>泰勒展開式</li>
+</ul>
 <p>(施工中)</p>
 
 
