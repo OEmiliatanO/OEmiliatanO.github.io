@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-13T13:59:45.816Z</updated>
+  <updated>2020-08-13T14:29:46.609Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Re:ゼロから始める びせきぶん Integral 1</title>
+    <link href="http://yoursite.com/2020/08/13/Re-%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B-%E3%81%B3%E3%81%9B%E3%81%8D%E3%81%B6%E3%82%93-Integral-1/"/>
+    <id>http://yoursite.com/2020/08/13/Re-%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B-%E3%81%B3%E3%81%9B%E3%81%8D%E3%81%B6%E3%82%93-Integral-1/</id>
+    <published>2020-08-13T14:29:25.000Z</published>
+    <updated>2020-08-13T14:29:46.609Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
+    
+    
+      <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
   
   <entry>
     <title>Re ゼロから始める びせきぶん Differential</title>
@@ -286,9 +305,9 @@
     <link href="http://yoursite.com/2020/05/08/%E5%9B%9B%E7%B6%AD%E6%94%B6%E7%B4%8D%E7%AE%B1/"/>
     <id>http://yoursite.com/2020/05/08/%E5%9B%9B%E7%B6%AD%E6%94%B6%E7%B4%8D%E7%AE%B1/</id>
     <published>2020-05-08T13:07:35.000Z</published>
-    <updated>2020-05-08T16:20:52.317Z</updated>
+    <updated>2020-08-13T14:31:02.810Z</updated>
     
-    <content type="html"><![CDATA[<p>這是最近想到的問題。(別問我怎麼想到的。。我也不曉得)</p><p>考慮一個中心點在(0,0,0)的正方形，邊長為2，則四個頂點為(1, 1), (1, -1), (-1, -1), (-1, 1)。<br>在各個頂點畫出半徑為1的圓，則最中間-也就是(0, 0, 0)-會有空隙，可以放入一個直徑為方形對角線減去2的圓。<br><img src="https://i.imgur.com/KkTTBQ2.png=50x50" alt=""></p><p>把它一般化一下，設正方形邊長為2r，則外邊四圓半徑為r，而中心圓的半徑為$\sqrt{2} r - r=(\sqrt{2} - 1)r$</p><p>現在將問題拓展到三維。<br>同樣的利用對角線減去邊長找出中心圓直徑，對角線: $\sqrt{(2r)^2 + (2r)^2 + (2r)^2}$，則中心圓半徑為$(\sqrt{3} - 1)r$</p><blockquote><p>猜測: $r’ = (\sqrt{n} - 1)r$, $n$為維度, $r’$為中心圓半徑。</p></blockquote><p>證明:<br>n維正立方體對角線為$\sqrt{n(2r)^2}$，而根據圓的定義，從球心到球面上各點距離相同，則球心與對角線的交點距離r，則$r’ = \sqrt{n} r - r = (\sqrt{n} - 1)r$</p><p>第2, 3維都可以理解，但是當我來到4維後，出現了一個弔詭的現象。<br>設$r’=t_nr$，$t_n$為第n維下的比值，依上面的推論$t_n=\sqrt{n} - 1$。<br>$t_4 = 1$，也就是說中心圓的直徑已經跟正方體的邊長相同了!<br>$t_5 = 1.236..$，已經超出正方體了。<br>甚至連體積都比容納他的正方體還大，以我的智商實在無法理解0.0</p><p>雖然上面的推導方法很直觀，但是卻無法真正證明是否就是這樣。(可能需要高等微積分吧? 反正我不會)</p>]]></content>
+    <content type="html"><![CDATA[<p>這是最近想到的問題。(別問我怎麼想到的。。我也不曉得)</p><p>考慮一個中心點在(0,0,0)的正方形，邊長為2，則四個頂點為(1, 1), (1, -1), (-1, -1), (-1, 1)。<br>在各個頂點畫出半徑為1的圓，則最中間-也就是(0, 0, 0)-會有空隙，可以放入一個直徑為方形對角線減去2的圓。<br><img src="https://i.imgur.com/KkTTBQ2.png=50x50" alt=""></p><p>把它一般化一下，設正方形邊長為2r，則外邊四圓半徑為r，而中心圓的半徑為$\sqrt{2} r - r=(\sqrt{2} - 1)r$</p><p>現在將問題拓展到三維。<br>同樣的利用對角線減去邊長找出中心圓直徑，對角線: $\sqrt{(2r)^2 + (2r)^2 + (2r)^2}$，則中心圓半徑為$(\sqrt{3} - 1)r$</p><blockquote><p>猜測: $r’ = (\sqrt{n} - 1)r$, $n$為維度, $r’$為中心圓半徑。</p></blockquote><p>證明:<br>n維正立方體對角線為$\sqrt{n(2r)^2}$，而根據圓的定義，從球心到球面上各點距離相同，則球心與對角線的交點距離r，則$r’ = \sqrt{n} r - r = (\sqrt{n} - 1)r$</p><p>第2, 3維都可以理解，但是當我來到4維後，出現了一個弔詭的現象。<br>設$r’=t_nr$，$t_n$為第n維下的比值，依上面的推論$t_n=\sqrt{n} - 1$。<br>$t_4 = 1$，也就是說中心圓的直徑已經跟正方體的邊長相同了!<br>$t_5 = 1.236..$，已經超出正方體了。<br>甚至連體積都比容納他的正方體還大，以我的智商實在無法理解0.0</p>]]></content>
     
     <summary type="html">
     
@@ -519,29 +538,6 @@
     
     
       <category term="data structure" scheme="http://yoursite.com/tags/data-structure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>序</title>
-    <link href="http://yoursite.com/2020/04/19/base-articles/"/>
-    <id>http://yoursite.com/2020/04/19/base-articles/</id>
-    <published>2020-04-19T11:22:04.000Z</published>
-    <updated>2020-04-26T00:48:04.144Z</updated>
-    
-    <content type="html"><![CDATA[<p>這是原blog <a href="https://emiliatancoding.blogspot.com/" target="_blank" rel="noopener">https://emiliatancoding.blogspot.com/</a></p><p>由於我太無聊了，所以我換成了新的地方去開blog，我會更新不只競程的東西，比如Arduino、或是一些奇奇怪怪的東西(?。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;這是原blog &lt;a href=&quot;https://emiliatancoding.blogspot.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://emiliatancoding.blogspot.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;由
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
