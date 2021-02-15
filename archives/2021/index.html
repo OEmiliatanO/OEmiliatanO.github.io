@@ -15,9 +15,6 @@
     
 
     
-        <meta name="description" content="一個簡單的問題: 求$f(x)$於$x\in[a,b]$與$x$軸圍成的面積。
-可以很直覺的想到將切片法，$\sum f(x)\times \Delta x$，只要$\Delta x$夠小，面積就會夠接近。我們可以將上面的式子改成一個比較簡潔的寫法: $\int_{a}^{b} f(x) dx$。現"/>
-    
 
     <!--Author-->
     
@@ -26,13 +23,10 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="從零開始的微積分 Integral 1"/>
+        <meta property="og:title" content="Emilia&#39;s Blog"/>
     
 
     <!--Open Graph Description-->
-    
-        <meta property="og:description" content="一個簡單的問題: 求$f(x)$於$x\in[a,b]$與$x$軸圍成的面積。
-可以很直覺的想到將切片法，$\sum f(x)\times \Delta x$，只要$\Delta x$夠小，面積就會夠接近。我們可以將上面的式子改成一個比較簡潔的寫法: $\int_{a}^{b} f(x) dx$。現"/>
     
 
     <!--Open Graph Site Name-->
@@ -40,7 +34,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article"/>
+        <meta property="og:type" content="website"/>
     
 
     <!--Page Cover-->
@@ -59,7 +53,7 @@
 
     <!-- Title -->
     
-    <title>從零開始的微積分 Integral 1 - Emilia&#39;s Blog</title>
+    <title>Archives: 2021 - Emilia&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -164,81 +158,62 @@
 </nav>
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
+    
 
+<!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>從零開始的微積分 Integral 1</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
-                            2020-08-13
-                        
-                    </span>
+                <div class="site-heading">
+                    <h1>2021</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/math/">#math</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/筆記/">筆記</a>
-
-                    
-                </div>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             
-
-            <!-- Gallery -->
+                <div class="post-preview">
+    <a href="/2021/02/16/DLX-algorithm/">
+        <h1 class="post-title archive">
+            DLX-algorithm
+        </h1>
+    </a>
+    <p class="post-meta archive">
+        <!-- Date and Author -->
+        
+        2021-02-16
+    </p>
+</div>
             
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>一個簡單的問題: 求$f(x)$於$x\in[a,b]$與$x$軸圍成的面積。</p>
-<p>可以很直覺的想到將切片法，$\sum f(x)\times \Delta x$，只要$\Delta x$夠小，面積就會夠接近。<br>我們可以將上面的式子改成一個比較簡潔的寫法: $\int_{a}^{b} f(x) dx$。<br>現在可以寫出一個函數$A(a,b) = \int_{a}^{b} f(x) dx$，為了方便討論，假定$a=0$，$A(b) = \int_{0}^{b} f(x) dx$。</p>
-<p>請先裝作不知道微積分基本定理，可以發現他們似乎有某種關係，$A(b)$會將$f(x), x\in[0,b]$的面積變成一條線<br><img src="https://i.imgur.com/kwTRBok.png" alt=""><br><img src="https://i.imgur.com/GMYzoZJ.png" alt=""></p>
-<p>什麼東西乘上$\Delta x$後會等於$\Delta y$，你寫出了$\frac{\Delta y}{\Delta x}$，你意外的發現$f(x)$其實就只是$A(b)$在某一點的斜率，<br>而求瞬間斜率已經有一個好用的微分了，你可以大膽寫下$A(b) = \int_{0}^{b} A’(x) dx = \int_{0}^{b} \frac{dA(x)}{dx} dx$，<br>因此現在要求$f(x)$於$x\in[0,b]$與$x$軸圍成的面積，只需要找到一個$A(x)$微分後等於$f(x)$的函數，再將$b$代入就是答案，<br>而$x\in [a,b]$可以用求兩次面積扣掉後得到，$A(b)-A(a) = \int_{a}^{b} f(x) dx$。</p>
-
-
-                
-            </div>
-
-            <!-- Comments -->
+                <div class="post-preview">
+    <a href="/2021/02/15/曲線擬合-樣條插值/">
+        <h1 class="post-title archive">
+            曲線擬合-樣條插值
+        </h1>
+    </a>
+    <p class="post-meta archive">
+        <!-- Date and Author -->
+        
+        2021-02-15
+    </p>
+</div>
             
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
+            <div class="archive-before-pagination"></div>
+            <ul class="pager">
+    
+    
+</ul>
         </div>
     </div>
-</article>
+</div>
+
 
     <!-- Footer -->
     <hr />

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="學測前被人推坑過曲線擬合，現在就來寫寫看。被推坑的是多項式擬合，但是這篇是樣條插值，跟多項式不一樣的特性是
+
+用低次的樣條函數比較不會產生高次函數的”亂流”，且效果不錯
+
+預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合)
+
+
+並非一個函數用到底，而是"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="曲線擬合-樣條插值"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="學測前被人推坑過曲線擬合，現在就來寫寫看。被推坑的是多項式擬合，但是這篇是樣條插值，跟多項式不一樣的特性是
+
+用低次的樣條函數比較不會產生高次函數的”亂流”，且效果不錯
+
+預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合)
+
+
+並非一個函數用到底，而是"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>曲線擬合-樣條插值 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gift but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>曲線擬合-樣條插值</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-02-15
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>學測前被人推坑過曲線擬合，現在就來寫寫看。<br>被推坑的是多項式擬合，但是這篇是樣條插值，跟多項式不一樣的特性是</p>
+<ul>
+<li><p>用低次的樣條函數比較不會產生高次函數的”亂流”，且效果不錯<br><img src="https://imgur.com/KIkT758.png" alt=""></p>
+<blockquote>
+<p>預測全球人口的多項式擬合，次數到8時會產生反常結果(source: <a href="http://mirlab.org/jang/books/matlabprogramming4guru/10-1_regressionLin4curveFitting.asp?title=10-1%20%BDu%A9%CA%B0j%C2k%A1G%A6%B1%BDu%C0%C0%A6X" target="_blank" rel="noopener">10-1 線性迴歸：曲線擬合</a>)</p>
+</blockquote>
+</li>
+<li><p>並非一個函數用到底，而是利用取樣點之間作分割，分成小區間，利用某些特性做連結，以達到光滑的目的<br><img src="https://imgur.com/n1fSqrR.png" alt=""></p>
+<blockquote>
+<p>上面是每個子區間都是次數=1的樣子，當然可以使用次數更高的函數</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>工程上比較喜歡用次數$m=3$的樣條函數，具有光滑的特性。</p>
+<p>假設有一複雜函數$f(x)$(難以評估)，需要用簡單函數$s(x)$去逼近，我們現在有$n+1$個取樣點$x_0, x_1$…$x_n$，由此分割出$n$個子區間，<br>$x_0$, $x_1$中間的樣條函數為$s_1(x)$，$x_{i-1}$, $x_i$中間的樣條函數為$s_i(x)$，$i \in [1,n]$<br>那該如何求出$s_i(x) = q_i x^3 + r_i x^2 + s_i x + t_i$ ?<br>我們有以下條件:</p>
+<ul>
+<li>$s_i(x_i) = s_{i+1}(x_i)$</li>
+<li>$s_i’(x_i) = s_{i+1}’(x_i)$</li>
+<li>$s_i’’(x_i) = s_{i+1}’’(x_i)$<br>因為m=3，可知所有$s_i’’(x)$為同一直線，可寫出直線</li>
+</ul>
+<blockquote>
+<p>$\frac{y-s_i’’(x_i)}{x-x_i}=\frac{s_i’’(x_{i-1})-s_i’’(x_i)}{x_{i-1}-x_i}$</p>
+</blockquote>
+<p>整理一下</p>
+<blockquote>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">double</span> datSeed = <span class="number">1.0</span>, datStep = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> dataCnt = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">double</span> st = <span class="number">1.0</span>, ed = datSeed + ((<span class="keyword">double</span>)dataCnt - <span class="number">1.0</span>) * datStep, step = <span class="number">0.001</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(<span class="built_in">fabs</span>(<span class="built_in">sin</span>(x)));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">df</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = <span class="number">10e-8</span>;</span><br><span class="line">    <span class="keyword">return</span> (f(x + dx) - f(x)) / dx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSample</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; v, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    v.clear(); u.clear();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> x = datSeed;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataCnt; x += datStep, ++i)</span><br><span class="line">        v.emplace_back(x), u.emplace_back(f(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&gt;&amp; A, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; M, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> SampleN = M.size() - <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; m, l, u, y;</span><br><span class="line">    m.resize(SampleN + <span class="number">1</span>); l.resize(SampleN + <span class="number">1</span>); u.resize(SampleN + <span class="number">1</span>), y.resize(SampleN + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    l[<span class="number">0</span>] = A[<span class="number">0</span>][<span class="number">0</span>], u[<span class="number">0</span>] = A[<span class="number">0</span>][<span class="number">1</span>] / l[<span class="number">0</span>], y[<span class="number">0</span>] = d[<span class="number">0</span>] / l[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= SampleN; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        m[i] = A[i][i - <span class="number">1</span>];</span><br><span class="line">        l[i] = A[i][i] - m[i] * u[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (i &lt; SampleN)</span><br><span class="line">            u[i] = A[i][i + <span class="number">1</span>] / l[i];</span><br><span class="line">        y[i] = (d[i] - m[i] * y[i - <span class="number">1</span>]) / l[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    M[SampleN] = y[SampleN];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = SampleN; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        M[i - <span class="number">1</span>] = y[i - <span class="number">1</span>] - M[i] * u[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; SampleX, SampleY, h, d, M;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&gt; A;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">s</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((x &lt; SampleX[<span class="number">0</span>]) || (x &gt; *SampleX.rbegin()))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (x &gt; SampleX[i]) ++i;</span><br><span class="line">    <span class="keyword">double</span> res = ((x - SampleX[i - <span class="number">1</span>]) * (x - SampleX[i - <span class="number">1</span>]) * (x - SampleX[i - <span class="number">1</span>]) * M[i] + (SampleX[i] - x) * (SampleX[i] - x) * (SampleX[i] - x) * M[i - <span class="number">1</span>]) / (<span class="number">6</span> * h[i - <span class="number">1</span>]);</span><br><span class="line">    res += (h[i - <span class="number">1</span>] * (M[i - <span class="number">1</span>] - M[i]) / <span class="number">6</span> + (SampleY[i] - SampleY[i - <span class="number">1</span>]) / h[i - <span class="number">1</span>]) * x;</span><br><span class="line">    res += SampleY[i] - h[i - <span class="number">1</span>] * h[i - <span class="number">1</span>] * M[i] / <span class="number">6</span> - (h[i - <span class="number">1</span>] * (M[i - <span class="number">1</span>] - M[i]) / <span class="number">6</span> + (SampleY[i] - SampleY[i - <span class="number">1</span>]) / h[i - <span class="number">1</span>]) * SampleX[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    setSample(SampleX, SampleY);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> SampleN = SampleX.size() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    h.resize(SampleN);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; SampleN; ++i)</span><br><span class="line">        h[i] = SampleX[i + <span class="number">1</span>] - SampleX[i];</span><br><span class="line"></span><br><span class="line">    d.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; SampleN; ++i)</span><br><span class="line">        d[i] = ((SampleY[i + <span class="number">1</span>] - SampleY[i]) / h[i] - (SampleY[i] - SampleY[i - <span class="number">1</span>]) / h[i - <span class="number">1</span>]) * <span class="number">6</span> / (h[i] + h[i - <span class="number">1</span>]);</span><br><span class="line">    d[<span class="number">0</span>] = (SampleY[<span class="number">1</span>] - SampleY[<span class="number">0</span>] - df(SampleX[<span class="number">0</span>]) * h[<span class="number">0</span>]) * <span class="number">6</span> / (h[<span class="number">0</span>] * h[<span class="number">0</span>]);</span><br><span class="line">    d[SampleN] = (df(SampleX[SampleN]) * h[SampleN - <span class="number">1</span>] - SampleY[SampleN] + SampleY[SampleN - <span class="number">1</span>]) * <span class="number">6</span> / (h[SampleN - <span class="number">1</span>] * h[SampleN - <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    A.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; SampleN + <span class="number">1</span>; ++i)</span><br><span class="line">        A[i].resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; SampleN; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        A[i][i - <span class="number">1</span>] = h[i - <span class="number">1</span>] / (h[i] + h[i - <span class="number">1</span>]);</span><br><span class="line">        A[i][i] = <span class="number">2</span>;</span><br><span class="line">        A[i][i + <span class="number">1</span>] = h[i] / (h[i] + h[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    A[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">2</span>, A[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">1</span>, A[SampleN][SampleN] = <span class="number">2</span>, A[SampleN][SampleN - <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    M.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    solve(A, M, d);</span><br><span class="line"></span><br><span class="line">    fstream fs;</span><br><span class="line">    fs.open(<span class="string">"function.txt"</span>, ios::out);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">double</span> x = st; x &lt;= ed; x += step)</span><br><span class="line">    &#123;</span><br><span class="line">        fs &lt;&lt; f(x) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        fs &lt;&lt; s(x) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fs.close();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; st &lt;&lt; <span class="string">" "</span> &lt;&lt; ed &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"function.txt"</span>, <span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">10.9</span>, <span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">a = []</span><br><span class="line">b = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> x:</span><br><span class="line">    s = f.readline()</span><br><span class="line">    a.append(float(s.strip()))</span><br><span class="line">    s = f.readline()</span><br><span class="line">    b.append(float(s.strip()))</span><br><span class="line"></span><br><span class="line">y1 = np.array(a) <span class="comment"># real blue</span></span><br><span class="line"><span class="comment">#print(y1)</span></span><br><span class="line">y2 = np.array(b) <span class="comment"># predict orange</span></span><br><span class="line"><span class="comment">#print(y2)</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2)</span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2021 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
