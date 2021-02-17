@@ -16,11 +16,10 @@
 
     
         <meta name="description" content="有了極限的概念，微分就比較好理解了(或許吧lul
-
 微分
+定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$
 
-
-定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}"/>
+"/>
     
 
     <!--Author-->
@@ -36,11 +35,10 @@
     <!--Open Graph Description-->
     
         <meta property="og:description" content="有了極限的概念，微分就比較好理解了(或許吧lul
-
 微分
+定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$
 
-
-定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}"/>
+"/>
     
 
     <!--Open Graph Site Name-->
@@ -228,18 +226,12 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>有了極限的概念，微分就比較好理解了(或許吧lul</p>
-<ul>
-<li>微分</li>
-</ul>
-<blockquote>
+<h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><blockquote>
 <p>定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$</p>
 </blockquote>
 <p>有些人會把$\frac{df(x)}{dx}$當作一種表示方法:$f(x)$對$x$微分，但是我認為以另一種方式去理解的話會有更加深刻的看法。</p>
 <p>對於一個曲線，我們可以取兩點$a, b$，並且得知兩點之間的平均變化率。<br><img src="https://i.imgur.com/6SHD6c1.png" alt=""><br>而現在我們把$|b-a|$慢慢縮小<br><img src="https://i.imgur.com/3LotS8m.png" alt=""><br>越來越小…<br><img src="https://i.imgur.com/l2gYfeP.png" alt=""><br>我們可以寫成$dx = b - a$，表示一個微小的$x$變化，同樣的這個曲線的輸出值$f(x)$，也會有個微小的輸出變化$dy = f(b) - f(a) = f(a + dx) - f(a)$，而這段的平均變化率寫成$\frac{dy}{dx}$。<br>所以$dx, dy$是可以有意義的，不只是表示而已，至少我這樣理解一直都是對的，知道這點會讓以後的微積分運算變得直覺許多。</p>
-<ul>
-<li>具象化微分公式:</li>
-</ul>
-<p><strong>加法:</strong> $\frac{d(f(x) + g(x))}{dx}=\frac{df(x)}{dx} + \frac{dg(x)}{dx}$<br>$f(x)+g(x)$可以看成兩條線相連，而$df(x)$、$dg(x)$則是微小的變化量，寫成$d(f(x) + g(x))=df(x) + dg(x)$，同除$dx$，取極限，噹噹(｡A｡)</p>
+<h1 id="具象化微分公式"><a href="#具象化微分公式" class="headerlink" title="具象化微分公式"></a>具象化微分公式</h1><p><strong>加法:</strong> $\frac{d(f(x) + g(x))}{dx}=\frac{df(x)}{dx} + \frac{dg(x)}{dx}$<br>$f(x)+g(x)$可以看成兩條線相連，而$df(x)$、$dg(x)$則是微小的變化量，寫成$d(f(x) + g(x))=df(x) + dg(x)$，同除$dx$，取極限，噹噹(｡A｡)</p>
 <p><strong>乘法:</strong> $\frac{d(f(x)g(x))}{dx}=\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx}$<br>$f(x)\times g(x)$可以看成一個矩形的面積，<br><img src="https://i.imgur.com/niLqoBt.png" alt=""><br>求面積變化量相當於微小的變化量$df(x)g(x)$、$dg(x)f(x)$與$dg(x)df(x)$的和。<br>寫成$d(f(x)g(x)) = df(x)g(x) + dg(x)f(x) + df(x)dg(x)$，兩邊同除$dx$，取極限$\lim\limits_{dx\to 0}$，得到$\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx} + \frac{dg(x)df(x)}{dx}$<br>最後一項會因為$dg(x)$取了極限而為0(或是$df(x)$都可以，看你的$dx$要跟誰除)。<br>最後就成為了$\frac{f(x)\times g(x)}{dx}=\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx}$</p>
 <p><strong>減法:</strong> $\frac{d(f(x) - g(x))}{dx}=\frac{df(x)}{dx} - \frac{dg(x)}{dx}$<br>就跟加法一樣的想法，不多贅述。</p>
 <p><strong>除法:</strong> $\frac{d\frac{f(x)}{g(x)}}{dx} = \frac{\frac{df(x)g(x)}{dx}-\frac{dg(x)f(x)}{dx}}{g^2(x)}$<br>這個我不知道怎麼具象化出來…只能用代數去解了(´・ω・`)<br>$h(x) = \frac{f(x)}{g(x)}$<br>$h(x)g(x) = f(x)$<br>$\frac{dh(x)g(x)}{dx} + \frac{dg(x)h(x)}{dx} = \frac{df(x)}{dx}$</p>
@@ -256,22 +248,15 @@
 <li>$n=n$，可以想到$d(x^n) = ndx\times x^{n-1}…$，得到$\frac{dx^n}{dx} = nx^{n-1}$</li>
 </ul>
 <p><strong>鏈式:</strong> $\frac{dg(f(x))}{dx} = \frac{dg(f(x))}{df(x)}\frac{df(x)}{dx}$<br><img src="https://i.imgur.com/GHv9s4W.png" alt=""><br>把$f(x)$看做一個數$k$<br><img src="https://i.imgur.com/AgxsFsW.png" alt=""><br>可以寫出$\frac{dg(k)}{dk} \times dk = dg(k)$，其中$dg(k)$為這個函數$g(x)$的變化量。<br>將$k$寫回去後，$\frac{dg(f(x))}{df(x)} \times df(x) = dg(f(x))$，同除$dx$，$\frac{dg(f(x))}{df(x)} \times \frac{df(x)}{dx} = \frac{dg(f(x))}{dx}$</p>
-<ul>
-<li>隱微分<br>相信一開始學到圓方程式如何微分時，大部分人都會感到困惑。<br>書上都直接寫$x^2+y^2=r^2$，微分$2xdx+2ydy=0$，做一下對調$-\frac{x}{y}=\frac{dy}{dx}$，就好了。<br>看起來很對，但是很奇怪，我們到底在對甚麼微分?</li>
-</ul>
+<h1 id="隱微分"><a href="#隱微分" class="headerlink" title="隱微分"></a>隱微分</h1><p>相信一開始學到圓方程式如何微分時，大部分人都會感到困惑。<br>書上都直接寫$x^2+y^2=r^2$，微分$2xdx+2ydy=0$，做一下對調$-\frac{x}{y}=\frac{dy}{dx}$，就好了。<br>看起來很對，但是很奇怪，我們到底在對甚麼微分?</p>
 <p>其實本質上仍然是對$x$微分，只是書本常常省略(可能只是我看的書沒寫)。<br>假設$y=f(x)$，$x^2+f(x)^2=r^2$對$x$微分，$2x+2f(x)\frac{df(x)}{dx}=0$，排列一下$\frac{df(x)}{dx}=-\frac{x}{f(x)}$，把$f(x)$換成$y$，這跟上面那個微分方式是等價的。</p>
 <p>隱微分對於複雜的方程式非常有用。</p>
-<ul>
-<li>泰勒展開式<br>有些函數很難求出某些特定值，例如$cos 9.02323$這種，如果可以把它寫成多項式的話，就可以得到近似值。<br>我們說某個多項式等於某個函數，只要他們的各階導數相同。</li>
-</ul>
+<h1 id="泰勒展開式"><a href="#泰勒展開式" class="headerlink" title="泰勒展開式"></a>泰勒展開式</h1><p>有些函數很難求出某些特定值，例如$cos 9.02323$這種，如果可以把它寫成多項式的話，就可以得到近似值。<br>我們說某個多項式等於某個函數，只要他們的各階導數相同。</p>
 <p>推導(以$cos x$當例子):<br>我們假設有一個多項式$ax^2+bx+c$，我們要讓他盡量等於$cos x$，首先注意到的是$cos 0=1$，所以$c=1$。<br>接著$\frac{dcos x}{dx}=-sinx$，而$-sin 0 = 0$；$ax^2+bx+c$微分後$2ax+b$，$x=0$時應該要是0所以$b=0$。<br>再微一次就可以知道$a=-\frac{1}{2}$，這樣我們就得到了一個接近$cos x$的二次函數。</p>
 <p>顯然我們可以對cos無限求導，也就是說，我們需要一個無限多項的函數來表達，<br>$a0+a_1x^1+a_2x^2+a_3x^3…$<br>通過上述的規則可知，$a_0=1$, $a_1=0$, $a_2=-\frac{1}{2}$, $a_3=0$, $a_4=\frac{1}{24}$…</p>
 <p>一般化形式:<br>$a0+a_1x^1+a_2x^2+a_3x^3…$=$f(x)$</p>
 <p>$a_0=f(0)$, $a_1=\frac{df}{dx}(0)$, $a_2=\frac{\frac{d^2f}{dx^2}(0)}{2}$, $a_3=\frac{\frac{d^3f}{dx^3}(0)}{6}$…，通過這步驟可以發現$a_k=\frac{f^{(k)}(0)}{k!}$，<br>所以$f(x)=\sum_{k=0}^\infty{\frac{f^{(k)}(0)}{k!}x^k}$，寫出泰勒展開式了!<br>如果已知$f^{(k)}(a)$可以寫成$f(x)=\sum_{k=0}^\infty{\frac{f^{(k)}(a)}{k!}(x-a)^k}$ (偏移)</p>
-<ul>
-<li>精選題目區</li>
-</ul>
-<ol>
+<h2 id="精選題目區"><a href="#精選題目區" class="headerlink" title="精選題目區"></a>精選題目區</h2><ol>
 <li><p>$h(x)=\sqrt[3]{x^2+\sqrt{x^3+1}}$, 求$\frac{dh(x)}{dx}$</p>
 </li>
 <li><p>求過圓$x^2+y^2=25$上一點$(3,-4)$的切線方程式?</p>
@@ -310,10 +295,7 @@
 </li>
 </ol>
 <p>題目來源: <a href="http://www.math.ntu.edu.tw/~hchu/Calculus/" target="_blank" rel="noopener">http://www.math.ntu.edu.tw/~hchu/Calculus/</a> (感謝講義製作人!)</p>
-<ul>
-<li>題目講解區:</li>
-</ul>
-<ol>
+<h2 id="題目講解區"><a href="#題目講解區" class="headerlink" title="題目講解區:"></a>題目講解區:</h2><ol>
 <li><p>連鎖律<br><strong>Answer:</strong> $\frac{1}{3}(x^2+\sqrt{x^3+1})^{-\frac{2}{3}}(2x+\frac{3x^2}{2\sqrt{x^3+1}})$</p>
 </li>
 <li><p>隱微分<br><strong>Answer:</strong> $\frac{3}{4}(x-3)=y+4$</p>
