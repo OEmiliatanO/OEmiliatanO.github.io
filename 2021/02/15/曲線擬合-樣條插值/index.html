@@ -15,14 +15,13 @@
     
 
     
-        <meta name="description" content="前言學測前被人推坑過曲線擬合，現在就來寫寫看。被推坑的是多項式擬合，但是這篇是樣條插值，跟多項式不一樣的特性是
+        <meta name="description" content="前言學測前被人推坑過曲線插值，現在就來寫寫看。被推坑的是多項式插值但是這篇不是多項式，而是樣條函數。
 
-用低次的樣條函數比較不會產生高次函數的”亂流”，且效果不錯
+介紹跟多項式插值不一樣的點有
 
-預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合)
+用低次的樣條函數比較不會產生高次多項式函數的”亂流”，且效果不錯
 
-
-並非一個函數用到底，"/>
+預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合"/>
     
 
     <!--Author-->
@@ -32,19 +31,18 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="曲線擬合-樣條插值"/>
+        <meta property="og:title" content="曲線插值-樣條函數"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="前言學測前被人推坑過曲線擬合，現在就來寫寫看。被推坑的是多項式擬合，但是這篇是樣條插值，跟多項式不一樣的特性是
+        <meta property="og:description" content="前言學測前被人推坑過曲線插值，現在就來寫寫看。被推坑的是多項式插值但是這篇不是多項式，而是樣條函數。
 
-用低次的樣條函數比較不會產生高次函數的”亂流”，且效果不錯
+介紹跟多項式插值不一樣的點有
 
-預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合)
+用低次的樣條函數比較不會產生高次多項式函數的”亂流”，且效果不錯
 
-
-並非一個函數用到底，"/>
+預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合"/>
     
 
     <!--Open Graph Site Name-->
@@ -71,7 +69,7 @@
 
     <!-- Title -->
     
-    <title>曲線擬合-樣條插值 - Emilia&#39;s Blog</title>
+    <title>曲線插值-樣條函數 - Emilia&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -184,7 +182,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>曲線擬合-樣條插值</h1>
+                    <h1>曲線插值-樣條函數</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -231,9 +229,11 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學測前被人推坑過曲線擬合，現在就來寫寫看。<br>被推坑的是<a href="http://mirlab.org/jang/books/matlabprogramming4guru/10-1_regressionLin4curveFitting.asp?title=10-1%20%BDu%A9%CA%B0j%C2k%A1G%A6%B1%BDu%C0%C0%A6X" target="_blank" rel="noopener">多項式擬合</a>，但是這篇是樣條插值，跟多項式不一樣的特性是</p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>學測前被人推坑過曲線插值，現在就來寫寫看。<br>被推坑的是<a href="http://mirlab.org/jang/books/matlabprogramming4guru/10-1_regressionLin4curveFitting.asp?title=10-1%20%BDu%A9%CA%B0j%C2k%A1G%A6%B1%BDu%C0%C0%A6X" target="_blank" rel="noopener">多項式插值</a><br>但是這篇不是多項式，而是樣條函數。</p>
+<hr>
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>跟多項式插值不一樣的點有</p>
 <ul>
-<li><p>用低次的樣條函數比較不會產生高次函數的”亂流”，且效果不錯<br><img src="https://imgur.com/KIkT758.png" alt=""></p>
+<li><p>用低次的樣條函數比較不會產生高次多項式函數的”亂流”，且效果不錯<br><img src="https://imgur.com/KIkT758.png" alt=""></p>
 <blockquote>
 <p>預測全球人口的多項式擬合，次數到8時會產生反常結果(source: <a href="http://mirlab.org/jang/books/matlabprogramming4guru/10-1_regressionLin4curveFitting.asp?title=10-1%20%BDu%A9%CA%B0j%C2k%A1G%A6%B1%BDu%C0%C0%A6X" target="_blank" rel="noopener">10-1 線性迴歸：曲線擬合</a>)</p>
 </blockquote>
@@ -244,15 +244,14 @@
 </blockquote>
 </li>
 </ul>
-<hr>
-<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>高中都學過「插值法」，用來算不在log表上的數字或是求多項式，而樣條插值是利用分段的函數，構成一個大函數，預測內插值。</p>
+<p>高中都學過「插值法」，用來算不在log表上的數字或是求多項式，而樣條插值是利用分段的函數，構成一個大函數，預測內插值。</p>
 <p><img src="https://4.bp.blogspot.com/-Tw4BlGwhpQg/VSK_3PKjU8I/AAAAAAAAoEk/54rgZCaoxTk/s1600/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%2B2015-04-07%2B%E4%B8%8A%E5%8D%8812.49.48.png" alt=""></p>
 <blockquote>
 <p>線性樣條插值，最簡單的插值法，高中常用(source: <a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">三次樣條插值</a>)</p>
 </blockquote>
 <p>線性插值雖然簡單，但無法滿足工程上「光滑」的需求，於是三次樣條就誕生了，最高次數為三能確保不過度扭曲，又可以確保光滑。</p>
 <hr>
-<h2 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h2><p>假設有一複雜函數$f(x)$(難以評估)，需要用簡單函數$s(x)$去逼近，我們現在有$n+1$個取樣點$x_0, x_1$…$x_n$，由此分割出$n$個子區間，<br>$x_0$, $x_1$中間的樣條函數為$s_1(x)$，$x_{i-1}$, $x_i$中間的樣條函數為$s_i(x)$，$i \in [1,n]$<br>那該如何求出$s_i(x) = q_i x^3 + r_i x^2 + s_i x + t_i$ ?<br>我們有以下條件:</p>
+<h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>假設有一複雜函數$f(x)$(難以評估)，需要用簡單函數$s(x)$去逼近，我們現在有$n+1$個取樣點$x_0, x_1$…$x_n$，由此分割出$n$個子區間，<br>$x_0$, $x_1$中間的樣條函數為$s_1(x)$，$x_{i-1}$, $x_i$中間的樣條函數為$s_i(x)$，$i \in [1,n]$<br>那該如何求出$s_i(x) = q_i x^3 + r_i x^2 + s_i x + t_i$ ?<br>我們有以下條件:</p>
 <ul>
 <li>$s_i(x_i) = s_{i+1}(x_i)$</li>
 <li>$s_i’(x_i) = s_{i+1}’(x_i)$</li>
@@ -291,7 +290,7 @@
 <li>$s_1’’(x_0)=f’’(x_0)$, $s_n’’(x_n)=f’’(x_n)$</li>
 <li>$s_1’(x_0)=s_n(x_n)$, $s_1’’(x_0)=s_n’’(x_n)$</li>
 </ul>
-<h1 id="邊界條件"><a href="#邊界條件" class="headerlink" title="邊界條件"></a>邊界條件</h1><p>邊界條件有許多種，每種都會對樣條函式產生不盡相同的影響。<br><img src="https://1.bp.blogspot.com/-OzV3YgFSP2Q/VSLTPL_3uKI/AAAAAAAAoFg/kyL15pyxTXY/s1600/26193013-20d427db372c4913b3337945008177a7.png" alt=""></p>
+<h2 id="邊界條件"><a href="#邊界條件" class="headerlink" title="邊界條件"></a>邊界條件</h2><p>邊界條件有許多種，每種都會對樣條函式產生不盡相同的影響。<br><img src="https://1.bp.blogspot.com/-OzV3YgFSP2Q/VSLTPL_3uKI/AAAAAAAAoFg/kyL15pyxTXY/s1600/26193013-20d427db372c4913b3337945008177a7.png" alt=""></p>
 <blockquote>
 <p>source: <a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">三次樣條插值</a></p>
 </blockquote>
@@ -343,7 +342,7 @@
 </blockquote>
 <p>寫出矩陣<br>$\begin{bmatrix} a_0 &amp; b_0 &amp; &amp; … &amp; &amp; &amp; c_0 \\ a_1 &amp; 2 &amp; c_1 &amp; \\  &amp; a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; &amp; &amp; … \\ c_{n-1} &amp;  &amp;  &amp; …  &amp;  &amp; a_{n-1} &amp; 2\end{bmatrix}\vec{m}=\vec{k}$<br>$\vec{m}$是從$0~n-1$，$\vec{k}$同理。</p>
 <hr>
-<h1 id="解方程"><a href="#解方程" class="headerlink" title="解方程"></a>解方程</h1><p>算出來的矩陣為$A$，寫出等式$A\vec{m}=\vec{k}$<br>將$A$拆解成$LU$矩陣，<br>$L = \begin{bmatrix} d_0 &amp; &amp; &amp; &amp; &amp; \\ l_1 &amp; d_1 &amp; &amp; \\  &amp; l_2 &amp; d_2 &amp; &amp; \\ &amp; &amp; &amp; … \\ &amp; &amp; &amp; &amp; l_n &amp; d_n\end{bmatrix}$<br>$U = \begin{bmatrix} 1 &amp; u_0 &amp; &amp; &amp;  \\ &amp; 1 &amp; u_1 &amp; \\ &amp; &amp; 1 &amp; u_2 &amp; \\ &amp; &amp; &amp; … &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; u_{n-1} \\ &amp; &amp; &amp; &amp; &amp; 1 \end{bmatrix}$</p>
+<h2 id="解方程"><a href="#解方程" class="headerlink" title="解方程"></a>解方程</h2><p>算出來的矩陣為$A$，寫出等式$A\vec{m}=\vec{k}$<br>將$A$拆解成$LU$矩陣，<br>$L = \begin{bmatrix} d_0 &amp; &amp; &amp; &amp; &amp; \\ l_1 &amp; d_1 &amp; &amp; \\  &amp; l_2 &amp; d_2 &amp; &amp; \\ &amp; &amp; &amp; … \\ &amp; &amp; &amp; &amp; l_n &amp; d_n\end{bmatrix}$<br>$U = \begin{bmatrix} 1 &amp; u_0 &amp; &amp; &amp;  \\ &amp; 1 &amp; u_1 &amp; \\ &amp; &amp; 1 &amp; u_2 &amp; \\ &amp; &amp; &amp; … &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; u_{n-1} \\ &amp; &amp; &amp; &amp; &amp; 1 \end{bmatrix}$</p>
 <p>根據使用的邊界條件不同而有所不同，而第一,二種步驟是相同的<br>先推出$d,l,u$的遞推關係，解出$\vec{w}$($U\vec{m}$)<br>在利用$U\vec{m}=\vec{w}$解出$\vec{m}$</p>
 <ul>
 <li>第一種:</li>
@@ -381,7 +380,7 @@
 <p>這個無法用上面的方法拆，只能用高斯$O(n^3)$求逆矩陣</p>
 <p>現在有了具體的步驟就可以寫出程式了。<br>解第一二種矩陣的方法有個具體的名字: 追趕法，不多介紹，畢竟不是主角。</p>
 <hr>
-<h2 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h2><p>(目前只有第一,二種邊界條件)</p>
+<h1 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h1><p>(目前只有第一,二種邊界條件)</p>
 <ul>
 <li><p>目標函數:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">exp</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">df</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = <span class="number">10e-8</span>;</span><br><span class="line">    <span class="keyword">if</span> (isnan(f(x + dx)) || isinf(f(x + dx)))</span><br><span class="line">        <span class="keyword">return</span> (f(x) - f(x - dx)) / dx;</span><br><span class="line">    <span class="keyword">return</span> (f(x + dx) - f(x)) / dx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ddf</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = <span class="number">10e-8</span>;</span><br><span class="line">    <span class="keyword">if</span> (isnan(df(x + dx)) || isinf(df(x + dx)))</span><br><span class="line">        <span class="keyword">return</span> (df(x) - df(x - dx)) / dx;</span><br><span class="line">    <span class="keyword">return</span> (df(x + dx) - df(x)) / dx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -407,7 +406,7 @@
 </li>
 </ul>
 <hr>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>花了兩天的時間終於結束整個推導過程跟code debug，原本以為會很簡單，沒想到過程的推導繁瑣至極…這大概是有史以來寫過最長的一篇文了。</p>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>花了兩天的時間終於結束整個推導過程跟code debug，原本以為會很簡單，沒想到過程的推導繁瑣至極…這大概是有史以來寫過最長的一篇文了。</p>
 <p>樣條函數的擬合效果挺不錯的，只要約6, 7個採樣點就可以很好的擬合出原本的函數<br>(紅色是目標函數, 綠色是第一種邊界條件, 藍色是第二種)</p>
 <p><img src="https://imgur.com/hytXkXP.png" alt=""></p>
 <blockquote>
@@ -442,7 +441,7 @@
 <p>$\frac{1}{1 + 25x^2}$, <code>datSeed = -1, datStep = 0.1, dataCnt = 21</code></p>
 </blockquote>
 <hr>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://zhuanlan.zhihu.com/p/62860859" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62860859</a><br><a href="https://zh.wikipedia.org/zh-tw/%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-tw/%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0</a><br><a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8F%92%E5%80%BC" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8F%92%E5%80%BC</a><br><a href="https://zh.wikipedia.org/wiki/%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1</a><br><a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html</a><br><a href="http://math.ecnu.edu.cn/~jypan/Teaching/NA/ch02e.pdf" target="_blank" rel="noopener">http://math.ecnu.edu.cn/~jypan/Teaching/NA/ch02e.pdf</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://zhuanlan.zhihu.com/p/62860859" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62860859</a><br><a href="https://zh.wikipedia.org/zh-tw/%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-tw/%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0</a><br><a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8F%92%E5%80%BC" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8F%92%E5%80%BC</a><br><a href="https://zh.wikipedia.org/wiki/%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1</a><br><a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html</a><br><a href="http://math.ecnu.edu.cn/~jypan/Teaching/NA/ch02e.pdf" target="_blank" rel="noopener">http://math.ecnu.edu.cn/~jypan/Teaching/NA/ch02e.pdf</a></p>
 
 
                 
