@@ -15,6 +15,10 @@
     
 
     
+        <meta name="description" content="前言昨天在研究牛頓法、擬牛頓法、梯度下降法，在學著將它們的迭代過程畫出來的過程學到了可視化函數的新東西，留點紀錄。
+#主體
+等高線圖向量場圖流線圖Referencehttps://www.pluvet.com/2020/04/10/%E5%A6%82%E4%BD%95%E5%9C%A8-python"/>
+    
 
     <!--Author-->
     
@@ -23,10 +27,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Emilia&#39;s Blog"/>
+        <meta property="og:title" content="python 可視化函數 2"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言昨天在研究牛頓法、擬牛頓法、梯度下降法，在學著將它們的迭代過程畫出來的過程學到了可視化函數的新東西，留點紀錄。
+#主體
+等高線圖向量場圖流線圖Referencehttps://www.pluvet.com/2020/04/10/%E5%A6%82%E4%BD%95%E5%9C%A8-python"/>
     
 
     <!--Open Graph Site Name-->
@@ -34,7 +42,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -53,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>data structure - Emilia&#39;s Blog</title>
+    <title>python 可視化函數 2 - Emilia&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -158,49 +166,80 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>data structure</h1>
+                <div class="post-heading">
+                    <h1>python 可視化函數 2</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-02-27
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/code/">#code</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/04/19/Treap/">
-        <h1 class="post-title archive">
-            Treap
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>昨天在研究牛頓法、擬牛頓法、梯度下降法，在學著將它們的迭代過程畫出來的過程學到了可視化函數的新東西，留點紀錄。</p>
+<p>#主體</p>
+<h2 id="等高線圖"><a href="#等高線圖" class="headerlink" title="等高線圖"></a>等高線圖</h2><h2 id="向量場圖"><a href="#向量場圖" class="headerlink" title="向量場圖"></a>向量場圖</h2><h2 id="流線圖"><a href="#流線圖" class="headerlink" title="流線圖"></a>流線圖</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.pluvet.com/2020/04/10/%E5%A6%82%E4%BD%95%E5%9C%A8-python-%E4%B8%AD%E7%BB%98%E5%88%B6%E5%90%91%E9%87%8F%E5%9C%BA%EF%BC%88%E4%BD%BF%E7%94%A8-matplotlib%EF%BC%89/" target="_blank" rel="noopener">https://www.pluvet.com/2020/04/10/%E5%A6%82%E4%BD%95%E5%9C%A8-python-%E4%B8%AD%E7%BB%98%E5%88%B6%E5%90%91%E9%87%8F%E5%9C%BA%EF%BC%88%E4%BD%BF%E7%94%A8-matplotlib%EF%BC%89/</a><br><a href="https://www.cnpython.com/qa/112014" target="_blank" rel="noopener">https://www.cnpython.com/qa/112014</a><br><a href="https://sq.163yun.com/blog/article/236582359586304000" target="_blank" rel="noopener">https://sq.163yun.com/blog/article/236582359586304000</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
