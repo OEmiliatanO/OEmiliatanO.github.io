@@ -54,31 +54,6 @@
     
     
     <entry>
-      <title>DLX-algorithm</title>
-      <link href="/2021/02/16/DLX-algorithm/"/>
-      <url>/2021/02/16/DLX-algorithm/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很久以前的<a href="https://oemiliatano.github.io/2020/04/24/Sudoku/" target="_blank" rel="noopener">數獨</a> 文章最後挖的坑。<br>現在要來填坑了</p><h2 id="主體"><a href="#主體" class="headerlink" title="主體"></a>主體</h2><h1 id="精準覆蓋問題"><a href="#精準覆蓋問題" class="headerlink" title="精準覆蓋問題"></a>精準覆蓋問題</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> algorithm </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>曲線插值-樣條函數</title>
       <link href="/2021/02/15/%E6%9B%B2%E7%B7%9A%E6%93%AC%E5%90%88-%E6%A8%A3%E6%A2%9D%E6%8F%92%E5%80%BC/"/>
       <url>/2021/02/15/%E6%9B%B2%E7%B7%9A%E6%93%AC%E5%90%88-%E6%A8%A3%E6%A2%9D%E6%8F%92%E5%80%BC/</url>
