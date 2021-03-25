@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-20T10:34:56.876Z</updated>
+  <updated>2021-03-22T15:51:50.432Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>語法樹</title>
+    <link href="http://yoursite.com/2021/03/22/%E8%AA%9E%E6%B3%95%E6%A8%B9/"/>
+    <id>http://yoursite.com/2021/03/22/%E8%AA%9E%E6%B3%95%E6%A8%B9/</id>
+    <published>2021-03-22T13:34:28.000Z</published>
+    <updated>2021-03-22T15:51:50.432Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
+    
+    
+      <category term="algorithm" scheme="http://yoursite.com/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>臺師大資工面試題猜測</title>
+    <link href="http://yoursite.com/2021/03/22/%E8%87%BA%E5%B8%AB%E5%A4%A7%E8%B3%87%E5%B7%A5%E9%9D%A2%E8%A9%A6%E9%A1%8C%E7%8C%9C%E6%B8%AC/"/>
+    <id>http://yoursite.com/2021/03/22/%E8%87%BA%E5%B8%AB%E5%A4%A7%E8%B3%87%E5%B7%A5%E9%9D%A2%E8%A9%A6%E9%A1%8C%E7%8C%9C%E6%B8%AC/</id>
+    <published>2021-03-22T13:20:16.000Z</published>
+    <updated>2021-03-25T15:58:22.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>雖然1階還沒過，但是看到臺師大有面試，就來猜猜看究竟會問什麼，猜測依據是網路+我的備審所寫的。</p><p>!這篇只專注在程式方面。</p><hr><h1 id="主體"><a href="#主體" class="headerlink" title="主體"></a>主體</h1><ol><li>指標是什麼?</li></ol><p>存放某個記憶體位址的變數，常用於遞迴類型的資料結構，例如:tree、函數參數傳遞、簡化程式。<br>C/C++具有指標、C#則必須在unsafe區塊中使用、java以參考為主、python則是完全沒有指標概念，但是變數行為類似指標</p><ol start="2"><li>指標與參考的差別?</li></ol><p>參考是一種別名、指標是一個變數，參考在宣告時就必須指定到一個變數；指標可以宣告後不指向任意變數，且可以任意更改指向的對象。<br>參考不會占用記憶體、指標會。</p><ol start="3"><li>變數是什麼?</li></ol><p>可以想像成箱子，存放某種形式的資料。C/C++、java、C#裡面必須在宣告變數同時，就固定他的資料型態，而python則不需要。</p><ol start="4"><li>簡述一下三次樣條函數的推導過程、應用</li></ol><p>有一堆函數的採樣點，我需要盡量擬合回去，利用採樣點分割成各個區間，設定每個區間都是3次多項式，利用每個端點都必須滿足光滑的條件，算出每個區間的3次多項式係數。<br>應用則是，假設我透過測試發現某個外形的機翼比較好，但是此外形是由某個無法解析的函數構成，我可以利用採樣，再利用3次樣條函數擬合，達到以簡單多項式逼近複雜函數的目的。</p><ol start="5"><li>梯度下降與牛頓法的區別?</li></ol><p>梯度下降就像每次都往最陡的方向走下山、而牛頓法不只看最陡的方向，還考慮到這個方向之後變緩或變陡的趨勢來決定步長、方向。</p><ol start="6"><li>印象最深刻的題目?</li></ol><p>如何不用for, goto, while, 乘除法運算子等，設計出求和函式。</p><ol start="7"><li>解釋stack、heap在一個程式裡的作用</li></ol><p>stack保管上一個執行程式的資料，到某個階段時就會再拿出來，例如: function call會將目前執行的東西都推進stack裡，空出暫存器後執行function，執行完後再將stack裡的東西pop出來，繼續運算。<br>heap則是保管動態請求空間的一塊記憶體區域，除非呼叫free、delete否則會被作業系統標示已使用。</p><ol start="8"><li>虛擬函式的作用?</li></ol><p>當一個函式在父類被列為虛擬函式時，代表我們希望他會被子類重新實作，但不一定是強制覆寫，如果要強制子類實作，必須將它宣告為純虛擬函式。<br>但是在C#中一切虛擬函式都是純虛，java則是所有類別方法都是虛擬函式(不是純虛)，只有當使用final或private修飾才能使其不被覆寫、繼承。</p><ol start="9"><li>為何需要treap</li></ol><p>最簡單的二元搜索樹可以通過構造數據，使深度到達最差複雜度O(n)，二元平衡樹可以通過旋轉保持深度為O(log n)，例如: AVL、紅黑樹。<br>但是實作上，旋轉操作十分難寫，coding複雜度極高，對於程式競賽選手來說非常頭痛。<br>treap則是通過結合二元搜索樹+heap的特性，再利用merge-split來維護高度，整體coding複雜度降低不少。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;雖然1階還沒過，但是看到臺師大有面試，就來猜猜看究竟會問什麼，猜測依據是網路+我的備審所寫的。&lt;/p&gt;
+&lt;p&gt;!這篇只專注在程式方面。&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="隨筆" scheme="http://yoursite.com/categories/%E9%9A%A8%E7%AD%86/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>3.19 仲春夜</title>
@@ -230,9 +274,9 @@
     <link href="http://yoursite.com/2020/12/31/%E8%A7%A3%E6%9E%90%E7%A0%94%E6%8B%93-%E9%9A%8E%E4%B9%98/"/>
     <id>http://yoursite.com/2020/12/31/%E8%A7%A3%E6%9E%90%E7%A0%94%E6%8B%93-%E9%9A%8E%E4%B9%98/</id>
     <published>2020-12-31T03:59:59.000Z</published>
-    <updated>2021-03-05T16:16:23.802Z</updated>
+    <updated>2021-03-22T13:43:51.771Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在2020的最後一天完成這件事，剩下的留待明年吧…</p><p>在知道有解析研拓這種東西後，我試著把一些高中的函數展開，比如log, sin, cos, exponential，但是階乘這個常見的東西卻困擾著我，到底要怎麼展開。<br>網路上的資料撰筆者功力太強，以致於省略許多推導步驟，我只能如同二維生物試圖去理解三維世界般…以下是我參考許多資料、參雜個人想法的推導。</p><hr><h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>首先考慮這個函數: $f(k,m)=\int_0^1 x^k (1-x)^m dx$，為甚麼需要這個函數呢? 當我們對它分部積分後會得到</p><blockquote><p>$f(k,m) = \frac{m}{k+1}f(k+1,m-1)$</p></blockquote><p>這樣一個遞迴式。<br>把它展開後會得到$f(k,m)=\frac{m!}{\prod_{i=1}^{m+1}(k+i)}$，移項得到$f(k,m)\prod_{i=1}^{m+1}(k+i)=m!$<br>這算是階乘展開的第一步，雖然這個形式還只能代正整數。<br>我們繼續把它展開，無法代除了正整數以外是因為這部分$\prod_{i=1}^{m+1}(k+i)$，如果可以把它消掉或許可以成功拓展。<br>令$k=\frac{a}{b}$，整理上面的公式得，</p><blockquote><p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!}{\prod_{i=1}^{m+1}(\frac{a}{b}+i)}$<br>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!b^{m+1}}{\prod_{i=1}^{m+1}(a+ib)}$</p></blockquote><p>如果取極限$a \to 1$, $b \to 0$，右邊式子的分數就會消掉，但是上面的$b^{m+1}$很礙事，既然解決不了問題，就解決造成問題的東西，<br>先把$b^{m+1}$弄去左邊，再取極限</p><blockquote><p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = m!$</p></blockquote><p>現在我們focus在積分上，我們期望把積分裡面的$x^{\frac{a}{b}}$去掉，令$x=k^c$, $dx = ck^{c-1}dk$</p><blockquote><p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \int_0^1 k^{\frac{ac}{b}} (1-k^c)^m ck^{c-1} dk$</p></blockquote><p>要把$x^{\frac{a}{b}}$(也就是$k^{\frac{ac}{b}}$)，必須使$\frac{ac}{b}+c-1=0$，解出$c=\frac{b}{a+b}$。<br>將上面的極限式換掉</p><blockquote><p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 \frac{b}{a+b}{(1-k^{\frac{b}{a+b}})}^m dk = m!$<br>$\lim_{a \to 1} lim_{b \to 0} (a+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{a+b}}}{\frac{b}{a+b}}})^m dk = m!$<br>$lim_{b \to 0} (1+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$<br>$\int_0^1 lim_{b \to 0} ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$</p></blockquote><p>考慮一極限$lim_{x \to 0} \frac{1-k^x}{x}$，根據那個好用到不行的法則，得到$lim_{x \to 0} \frac{1-k^x}{x} = -ln k$。</p><blockquote><p>$\int_0^1 (-ln k)^m dk = m!$</p></blockquote><p>令$k=e^{-t}$, $dk = -e^{-t}dt$</p><blockquote><p>$\int_{\infty}^0 -t^m e^{-t} dt = m!$<br>$\int_0^{\infty} t^m e^{-t} dt = m!$</p></blockquote><p>至此，我們可以代入奇怪的數進階乘了d(`･∀･)b<br>甚至可以對$e^{-t}$泰勒展開，拓展到複數域。</p><p>小常識: 階乘其實有很多種解析方式，每種都會產生不同的函數，這只是其中一種，也是實務上使用最多的一種，因為可以連結到Gamma function: $\Gamma(x) = (x-1)!$</p><hr><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cust.edu.tw/mathmet/graph/gamma-prop.htm" target="_blank" rel="noopener">http://www.cust.edu.tw/mathmet/graph/gamma-prop.htm</a><br><a href="https://cosx.org/2013/01/lda-math-gamma-function/" target="_blank" rel="noopener">https://cosx.org/2013/01/lda-math-gamma-function/</a><br><a href="https://zhuanlan.zhihu.com/p/114041258" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/114041258</a><br><a href="https://www.csie.ntu.edu.tw/~b89089/link/gammaFunction.pdf" target="_blank" rel="noopener">https://www.csie.ntu.edu.tw/~b89089/link/gammaFunction.pdf</a><br><a href="https://kknews.cc/zh-tw/education/vlkv53a.html" target="_blank" rel="noopener">https://kknews.cc/zh-tw/education/vlkv53a.html</a><br><a href="http://sgpwe.izt.uam.mx/files/users/uami/jdf/proyectos/Euler_integral.pdf" target="_blank" rel="noopener">http://sgpwe.izt.uam.mx/files/users/uami/jdf/proyectos/Euler_integral.pdf</a></p><hr><p>新年新希望: 數學15級, 英文15級, 自然15級, 研究Gamma function, 補完vpython, 共形映射的文章, 學好abstract algebra, linear algebra, real/complex analysis</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在2020的最後一天完成這件事，剩下的留待明年吧…</p><p>在知道有解析研拓這種東西後，我試著把一些高中的函數展開，比如log, sin, cos, exponential，但是階乘這個常見的東西卻困擾著我，到底要怎麼展開。</p><hr><h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>首先考慮這個函數: $f(k,m)=\int_0^1 x^k (1-x)^m dx$，為甚麼需要這個函數呢? 當我們對它分部積分後會得到</p><blockquote><p>$f(k,m) = \frac{m}{k+1}f(k+1,m-1)$</p></blockquote><p>這樣一個遞迴式。<br>把它展開後會得到$f(k,m)=\frac{m!}{\prod_{i=1}^{m+1}(k+i)}$，移項得到$f(k,m)\prod_{i=1}^{m+1}(k+i)=m!$<br>這算是階乘展開的第一步，雖然這個形式還只能代正整數。<br>我們繼續把它展開，無法代除了正整數以外是因為這部分$\prod_{i=1}^{m+1}(k+i)$，如果可以把它消掉或許可以成功拓展。<br>令$k=\frac{a}{b}$，整理上面的公式得，</p><blockquote><p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!}{\prod_{i=1}^{m+1}(\frac{a}{b}+i)}$<br>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!b^{m+1}}{\prod_{i=1}^{m+1}(a+ib)}$</p></blockquote><p>如果取極限$a \to 1$, $b \to 0$，右邊式子的分數就會消掉，但是上面的$b^{m+1}$很礙事，既然解決不了問題，就解決造成問題的東西，<br>先把$b^{m+1}$弄去左邊，再取極限</p><blockquote><p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = m!$</p></blockquote><p>現在我們focus在積分上，我們期望把積分裡面的$x^{\frac{a}{b}}$去掉，令$x=k^c$, $dx = ck^{c-1}dk$</p><blockquote><p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \int_0^1 k^{\frac{ac}{b}} (1-k^c)^m ck^{c-1} dk$</p></blockquote><p>要把$x^{\frac{a}{b}}$(也就是$k^{\frac{ac}{b}}$)，必須使$\frac{ac}{b}+c-1=0$，解出$c=\frac{b}{a+b}$。<br>將上面的極限式換掉</p><blockquote><p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 \frac{b}{a+b}{(1-k^{\frac{b}{a+b}})}^m dk = m!$<br>$\lim_{a \to 1} lim_{b \to 0} (a+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{a+b}}}{\frac{b}{a+b}}})^m dk = m!$<br>$lim_{b \to 0} (1+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$<br>$\int_0^1 lim_{b \to 0} ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$</p></blockquote><p>考慮一極限$lim_{x \to 0} \frac{1-k^x}{x}$，根據那個好用到不行的法則，得到$lim_{x \to 0} \frac{1-k^x}{x} = -ln k$。</p><blockquote><p>$\int_0^1 (-ln k)^m dk = m!$</p></blockquote><p>令$k=e^{-t}$, $dk = -e^{-t}dt$</p><blockquote><p>$\int_{\infty}^0 -t^m e^{-t} dt = m!$<br>$\int_0^{\infty} t^m e^{-t} dt = m!$</p></blockquote><p>至此，我們可以代入奇怪的數進階乘了d(`･∀･)b<br>甚至可以對$e^{-t}$泰勒展開，拓展到複數域。</p><p>小常識: 階乘其實有很多種解析方式，每種都會產生不同的函數，這只是其中一種，也是實務上使用最多的一種，因為可以連結到Gamma function: $\Gamma(x) = (x-1)!$</p><hr><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cust.edu.tw/mathmet/graph/gamma-prop.htm" target="_blank" rel="noopener">http://www.cust.edu.tw/mathmet/graph/gamma-prop.htm</a><br><a href="https://cosx.org/2013/01/lda-math-gamma-function/" target="_blank" rel="noopener">https://cosx.org/2013/01/lda-math-gamma-function/</a><br><a href="https://zhuanlan.zhihu.com/p/114041258" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/114041258</a><br><a href="https://www.csie.ntu.edu.tw/~b89089/link/gammaFunction.pdf" target="_blank" rel="noopener">https://www.csie.ntu.edu.tw/~b89089/link/gammaFunction.pdf</a><br><a href="https://kknews.cc/zh-tw/education/vlkv53a.html" target="_blank" rel="noopener">https://kknews.cc/zh-tw/education/vlkv53a.html</a><br><a href="http://sgpwe.izt.uam.mx/files/users/uami/jdf/proyectos/Euler_integral.pdf" target="_blank" rel="noopener">http://sgpwe.izt.uam.mx/files/users/uami/jdf/proyectos/Euler_integral.pdf</a></p><hr><p>新年新希望: 數學15級, 英文15級, 自然15級, 研究Gamma function, 補完vpython, 共形映射的文章, 學好abstract algebra, linear algebra, real/complex analysis</p>]]></content>
     
     <summary type="html">
     
@@ -495,60 +539,6 @@
     
     
       <category term="code" scheme="http://yoursite.com/tags/code/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arduino專題製作 part 2</title>
-    <link href="http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-2/"/>
-    <id>http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-2/</id>
-    <published>2020-06-18T15:09:02.000Z</published>
-    <updated>2020-06-18T16:25:38.898Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>!!這裡只講HC05，如果是HC06請按Backspace離開。</strong></p><p>這是我遇過目前最難的部分了。首先使用主從連線的話，需要進入”AT模式”，而新手明顯的不懂到底怎麼進入，尤其是HC05有兩種版本，只有KEY腳位的與只有EN腳位的。<br>兩種進入AT模式的方法又不一樣，容易把新手搞瘋。</p><p>而在處理完AT設定後，Serial視窗上的傳送結尾必須調成NL&amp;CR，還要設定傳送Baud Rate為38400(HC05預設值)，有很多細節需要注意，完全一個新手殺手。</p><hr><p>首先 <strong>配線</strong>: RX -&gt; 11, TX -&gt; 10, EN不須接(如果有KEY位，且，如果需要進入AT mode，請在通電前接上3.3V腳位)</p><p>接著進入AT mode，如果是只有EN的，在通電前按住HC05上面的小按鈕(通電後可以放開)，他的作用可以讓HC05的34腳位通電進入AT mode；而如果是只有KEY，請在通電前接上3.3V腳位。</p><p>打開Serial視窗，設定好 <strong>Baud Rate 38400</strong> 跟結尾符號 <strong>NL&amp;CR</strong>。<br>“正常來說”，沒錯，”正常來說”，當你打出”AT”後，應該會出現”ERROR:(0)”，再打一次，”理論上”，HC05會回你”OK”。(如果都無法，應該檢查一下配線、型號、線路的穩定)。</p><p>如果你是想用手機連藍牙的話，不需要進入AT mode(可能需要載特別的bluetooth app)，但是如果要兩隻HC05互連，需要設定主從關係(主為輸出訊息，從為接收):</p><p>在從的那端，輸入”AT+ADDR?”得到從端的MAC值(不知道這可不可以稱作MAC值?)，請記好。<br>接著在主的那端，輸入”AT+ROLE=1”，接著”AT+BIND=(剛剛從端的MAC值)”。</p><p>接下來”應該”可以讓他們自動互連了，如何判斷呢，在初始狀態下，兩塊模組應該會連閃紅燈，接著一陣死寂，然後兩個紅燈同頻率閃著。</p><p>上 <strong>code</strong>:</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SoftwareSerial.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function">SoftwareSerial <span class="title">BTS</span><span class="params">(<span class="number">10</span>, <span class="number">11</span>)</span></span>; <span class="comment">//rx, tx，配線跟程式設定上是相反的，至於為什麼: "嘴巴講的話，要用耳朵聽"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  pinMode(<span class="number">9</span>, OUTPUT);    <span class="comment">//如果有KEY位的話。</span></span><br><span class="line">  digitalWrite(<span class="number">9</span>, HIGH);</span><br><span class="line">  </span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  Serial.println(<span class="string">"Enter AT commands:"</span>);</span><br><span class="line">  </span><br><span class="line">  BTS.begin(<span class="number">38400</span>);      <span class="comment">//設定Baud rate</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(BTS.available())</span><br><span class="line">    Serial.write(BTS.read());</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(Serial.available())</span><br><span class="line">    BTS.write(Serial.read());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在測試時有些有趣的事情，兩塊模組的MAC值是相同的，原本以為會有問題，後來發現一點問題都沒有。<br>還有Baud rate的問題，弄了很久才搞懂，但是HC05 AT mode設定的Baud Rate到底是設定對於電腦的還是藍牙的，我仍不懂。</p><p>就這樣吧(｡ŏ_ŏ) 下次把藍牙移植到Nano板上，再加個加速度模組把資料回傳。</p><p>這種模組化的測試方式很有用，單個模組看不出優點，但在多個模組在合併時，就會展現出極大的優勢。<br>這是物件導向程式設計裡的一種思維方式，算是啟發我的重要思想(?)。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;!!這裡只講HC05，如果是HC06請按Backspace離開。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;這是我遇過目前最難的部分了。首先使用主從連線的話，需要進入”AT模式”，而新手明顯的不懂到底怎麼進入，尤其是HC05有兩種版本，只有KEY腳位的與只有EN腳位的
-      
-    
-    </summary>
-    
-    
-      <category term="Project" scheme="http://yoursite.com/categories/Project/"/>
-    
-    
-      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arduino專題製作 part 1</title>
-    <link href="http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-1/"/>
-    <id>http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-1/</id>
-    <published>2020-06-18T13:05:54.000Z</published>
-    <updated>2020-07-15T15:38:45.975Z</updated>
-    
-    <content type="html"><![CDATA[<p>又重回到這個熟悉的又有點討厭的領域了@@</p><p>這次做的跟以前國中的循跡自走車不太一樣(其實只是我還沒想好:P )。<br>現在的構思是穿戴式裝置，放一個加速度感應在手上，大概控制機械手臂之類的?<br>反正就先照著這個思路先去做模組測試吧，之後的應用再想想……</p><p>我擁有的材料: 藍牙模組 <strong>HC-05</strong> x2, 加速度模組 <strong>Adafruit ADXL345</strong> x(很多個，因為怕壞掉), <strong>arduino Nano</strong> x1, <strong>arduino</strong>(純的) x(要幾個有幾個)。</p><p>這次先測試 <strong>Adafruit ADXL345</strong>。<br><img src="https://i.imgur.com/UNZCJM9.jpg" alt=""></p><p>在寫code之前要先將<a href="https://github.com/adafruit/Adafruit_ADXL345" target="_blank" rel="noopener">Adafruit_ADXL345_U.h</a> , <a href="https://github.com/adafruit/Adafruit_Sensor" target="_blank" rel="noopener">Adafruit_Sensor.h</a> 這兩個程式庫include</p><p>然後 <strong>配線</strong>: SDA -&gt; A4, SCL -&gt; A5<br>不講廢話直上 <strong>code</strong>:</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Adafruit_Sensor.h&gt;</span></span></span><br><span class="line"><span class="comment">// https://github.com/adafruit/Adafruit_Sensor</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Adafruit_ADXL345_U.h&gt;</span></span></span><br><span class="line"><span class="comment">// https://github.com/adafruit/Adafruit_ADXL345</span></span><br><span class="line"> </span><br><span class="line">Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(<span class="number">923</span>); <span class="comment">//923只是編號，可自取，不要重複就好</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">while</span>(!accel.begin())</span><br><span class="line">    Serial.println(<span class="string">"Error"</span>);</span><br><span class="line"> </span><br><span class="line">  accel.setRange(ADXL345_RANGE_16_G); <span class="comment">//簡單講一下2,4,8,16_G的差別，越低的對於低速動作越敏銳，越高對於高速則越敏銳。</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">sensors_event_t</span> event;</span><br><span class="line">  accel.getEvent(&amp;event);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">float</span> now[<span class="number">3</span>] = &#123;event.acceleration.x, event.acceleration.y, event.acceleration.z&#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (byte i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">  &#123;</span><br><span class="line">Serial.print(now[i]);</span><br><span class="line">Serial.print(<span class="string">" "</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Serial.println();</span><br><span class="line">  </span><br><span class="line">  delay(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其實挺簡單的。 當初在測試時，z軸的數字是9.4多，還以為是壞了，但是覺得這數字挺熟悉但是又不像，嗯…學校是在半山腰，這點誤差好像很正常(?</p><p>嘛，就先這樣吧。下次做HC-05的測試。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;又重回到這個熟悉的又有點討厭的領域了@@&lt;/p&gt;
-&lt;p&gt;這次做的跟以前國中的循跡自走車不太一樣(其實只是我還沒想好:P )。&lt;br&gt;現在的構思是穿戴式裝置，放一個加速度感應在手上，大概控制機械手臂之類的?&lt;br&gt;反正就先照著這個思路先去做模組測試吧，之後的應用再想想……&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="Project" scheme="http://yoursite.com/categories/Project/"/>
-    
-    
-      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
     
   </entry>
   
