@@ -45,31 +45,6 @@
   </entry>
   
   <entry>
-    <title>臺師大資工面試題猜測</title>
-    <link href="http://yoursite.com/2021/03/22/%E8%87%BA%E5%B8%AB%E5%A4%A7%E8%B3%87%E5%B7%A5%E9%9D%A2%E8%A9%A6%E9%A1%8C%E7%8C%9C%E6%B8%AC/"/>
-    <id>http://yoursite.com/2021/03/22/%E8%87%BA%E5%B8%AB%E5%A4%A7%E8%B3%87%E5%B7%A5%E9%9D%A2%E8%A9%A6%E9%A1%8C%E7%8C%9C%E6%B8%AC/</id>
-    <published>2021-03-22T13:20:16.000Z</published>
-    <updated>2021-03-25T15:58:22.362Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>雖然1階還沒過，但是看到臺師大有面試，就來猜猜看究竟會問什麼，猜測依據是網路+我的備審所寫的。</p><p>!這篇只專注在程式方面。</p><hr><h1 id="主體"><a href="#主體" class="headerlink" title="主體"></a>主體</h1><ol><li>指標是什麼?</li></ol><p>存放某個記憶體位址的變數，常用於遞迴類型的資料結構，例如:tree、函數參數傳遞、簡化程式。<br>C/C++具有指標、C#則必須在unsafe區塊中使用、java以參考為主、python則是完全沒有指標概念，但是變數行為類似指標</p><ol start="2"><li>指標與參考的差別?</li></ol><p>參考是一種別名、指標是一個變數，參考在宣告時就必須指定到一個變數；指標可以宣告後不指向任意變數，且可以任意更改指向的對象。<br>參考不會占用記憶體、指標會。</p><ol start="3"><li>變數是什麼?</li></ol><p>可以想像成箱子，存放某種形式的資料。C/C++、java、C#裡面必須在宣告變數同時，就固定他的資料型態，而python則不需要。</p><ol start="4"><li>簡述一下三次樣條函數的推導過程、應用</li></ol><p>有一堆函數的採樣點，我需要盡量擬合回去，利用採樣點分割成各個區間，設定每個區間都是3次多項式，利用每個端點都必須滿足光滑的條件，算出每個區間的3次多項式係數。<br>應用則是，假設我透過測試發現某個外形的機翼比較好，但是此外形是由某個無法解析的函數構成，我可以利用採樣，再利用3次樣條函數擬合，達到以簡單多項式逼近複雜函數的目的。</p><ol start="5"><li>梯度下降與牛頓法的區別?</li></ol><p>梯度下降就像每次都往最陡的方向走下山、而牛頓法不只看最陡的方向，還考慮到這個方向之後變緩或變陡的趨勢來決定步長、方向。</p><ol start="6"><li>印象最深刻的題目?</li></ol><p>如何不用for, goto, while, 乘除法運算子等，設計出求和函式。</p><ol start="7"><li>解釋stack、heap在一個程式裡的作用</li></ol><p>stack保管上一個執行程式的資料，到某個階段時就會再拿出來，例如: function call會將目前執行的東西都推進stack裡，空出暫存器後執行function，執行完後再將stack裡的東西pop出來，繼續運算。<br>heap則是保管動態請求空間的一塊記憶體區域，除非呼叫free、delete否則會被作業系統標示已使用。</p><ol start="8"><li>虛擬函式的作用?</li></ol><p>當一個函式在父類被列為虛擬函式時，代表我們希望他會被子類重新實作，但不一定是強制覆寫，如果要強制子類實作，必須將它宣告為純虛擬函式。<br>但是在C#中一切虛擬函式都是純虛，java則是所有類別方法都是虛擬函式(不是純虛)，只有當使用final或private修飾才能使其不被覆寫、繼承。</p><ol start="9"><li>為何需要treap</li></ol><p>最簡單的二元搜索樹可以通過構造數據，使深度到達最差複雜度O(n)，二元平衡樹可以通過旋轉保持深度為O(log n)，例如: AVL、紅黑樹。<br>但是實作上，旋轉操作十分難寫，coding複雜度極高，對於程式競賽選手來說非常頭痛。<br>treap則是通過結合二元搜索樹+heap的特性，再利用merge-split來維護高度，整體coding複雜度降低不少。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;雖然1階還沒過，但是看到臺師大有面試，就來猜猜看究竟會問什麼，猜測依據是網路+我的備審所寫的。&lt;/p&gt;
-&lt;p&gt;!這篇只專注在程式方面。&lt;/p
-      
-    
-    </summary>
-    
-    
-      <category term="隨筆" scheme="http://yoursite.com/categories/%E9%9A%A8%E7%AD%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>3.19 仲春夜</title>
     <link href="http://yoursite.com/2021/03/20/%E4%BB%B2%E6%98%A5%E5%A4%9C/"/>
     <id>http://yoursite.com/2021/03/20/%E4%BB%B2%E6%98%A5%E5%A4%9C/</id>
@@ -548,6 +523,33 @@
     
     
       <category term="code" scheme="http://yoursite.com/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Arduino專題製作 part 2</title>
+    <link href="http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-2/"/>
+    <id>http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-2/</id>
+    <published>2020-06-18T15:09:02.000Z</published>
+    <updated>2020-06-18T16:25:38.898Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>!!這裡只講HC05，如果是HC06請按Backspace離開。</strong></p><p>這是我遇過目前最難的部分了。首先使用主從連線的話，需要進入”AT模式”，而新手明顯的不懂到底怎麼進入，尤其是HC05有兩種版本，只有KEY腳位的與只有EN腳位的。<br>兩種進入AT模式的方法又不一樣，容易把新手搞瘋。</p><p>而在處理完AT設定後，Serial視窗上的傳送結尾必須調成NL&amp;CR，還要設定傳送Baud Rate為38400(HC05預設值)，有很多細節需要注意，完全一個新手殺手。</p><hr><p>首先 <strong>配線</strong>: RX -&gt; 11, TX -&gt; 10, EN不須接(如果有KEY位，且，如果需要進入AT mode，請在通電前接上3.3V腳位)</p><p>接著進入AT mode，如果是只有EN的，在通電前按住HC05上面的小按鈕(通電後可以放開)，他的作用可以讓HC05的34腳位通電進入AT mode；而如果是只有KEY，請在通電前接上3.3V腳位。</p><p>打開Serial視窗，設定好 <strong>Baud Rate 38400</strong> 跟結尾符號 <strong>NL&amp;CR</strong>。<br>“正常來說”，沒錯，”正常來說”，當你打出”AT”後，應該會出現”ERROR:(0)”，再打一次，”理論上”，HC05會回你”OK”。(如果都無法，應該檢查一下配線、型號、線路的穩定)。</p><p>如果你是想用手機連藍牙的話，不需要進入AT mode(可能需要載特別的bluetooth app)，但是如果要兩隻HC05互連，需要設定主從關係(主為輸出訊息，從為接收):</p><p>在從的那端，輸入”AT+ADDR?”得到從端的MAC值(不知道這可不可以稱作MAC值?)，請記好。<br>接著在主的那端，輸入”AT+ROLE=1”，接著”AT+BIND=(剛剛從端的MAC值)”。</p><p>接下來”應該”可以讓他們自動互連了，如何判斷呢，在初始狀態下，兩塊模組應該會連閃紅燈，接著一陣死寂，然後兩個紅燈同頻率閃著。</p><p>上 <strong>code</strong>:</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SoftwareSerial.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function">SoftwareSerial <span class="title">BTS</span><span class="params">(<span class="number">10</span>, <span class="number">11</span>)</span></span>; <span class="comment">//rx, tx，配線跟程式設定上是相反的，至於為什麼: "嘴巴講的話，要用耳朵聽"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  pinMode(<span class="number">9</span>, OUTPUT);    <span class="comment">//如果有KEY位的話。</span></span><br><span class="line">  digitalWrite(<span class="number">9</span>, HIGH);</span><br><span class="line">  </span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  Serial.println(<span class="string">"Enter AT commands:"</span>);</span><br><span class="line">  </span><br><span class="line">  BTS.begin(<span class="number">38400</span>);      <span class="comment">//設定Baud rate</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(BTS.available())</span><br><span class="line">    Serial.write(BTS.read());</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(Serial.available())</span><br><span class="line">    BTS.write(Serial.read());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在測試時有些有趣的事情，兩塊模組的MAC值是相同的，原本以為會有問題，後來發現一點問題都沒有。<br>還有Baud rate的問題，弄了很久才搞懂，但是HC05 AT mode設定的Baud Rate到底是設定對於電腦的還是藍牙的，我仍不懂。</p><p>就這樣吧(｡ŏ_ŏ) 下次把藍牙移植到Nano板上，再加個加速度模組把資料回傳。</p><p>這種模組化的測試方式很有用，單個模組看不出優點，但在多個模組在合併時，就會展現出極大的優勢。<br>這是物件導向程式設計裡的一種思維方式，算是啟發我的重要思想(?)。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;!!這裡只講HC05，如果是HC06請按Backspace離開。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;這是我遇過目前最難的部分了。首先使用主從連線的話，需要進入”AT模式”，而新手明顯的不懂到底怎麼進入，尤其是HC05有兩種版本，只有KEY腳位的與只有EN腳位的
+      
+    
+    </summary>
+    
+    
+      <category term="Project" scheme="http://yoursite.com/categories/Project/"/>
+    
+    
+      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
     
   </entry>
   
