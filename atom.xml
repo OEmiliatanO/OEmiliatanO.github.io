@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-30T12:46:05.735Z</updated>
+  <updated>2021-04-14T06:10:22.089Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最速降線問題-分數微積分</title>
+    <link href="http://yoursite.com/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%88%86%E6%95%B8%E5%BE%AE%E7%A9%8D%E5%88%86/"/>
+    <id>http://yoursite.com/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%88%86%E6%95%B8%E5%BE%AE%E7%A9%8D%E5%88%86/</id>
+    <published>2021-04-13T13:29:41.000Z</published>
+    <updated>2021-04-14T06:10:22.089Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。<br>總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個是我在網路上看到的解法，蠻特別的<br>這是第二篇。</p><hr><h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>在無摩擦力、只有重力的情況下，一質點從一點A為起點，由速率0開始沿著某曲線滑，至B點(高度不超過A)，求此曲線。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。&lt;br&gt;總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是
+      
+    
+    </summary>
+    
+    
+      <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
+    
+    
+      <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最速降線問題-變分法</title>
+    <link href="http://yoursite.com/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E8%AE%8A%E5%88%86%E6%B3%95/"/>
+    <id>http://yoursite.com/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E8%AE%8A%E5%88%86%E6%B3%95/</id>
+    <published>2021-04-13T13:28:13.000Z</published>
+    <updated>2021-04-14T06:10:13.281Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。<br>總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個是我在網路上看到的解法，蠻特別的<br>這是第二篇。</p><hr><h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>在無摩擦力、只有重力的情況下，一質點從一點A為起點，由速率0開始沿著某曲線滑，至B點(高度不超過A)，求此曲線。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。&lt;br&gt;總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是
+      
+    
+    </summary>
+    
+    
+      <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
+    
+    
+      <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最速降線問題-光解法</title>
+    <link href="http://yoursite.com/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%85%89%E8%A7%A3%E6%B3%95/"/>
+    <id>http://yoursite.com/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%85%89%E8%A7%A3%E6%B3%95/</id>
+    <published>2021-04-13T12:54:05.000Z</published>
+    <updated>2021-04-14T06:09:53.505Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。<br>總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個是我在網路上看到的解法，蠻特別的<br>這是第一篇。</p><hr><h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>在無摩擦力、只有重力的情況下，一質點從一點A為起點，由速率0開始沿著某曲線滑，至B點(高度不超過A)，求此曲線。</p><hr><h1 id="光解法"><a href="#光解法" class="headerlink" title="光解法"></a>光解法</h1><p>約翰·伯努利(歐拉的老師)提出這個解法。</p><p>由費馬原理可以知道光總是走耗時最少的路徑，可以利用光來類比質點，求得最速路徑。</p><p>首先，可以知道一質點垂直方向下降$y$時的速度，$v = \sqrt{2gy}$。<br>可以構造出無限多層、但總厚度固定的不同介質，使得光速也滿足上面的速度條件。<br>又由於折射定律$\frac{sin\theta_k}{v_k} = C$<br><img src="https://imgur.com/3NYHjHZ.png" alt=""><br>得$\frac{sin\theta}{\sqrt{y}} = C\sqrt{2g}$</p><p>這個式子代表，這個曲線的任一點都滿足此條件，由此可以計算出此曲線。</p><p>將$sin\theta$換成$dx,dy,ds$的形式:<br>$\frac{\frac{dx}{ds}}{\sqrt{y}} = C’$</p><p>$\frac{\frac{dx}{\sqrt{dx^2 + dy^2}}}{\sqrt{y}} = C’$</p><p>$\frac{\frac{dx^2}{dx^2 + dy^2}}{y} = C’^2$</p><p>$\frac{dx^2}{dx^2 + dy^2} = yK$, $K = 2gC^2$</p><p>左式上下同除$dx^2$<br>$\frac{1}{1 + y’^2} = yK$</p><p>$y’^2 = (yK)^{-1} - 1$</p><p>$y’ = \sqrt{(yK)^{-1} - 1}$</p><p>$((yK)^{-1} - 1)^{-\frac{1}{2}} dy = dx$</p><p>$(\frac{1 - yK}{yK})^{-\frac{1}{2}} dy = dx$</p><p>$(\frac{yK}{1 - yK})^{\frac{1}{2}} dy = dx$<br>兩邊積分<br>$\int (\frac{yK}{1 - yK})^{\frac{1}{2}} dy = \int dx$</p><p>令$y = \frac{sin^2\theta}{K}$, $dy = \frac{2sin\theta cos\theta}{K} d\theta$</p><p>$\int \frac{2sin^2\theta}{K} d\theta = x$</p><p>$\frac{1}{K}\int 2sin^2\theta d\theta = x$</p><p>$\frac{1}{K}(\theta - \frac{1}{2}sin2\theta) + C = x$</p><p>$\frac{1}{2K}(2\theta - sin2\theta) + C = x$</p><p>整理好，令$\alpha = 2\theta$<br>$x = \frac{1}{4gC^2}(\alpha - sin\alpha) + C$<br>$y = \frac{sin^2\theta}{K} = \frac{1}{4gC^2}(1-cos\alpha)$</p><p>這個即是擺線的參數方程式。</p><hr><h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>這個方法很有創意，也很容易理解，不過跟變分法比起來缺乏一般性，但這不影響這個解法非常精采。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。&lt;br&gt;總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是
+      
+    
+    </summary>
+    
+    
+      <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
+    
+    
+      <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
   
   <entry>
     <title>語法樹</title>
@@ -469,87 +547,6 @@
     
     
       <category term="math" scheme="http://yoursite.com/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arduino專題製作 part 3</title>
-    <link href="http://yoursite.com/2020/07/15/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-3/"/>
-    <id>http://yoursite.com/2020/07/15/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-3/</id>
-    <published>2020-07-15T15:34:41.000Z</published>
-    <updated>2020-07-15T16:58:12.952Z</updated>
-    
-    <content type="html"><![CDATA[<p>發現其實移植到Nano板上面沒什麼好講的，就講講機械手臂跟我遇到的困難好了。</p><p>這個機械手臂其實是上課老師做出來的公制版本，而我把重心放在加速度器測距跟藍芽傳輸，所以我沒自己用一個出來。<br>(機械手臂 圖)<br>這個機械手臂總共有四個馬達，第一個馬達在最下面，負責xy平面(桌面)的旋轉；第二個馬達在中間，負責垂直xy平面的旋轉，第三個、第四個負責比較細部的操作，這邊就沒用到了。</p><p>接著要做的是加速器測距，這個就令我感到困難重重了…</p><p>考慮到感測器可以在短時間取得加速度資料，可以直接使用黎曼積分，不用使用什麼很複雜的公式，只需要國中物理的程度就好。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int8_t</span> dt = <span class="number">1</span>; <span class="comment">// ms</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> a[<span class="number">3</span>], v[<span class="number">3</span>], d[<span class="number">3</span>]; <span class="comment">//Acceleration, Velocity, Displacement</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">get_Acce(); <span class="comment">//接受加速度器資料</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int8_t</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">&#123;</span><br><span class="line">d[i] += <span class="number">0.5</span> * a[i] * dt * <span class="number">0.0001</span> * dt * <span class="number">0.0001</span> + v[i] * <span class="number">0.0001</span>;</span><br><span class="line">v[i] += a[i] * dt * <span class="number">0.0001</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blth(d[<span class="number">0</span>], d[<span class="number">1</span>], d[<span class="number">2</span>]); <span class="comment">//傳送回控制機械手臂的版子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>因為這個加速度器其實蠻(不精準的…放在桌上不動xy軸還是會有值出現。<br>所以我在get_Acce()中加上很多過濾雜質的步驟，比如說直接向下取整之類的，但是在過程中也會讓很多資訊消失@@</p><p>最後的結果就是測出來的距離很不準，如果可以多加幾個感測器去校準說不定可以更好? 但是我沒時間做QAQ</p><p>接著是因為這個機械手臂的構造是用旋轉來位移，牽涉到兩個軸，而不是只要動一軸就好，而且機械手臂要接收的角度，這就需要用反三角函數了。<br><img src="https://i.imgur.com/RR2kJlL.png" alt=""><br>r是機械手臂的臂長，L是某個平面上的位移量。<br>根據$2r sin \frac{\theta}{2} = L$這個等式，可以得到$\theta = 2sin^{-1} \frac{L}{2r}$。</p><p>基本上就是這樣了，因為加速度器的誤差以及機械手臂的構造，導致最終成品…差強人意吧(｡ŏ_ŏ)</p><p>(我每次都沒拍照，害我都沒圖放 (´-ι_-｀)</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;發現其實移植到Nano板上面沒什麼好講的，就講講機械手臂跟我遇到的困難好了。&lt;/p&gt;
-&lt;p&gt;這個機械手臂其實是上課老師做出來的公制版本，而我把重心放在加速度器測距跟藍芽傳輸，所以我沒自己用一個出來。&lt;br&gt;(機械手臂 圖)&lt;br&gt;這個機械手臂總共有四個馬達，第一個馬達在最下
-      
-    
-    </summary>
-    
-    
-      <category term="Project" scheme="http://yoursite.com/categories/Project/"/>
-    
-    
-      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>從零開始的discord bot 心得</title>
-    <link href="http://yoursite.com/2020/06/19/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B%E7%9A%84discord-bot-%E5%BF%83%E5%BE%97/"/>
-    <id>http://yoursite.com/2020/06/19/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B%E7%9A%84discord-bot-%E5%BF%83%E5%BE%97/</id>
-    <published>2020-06-18T16:56:53.000Z</published>
-    <updated>2021-02-26T18:39:06.787Z</updated>
-    
-    <content type="html"><![CDATA[<p>!!這是從<a href="https://emiliatancoding.blogspot.com/" target="_blank" rel="noopener">舊blog</a> 轉移過來的。</p><p>在某一天的午後，突然被拉去寫discord bot，經過許多波折與心血，覺得有一點價值，所以決定記錄下來。<br><img src="https://i.imgur.com/GRXts6Y.png" alt=""></p><p>前幾天，google了資料找到一個頻道有專門在做discord bot的教學。所以就照做了個。<br>一開始很順利，不過python官網載下來的IDE似乎有問題，所以我最後決定使用VS的python。</p><p>接下來就是開始麻煩的地方了，我發現照影片做的bot需要我開啟終端才會回應，也就是說想要這隻bot 24小時待命需要我一直開著電腦，當下決定上網找方法解決，然而卻因為找錯方向所以以為discord提供的webhook就是host功能…<br>導致我以為是自己code有問題，但是後來想想自己電腦上都可以，那有可能的原因就是存code的伺服器(github)需要其他檔案,或webhook其實不是host功能。<br><img src="https://i.imgur.com/NHrhM7T.png" alt=""></p><p>再來幾天就是確認這兩個問題，上網瘋狂找資料後發現兩種都有，但是主要問題是搞錯webhook的功能，最後發現要用heroku+github，一個host一個存code，持久化bot的夢想差點就要實現了，直到heroku狠狠把它摔在地上，碎的跟課本上的碎琉璃一樣。<br><img src="https://i.imgur.com/QTixKyK.jpg" alt=""></p><p>好巧不巧，剛好撞上期中考，這件事我只好列入長期追蹤清單。</p><p>在那段時期的沉澱，我不斷思考是甚麼的問題，伺服器, code, 或者只是我的方向又錯了?<br>反正後來還是沒有任何的進展，就算我只丟一個超簡單的bot還是沒辦法成功host，原因未知。<br>期中考前一個禮拜發現 heroku有跟github連動的功能，抱著死馬當活馬醫的心態試了一下，似乎有host? 綠燈是亮了，但是不知道為甚麼bot還是下線中 Q口Q<br><img src="https://i.imgur.com/uMTQACx.jpg" alt=""></p><p>最後那個頻道出了一集有關host bot的影片，他是用repl.it + uptimerobot，一個host+存code，一個監控repl.it有沒有關掉bot，有就重開。<br>PS. repl.it會隔一段時間就自動關掉bot，所以才需要uptimerobot。</p><p>突破了持久化問題，我的bot瞬間進化了很多，差不多是中古到工業革命。</p><p>接下來的問題其實比起前面都還好，我打算在我的bot加一個neko的功能，主要是受到Fredboat這個音樂bot的影響，這個音樂bot藏了很多彩蛋，我記得我第一次不小心用出來的彩蛋是;;explosion(我也不曉得為甚麼我會打這個東西)，接下來是;;neko, ;;magic, ;;hug，反正一堆奇怪的東西都被我試出來了@@<br><img src="https://i.imgur.com/YvdTdp7.png" alt=""></p><p>我一開始以為是Fredboat自己有用一個圖庫，後來看了看圖片的link，是通向一個叫cdn.nekos.life的網站底下的文件，我決定也在自己的bot實現這個功能。<br>我最一開始的想法就是網路爬蟲，訪問伺服器然後取得檔案列表，不過我對網路爬蟲只有概念，沒有實作過，所以呢…google!<br>但是這就出現了一個問題，首先爬蟲沒辦法取得伺服器檔案列表(其實我也不知道這個神奇想法到底從哪冒出來的，仔細想的話這當然不行且不合理，誰會希望伺服器的檔案被拿到)，再來是我看到的爬蟲都是處理那種有文字跟圖片的網站，爬蟲的原理就是拿到網頁的原始碼，然後進行處理，過濾不相干的東西，只看的到想看的。但是如果你剛剛自己連了一下cdn.neko.life會發現這根本不是一般的網站。<br><img src="https://i.imgur.com/V7gHDHs.png" alt=""></p><p>至此，neko指令開發陷入停滯。</p><p>某一天突然靈機一動，把neko.life貼到google上，結果找到了真的可以觀賞的網頁(=^･ω･^=)<br>而且還找到了nekos.py的模組…似乎是neko.life的製作團隊寫的模組，而且有很多種語言版本(C#, js, python…)，不過在我的電腦上執行不起來，應該是bug。<br>我花了一個下午剖析了nekos.py的原碼，最終發現主要的關鍵是一個叫nekos.life/api/v2/img的網頁，應該也是他們寫的，這個網頁可以隨機找尋圖庫裡面其中一張，並回傳json檔在網頁上，所以爬蟲拿到的就是純粹的json檔，在python裡可以直接用.json()轉換! 基本上這在我的一般python程式可以正常運作。</p><p>不過當我嘗試把code移植到bot的code時，python一直報錯，簡單說就是json格式問題，因為我自己從來沒深入研究過json檔與爬蟲(雖然有爬過文但是看到不是想要的就跳過，所以幾乎沒有充足的經驗)，導致我以為是repl.it不開放requests模組的使用，但是查了一下明明有支援，再度絕望 =。=</p><p>接下來我發呆了一段時間，我思考過很多可能性: 我爬蟲寫爛了, repl.it的requests模組其實跟我VS的是不同版本, 網站有防爬蟲機制。<br>我先檢查了我的code，跟nekos.py原碼比對後，沒差。<br>repl.it的requests跟我裝的都沒差，因為安裝一定都用python官網裝最新的。<br>防爬蟲機制應該在我用python小程式測試時就出現了。</p><p>最後我把爬蟲拿到的網頁原始碼print出來，發現跟我用電腦看到的完全不一樣，真的完全不一樣。</p><p>最後我認為是防爬蟲的機制導致的，因為也只剩下這個可能性了，我加上反”反爬蟲”的headers，成功了。<br>最終neko指令大功告成，我還順便加了fox指令ヽ(=^･ω･^=)丿<br><img src="https://i.imgur.com/TwSzD5m.png" alt=""></p><p>接下來是有關zj的解題數查詢，hunt [id]，我們打算用id去查找使用者的AC數,WA數…<br>有了neko指令的爬蟲知識，這個功能開發基本是沒有難度。<br>可以用爬蟲獲取zj排行榜的網頁原始碼，注意到zj排行榜的url是…page=1&amp;，可以用迴圈去取得網頁原始碼，然後找id的位置，再從id位置找CE，這個區塊就是我們獵物的資料。</p><p>hunt指令實作完成。</p><p>但是因為hunt裡面使用到大量的字串比對，所以速度蠻慢的，可能需要用剖析器加速。</p><p>(功能開發未完…)</p><p>心得:</p><p>整體下來，我認為這個比寫題目有趣很多，不過很吃英文, 資料搜尋, 問題猜測, 還有耐心，code的實力我覺得不太重要，大致上就是貼code然後修修改改，主要的難點在於該怎麼找到問題的癥結點，尤其是在沒人可以幫助你的情況下，只有上網才能找到答案，而且還不一定可以找到你要的答案，或是中文很少人在討論這個問題，必須去找英文資料，看官方的開發手冊。<br>雖然難度頗大，但是成就感十足。(真希望考試都可以考這種題目Zzz。)</p><p>突然曉得為何python會突然火起來，真的太方便了，如果要用C++難度大概是UR難度吧，C#也是可以寫，但不知道有沒有支援discord的模組。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;!!這是從&lt;a href=&quot;https://emiliatancoding.blogspot.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;舊blog&lt;/a&gt; 轉移過來的。&lt;/p&gt;
-&lt;p&gt;在某一天的午後，突然被拉去寫discord bot，經過許
-      
-    
-    </summary>
-    
-    
-      <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
-    
-    
-      <category term="code" scheme="http://yoursite.com/tags/code/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arduino專題製作 part 2</title>
-    <link href="http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-2/"/>
-    <id>http://yoursite.com/2020/06/18/Arduino%E5%B0%88%E9%A1%8C%E8%A3%BD%E4%BD%9C-part-2/</id>
-    <published>2020-06-18T15:09:02.000Z</published>
-    <updated>2020-06-18T16:25:38.898Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>!!這裡只講HC05，如果是HC06請按Backspace離開。</strong></p><p>這是我遇過目前最難的部分了。首先使用主從連線的話，需要進入”AT模式”，而新手明顯的不懂到底怎麼進入，尤其是HC05有兩種版本，只有KEY腳位的與只有EN腳位的。<br>兩種進入AT模式的方法又不一樣，容易把新手搞瘋。</p><p>而在處理完AT設定後，Serial視窗上的傳送結尾必須調成NL&amp;CR，還要設定傳送Baud Rate為38400(HC05預設值)，有很多細節需要注意，完全一個新手殺手。</p><hr><p>首先 <strong>配線</strong>: RX -&gt; 11, TX -&gt; 10, EN不須接(如果有KEY位，且，如果需要進入AT mode，請在通電前接上3.3V腳位)</p><p>接著進入AT mode，如果是只有EN的，在通電前按住HC05上面的小按鈕(通電後可以放開)，他的作用可以讓HC05的34腳位通電進入AT mode；而如果是只有KEY，請在通電前接上3.3V腳位。</p><p>打開Serial視窗，設定好 <strong>Baud Rate 38400</strong> 跟結尾符號 <strong>NL&amp;CR</strong>。<br>“正常來說”，沒錯，”正常來說”，當你打出”AT”後，應該會出現”ERROR:(0)”，再打一次，”理論上”，HC05會回你”OK”。(如果都無法，應該檢查一下配線、型號、線路的穩定)。</p><p>如果你是想用手機連藍牙的話，不需要進入AT mode(可能需要載特別的bluetooth app)，但是如果要兩隻HC05互連，需要設定主從關係(主為輸出訊息，從為接收):</p><p>在從的那端，輸入”AT+ADDR?”得到從端的MAC值(不知道這可不可以稱作MAC值?)，請記好。<br>接著在主的那端，輸入”AT+ROLE=1”，接著”AT+BIND=(剛剛從端的MAC值)”。</p><p>接下來”應該”可以讓他們自動互連了，如何判斷呢，在初始狀態下，兩塊模組應該會連閃紅燈，接著一陣死寂，然後兩個紅燈同頻率閃著。</p><p>上 <strong>code</strong>:</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SoftwareSerial.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function">SoftwareSerial <span class="title">BTS</span><span class="params">(<span class="number">10</span>, <span class="number">11</span>)</span></span>; <span class="comment">//rx, tx，配線跟程式設定上是相反的，至於為什麼: "嘴巴講的話，要用耳朵聽"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  pinMode(<span class="number">9</span>, OUTPUT);    <span class="comment">//如果有KEY位的話。</span></span><br><span class="line">  digitalWrite(<span class="number">9</span>, HIGH);</span><br><span class="line">  </span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  Serial.println(<span class="string">"Enter AT commands:"</span>);</span><br><span class="line">  </span><br><span class="line">  BTS.begin(<span class="number">38400</span>);      <span class="comment">//設定Baud rate</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(BTS.available())</span><br><span class="line">    Serial.write(BTS.read());</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(Serial.available())</span><br><span class="line">    BTS.write(Serial.read());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在測試時有些有趣的事情，兩塊模組的MAC值是相同的，原本以為會有問題，後來發現一點問題都沒有。<br>還有Baud rate的問題，弄了很久才搞懂，但是HC05 AT mode設定的Baud Rate到底是設定對於電腦的還是藍牙的，我仍不懂。</p><p>就這樣吧(｡ŏ_ŏ) 下次把藍牙移植到Nano板上，再加個加速度模組把資料回傳。</p><p>這種模組化的測試方式很有用，單個模組看不出優點，但在多個模組在合併時，就會展現出極大的優勢。<br>這是物件導向程式設計裡的一種思維方式，算是啟發我的重要思想(?)。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;!!這裡只講HC05，如果是HC06請按Backspace離開。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;這是我遇過目前最難的部分了。首先使用主從連線的話，需要進入”AT模式”，而新手明顯的不懂到底怎麼進入，尤其是HC05有兩種版本，只有KEY腳位的與只有EN腳位的
-      
-    
-    </summary>
-    
-    
-      <category term="Project" scheme="http://yoursite.com/categories/Project/"/>
-    
-    
-      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
     
   </entry>
   

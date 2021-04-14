@@ -15,6 +15,10 @@
     
 
     
+        <meta name="description" content="前言這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個是我在網路上看到的解法，蠻特別的這是第二篇。
+
+問題在無摩擦力、只有"/>
+    
 
     <!--Author-->
     
@@ -23,10 +27,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Emilia&#39;s Blog"/>
+        <meta property="og:title" content="最速降線問題-變分法"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個是我在網路上看到的解法，蠻特別的這是第二篇。
+
+問題在無摩擦力、只有"/>
     
 
     <!--Open Graph Site Name-->
@@ -34,7 +42,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -53,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>page - Archives - Emilia&#39;s Blog</title>
+    <title>最速降線問題-變分法 - Emilia&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -168,170 +176,81 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>最速降線問題-變分法</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-04-13
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/筆記/">筆記</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/07/15/Arduino專題製作-part-3/">
-        <h1 class="post-title archive">
-            Arduino專題製作 part 3
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-07-15
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2020/06/19/從零開始的discord-bot-心得/">
-        <h1 class="post-title archive">
-            從零開始的discord bot 心得
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-06-19
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。<br>總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個是我在網路上看到的解法，蠻特別的<br>這是第二篇。</p>
+<hr>
+<h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>在無摩擦力、只有重力的情況下，一質點從一點A為起點，由速率0開始沿著某曲線滑，至B點(高度不超過A)，求此曲線。</p>
+<hr>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2020/06/18/Arduino專題製作-part-2/">
-        <h1 class="post-title archive">
-            Arduino專題製作 part 2
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-06-18
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/06/18/Arduino專題製作-part-1/">
-        <h1 class="post-title archive">
-            Arduino專題製作 part 1
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-06-18
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/05/25/5-25-無題/">
-        <h1 class="post-title archive">
-            5.25 無題
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-05-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/05/10/如何隨機的建一棵樹/">
-        <h1 class="post-title archive">
-            如何隨機的建一棵樹
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-05-10
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/05/08/四維收納箱/">
-        <h1 class="post-title archive">
-            四維收納箱?
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-05-08
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/05/03/初探vpython/">
-        <h1 class="post-title archive">
-            初探vpython
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-05-03
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/04/24/Sudoku/">
-        <h1 class="post-title archive">
-            Sudoku!
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-24
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/04/22/3D-functions/">
-        <h1 class="post-title archive">
-            python - 可視化函數
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-22
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-        <li class="previous"><a href="/archives/page/2/">&larr;  Newer Posts</a></li>
-    
-    
-        <li class="next"><a href="/archives/page/4/">Older Posts  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
