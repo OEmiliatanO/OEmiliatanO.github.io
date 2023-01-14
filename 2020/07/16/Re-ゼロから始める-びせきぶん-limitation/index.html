@@ -244,16 +244,16 @@
 <p>利用剛剛的序列極限思想，可以很輕鬆的理解，一個序列${x_k}$不斷趨近於$c$，同時定義序列${f(x_1), f(x_2), f(x_3), …, f(x_k)}$，可以找到任意實數使$|f(x_n)-L|&lt; \epsilon$，則此函數在$c$上的極限值為$L$</p>
 <p>我以前常常思考 “趨近”是否就是”等於”?<br>後來我認為，這兩種觀念不該混為一談，別再問”趨近”是不是”等於”了，這兩個根本無法比較。<br>趨近是指一個序列的極限值為某數，所以一般寫 某個極限=某個數字，是指說 這個序列的極限值=某個數字。</p>
 <p>再補充一點，當時柯西寫出極限定義時，實數還是不完備的，可能中間還有奇怪的數字(A理數, B理數…)，之後由許多數學家寫出實數基本定理後才使上面的定義變嚴謹。<br>實數基本定理證明了實數是連續的，且只要兩實數中間無任何實數則兩實數相等。</p>
-<h1 id="極限性質"><a href="#極限性質" class="headerlink" title="極限性質"></a>極限性質</h1><p><em>只有當右側極限存在才成立。</em><br>$\lim\limits_{n\to c} k\times f(n) = k \times \lim\limits_{n\to c} f(n)$<br>$\lim\limits_{n\to c} [f(n) + g(n)] = \lim\limits_{n\to c} f(n) + \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) - g(n)] = \lim\limits_{n\to c} f(n) - \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) \times g(n)] = \lim\limits_{n\to c} f(n) \times \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} \frac{f(n)}{g(n)} = \frac{\lim\limits_{n\to c} f(n)}{\lim\limits_{n\to c} g(n)}$</p>
+<h1 id="極限性質"><a href="#極限性質" class="headerlink" title="極限性質"></a>極限性質</h1><p><em>只有當右側極限存在才成立。</em><br>$\lim\limits<em>{n\to c} k\times f(n) = k \times \lim\limits</em>{n\to c} f(n)$<br>$\lim\limits<em>{n\to c} [f(n) + g(n)] = \lim\limits</em>{n\to c} f(n) + \lim\limits<em>{n\to c} g(n)$<br>$\lim\limits</em>{n\to c} [f(n) - g(n)] = \lim\limits<em>{n\to c} f(n) - \lim\limits</em>{n\to c} g(n)$<br>$\lim\limits<em>{n\to c} [f(n) \times g(n)] = \lim\limits</em>{n\to c} f(n) \times \lim\limits<em>{n\to c} g(n)$<br>$\lim\limits</em>{n\to c} \frac{f(n)}{g(n)} = \frac{\lim\limits<em>{n\to c} f(n)}{\lim\limits</em>{n\to c} g(n)}$</p>
 <h1 id="精選題目區"><a href="#精選題目區" class="headerlink" title="精選題目區:"></a>精選題目區:</h1><ol>
 <li>$\lim\limits_{x\to 0} \frac{|x|}{x}$</li>
-<li>$\lim\limits_{x\to 3^+} \lfloor x \rfloor$, $\lim\limits_{x\to 3^-} \lfloor x \rfloor$</li>
-<li>$\lim\limits_{x\to 2^+} \frac{x-3}{x^2-4}, \lim\limits_{x\to 2^-} \frac{x-3}{x^2-4}$</li>
+<li>$\lim\limits<em>{x\to 3^+} \lfloor x \rfloor$, $\lim\limits</em>{x\to 3^-} \lfloor x \rfloor$</li>
+<li>$\lim\limits<em>{x\to 2^+} \frac{x-3}{x^2-4}, \lim\limits</em>{x\to 2^-} \frac{x-3}{x^2-4}$</li>
 <li>$\lim\limits_{x\to 2} \frac{(x-2)^2}{x^2-4}$</li>
 <li>$\lim\limits_{x\to 2^+} tan^{-1} \frac{1}{x-2}$</li>
 <li>$\lim\limits_{\theta \to 0} \frac{\sin \theta}{\theta}$</li>
-<li>$\lim\limits_{\theta \to 0} \frac{\sin (\theta - 1)}{\theta - 1}, \lim\limits_{\theta \to 1} \frac{\sin (\theta - 1)}{\theta - 1}$</li>
-<li>$\lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta}, \lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta ^2}$</li>
+<li>$\lim\limits<em>{\theta \to 0} \frac{\sin (\theta - 1)}{\theta - 1}, \lim\limits</em>{\theta \to 1} \frac{\sin (\theta - 1)}{\theta - 1}$</li>
+<li>$\lim\limits<em>{\theta \to 0} \frac{\cos \theta -1}{\theta}, \lim\limits</em>{\theta \to 0} \frac{\cos \theta -1}{\theta ^2}$</li>
 <li>$\lim\limits_{x\to 0} tan x \sin \frac{1}{x}$</li>
 </ol>
 <h1 id="題目講解區"><a href="#題目講解區" class="headerlink" title="題目講解區:"></a>題目講解區:</h1><ol>
@@ -265,7 +265,7 @@
 </li>
 <li><p>先把x-2這個因式消掉就可以了。<br><strong>Answer:0</strong></p>
 </li>
-<li><p>實際上這個等同於$\lim\limits_{x\to 0^+} tan^{-1} \frac{1}{x}$，而又等同於$\lim\limits_{x\to \infty ^+} tan^{-1} x$，這下你就知道了。<br><strong>Answer:</strong> $\frac{\pi}{2}$</p>
+<li><p>實際上這個等同於$\lim\limits<em>{x\to 0^+} tan^{-1} \frac{1}{x}$，而又等同於$\lim\limits</em>{x\to \infty ^+} tan^{-1} x$，這下你就知道了。<br><strong>Answer:</strong> $\frac{\pi}{2}$</p>
 </li>
 <li><p>需要用到夾擠定理(三明治定理)，依下圖可以寫出不等式$\frac{\sin \theta}{2} \leq \frac{\pi \theta}{2 \pi} \leq \frac{tan \theta}{2}$(三角形與扇形面積)，解出來就得到答案。<br><img src="https://i.imgur.com/69xvwLs.png" alt=""><br><strong>Answer:1</strong></p>
 </li>

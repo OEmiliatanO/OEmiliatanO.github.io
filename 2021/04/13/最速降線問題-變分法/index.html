@@ -235,25 +235,25 @@
 <hr>
 <h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>在無摩擦力、只有重力的情況下，一質點從一點A為起點，由速率0開始沿著某曲線滑，至B點(高度不超過A)，且 <strong>耗時最短</strong> ，求此曲線。</p>
 <hr>
-<h1 id="變分法推導"><a href="#變分法推導" class="headerlink" title="變分法推導"></a>變分法推導</h1><p>最速降線問題是在找$\int^{x_1}_{x_0} \sqrt{\frac{1+y’^2}{2gy}} dx$這個式子的極值。(不知道這個式子怎麼來的可以看<a href="https://oemiliatano.github.io/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%85%89%E8%A7%A3%E6%B3%95/" target="_blank" rel="noopener">上一篇</a>)<br>將這類型問題一般化後可以寫出</p>
-<p>$\int^{x_1}_{x_0} F(x, y, y’) dx$</p>
+<h1 id="變分法推導"><a href="#變分法推導" class="headerlink" title="變分法推導"></a>變分法推導</h1><p>最速降線問題是在找$\int^{x<em>1}</em>{x_0} \sqrt{\frac{1+y’^2}{2gy}} dx$這個式子的極值。(不知道這個式子怎麼來的可以看<a href="https://oemiliatano.github.io/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%85%89%E8%A7%A3%E6%B3%95/" target="_blank" rel="noopener">上一篇</a>)<br>將這類型問題一般化後可以寫出</p>
+<p>$\int^{x<em>1}</em>{x_0} F(x, y, y’) dx$</p>
 <p>其中，$y, y’$是$x$的函數。</p>
-<p>我們想要通過選擇最好的y來得到極值，類似於以前一般函數選取好的x值求極值，但是現在是 <strong>選取好的函數再求目標函數極值</strong><br>相仿於一般函數，可以寫出<br>$I(y) = \int^{x_1}_{x_0} F(x, y, y’) dx$，而這個$I$則被稱為泛函數。<br>也相仿於一般函數求極值，若對泛函求導後使其=0，就可以得到極值，但是該怎麼定義$\frac{dI}{dy}$ ?</p>
+<p>我們想要通過選擇最好的y來得到極值，類似於以前一般函數選取好的x值求極值，但是現在是 <strong>選取好的函數再求目標函數極值</strong><br>相仿於一般函數，可以寫出<br>$I(y) = \int^{x<em>1}</em>{x_0} F(x, y, y’) dx$，而這個$I$則被稱為泛函數。<br>也相仿於一般函數求極值，若對泛函求導後使其=0，就可以得到極值，但是該怎麼定義$\frac{dI}{dy}$ ?</p>
 <p>假定有一函數$y$可以使得$I$到達極值，可以構造出這樣一個東西: $g(\epsilon) = I(y + \epsilon \eta) = I(\hat{y})$，$\hat{y’} = y’ + \epsilon \eta’$<br>$\eta$是任意函數(但兩端點都必須為0)，$\epsilon$是任意實數，由此將這個問題轉為一般的函數求極值問題。<br><img src="https://imgur.com/x78iM1p.png" alt=""></p>
 <p>通過$g(\epsilon)$對$\epsilon$求導數:</p>
-<p>$\frac{dg}{d\epsilon} = \frac{d}{d\epsilon} \int^{x_1}_{x_0} F(x, \hat{y}, \hat{y’}) dx$</p>
-<p>求導跟積分互換<br>$\frac{dg}{d\epsilon} = \int^{x_1}_{x_0} \frac{d}{d\epsilon} F(x, \hat{y}, \hat{y’}) dx$</p>
-<p>現在要求$dF(x, \hat{y}, \hat{y’})$，利用全微分:<br>$dF = F_x dx + F_{\hat{y}} d\hat{y} + F_{\hat{y’}} d\hat{y’}$<br>兩邊同除$d\epsilon$得</p>
-<p>$\frac{dF}{d\epsilon} = F_x \frac{dx}{d\epsilon} + F_{\hat{y}} \frac{d\hat{y}}{d\epsilon} + F_{\hat{y’}}\frac{d\hat{y’}}{d\epsilon}$<br>(底標代表對那個變數的偏微分)</p>
+<p>$\frac{dg}{d\epsilon} = \frac{d}{d\epsilon} \int^{x<em>1}</em>{x_0} F(x, \hat{y}, \hat{y’}) dx$</p>
+<p>求導跟積分互換<br>$\frac{dg}{d\epsilon} = \int^{x<em>1}</em>{x_0} \frac{d}{d\epsilon} F(x, \hat{y}, \hat{y’}) dx$</p>
+<p>現在要求$dF(x, \hat{y}, \hat{y’})$，利用全微分:<br>$dF = F<em>x dx + F</em>{\hat{y}} d\hat{y} + F_{\hat{y’}} d\hat{y’}$<br>兩邊同除$d\epsilon$得</p>
+<p>$\frac{dF}{d\epsilon} = F<em>x \frac{dx}{d\epsilon} + F</em>{\hat{y}} \frac{d\hat{y}}{d\epsilon} + F_{\hat{y’}}\frac{d\hat{y’}}{d\epsilon}$<br>(底標代表對那個變數的偏微分)</p>
 <p>明顯$\frac{dx}{d\epsilon}=0$, $\frac{d\hat{y}}{d\epsilon} = \eta$, $\frac{d\hat(y’)}{d\epsilon} = \eta’$</p>
-<p>$\frac{dF}{d\epsilon} = F_{\hat{y}}\eta + F_{\hat{y’}}\eta’$</p>
+<p>$\frac{dF}{d\epsilon} = F<em>{\hat{y}}\eta + F</em>{\hat{y’}}\eta’$</p>
 <p>將上述結果代回去</p>
-<p>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} F_{\hat{y}}\eta dx + \int_{x_0}^{x_1} F_{\hat{y’}}\eta’ dx$</p>
+<p>$\frac{dg}{d\epsilon} = \int<em>{x_0}^{x_1} F</em>{\hat{y}}\eta dx + \int<em>{x_0}^{x_1} F</em>{\hat{y’}}\eta’ dx$</p>
 <p>將後項分部積分:<br><img src="https://imgur.com/IyiNQDd.png" alt=""></p>
-<p>顯然，$F_{\hat{y’}}\eta|^{x_1}_{x_0} = 0$</p>
-<p>$\int_{x_0}^{x_1} F_{\hat{y}}\eta dx - \int_{x_0}^{x_1} \frac{dF_{\hat{y’}}}{dx}\eta dx$</p>
-<p>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} (F_{\hat{y}} - \frac{dF_{\hat{y’}}}{dx})\eta dx$</p>
-<p>由定義可以知道，當$\epsilon = 0$就可以得到極值，$\frac{dg}{d\epsilon} |^{\epsilon = 0} = 0$，而$\epsilon = 0$時，$\hat{y} = y$, $\hat{y’} = y’$<br>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} (F_{y} - \frac{dF_{y’}}{dx})\eta dx$</p>
+<p>顯然，$F<em>{\hat{y’}}\eta|^{x_1}</em>{x_0} = 0$</p>
+<p>$\int<em>{x_0}^{x_1} F</em>{\hat{y}}\eta dx - \int<em>{x_0}^{x_1} \frac{dF</em>{\hat{y’}}}{dx}\eta dx$</p>
+<p>$\frac{dg}{d\epsilon} = \int<em>{x_0}^{x_1} (F</em>{\hat{y}} - \frac{dF_{\hat{y’}}}{dx})\eta dx$</p>
+<p>由定義可以知道，當$\epsilon = 0$就可以得到極值，$\frac{dg}{d\epsilon} |^{\epsilon = 0} = 0$，而$\epsilon = 0$時，$\hat{y} = y$, $\hat{y’} = y’$<br>$\frac{dg}{d\epsilon} = \int<em>{x_0}^{x_1} (F</em>{y} - \frac{dF_{y’}}{dx})\eta dx$</p>
 <p>最後一步要證明$\int_{a}^{b} f(x)\eta dx = 0$，且$\eta$為任意函數(同樣兩端為0)，則$f(x) = 0$</p>
 <p>定 $r(a) = r(b) = 0$，且$r(x) &gt; 0, x\in[a, b]$</p>
 <p>令 $f(x) = r(x)\eta(x)$</p>
@@ -261,7 +261,7 @@
 <p>因為$r(x)$在$(a,b)$大於0，所以$f(x)$在$(a, b)$中必為0</p>
 <hr>
 <p>利用上面的證明可以知道</p>
-<p>$(F_{y} - \frac{dF_{y’}}{dx}) = 0$</p>
+<p>$(F<em>{y} - \frac{dF</em>{y’}}{dx}) = 0$</p>
 <p>這就是 <strong>歐拉-拉格朗日方程式</strong></p>
 <p>而這個方程式有兩個特殊形式:</p>
 <ol>
@@ -273,7 +273,7 @@
 <hr>
 <h1 id="利用變分法解決最速降線"><a href="#利用變分法解決最速降線" class="headerlink" title="利用變分法解決最速降線"></a>利用變分法解決最速降線</h1><p>回到一開始的式子</p>
 <p>$\int_{x_0}^{x_1} \sqrt{\frac{1+y’^2}{2gy}} dx$</p>
-<p>$\sqrt{\frac{1+y’^2}{2gy}}$就是$F(x, y, y’)$，只需要求解$(F_{y} - \frac{dF_{y’}}{dx}) = 0$就可以得到答案。</p>
+<p>$\sqrt{\frac{1+y’^2}{2gy}}$就是$F(x, y, y’)$，只需要求解$(F<em>{y} - \frac{dF</em>{y’}}{dx}) = 0$就可以得到答案。</p>
 <p>注意到$F$符合第二個特殊形式，故寫成<br>$\sqrt{\frac{1+y’^2}{2gy}} - y’\sqrt{\frac{y’^2}{2(1+y’^2)gy}} = C$<br>整理:<br>$\frac{1+y’^2}{\sqrt{2(1+y’^2)gy}} - \frac{y’^2}{\sqrt{2(1+y’^2)gy}} = C$</p>
 <p>$\frac{1}{\sqrt{2(1+y’^2)gy}}= C$</p>
 <p>$\frac{1}{(1+y’^2)y}= 2gC^2$</p>

@@ -301,13 +301,13 @@
 <p>可以知道$\frac{\partial f}{\partial x}(x, y) = \frac{\partial g}{\partial x}(x, y)$, $\frac{\partial f}{\partial y}(x, y) = \frac{\partial g}{\partial y}(x, y)$</p>
 <p>$\frac{\partial^2 f}{\partial x^2}(x, y) = \frac{\partial^2 g}{\partial x^2}(x, y)$, $\frac{\partial^2 f}{\partial y^2}(x, y) = \frac{\partial^2 g}{\partial y^2}(x, y)$</p>
 <p>接著就可以用剛剛的方法求各項係數，但是當我想展開$f(x,y) = xy$時，卻無法正確展開，所以我認為還需要多加上各變數的乘積，</p>
-<p>$f(x, y) = d + a_1x + b_1y + c_{1,1}xy + a_2x^2 + b_2y^2 + c_{1, 2}xy^2 + c_{2, 1}x^2y + c_{2, 2}x^2y^2 …$</p>
-<p>利用偏微分可以知道<br>$d = f(0, 0)$, $a_1 = \frac{\partial f}{\partial x}(0, 0)$, $b_1 = \frac{\partial f}{\partial y}(0, 0)$, $c_{1, 1} = \frac{\partial^2 f}{\partial x \partial y}(0, 0)$</p>
+<p>$f(x, y) = d + a<em>1x + b_1y + c</em>{1,1}xy + a<em>2x^2 + b_2y^2 + c</em>{1, 2}xy^2 + c<em>{2, 1}x^2y + c</em>{2, 2}x^2y^2 …$</p>
+<p>利用偏微分可以知道<br>$d = f(0, 0)$, $a<em>1 = \frac{\partial f}{\partial x}(0, 0)$, $b_1 = \frac{\partial f}{\partial y}(0, 0)$, $c</em>{1, 1} = \frac{\partial^2 f}{\partial x \partial y}(0, 0)$</p>
 <p>$a_2 = \frac{1}{2!}\frac{\partial^2 f}{\partial x^2}(x, y)$, $b_2 = \frac{1}{2!}\frac{\partial^2 f}{\partial y^2}(x, y)$</p>
 <p>得$f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + \frac{\partial^2 f}{\partial x \partial y}(0, 0)xy + \frac{1}{2!}\frac{\partial^2 f}{\partial x^2}(x, y)x^2 + \frac{1}{2!}\frac{\partial^2 f}{\partial y^2}(x, y)y^2 …$</p>
 <p>更多變數時也是一樣，但是我不知道要怎麼更簡潔的寫出來 (Q _ Q)</p>
 <ul>
-<li>2.27.21 更新<br>後來有想到可以用$\sum_{n=0}^{\infty} \sum_{a_1 + a_2 + … + a_k = n} \frac{1}{a_1! a_2! … a_k!} \frac{\partial^n f}{\partial x_{1}^{a_1} \partial x_{2}^{a_2} … \partial x_{k}^{a^k}}(0, …, 0)x_{1}^{a_1}x_{2}^{a_2}…x_{k}^{a^k}$</li>
+<li>2.27.21 更新<br>後來有想到可以用$\sum<em>{n=0}^{\infty} \sum</em>{a<em>1 + a_2 + … + a_k = n} \frac{1}{a_1! a_2! … a_k!} \frac{\partial^n f}{\partial x</em>{1}^{a<em>1} \partial x</em>{2}^{a<em>2} … \partial x</em>{k}^{a^k}}(0, …, 0)x<em>{1}^{a_1}x</em>{2}^{a<em>2}…x</em>{k}^{a^k}$</li>
 </ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://en.wikipedia.org/wiki/Fractional_calculus" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fractional_calculus</a><br><a href="https://zhuanlan.zhihu.com/p/124627581" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/124627581</a><br><a href="https://en.wikipedia.org/wiki/Taylor%27s_theorem" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Taylor%27s_theorem</a><br><a href="https://mathinsight.org/taylors_theorem_multivariable_introduction" target="_blank" rel="noopener">https://mathinsight.org/taylors_theorem_multivariable_introduction</a><br><a href="https://sites.math.washington.edu/~folland/Math425/taylor2.pdf" target="_blank" rel="noopener">https://sites.math.washington.edu/~folland/Math425/taylor2.pdf</a></p>
 

@@ -344,7 +344,7 @@
 
   
   <url>
-    <loc>http://yoursite.com/tags/Arduino/</loc>
+    <loc>http://yoursite.com/tags/math/</loc>
     <lastmod>2023-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -358,7 +358,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/math/</loc>
+    <loc>http://yoursite.com/tags/Arduino/</loc>
     <lastmod>2023-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -395,14 +395,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/Project/</loc>
+    <loc>http://yoursite.com/categories/%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2023-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/%E7%AD%86%E8%A8%98/</loc>
+    <loc>http://yoursite.com/categories/Project/</loc>
     <lastmod>2023-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

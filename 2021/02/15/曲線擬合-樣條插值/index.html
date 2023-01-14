@@ -261,38 +261,38 @@
 </blockquote>
 <p>線性插值雖然簡單，但無法滿足工程上「光滑」的需求，於是三次樣條就誕生了，最高次數為三能確保不過度扭曲，又可以確保光滑。</p>
 <hr>
-<h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>假設有一複雜函數$f(x)$(難以評估)，需要用簡單函數$s(x)$去逼近，我們現在有$n+1$個取樣點$x_0, x_1$…$x_n$，由此分割出$n$個子區間，<br>$x_0$, $x_1$中間的樣條函數為$s_1(x)$，$x_{i-1}$, $x_i$中間的樣條函數為$s_i(x)$，$i \in [1,n]$<br>那該如何求出$s_i(x) = q_i x^3 + r_i x^2 + s_i x + t_i$ ?<br>我們有以下條件:</p>
+<h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>假設有一複雜函數$f(x)$(難以評估)，需要用簡單函數$s(x)$去逼近，我們現在有$n+1$個取樣點$x<em>0, x_1$…$x_n$，由此分割出$n$個子區間，<br>$x_0$, $x_1$中間的樣條函數為$s_1(x)$，$x</em>{i-1}$, $x_i$中間的樣條函數為$s_i(x)$，$i \in [1,n]$<br>那該如何求出$s_i(x) = q_i x^3 + r_i x^2 + s_i x + t_i$ ?<br>我們有以下條件:</p>
 <ul>
-<li>$s_i(x_i) = s_{i+1}(x_i)$</li>
-<li>$s_i’(x_i) = s_{i+1}’(x_i)$</li>
-<li>$s_i’’(x_i) = s_{i+1}’’(x_i)$<br>因為m=3，可知所有$s_i’’(x)$為同一直線，可寫出直線</li>
+<li>$s<em>i(x_i) = s</em>{i+1}(x_i)$</li>
+<li>$s<em>i’(x_i) = s</em>{i+1}’(x_i)$</li>
+<li>$s<em>i’’(x_i) = s</em>{i+1}’’(x_i)$<br>因為m=3，可知所有$s_i’’(x)$為同一直線，可寫出直線</li>
 </ul>
 <blockquote>
-<p>$\frac{y-s_i’’(x_i)}{x-x_i}=\frac{s_i’’(x_{i-1})-s_i’’(x_i)}{x_{i-1}-x_i}$</p>
+<p>$\frac{y-s<em>i’’(x_i)}{x-x_i}=\frac{s_i’’(x</em>{i-1})-s<em>i’’(x_i)}{x</em>{i-1}-x_i}$</p>
 </blockquote>
 <p>整理一下</p>
 <blockquote>
-<p>$s_i’’(x)=y=(s_i’’(x_{i-1})-s_i’’(x_i))\frac{x-x_i}{x_{i-1}-x_i}+s_i’’(x_i)$</p>
+<p>$s<em>i’’(x)=y=(s_i’’(x</em>{i-1})-s<em>i’’(x_i))\frac{x-x_i}{x</em>{i-1}-x_i}+s_i’’(x_i)$</p>
 </blockquote>
 <p>積分，這邊將$s_i’’(x_i)$寫成$m_i$($m_i$是對應到$x_i$的$i$，因為所有的$s_i’’(x)$都是同一條直線，如果是對應到$s_i$，$m_i$就不會有變化)</p>
 <blockquote>
-<p>$s_i’’(x) = (m_{i-1}-m_i)\frac{x-x_i}{x_{i-1}-x_i}+m_i$<br>$s_i’’(x) = \frac{x-x_i}{x_{i-1}-x_i}m_{i-1} + \frac{x_{i-1}-x}{x_{i-1}-x_i}m_i$<br>$s_i’(x) = \frac{(x-x_i)^2}{2(x_{i-1}-x_i)}m_{i-1}-\frac{(x_{i-1}-x)^2}{2(x_{i-1}-x_i)}m_i+C_1$<br>$s_i(x) = \frac{(x-x_i)^3}{6(x_{i-1}-x_i)}m_{i-1}+\frac{(x_{i-1}-x)^3}{6(x_{i-1}-x_i)}m_i+C_1x+C_2$</p>
+<p>$s<em>i’’(x) = (m</em>{i-1}-m<em>i)\frac{x-x_i}{x</em>{i-1}-x<em>i}+m_i$<br>$s_i’’(x) = \frac{x-x_i}{x</em>{i-1}-x<em>i}m</em>{i-1} + \frac{x<em>{i-1}-x}{x</em>{i-1}-x<em>i}m_i$<br>$s_i’(x) = \frac{(x-x_i)^2}{2(x</em>{i-1}-x<em>i)}m</em>{i-1}-\frac{(x<em>{i-1}-x)^2}{2(x</em>{i-1}-x<em>i)}m_i+C_1$<br>$s_i(x) = \frac{(x-x_i)^3}{6(x</em>{i-1}-x<em>i)}m</em>{i-1}+\frac{(x<em>{i-1}-x)^3}{6(x</em>{i-1}-x_i)}m_i+C_1x+C_2$</p>
 </blockquote>
 <p>現在要求$C_1$, $C_2$，將$s_i(x_i)$寫成$y_i$(同樣，是對應$x_i$)，過程略…</p>
 <blockquote>
-<p>$C_1 = \frac{y_i-y_{i-1}}{x_i-x_{i-1}}-\frac{x_i-x_{i-1}}{6}(m_i - m_{i-1})$<br>$C_2 = y_i-\frac{y_i-y_{i-1}}{x_i-x_{i-1}}x_i-\frac{x_{i-1}-x_i}{6}(m_ix_{i-1}-m_{i-1}x_i)$</p>
+<p>$C<em>1 = \frac{y_i-y</em>{i-1}}{x<em>i-x</em>{i-1}}-\frac{x<em>i-x</em>{i-1}}{6}(m<em>i - m</em>{i-1})$<br>$C<em>2 = y_i-\frac{y_i-y</em>{i-1}}{x<em>i-x</em>{i-1}}x<em>i-\frac{x</em>{i-1}-x<em>i}{6}(m_ix</em>{i-1}-m_{i-1}x_i)$</p>
 </blockquote>
 <p>利用算好的$C_1$, $C_2$將$s_i(x)$寫完整</p>
 <blockquote>
-<p>$s_i(x)=\frac{(x-x_i)^3}{6(x_{i-1}-x_i)}m_{i-1}+\frac{(x_{i-1}-x)^3}{6(x_{i-1}-x_i)}m_i+ [\frac{y_i-y_{i-1}}{x_i-x_{i-1}}-\frac{x_i-x_{i-1}}{6}(m_i - m_{i-1})]x$<br>$+y_i-\frac{y_i-y_{i-1}}{x_i-x_{i-1}}x_i-\frac{x_{i-1}-x_i}{6}(m_ix_{i-1}-m_{i-1}x_i)$</p>
+<p>$s<em>i(x)=\frac{(x-x_i)^3}{6(x</em>{i-1}-x<em>i)}m</em>{i-1}+\frac{(x<em>{i-1}-x)^3}{6(x</em>{i-1}-x<em>i)}m_i+ [\frac{y_i-y</em>{i-1}}{x<em>i-x</em>{i-1}}-\frac{x<em>i-x</em>{i-1}}{6}(m<em>i - m</em>{i-1})]x$<br>$+y<em>i-\frac{y_i-y</em>{i-1}}{x<em>i-x</em>{i-1}}x<em>i-\frac{x</em>{i-1}-x<em>i}{6}(m_ix</em>{i-1}-m_{i-1}x_i)$</p>
 </blockquote>
-<p>現在只有$m_i$需要求解，這時需要用$s_i’(x_i) = s_{i+1}’(x_i)$，注意這時是要先把$s_i(x)$跟$s_{i+1}(x)$寫出來再代$x_i$，不然容易搞混。<br>整理等式極為繁瑣，在此直接給出最後整理好的結果</p>
+<p>現在只有$m<em>i$需要求解，這時需要用$s_i’(x_i) = s</em>{i+1}’(x<em>i)$，注意這時是要先把$s_i(x)$跟$s</em>{i+1}(x)$寫出來再代$x_i$，不然容易搞混。<br>整理等式極為繁瑣，在此直接給出最後整理好的結果</p>
 <blockquote>
-<p>$\frac{6}{x_{i-1}-x_{i+1}}(\frac{y_i-y_{i-1}}{x_i-x_{i-1}}-\frac{y_{i+1}-y_i}{x_{i+1}-x_i}) = \frac{x_{i-1}-x_i}{x_{i-1}-x_{i+1}}m_{i-1} + 2m_i + \frac{x_i-x_{i+1}}{x_{i-1}-x{i+1}}m_{i+1}$</p>
+<p>$\frac{6}{x<em>{i-1}-x</em>{i+1}}(\frac{y<em>i-y</em>{i-1}}{x<em>i-x</em>{i-1}}-\frac{y<em>{i+1}-y_i}{x</em>{i+1}-x<em>i}) = \frac{x</em>{i-1}-x<em>i}{x</em>{i-1}-x<em>{i+1}}m</em>{i-1} + 2m<em>i + \frac{x_i-x</em>{i+1}}{x<em>{i-1}-x{i+1}}m</em>{i+1}$</p>
 </blockquote>
 <p>代換一下，等下比較好寫</p>
 <blockquote>
-<p>$k_i = a_im_{i-1} + 2m_i + c_im_{i+1}$, $i \in [1, n-1]$ –(1)</p>
+<p>$k<em>i = a_im</em>{i-1} + 2m<em>i + c_im</em>{i+1}$, $i \in [1, n-1]$ —(1)</p>
 </blockquote>
 <p>我們有$m_i$, $i \in [0,n]$共$n+1$個未知數要求解，但是上面只有$n-1$個方程式，剩下兩個需要從邊界條件中得到<br>邊界條件分三種:</p>
 <ul>
@@ -308,13 +308,9 @@
 <li>第一種:<br>先將$s_1’(x_0)$, $s_n’(x_n)$寫出來</li>
 </ul>
 <blockquote>
-<p>$y_0’=f’(x_0)=s_1’(x_0)=\frac{x_0-x_1}{2}m_0-\frac{y_1-y_0}{x_1-x_0}-\frac{1}{6}(x_1-x_0)(m_1-m_0)$<br>$y_n’=f’(x_n)=s_n’(x_n)=-\frac{x_{n-1}-x_n}{2}m_n+\frac{y_n-y_{n-1}}{x_n-x_{n-1}}-\frac{1}{6}(x_n-x_{n-1})(m_n-m_{n-1})$</p>
-</blockquote>
-<blockquote>
-<p>$y_0’+\frac{y_1-y_0}{x_1-x_0}=\frac{x_0-x_1}{2}m_0-\frac{1}{6}(x_1-x_0)(m_1-m_0)$<br>$y_n’-\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=-\frac{x_{n-1}-x_n}{2}m_n-\frac{1}{6}(x_n-x_{n-1})(m_n-m_{n-1})$</p>
-</blockquote>
-<blockquote>
-<p>$k_0=\frac{6}{x_0-x_1}(y_0’+\frac{y_1-y_0}{x_1-x_0})=2m_0+m_1$<br>$k_n=\frac{6}{x_{n-1}-x_n}(\frac{y_n-y_{n-1}}{x_n-x_{n-1}}-y_n’)=m_{n-1}+2m_n$</p>
+<p>$y<em>0’=f’(x_0)=s_1’(x_0)=\frac{x_0-x_1}{2}m_0-\frac{y_1-y_0}{x_1-x_0}-\frac{1}{6}(x_1-x_0)(m_1-m_0)$<br>$y_n’=f’(x_n)=s_n’(x_n)=-\frac{x</em>{n-1}-x<em>n}{2}m_n+\frac{y_n-y</em>{n-1}}{x<em>n-x</em>{n-1}}-\frac{1}{6}(x<em>n-x</em>{n-1})(m<em>n-m</em>{n-1})$</p>
+<p>$y<em>0’+\frac{y_1-y_0}{x_1-x_0}=\frac{x_0-x_1}{2}m_0-\frac{1}{6}(x_1-x_0)(m_1-m_0)$<br>$y_n’-\frac{y_n-y</em>{n-1}}{x<em>n-x</em>{n-1}}=-\frac{x<em>{n-1}-x_n}{2}m_n-\frac{1}{6}(x_n-x</em>{n-1})(m<em>n-m</em>{n-1})$</p>
+<p>$k<em>0=\frac{6}{x_0-x_1}(y_0’+\frac{y_1-y_0}{x_1-x_0})=2m_0+m_1$<br>$k_n=\frac{6}{x</em>{n-1}-x<em>n}(\frac{y_n-y</em>{n-1}}{x<em>n-x</em>{n-1}}-y<em>n’)=m</em>{n-1}+2m_n$</p>
 </blockquote>
 <p>利用那$n-1$個條件與算好的邊界條件寫出矩陣<br>$\begin{bmatrix} 2 &amp; 1 \\ a_1 &amp; 2 &amp; c_1 &amp; \\ &amp; a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; &amp; &amp; … \\ &amp;  &amp;  &amp;  &amp;  &amp; 1 &amp; 2\end{bmatrix}\vec{m}=\vec{k}$<br>解矩陣的步驟就等下再寫。</p>
 <ul>
@@ -325,9 +321,9 @@
 </blockquote>
 <p>由上面的等式知</p>
 <blockquote>
-<p>$k_1-a_1m_0=+2m_1+c_1m_2$<br>$k_{n-1}-c_{n-1}m_n=a_{n-1}m_{n-2}+2m_{n-1}$</p>
+<p>$k<em>1-a_1m_0=+2m_1+c_1m_2$<br>$k</em>{n-1}-c<em>{n-1}m_n=a</em>{n-1}m<em>{n-2}+2m</em>{n-1}$</p>
 </blockquote>
-<p>寫出矩陣<br>$\begin{bmatrix} 2 &amp; c_1 \\ a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; a_3 &amp; 2 &amp; c_3 &amp; \\ &amp; &amp; &amp; … \\ &amp;  &amp;  &amp;  &amp;  &amp; a_{n-1} &amp; 2\end{bmatrix}\vec{m}= \begin{bmatrix}k_1-a_1f’’(x_0) \\ k2 \\ … \\ k_{n-1}-c_{n-1}f’’(x_n) \end{bmatrix}$<br>注意這裡的$\vec{m}$是$m_1$到$m_{n-1}$。</p>
+<p>寫出矩陣<br>$\begin{bmatrix} 2 &amp; c<em>1 \\ a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; a_3 &amp; 2 &amp; c_3 &amp; \\ &amp; &amp; &amp; … \\ &amp;  &amp;  &amp;  &amp;  &amp; a</em>{n-1} &amp; 2\end{bmatrix}\vec{m}= \begin{bmatrix}k<em>1-a_1f’’(x_0) \\ k2 \\ … \\ k</em>{n-1}-c<em>{n-1}f’’(x_n) \end{bmatrix}$<br>注意這裡的$\vec{m}$是$m_1$到$m</em>{n-1}$。</p>
 <ul>
 <li>第三種:</li>
 </ul>
@@ -340,49 +336,49 @@
 </blockquote>
 <p>現在我們只有$n$個未知數需要求解<br>由第一個等式，知</p>
 <blockquote>
-<p>$2(x_0-x_1+x_{n-1}-x_n)m_0+(x_0-x_1)m_1+(x_{n-1}-x_n)m_{n-1}=6(\frac{y_1-y_0}{x_1-x_0}+\frac{y_n-y_{n-1}}{x_n-x_{n-1}})$</p>
+<p>$2(x<em>0-x_1+x</em>{n-1}-x<em>n)m_0+(x_0-x_1)m_1+(x</em>{n-1}-x<em>n)m</em>{n-1}=6(\frac{y<em>1-y_0}{x_1-x_0}+\frac{y_n-y</em>{n-1}}{x<em>n-x</em>{n-1}})$</p>
 </blockquote>
 <p>代換</p>
 <blockquote>
-<p>$a_0m_0+b_0m_1+c_0m_{n-1}=k_0$</p>
+<p>$a<em>0m_0+b_0m_1+c_0m</em>{n-1}=k_0$</p>
 </blockquote>
 <p>再由(1)得</p>
 <blockquote>
-<p>$k_{n-1}=a_{n-1}m_{n-2}+2m_{n-1}+c_{n-1}m_n$</p>
+<p>$k<em>{n-1}=a</em>{n-1}m<em>{n-2}+2m</em>{n-1}+c_{n-1}m_n$</p>
 </blockquote>
-<p>寫出矩陣<br>$\begin{bmatrix} a_0 &amp; b_0 &amp; &amp; … &amp; &amp; &amp; c_0 \\ a_1 &amp; 2 &amp; c_1 &amp; \\  &amp; a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; &amp; &amp; … \\ c_{n-1} &amp;  &amp;  &amp; …  &amp;  &amp; a_{n-1} &amp; 2\end{bmatrix}\vec{m}=\vec{k}$<br>$\vec{m}$是從$0~n-1$，$\vec{k}$同理。</p>
+<p>寫出矩陣<br>$\begin{bmatrix} a<em>0 &amp; b_0 &amp; &amp; … &amp; &amp; &amp; c_0 \\ a_1 &amp; 2 &amp; c_1 &amp; \\  &amp; a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; &amp; &amp; … \\ c</em>{n-1} &amp;  &amp;  &amp; …  &amp;  &amp; a_{n-1} &amp; 2\end{bmatrix}\vec{m}=\vec{k}$<br>$\vec{m}$是從$0~n-1$，$\vec{k}$同理。</p>
 <hr>
-<h2 id="解方程"><a href="#解方程" class="headerlink" title="解方程"></a>解方程</h2><p>算出來的矩陣為$A$，寫出等式$A\vec{m}=\vec{k}$<br>將$A$拆解成$LU$矩陣，<br>$L = \begin{bmatrix} d_0 &amp; &amp; &amp; &amp; &amp; \\ l_1 &amp; d_1 &amp; &amp; \\  &amp; l_2 &amp; d_2 &amp; &amp; \\ &amp; &amp; &amp; … \\ &amp; &amp; &amp; &amp; l_n &amp; d_n\end{bmatrix}$<br>$U = \begin{bmatrix} 1 &amp; u_0 &amp; &amp; &amp;  \\ &amp; 1 &amp; u_1 &amp; \\ &amp; &amp; 1 &amp; u_2 &amp; \\ &amp; &amp; &amp; … &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; u_{n-1} \\ &amp; &amp; &amp; &amp; &amp; 1 \end{bmatrix}$</p>
+<h2 id="解方程"><a href="#解方程" class="headerlink" title="解方程"></a>解方程</h2><p>算出來的矩陣為$A$，寫出等式$A\vec{m}=\vec{k}$<br>將$A$拆解成$LU$矩陣，<br>$L = \begin{bmatrix} d<em>0 &amp; &amp; &amp; &amp; &amp; \\ l_1 &amp; d_1 &amp; &amp; \\  &amp; l_2 &amp; d_2 &amp; &amp; \\ &amp; &amp; &amp; … \\ &amp; &amp; &amp; &amp; l_n &amp; d_n\end{bmatrix}$<br>$U = \begin{bmatrix} 1 &amp; u_0 &amp; &amp; &amp;  \\ &amp; 1 &amp; u_1 &amp; \\ &amp; &amp; 1 &amp; u_2 &amp; \\ &amp; &amp; &amp; … &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; u</em>{n-1} \\ &amp; &amp; &amp; &amp; &amp; 1 \end{bmatrix}$</p>
 <p>根據使用的邊界條件不同而有所不同，而第一,二種步驟是相同的<br>先推出$d,l,u$的遞推關係，解出$\vec{w}$ ($U\vec{m}$)<br>在利用$U\vec{m}=\vec{w}$解出$\vec{m}$</p>
 <ul>
 <li>第一種:</li>
 </ul>
 <p>由$A=LU$可以觀察到</p>
 <blockquote>
-<p>$d_0=2,u_0=\frac{1}{2}$<br>$l_i=a_i$<br>$d_i=2-u_{i-1}l_i$<br>$u_i=\frac{c_i}{d_i}$</p>
+<p>$d<em>0=2,u_0=\frac{1}{2}$<br>$l_i=a_i$<br>$d_i=2-u</em>{i-1}l_i$<br>$u_i=\frac{c_i}{d_i}$</p>
 </blockquote>
 <p>由$L\vec{w}=\vec{k}$知</p>
 <blockquote>
-<p>$w_0=\frac{k_0}{d_0}$<br>$w_i=\frac{k_i-l_iw_{i-1}}{d_i}$</p>
+<p>$w<em>0=\frac{k_0}{d_0}$<br>$w_i=\frac{k_i-l_iw</em>{i-1}}{d_i}$</p>
 </blockquote>
 <p>再由$U\vec{m}=\vec{w}$得</p>
 <blockquote>
-<p>$m_n=w_n$<br>$m_i=w_i-u_im_{i+1}$</p>
+<p>$m<em>n=w_n$<br>$m_i=w_i-u_im</em>{i+1}$</p>
 </blockquote>
 <ul>
 <li>第二種:</li>
 </ul>
 <p>由$A=LU$可以觀察到</p>
 <blockquote>
-<p>$d_1=2$<br>$l_i=a_i$<br>$d_i=2-l_iu_{i-1}$<br>$u_i=\frac{c_i}{d_i}$</p>
+<p>$d<em>1=2$<br>$l_i=a_i$<br>$d_i=2-l_iu</em>{i-1}$<br>$u_i=\frac{c_i}{d_i}$</p>
 </blockquote>
 <p>由$L\vec{w}=\vec{k}$知</p>
 <blockquote>
-<p>$w_1=\frac{k_1}{d_1}$<br>$w_i=\frac{k_i-l_iw_{i-1}}{d_i}$</p>
+<p>$w<em>1=\frac{k_1}{d_1}$<br>$w_i=\frac{k_i-l_iw</em>{i-1}}{d_i}$</p>
 </blockquote>
 <p>再由$U\vec{m}=\vec{w}$得</p>
 <blockquote>
-<p>$m_n=w_n$<br>$m_i=w_i-u_im_{i+1}$</p>
+<p>$m<em>n=w_n$<br>$m_i=w_i-u_im</em>{i+1}$</p>
 </blockquote>
 <ul>
 <li>第三種:</li>
@@ -412,7 +408,6 @@
 </li>
 <li><p>函式可視化</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"function.txt"</span>, <span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">10.9</span>, <span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">a = []</span><br><span class="line">b = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> x:</span><br><span class="line">    s = f.readline()</span><br><span class="line">    a.append(float(s.strip()))</span><br><span class="line">    s = f.readline()</span><br><span class="line">    b.append(float(s.strip()))</span><br><span class="line"></span><br><span class="line">y1 = np.array(a) <span class="comment"># real blue</span></span><br><span class="line"><span class="comment">#print(y1)</span></span><br><span class="line">y2 = np.array(b) <span class="comment"># predict orange</span></span><br><span class="line"><span class="comment">#print(y2)</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2)</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <hr>

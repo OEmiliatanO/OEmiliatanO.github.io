@@ -240,13 +240,13 @@
 <blockquote>
 <p>$f(k,m) = \frac{m}{k+1}f(k+1,m-1)$</p>
 </blockquote>
-<p>這樣一個遞迴式。<br>把它展開後會得到$f(k,m)=\frac{m!}{\prod_{i=1}^{m+1}(k+i)}$，移項得到$f(k,m)\prod_{i=1}^{m+1}(k+i)=m!$<br>這算是階乘展開的第一步，雖然這個形式還只能代正整數。<br>我們繼續把它展開，無法代除了正整數以外是因為這部分$\prod_{i=1}^{m+1}(k+i)$，如果可以把它消掉或許可以成功拓展。<br>令$k=\frac{a}{b}$，整理上面的公式得，</p>
+<p>這樣一個遞迴式。<br>把它展開後會得到$f(k,m)=\frac{m!}{\prod<em>{i=1}^{m+1}(k+i)}$，移項得到$f(k,m)\prod</em>{i=1}^{m+1}(k+i)=m!$<br>這算是階乘展開的第一步，雖然這個形式還只能代正整數。<br>我們繼續把它展開，無法代除了正整數以外是因為這部分$\prod_{i=1}^{m+1}(k+i)$，如果可以把它消掉或許可以成功拓展。<br>令$k=\frac{a}{b}$，整理上面的公式得，</p>
 <blockquote>
-<p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!}{\prod_{i=1}^{m+1}(\frac{a}{b}+i)}$<br>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!b^{m+1}}{\prod_{i=1}^{m+1}(a+ib)}$</p>
+<p>$\int<em>0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!}{\prod</em>{i=1}^{m+1}(\frac{a}{b}+i)}$<br>$\int<em>0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!b^{m+1}}{\prod</em>{i=1}^{m+1}(a+ib)}$</p>
 </blockquote>
 <p>如果取極限$a \to 1$, $b \to 0$，右邊式子的分數就會消掉，但是上面的$b^{m+1}$很礙事，既然解決不了問題，就解決造成問題的東西，<br>先把$b^{m+1}$弄去左邊，再取極限</p>
 <blockquote>
-<p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = m!$</p>
+<p>$\lim<em>{a \to 1} lim</em>{b \to 0} b^{-(m+1)}\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = m!$</p>
 </blockquote>
 <p>現在我們focus在積分上，我們期望把積分裡面的$x^{\frac{a}{b}}$去掉，令$x=k^c$, $dx = ck^{c-1}dk$</p>
 <blockquote>
@@ -254,9 +254,9 @@
 </blockquote>
 <p>要把$x^{\frac{a}{b}}$(也就是$k^{\frac{ac}{b}}$)，必須使$\frac{ac}{b}+c-1=0$，解出$c=\frac{b}{a+b}$。<br>將上面的極限式換掉</p>
 <blockquote>
-<p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 \frac{b}{a+b}{(1-k^{\frac{b}{a+b}})}^m dk = m!$<br>$\lim_{a \to 1} lim_{b \to 0} (a+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{a+b}}}{\frac{b}{a+b}}})^m dk = m!$<br>$lim_{b \to 0} (1+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$<br>$\int_0^1 lim_{b \to 0} ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$</p>
+<p>$\lim<em>{a \to 1} lim</em>{b \to 0} b^{-(m+1)}\int<em>0^1 \frac{b}{a+b}{(1-k^{\frac{b}{a+b}})}^m dk = m!$<br>$\lim</em>{a \to 1} lim<em>{b \to 0} (a+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{a+b}}}{\frac{b}{a+b}}})^m dk = m!$<br>$lim</em>{b \to 0} (1+b)^{-(m+1)}\int<em>0^1 ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$<br>$\int_0^1 lim</em>{b \to 0} ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$</p>
 </blockquote>
-<p>考慮一極限$lim_{x \to 0} \frac{1-k^x}{x}$，根據那個好用到不行的法則，得到$lim_{x \to 0} \frac{1-k^x}{x} = -ln k$。</p>
+<p>考慮一極限$lim<em>{x \to 0} \frac{1-k^x}{x}$，根據那個好用到不行的法則，得到$lim</em>{x \to 0} \frac{1-k^x}{x} = -ln k$。</p>
 <blockquote>
 <p>$\int_0^1 (-ln k)^m dk = m!$</p>
 </blockquote>
