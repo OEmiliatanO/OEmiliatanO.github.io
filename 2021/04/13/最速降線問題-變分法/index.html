@@ -238,58 +238,58 @@
 <h1 id="變分法推導"><a href="#變分法推導" class="headerlink" title="變分法推導"></a>變分法推導</h1><p>最速降線問題是在找$\int^{x_1}_{x_0} \sqrt{\frac{1+y’^2}{2gy}} dx$這個式子的極值。(不知道這個式子怎麼來的可以看<a target="_blank" rel="noopener" href="https://oemiliatano.github.io/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%85%89%E8%A7%A3%E6%B3%95/">上一篇</a>)<br>將這類型問題一般化後可以寫出</p>
 <p>$\int^{x_1}_{x_0} F(x, y, y’) dx$</p>
 <p>其中，$y, y’$是$x$的函數。</p>
-<p>我們想要通過選擇最好的y來得到極值，類似於以前一般函數選取好的x值求極值，但是現在是 <strong>選取好的函數再求目標函數極值</strong><br>相仿於一般函數，可以寫出<br>$I(y) &#x3D; \int^{x_1}_{x_0} F(x, y, y’) dx$，而這個$I$則被稱為泛函數。<br>也相仿於一般函數求極值，若對泛函求導後使其&#x3D;0，就可以得到極值，但是該怎麼定義$\frac{dI}{dy}$ ?</p>
-<p>假定有一函數$y$可以使得$I$到達極值，可以構造出這樣一個東西: $g(\epsilon) &#x3D; I(y + \epsilon \eta) &#x3D; I(\hat{y})$，$\hat{y’} &#x3D; y’ + \epsilon \eta’$<br>$\eta$是任意函數(但兩端點都必須為0)，$\epsilon$是任意實數，由此將這個問題轉為一般的函數求極值問題。<br><img src="https://imgur.com/x78iM1p.png"></p>
+<p>我們想要通過選擇最好的y來得到極值，類似於以前一般函數選取好的x值求極值，但是現在是 <strong>選取好的函數再求目標函數極值</strong><br>相仿於一般函數，可以寫出<br>$I(y) = \int^{x_1}_{x_0} F(x, y, y’) dx$，而這個$I$則被稱為泛函數。<br>也相仿於一般函數求極值，若對泛函求導後使其=0，就可以得到極值，但是該怎麼定義$\frac{dI}{dy}$ ?</p>
+<p>假定有一函數$y$可以使得$I$到達極值，可以構造出這樣一個東西: $g(\epsilon) = I(y + \epsilon \eta) = I(\hat{y})$，$\hat{y’} = y’ + \epsilon \eta’$<br>$\eta$是任意函數(但兩端點都必須為0)，$\epsilon$是任意實數，由此將這個問題轉為一般的函數求極值問題。<br><img src="https://imgur.com/x78iM1p.png" alt=""></p>
 <p>通過$g(\epsilon)$對$\epsilon$求導數:</p>
-<p>$\frac{dg}{d\epsilon} &#x3D; \frac{d}{d\epsilon} \int^{x_1}_{x_0} F(x, \hat{y}, \hat{y’}) dx$</p>
-<p>求導跟積分互換<br>$\frac{dg}{d\epsilon} &#x3D; \int^{x_1}_{x_0} \frac{d}{d\epsilon} F(x, \hat{y}, \hat{y’}) dx$</p>
-<p>現在要求$dF(x, \hat{y}, \hat{y’})$，利用全微分:<br>$dF &#x3D; F_x dx + F_{\hat{y}} d\hat{y} + F_{\hat{y’}} d\hat{y’}$<br>兩邊同除$d\epsilon$得</p>
-<p>$\frac{dF}{d\epsilon} &#x3D; F_x \frac{dx}{d\epsilon} + F_{\hat{y}} \frac{d\hat{y}}{d\epsilon} + F_{\hat{y’}}\frac{d\hat{y’}}{d\epsilon}$<br>(底標代表對那個變數的偏微分)</p>
-<p>明顯$\frac{dx}{d\epsilon}&#x3D;0$, $\frac{d\hat{y}}{d\epsilon} &#x3D; \eta$, $\frac{d\hat(y’)}{d\epsilon} &#x3D; \eta’$</p>
-<p>$\frac{dF}{d\epsilon} &#x3D; F_{\hat{y}}\eta + F_{\hat{y’}}\eta’$</p>
+<p>$\frac{dg}{d\epsilon} = \frac{d}{d\epsilon} \int^{x_1}_{x_0} F(x, \hat{y}, \hat{y’}) dx$</p>
+<p>求導跟積分互換<br>$\frac{dg}{d\epsilon} = \int^{x_1}_{x_0} \frac{d}{d\epsilon} F(x, \hat{y}, \hat{y’}) dx$</p>
+<p>現在要求$dF(x, \hat{y}, \hat{y’})$，利用全微分:<br>$dF = F_x dx + F_{\hat{y}} d\hat{y} + F_{\hat{y’}} d\hat{y’}$<br>兩邊同除$d\epsilon$得</p>
+<p>$\frac{dF}{d\epsilon} = F_x \frac{dx}{d\epsilon} + F_{\hat{y}} \frac{d\hat{y}}{d\epsilon} + F_{\hat{y’}}\frac{d\hat{y’}}{d\epsilon}$<br>(底標代表對那個變數的偏微分)</p>
+<p>明顯$\frac{dx}{d\epsilon}=0$, $\frac{d\hat{y}}{d\epsilon} = \eta$, $\frac{d\hat(y’)}{d\epsilon} = \eta’$</p>
+<p>$\frac{dF}{d\epsilon} = F_{\hat{y}}\eta + F_{\hat{y’}}\eta’$</p>
 <p>將上述結果代回去</p>
-<p>$\frac{dg}{d\epsilon} &#x3D; \int_{x_0}^{x_1} F_{\hat{y}}\eta dx + \int_{x_0}^{x_1} F_{\hat{y’}}\eta’ dx$</p>
-<p>將後項分部積分:<br><img src="https://imgur.com/IyiNQDd.png"></p>
-<p>顯然，$F_{\hat{y’}}\eta|^{x_1}_{x_0} &#x3D; 0$</p>
+<p>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} F_{\hat{y}}\eta dx + \int_{x_0}^{x_1} F_{\hat{y’}}\eta’ dx$</p>
+<p>將後項分部積分:<br><img src="https://imgur.com/IyiNQDd.png" alt=""></p>
+<p>顯然，$F_{\hat{y’}}\eta|^{x_1}_{x_0} = 0$</p>
 <p>$\int_{x_0}^{x_1} F_{\hat{y}}\eta dx - \int_{x_0}^{x_1} \frac{dF_{\hat{y’}}}{dx}\eta dx$</p>
-<p>$\frac{dg}{d\epsilon} &#x3D; \int_{x_0}^{x_1} (F_{\hat{y}} - \frac{dF_{\hat{y’}}}{dx})\eta dx$</p>
-<p>由定義可以知道，當$\epsilon &#x3D; 0$就可以得到極值，$\frac{dg}{d\epsilon} |^{\epsilon &#x3D; 0} &#x3D; 0$，而$\epsilon &#x3D; 0$時，$\hat{y} &#x3D; y$, $\hat{y’} &#x3D; y’$<br>$\frac{dg}{d\epsilon} &#x3D; \int_{x_0}^{x_1} (F_{y} - \frac{dF_{y’}}{dx})\eta dx$</p>
-<p>最後一步要證明$\int_{a}^{b} f(x)\eta dx &#x3D; 0$，且$\eta$為任意函數(同樣兩端為0)，則$f(x) &#x3D; 0$</p>
-<p>定 $r(a) &#x3D; r(b) &#x3D; 0$，且$r(x) &gt; 0, x\in[a, b]$</p>
-<p>令 $f(x) &#x3D; r(x)\eta(x)$</p>
-<p>$\int^{b}_{a} r(x)\eta^2(x) dx &#x3D; 0$</p>
+<p>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} (F_{\hat{y}} - \frac{dF_{\hat{y’}}}{dx})\eta dx$</p>
+<p>由定義可以知道，當$\epsilon = 0$就可以得到極值，$\frac{dg}{d\epsilon} |^{\epsilon = 0} = 0$，而$\epsilon = 0$時，$\hat{y} = y$, $\hat{y’} = y’$<br>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} (F_{y} - \frac{dF_{y’}}{dx})\eta dx$</p>
+<p>最後一步要證明$\int_{a}^{b} f(x)\eta dx = 0$，且$\eta$為任意函數(同樣兩端為0)，則$f(x) = 0$</p>
+<p>定 $r(a) = r(b) = 0$，且$r(x) &gt; 0, x\in[a, b]$</p>
+<p>令 $f(x) = r(x)\eta(x)$</p>
+<p>$\int^{b}_{a} r(x)\eta^2(x) dx = 0$</p>
 <p>因為$r(x)$在$(a,b)$大於0，所以$f(x)$在$(a, b)$中必為0</p>
 <hr>
 <p>利用上面的證明可以知道</p>
-<p>$(F_{y} - \frac{dF_{y’}}{dx}) &#x3D; 0$</p>
+<p>$(F_{y} - \frac{dF_{y’}}{dx}) = 0$</p>
 <p>這就是 <strong>歐拉-拉格朗日方程式</strong></p>
 <p>而這個方程式有兩個特殊形式:</p>
 <ol>
-<li><p>若f(x, y, y’) &#x3D; f(x, y’)，可寫成 $F_{y’} &#x3D; C$</p>
+<li><p>若f(x, y, y’) = f(x, y’)，可寫成 $F_{y’} = C$</p>
 </li>
-<li><p>若f(x, y, y’) &#x3D; f(y, y’)，可寫成 $F - y’F_{y’} &#x3D; C$</p>
+<li><p>若f(x, y, y’) = f(y, y’)，可寫成 $F - y’F_{y’} = C$</p>
 </li>
 </ol>
 <hr>
 <h1 id="利用變分法解決最速降線"><a href="#利用變分法解決最速降線" class="headerlink" title="利用變分法解決最速降線"></a>利用變分法解決最速降線</h1><p>回到一開始的式子</p>
 <p>$\int_{x_0}^{x_1} \sqrt{\frac{1+y’^2}{2gy}} dx$</p>
-<p>$\sqrt{\frac{1+y’^2}{2gy}}$就是$F(x, y, y’)$，只需要求解$(F_{y} - \frac{dF_{y’}}{dx}) &#x3D; 0$就可以得到答案。</p>
-<p>注意到$F$符合第二個特殊形式，故寫成<br>$\sqrt{\frac{1+y’^2}{2gy}} - y’\sqrt{\frac{y’^2}{2(1+y’^2)gy}} &#x3D; C$<br>整理:<br>$\frac{1+y’^2}{\sqrt{2(1+y’^2)gy}} - \frac{y’^2}{\sqrt{2(1+y’^2)gy}} &#x3D; C$</p>
-<p>$\frac{1}{\sqrt{2(1+y’^2)gy}}&#x3D; C$</p>
-<p>$\frac{1}{(1+y’^2)y}&#x3D; 2gC^2$</p>
-<p>$\frac{1}{(1+y’^2)}&#x3D; yK$, $K &#x3D; 2gC^2$</p>
-<p>$y’^2 &#x3D; (yK)^{-1} - 1$</p>
-<p>$y’ &#x3D; \sqrt{(yK)^{-1} - 1}$</p>
-<p>$((yK)^{-1} - 1)^{-\frac{1}{2}} dy &#x3D; dx$</p>
-<p>$(\frac{1 - yK}{yK})^{-\frac{1}{2}} dy &#x3D; dx$</p>
-<p>$(\frac{yK}{1 - yK})^{\frac{1}{2}} dy &#x3D; dx$<br>兩邊積分<br>$\int (\frac{yK}{1 - yK})^{\frac{1}{2}} dy &#x3D; \int dx$</p>
-<p>令$y &#x3D; \frac{sin^2\theta}{K}$, $dy &#x3D; \frac{2sin\theta cos\theta}{K} d\theta$</p>
-<p>$\int \frac{2sin^2\theta}{K} d\theta &#x3D; x$</p>
-<p>$\frac{1}{K}\int 2sin^2\theta d\theta &#x3D; x$</p>
-<p>$\frac{1}{K}(\theta - \frac{1}{2}sin2\theta) + C &#x3D; x$</p>
-<p>$\frac{1}{2K}(2\theta - sin2\theta) + C &#x3D; x$</p>
-<p>整理好，令$\alpha &#x3D; 2\theta$<br>$x &#x3D; \frac{1}{4gC^2}(\alpha - sin\alpha) + C$<br>$y &#x3D; \frac{sin^2\theta}{K} &#x3D; \frac{1}{4gC^2}(1-cos\alpha)$</p>
-<p>這個即是 __擺線的參數方程式__。</p>
+<p>$\sqrt{\frac{1+y’^2}{2gy}}$就是$F(x, y, y’)$，只需要求解$(F_{y} - \frac{dF_{y’}}{dx}) = 0$就可以得到答案。</p>
+<p>注意到$F$符合第二個特殊形式，故寫成<br>$\sqrt{\frac{1+y’^2}{2gy}} - y’\sqrt{\frac{y’^2}{2(1+y’^2)gy}} = C$<br>整理:<br>$\frac{1+y’^2}{\sqrt{2(1+y’^2)gy}} - \frac{y’^2}{\sqrt{2(1+y’^2)gy}} = C$</p>
+<p>$\frac{1}{\sqrt{2(1+y’^2)gy}}= C$</p>
+<p>$\frac{1}{(1+y’^2)y}= 2gC^2$</p>
+<p>$\frac{1}{(1+y’^2)}= yK$, $K = 2gC^2$</p>
+<p>$y’^2 = (yK)^{-1} - 1$</p>
+<p>$y’ = \sqrt{(yK)^{-1} - 1}$</p>
+<p>$((yK)^{-1} - 1)^{-\frac{1}{2}} dy = dx$</p>
+<p>$(\frac{1 - yK}{yK})^{-\frac{1}{2}} dy = dx$</p>
+<p>$(\frac{yK}{1 - yK})^{\frac{1}{2}} dy = dx$<br>兩邊積分<br>$\int (\frac{yK}{1 - yK})^{\frac{1}{2}} dy = \int dx$</p>
+<p>令$y = \frac{sin^2\theta}{K}$, $dy = \frac{2sin\theta cos\theta}{K} d\theta$</p>
+<p>$\int \frac{2sin^2\theta}{K} d\theta = x$</p>
+<p>$\frac{1}{K}\int 2sin^2\theta d\theta = x$</p>
+<p>$\frac{1}{K}(\theta - \frac{1}{2}sin2\theta) + C = x$</p>
+<p>$\frac{1}{2K}(2\theta - sin2\theta) + C = x$</p>
+<p>整理好，令$\alpha = 2\theta$<br>$x = \frac{1}{4gC^2}(\alpha - sin\alpha) + C$<br>$y = \frac{sin^2\theta}{K} = \frac{1}{4gC^2}(1-cos\alpha)$</p>
+<p>這個即是 <strong>擺線的參數方程式</strong>。</p>
 <hr>
 <h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>這個方法比起光解法更難，也更具一般性，通過這個方法也可以解決懸鏈線、最小曲面問題。<br>總的來說，這是一個比光解法更加精采的解法。</p>
 <hr>
@@ -361,25 +361,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

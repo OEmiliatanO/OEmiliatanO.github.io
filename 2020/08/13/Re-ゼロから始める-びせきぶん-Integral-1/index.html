@@ -230,9 +230,9 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>一個簡單的問題: 求$f(x)$於$x\in[a,b]$與$x$軸圍成的面積。</p>
-<p>可以很直覺的想到將切片法，$\sum f(x)\times \Delta x$，只要$\Delta x$夠小，面積就會夠接近。<br>我們可以將上面的式子改成一個比較簡潔的寫法: $\int_{a}^{b} f(x) dx$。<br>現在可以寫出一個函數$A(a,b) &#x3D; \int_{a}^{b} f(x) dx$，為了方便討論，假定$a&#x3D;0$，$A(b) &#x3D; \int_{0}^{b} f(x) dx$。</p>
-<p>請先裝作不知道微積分基本定理，可以發現他們似乎有某種關係，$A(b)$會將$f(x), x\in[0,b]$的面積變成一條線<br><img src="https://i.imgur.com/kwTRBok.png"><br><img src="https://i.imgur.com/GMYzoZJ.png"></p>
-<p>什麼東西乘上$\Delta x$後會等於$\Delta y$，你寫出了$\frac{\Delta y}{\Delta x}$，你意外的發現$f(x)$其實就只是$A(b)$在某一點的斜率，<br>而求瞬間斜率已經有一個好用的微分了，你可以大膽寫下$A(b) &#x3D; \int_{0}^{b} A’(x) dx &#x3D; \int_{0}^{b} \frac{dA(x)}{dx} dx$，<br>因此現在要求$f(x)$於$x\in[0,b]$與$x$軸圍成的面積，只需要找到一個$A(x)$微分後等於$f(x)$的函數，再將$b$代入就是答案，<br>而$x\in [a,b]$可以用求兩次面積扣掉後得到，$A(b)-A(a) &#x3D; \int_{a}^{b} f(x) dx$。</p>
+<p>可以很直覺的想到將切片法，$\sum f(x)\times \Delta x$，只要$\Delta x$夠小，面積就會夠接近。<br>我們可以將上面的式子改成一個比較簡潔的寫法: $\int_{a}^{b} f(x) dx$。<br>現在可以寫出一個函數$A(a,b) = \int_{a}^{b} f(x) dx$，為了方便討論，假定$a=0$，$A(b) = \int_{0}^{b} f(x) dx$。</p>
+<p>請先裝作不知道微積分基本定理，可以發現他們似乎有某種關係，$A(b)$會將$f(x), x\in[0,b]$的面積變成一條線<br><img src="https://i.imgur.com/kwTRBok.png" alt=""><br><img src="https://i.imgur.com/GMYzoZJ.png" alt=""></p>
+<p>什麼東西乘上$\Delta x$後會等於$\Delta y$，你寫出了$\frac{\Delta y}{\Delta x}$，你意外的發現$f(x)$其實就只是$A(b)$在某一點的斜率，<br>而求瞬間斜率已經有一個好用的微分了，你可以大膽寫下$A(b) = \int_{0}^{b} A’(x) dx = \int_{0}^{b} \frac{dA(x)}{dx} dx$，<br>因此現在要求$f(x)$於$x\in[0,b]$與$x$軸圍成的面積，只需要找到一個$A(x)$微分後等於$f(x)$的函數，再將$b$代入就是答案，<br>而$x\in [a,b]$可以用求兩次面積扣掉後得到，$A(b)-A(a) = \int_{a}^{b} f(x) dx$。</p>
 
 
                 
@@ -300,25 +300,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

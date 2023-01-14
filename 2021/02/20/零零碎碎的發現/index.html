@@ -16,7 +16,7 @@
 
     
         <meta name="description" content="前言這邊會把很多個零碎的知識點集中，整體沒什麼連貫性，只是很有趣而已。
-主體指對數, 三角函數擴展到複數域對數:根據歐拉公式$e^{i\theta} &amp;#x3D; (cos\theta + isin\theta)$，所有複數都可以用$re^{i\theta}$表達。這就讓對數可以突破正實數的限制(0"/>
+主體指對數, 三角函數擴展到複數域對數:根據歐拉公式$e^{i\theta} = (cos\theta + isin\theta)$，所有複數都可以用$re^{i\theta}$表達。這就讓對數可以突破正實數的限制(0還是不行)"/>
     
 
     <!--Author-->
@@ -32,7 +32,7 @@
     <!--Open Graph Description-->
     
         <meta property="og:description" content="前言這邊會把很多個零碎的知識點集中，整體沒什麼連貫性，只是很有趣而已。
-主體指對數, 三角函數擴展到複數域對數:根據歐拉公式$e^{i\theta} &amp;#x3D; (cos\theta + isin\theta)$，所有複數都可以用$re^{i\theta}$表達。這就讓對數可以突破正實數的限制(0"/>
+主體指對數, 三角函數擴展到複數域對數:根據歐拉公式$e^{i\theta} = (cos\theta + isin\theta)$，所有複數都可以用$re^{i\theta}$表達。這就讓對數可以突破正實數的限制(0還是不行)"/>
     
 
     <!--Open Graph Site Name-->
@@ -230,84 +230,84 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這邊會把很多個零碎的知識點集中，整體沒什麼連貫性，只是很有趣而已。</p>
-<h1 id="主體"><a href="#主體" class="headerlink" title="主體"></a>主體</h1><h2 id="指對數-三角函數擴展到複數域"><a href="#指對數-三角函數擴展到複數域" class="headerlink" title="指對數, 三角函數擴展到複數域"></a>指對數, 三角函數擴展到複數域</h2><h3 id="對數"><a href="#對數" class="headerlink" title="對數:"></a>對數:</h3><p>根據歐拉公式$e^{i\theta} &#x3D; (cos\theta + isin\theta)$，所有複數都可以用$re^{i\theta}$表達。<br>這就讓對數可以突破正實數的限制(0還是不行)，例如:</p>
+<h1 id="主體"><a href="#主體" class="headerlink" title="主體"></a>主體</h1><h2 id="指對數-三角函數擴展到複數域"><a href="#指對數-三角函數擴展到複數域" class="headerlink" title="指對數, 三角函數擴展到複數域"></a>指對數, 三角函數擴展到複數域</h2><h3 id="對數"><a href="#對數" class="headerlink" title="對數:"></a>對數:</h3><p>根據歐拉公式$e^{i\theta} = (cos\theta + isin\theta)$，所有複數都可以用$re^{i\theta}$表達。<br>這就讓對數可以突破正實數的限制(0還是不行)，例如:</p>
 <ul>
-<li>$ln(-1) &#x3D; ln(e^{i\pi}) &#x3D; i\pi$</li>
-<li>$ln(i) &#x3D; ln(e^{i\frac{\pi}{2}}) &#x3D; i\frac{\pi}{2}$</li>
+<li>$ln(-1) = ln(e^{i\pi}) = i\pi$</li>
+<li>$ln(i) = ln(e^{i\frac{\pi}{2}}) = i\frac{\pi}{2}$</li>
 </ul>
-<h3 id="指數"><a href="#指數" class="headerlink" title="指數:"></a>指數:</h3><p>同樣的，根據歐拉公式，複數代入指數也能計算，$x^{ai+b} &#x3D; e^{(ln x)(ai + b)}$。<br>以前一些看似無解的方程式也有解了，例如:</p>
+<h3 id="指數"><a href="#指數" class="headerlink" title="指數:"></a>指數:</h3><p>同樣的，根據歐拉公式，複數代入指數也能計算，$x^{ai+b} = e^{(ln x)(ai + b)}$。<br>以前一些看似無解的方程式也有解了，例如:</p>
 <ul>
-<li>$1^x &#x3D; 2$, $x &#x3D; \frac{ln(2)}{2n\pi i}$</li>
+<li>$1^x = 2$, $x = \frac{ln(2)}{2n\pi i}$</li>
 </ul>
 <h3 id="三角函數"><a href="#三角函數" class="headerlink" title="三角函數:"></a>三角函數:</h3><p>這次需要用到泰勒展開，眾所周知，</p>
 <ul>
-<li>$e^x &#x3D; 1 + \frac{x}{1!} + \frac{x^2}{2!}…$</li>
-<li>$sin x &#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!}…$</li>
+<li>$e^x = 1 + \frac{x}{1!} + \frac{x^2}{2!}…$</li>
+<li>$sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!}…$</li>
 </ul>
 <p>將$e^x$改成$e^{ix}$及$e^{-ix}$，</p>
 <ul>
-<li>$e^{ix} &#x3D; 1 + \frac{ix}{1!} - \frac{x^2}{2!} - \frac{ix^3}{3!}…$</li>
-<li>$e^{-ix} &#x3D; 1 - \frac{ix}{1!} - \frac{x^2}{2!} + \frac{ix^3}{3!}…$</li>
+<li>$e^{ix} = 1 + \frac{ix}{1!} - \frac{x^2}{2!} - \frac{ix^3}{3!}…$</li>
+<li>$e^{-ix} = 1 - \frac{ix}{1!} - \frac{x^2}{2!} + \frac{ix^3}{3!}…$</li>
 </ul>
 <p>$e^{ix} - e^{-ix}$後會發現只要多除$2i$即是$sin x$<br>亦即，</p>
 <ul>
-<li>$sin x &#x3D; \frac{e^{ix} - e^{-ix}}{2i}$</li>
+<li>$sin x = \frac{e^{ix} - e^{-ix}}{2i}$</li>
 </ul>
 <p>$cos x$也可以用同樣的方法寫出來</p>
 <ul>
-<li>$cos x &#x3D; \frac{e^{ix} + e^{-ix}}{2}$。</li>
+<li>$cos x = \frac{e^{ix} + e^{-ix}}{2}$。</li>
 </ul>
-<p>當然也可以用歐拉公式推得，<br>$e^{ix} &#x3D; (cos x + isin x)$</p>
-<p>$e^{i(-x)} &#x3D; (cos x - isin x)$</p>
-<p>$e^{ix} - e^{i(-x)} &#x3D; 2i sin x$</p>
-<p>$\frac{e^{ix} - e^{i(-x)}}{2i} &#x3D; sin x$</p>
-<h2 id="實數階導數-積分"><a href="#實數階導數-積分" class="headerlink" title="實數階導數, 積分"></a>實數階導數, 積分</h2><p>沒看錯，繼階乘後，導數也可以有$\frac{1}{2}$階，或是$\pi$階，連積分都可以。<br>設一函數$f(x) &#x3D; x^n$，則</p>
+<p>當然也可以用歐拉公式推得，<br>$e^{ix} = (cos x + isin x)$</p>
+<p>$e^{i(-x)} = (cos x - isin x)$</p>
+<p>$e^{ix} - e^{i(-x)} = 2i sin x$</p>
+<p>$\frac{e^{ix} - e^{i(-x)}}{2i} = sin x$</p>
+<h2 id="實數階導數-積分"><a href="#實數階導數-積分" class="headerlink" title="實數階導數, 積分"></a>實數階導數, 積分</h2><p>沒看錯，繼階乘後，導數也可以有$\frac{1}{2}$階，或是$\pi$階，連積分都可以。<br>設一函數$f(x) = x^n$，則</p>
 <ul>
-<li>$k(k&lt;n)$階導數為$f^{(k)}(x) &#x3D; \frac{n!}{(n-k)!}x^{(n-k)}$</li>
+<li>$k(k&lt;n)$階導數為$f^{(k)}(x) = \frac{n!}{(n-k)!}x^{(n-k)}$</li>
 </ul>
 <p>還記得階乘其實可以解析出去嗎?<br>將上式改寫成</p>
 <ul>
-<li>$f^{(k)}(x) &#x3D; \frac{\Gamma(n+1)}{\Gamma(n-k+1)}x^{(n-k)}$<br>這下子就可以寫出$\frac{1}{2}$階導數了。</li>
+<li>$f^{(k)}(x) = \frac{\Gamma(n+1)}{\Gamma(n-k+1)}x^{(n-k)}$<br>這下子就可以寫出$\frac{1}{2}$階導數了。</li>
 </ul>
 <p>例子:</p>
 <ul>
-<li>$f(x) &#x3D; x$, $\frac{1}{2}$階導數是$\frac{\Gamma(2)}{\Gamma(\frac{3}{2})}x^{\frac{1}{2}} &#x3D; \frac{2}{\sqrt{\pi}}x^{\frac{1}{2}}$</li>
+<li>$f(x) = x$, $\frac{1}{2}$階導數是$\frac{\Gamma(2)}{\Gamma(\frac{3}{2})}x^{\frac{1}{2}} = \frac{2}{\sqrt{\pi}}x^{\frac{1}{2}}$</li>
 </ul>
 <p>當然，複數階導數也可以。</p>
 <hr>
 <p>積分的話，需要用到引理，在此不證明:</p>
 <ul>
-<li>$\int^t_a \int^y_a f(x, y)dx dy &#x3D; \int^t_a \int^t_x f(x, y)dy dx$</li>
+<li>$\int^t_a \int^y_a f(x, y)dx dy = \int^t_a \int^t_x f(x, y)dy dx$</li>
 </ul>
-<p>假設$I_2 &#x3D; \int^{\alpha_3}_0 \int^{\alpha_2}_0 f(\alpha_1) d\alpha_1 d\alpha_2$<br><img src="https://imgur.com/YOa7ume.png"><br>(這邊的mathjax壞了只好用圖片代替)</p>
-<p>繼續寫出$I_3$, $I_4$…<br>$I_3 &#x3D; \int^{\alpha_4}_0 I_2 &#x3D; \frac{1}{2} \int^{\alpha_4}_0 f(\alpha_1)(\alpha_4 - \alpha_1)^2 d\alpha_1$<br>$I_4 &#x3D; \int^{\alpha_5}_0 I_3 &#x3D; \frac{1}{6} \int^{\alpha_5}_0 f(\alpha_1)(\alpha_5 - \alpha_1)^3 d\alpha_1$</p>
+<p>假設$I_2 = \int^{\alpha_3}_0 \int^{\alpha_2}_0 f(\alpha_1) d\alpha_1 d\alpha_2$<br><img src="https://imgur.com/YOa7ume.png" alt=""><br>(這邊的mathjax壞了只好用圖片代替)</p>
+<p>繼續寫出$I_3$, $I_4$…<br>$I_3 = \int^{\alpha_4}_0 I_2 = \frac{1}{2} \int^{\alpha_4}_0 f(\alpha_1)(\alpha_4 - \alpha_1)^2 d\alpha_1$<br>$I_4 = \int^{\alpha_5}_0 I_3 = \frac{1}{6} \int^{\alpha_5}_0 f(\alpha_1)(\alpha_5 - \alpha_1)^3 d\alpha_1$</p>
 <p>可以發現一規律，且可以用數學歸納法證明無誤</p>
 <ul>
-<li>$I_n &#x3D; \frac{1}{(n-1)!} \int^{\alpha}_0 f(x) (\alpha-x)^{n-1} dx$</li>
+<li>$I_n = \frac{1}{(n-1)!} \int^{\alpha}_0 f(x) (\alpha-x)^{n-1} dx$</li>
 </ul>
 <p>又看到階乘了，直接換成$\Gamma$函數</p>
 <ul>
-<li>$I_n &#x3D; \frac{1}{\Gamma(n)} \int^{\alpha}_0 f(x) (\alpha-x)^{n-1} dx$</li>
+<li>$I_n = \frac{1}{\Gamma(n)} \int^{\alpha}_0 f(x) (\alpha-x)^{n-1} dx$</li>
 </ul>
 <p>這下子我們就可以代實數進去了(複數也可以)。</p>
 <h2 id="多變數泰勒展開式"><a href="#多變數泰勒展開式" class="headerlink" title="多變數泰勒展開式"></a>多變數泰勒展開式</h2><p>某一天在別人的blog看到這個詞，但是沒有點進去，而是開始自己試圖將單變數泰勒展開推導至多變數，所以不確定推導的正確性。</p>
-<p>我自己對泰勒展開的推導是如此(簡化一點，一律只討論$x&#x3D;0$附近):<br>假設某函數$f(x)$可以寫成多項式$a_0 + a_1x + a_2x^2 + a_3x^3 … a_nx^n &#x3D; g(x)$，</p>
-<p>我們也很直覺的知道當兩函數相等，$f^{(n)}(x) &#x3D; g^{(n)}(x), n \in \mathbb{N}$</p>
-<p>利用這點可以知道$a_0 &#x3D; f(0)$, $a_1 &#x3D; f’(0)$, $a_2 &#x3D; \frac{f’’(0)}{2!}$, …, $a_n &#x3D; \frac{f^{(n)}(0)}{n!}$</p>
-<p>故$f(x) &#x3D; f(0) + f’(0)x + \frac{f’’(0)}{2!}x^2 + … \frac{f^{(n)}(0)}{n!}x^n$</p>
+<p>我自己對泰勒展開的推導是如此(簡化一點，一律只討論$x=0$附近):<br>假設某函數$f(x)$可以寫成多項式$a_0 + a_1x + a_2x^2 + a_3x^3 … a_nx^n = g(x)$，</p>
+<p>我們也很直覺的知道當兩函數相等，$f^{(n)}(x) = g^{(n)}(x), n \in \mathbb{N}$</p>
+<p>利用這點可以知道$a_0 = f(0)$, $a_1 = f’(0)$, $a_2 = \frac{f’’(0)}{2!}$, …, $a_n = \frac{f^{(n)}(0)}{n!}$</p>
+<p>故$f(x) = f(0) + f’(0)x + \frac{f’’(0)}{2!}x^2 + … \frac{f^{(n)}(0)}{n!}x^n$</p>
 <hr>
-<p>現在推廣至多變數，理應也是利用類似$f^{(n)}(x) &#x3D; g^{(n)}(x), n \in \mathbb{N}$的方法去定義。</p>
-<p>假設某函數$f(x, y)$可以寫成多項式$c + a_1x + b_1y + a_2x^2 + b_2y^2 + a_3x^3 +b_3y^3 … a_nx^n b_ny^n &#x3D; g(x, y)$，</p>
-<p>可以知道$\frac{\partial f}{\partial x}(x, y) &#x3D; \frac{\partial g}{\partial x}(x, y)$, $\frac{\partial f}{\partial y}(x, y) &#x3D; \frac{\partial g}{\partial y}(x, y)$</p>
-<p>$\frac{\partial^2 f}{\partial x^2}(x, y) &#x3D; \frac{\partial^2 g}{\partial x^2}(x, y)$, $\frac{\partial^2 f}{\partial y^2}(x, y) &#x3D; \frac{\partial^2 g}{\partial y^2}(x, y)$</p>
-<p>接著就可以用剛剛的方法求各項係數，但是當我想展開$f(x,y) &#x3D; xy$時，卻無法正確展開，所以我認為還需要多加上各變數的乘積，</p>
-<p>$f(x, y) &#x3D; d + a_1x + b_1y + c_{1,1}xy + a_2x^2 + b_2y^2 + c_{1, 2}xy^2 + c_{2, 1}x^2y + c_{2, 2}x^2y^2 …$</p>
-<p>利用偏微分可以知道<br>$d &#x3D; f(0, 0)$, $a_1 &#x3D; \frac{\partial f}{\partial x}(0, 0)$, $b_1 &#x3D; \frac{\partial f}{\partial y}(0, 0)$, $c_{1, 1} &#x3D; \frac{\partial^2 f}{\partial x \partial y}(0, 0)$</p>
-<p>$a_2 &#x3D; \frac{1}{2!}\frac{\partial^2 f}{\partial x^2}(x, y)$, $b_2 &#x3D; \frac{1}{2!}\frac{\partial^2 f}{\partial y^2}(x, y)$</p>
-<p>得$f(x, y) &#x3D; f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + \frac{\partial^2 f}{\partial x \partial y}(0, 0)xy + \frac{1}{2!}\frac{\partial^2 f}{\partial x^2}(x, y)x^2 + \frac{1}{2!}\frac{\partial^2 f}{\partial y^2}(x, y)y^2 …$</p>
+<p>現在推廣至多變數，理應也是利用類似$f^{(n)}(x) = g^{(n)}(x), n \in \mathbb{N}$的方法去定義。</p>
+<p>假設某函數$f(x, y)$可以寫成多項式$c + a_1x + b_1y + a_2x^2 + b_2y^2 + a_3x^3 +b_3y^3 … a_nx^n b_ny^n = g(x, y)$，</p>
+<p>可以知道$\frac{\partial f}{\partial x}(x, y) = \frac{\partial g}{\partial x}(x, y)$, $\frac{\partial f}{\partial y}(x, y) = \frac{\partial g}{\partial y}(x, y)$</p>
+<p>$\frac{\partial^2 f}{\partial x^2}(x, y) = \frac{\partial^2 g}{\partial x^2}(x, y)$, $\frac{\partial^2 f}{\partial y^2}(x, y) = \frac{\partial^2 g}{\partial y^2}(x, y)$</p>
+<p>接著就可以用剛剛的方法求各項係數，但是當我想展開$f(x,y) = xy$時，卻無法正確展開，所以我認為還需要多加上各變數的乘積，</p>
+<p>$f(x, y) = d + a_1x + b_1y + c_{1,1}xy + a_2x^2 + b_2y^2 + c_{1, 2}xy^2 + c_{2, 1}x^2y + c_{2, 2}x^2y^2 …$</p>
+<p>利用偏微分可以知道<br>$d = f(0, 0)$, $a_1 = \frac{\partial f}{\partial x}(0, 0)$, $b_1 = \frac{\partial f}{\partial y}(0, 0)$, $c_{1, 1} = \frac{\partial^2 f}{\partial x \partial y}(0, 0)$</p>
+<p>$a_2 = \frac{1}{2!}\frac{\partial^2 f}{\partial x^2}(x, y)$, $b_2 = \frac{1}{2!}\frac{\partial^2 f}{\partial y^2}(x, y)$</p>
+<p>得$f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + \frac{\partial^2 f}{\partial x \partial y}(0, 0)xy + \frac{1}{2!}\frac{\partial^2 f}{\partial x^2}(x, y)x^2 + \frac{1}{2!}\frac{\partial^2 f}{\partial y^2}(x, y)y^2 …$</p>
 <p>更多變數時也是一樣，但是我不知道要怎麼更簡潔的寫出來 (Q _ Q)</p>
 <ul>
-<li>2.27.21 更新<br>後來有想到可以用$\sum_{n&#x3D;0}^{\infty} \sum_{a_1 + a_2 + … + a_k &#x3D; n} \frac{1}{a_1! a_2! … a_k!} \frac{\partial^n f}{\partial x_{1}^{a_1} \partial x_{2}^{a_2} … \partial x_{k}^{a^k}}(0, …, 0)x_{1}^{a_1}x_{2}^{a_2}…x_{k}^{a^k}$</li>
+<li>2.27.21 更新<br>後來有想到可以用$\sum_{n=0}^{\infty} \sum_{a_1 + a_2 + … + a_k = n} \frac{1}{a_1! a_2! … a_k!} \frac{\partial^n f}{\partial x_{1}^{a_1} \partial x_{2}^{a_2} … \partial x_{k}^{a^k}}(0, …, 0)x_{1}^{a_1}x_{2}^{a_2}…x_{k}^{a^k}$</li>
 </ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fractional_calculus">https://en.wikipedia.org/wiki/Fractional_calculus</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/124627581">https://zhuanlan.zhihu.com/p/124627581</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Taylor%27s_theorem">https://en.wikipedia.org/wiki/Taylor%27s_theorem</a><br><a target="_blank" rel="noopener" href="https://mathinsight.org/taylors_theorem_multivariable_introduction">https://mathinsight.org/taylors_theorem_multivariable_introduction</a><br><a target="_blank" rel="noopener" href="https://sites.math.washington.edu/~folland/Math425/taylor2.pdf">https://sites.math.washington.edu/~folland/Math425/taylor2.pdf</a></p>
 
@@ -377,25 +377,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

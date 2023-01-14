@@ -15,8 +15,8 @@
     
 
     
-        <meta name="description" content="最近在出題目，必須弄出一顆隨機的樹。我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。很明顯這是一棵樹，但是這只有一條鍊&amp;#x3D;&amp;#x3D;
-後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後"/>
+        <meta name="description" content="最近在出題目，必須弄出一顆隨機的樹。我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。很明顯這是一棵樹，但是這只有一條鍊==
+後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後dfs，重複這個動作"/>
     
 
     <!--Author-->
@@ -31,8 +31,8 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="最近在出題目，必須弄出一顆隨機的樹。我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。很明顯這是一棵樹，但是這只有一條鍊&amp;#x3D;&amp;#x3D;
-後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後"/>
+        <meta property="og:description" content="最近在出題目，必須弄出一顆隨機的樹。我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。很明顯這是一棵樹，但是這只有一條鍊==
+後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後dfs，重複這個動作"/>
     
 
     <!--Open Graph Site Name-->
@@ -229,7 +229,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>最近在出題目，必須弄出一顆隨機的樹。<br>我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。<br>很明顯這是一棵樹，但是這只有一條鍊&#x3D;&#x3D;</p>
+                <p>最近在出題目，必須弄出一顆隨機的樹。<br>我一開始只想到一個錯誤的方法: 將數字從$1$到$n$丟入一個陣列$A$，然後將他們打亂，從$A_1$連到$A_n$。<br>很明顯這是一棵樹，但是這只有一條鍊==</p>
 <p>後來又想了一個: 選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中，之後dfs，重複這個動作。<br>同樣的，這個方法也有漏洞，由於沒有限制深度，所以第一個子樹會很深，一點都不像是隨機的。<br>而加上限制深度後，有時候會無法將所有點都排上去，不過限制深度不失為一個好方法，但是與”隨機”還是有點差距。</p>
 <p>如果改成bfs呢?<br>選取一個數字當根，從集合裡面找出$k$個點，加入到根的子節點中以及queue中，再從queue中拿出點，之後，重複這個動作。<br>還是有一個漏洞，因為放入queue的順序是有序的，所以一樣會跟dfs的結果一樣，不過這個比較好解決，直接在queue裡面shuffle就好了。</p>
 <p>這樣複雜度只有$O(n)$</p>
@@ -306,25 +306,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

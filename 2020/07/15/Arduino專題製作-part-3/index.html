@@ -234,10 +234,9 @@
 <p>接著要做的是加速器測距，這個就令我感到困難重重了…</p>
 <p>考慮到感測器可以在短時間取得加速度資料，可以直接使用黎曼積分，不用使用什麼很複雜的公式，只需要國中物理的程度就好。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int8_t</span> dt = <span class="number">1</span>; <span class="comment">// ms</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> a[<span class="number">3</span>], v[<span class="number">3</span>], d[<span class="number">3</span>]; <span class="comment">//Acceleration, Velocity, Displacement</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">get_Acce</span>(); <span class="comment">//接受加速度器資料</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int8_t</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		d[i] += <span class="number">0.5</span> * a[i] * dt * <span class="number">0.0001</span> * dt * <span class="number">0.0001</span> + v[i] * <span class="number">0.0001</span>;</span><br><span class="line">		v[i] += a[i] * dt * <span class="number">0.0001</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">blth</span>(d[<span class="number">0</span>], d[<span class="number">1</span>], d[<span class="number">2</span>]); <span class="comment">//傳送回控制機械手臂的版子</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>因為這個加速度器其實蠻(不精準的…放在桌上不動xy軸還是會有值出現。<br>所以我在get_Acce()中加上很多過濾雜質的步驟，比如說直接向下取整之類的，但是在過程中也會讓很多資訊消失@@</p>
 <p>最後的結果就是測出來的距離很不準，如果可以多加幾個感測器去校準說不定可以更好? 但是我沒時間做QAQ</p>
-<p>接著是因為這個機械手臂的構造是用旋轉來位移，牽涉到兩個軸，而不是只要動一軸就好，而且機械手臂要接收的角度，這就需要用反三角函數了。<br><img src="https://i.imgur.com/RR2kJlL.png"><br>r是機械手臂的臂長，L是某個平面上的位移量。<br>根據$2r sin \frac{\theta}{2} &#x3D; L$這個等式，可以得到$\theta &#x3D; 2sin^{-1} \frac{L}{2r}$。</p>
+<p>接著是因為這個機械手臂的構造是用旋轉來位移，牽涉到兩個軸，而不是只要動一軸就好，而且機械手臂要接收的角度，這就需要用反三角函數了。<br><img src="https://i.imgur.com/RR2kJlL.png" alt=""><br>r是機械手臂的臂長，L是某個平面上的位移量。<br>根據$2r sin \frac{\theta}{2} = L$這個等式，可以得到$\theta = 2sin^{-1} \frac{L}{2r}$。</p>
 <p>基本上就是這樣了，因為加速度器的誤差以及機械手臂的構造，導致最終成品…差強人意吧(｡ŏ_ŏ)</p>
 <p>(我每次都沒拍照，害我都沒圖放 (´-ι_-｀)</p>
 
@@ -307,25 +306,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

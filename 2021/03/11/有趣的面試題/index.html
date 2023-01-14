@@ -17,9 +17,9 @@
     
         <meta name="description" content="前言這在我高二就有做過了，不過舊的那篇只有放code，沒講實作細節跟原因，在這裡補上。
 
-問題 1請實作一函數，不得使用乘法、除法、for、while、goto、if-else、switch、case、條件運算子等，算出$\sum^n_{i &amp;#x3D; 1} i$。
+問題 1請實作一函數，不得使用乘法、除法、for、while、goto、if-else、switch、case、條件運算子等，算出$\sum^n_{i = 1} i$。
 
-思考如果不能使用迴圈，就只能"/>
+思考如果不能使用迴圈，就只能往遞迴的方"/>
     
 
     <!--Author-->
@@ -36,9 +36,9 @@
     
         <meta property="og:description" content="前言這在我高二就有做過了，不過舊的那篇只有放code，沒講實作細節跟原因，在這裡補上。
 
-問題 1請實作一函數，不得使用乘法、除法、for、while、goto、if-else、switch、case、條件運算子等，算出$\sum^n_{i &amp;#x3D; 1} i$。
+問題 1請實作一函數，不得使用乘法、除法、for、while、goto、if-else、switch、case、條件運算子等，算出$\sum^n_{i = 1} i$。
 
-思考如果不能使用迴圈，就只能"/>
+思考如果不能使用迴圈，就只能往遞迴的方"/>
     
 
     <!--Open Graph Site Name-->
@@ -237,7 +237,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這在我高二就有做過了，不過舊的那篇只有放code，沒講實作細節跟原因，在這裡補上。</p>
 <hr>
-<h1 id="問題-1"><a href="#問題-1" class="headerlink" title="問題 1"></a>問題 1</h1><p>請實作一函數，不得使用乘法、除法、for、while、goto、if-else、switch、case、條件運算子等，算出$\sum^n_{i &#x3D; 1} i$。</p>
+<h1 id="問題-1"><a href="#問題-1" class="headerlink" title="問題 1"></a>問題 1</h1><p>請實作一函數，不得使用乘法、除法、for、while、goto、if-else、switch、case、條件運算子等，算出$\sum^n_{i = 1} i$。</p>
 <hr>
 <h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>如果不能使用迴圈，就只能往遞迴的方向思考。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sum</span>(n - <span class="number">1</span>) + n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -339,25 +339,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

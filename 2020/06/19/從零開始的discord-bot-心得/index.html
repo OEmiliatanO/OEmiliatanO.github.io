@@ -232,23 +232,23 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>!!這是從<a target="_blank" rel="noopener" href="https://emiliatancoding.blogspot.com/">舊blog</a> 轉移過來的。</p>
-<p>在某一天的午後，突然被拉去寫discord bot，經過許多波折與心血，覺得有一點價值，所以決定記錄下來。<br><img src="https://i.imgur.com/GRXts6Y.png"></p>
+<p>在某一天的午後，突然被拉去寫discord bot，經過許多波折與心血，覺得有一點價值，所以決定記錄下來。<br><img src="https://i.imgur.com/GRXts6Y.png" alt=""></p>
 <p>前幾天，google了資料找到一個頻道有專門在做discord bot的教學。所以就照做了個。<br>一開始很順利，不過python官網載下來的IDE似乎有問題，所以我最後決定使用VS的python。</p>
-<p>接下來就是開始麻煩的地方了，我發現照影片做的bot需要我開啟終端才會回應，也就是說想要這隻bot 24小時待命需要我一直開著電腦，當下決定上網找方法解決，然而卻因為找錯方向所以以為discord提供的webhook就是host功能…<br>導致我以為是自己code有問題，但是後來想想自己電腦上都可以，那有可能的原因就是存code的伺服器(github)需要其他檔案,或webhook其實不是host功能。<br><img src="https://i.imgur.com/NHrhM7T.png"></p>
-<p>再來幾天就是確認這兩個問題，上網瘋狂找資料後發現兩種都有，但是主要問題是搞錯webhook的功能，最後發現要用heroku+github，一個host一個存code，持久化bot的夢想差點就要實現了，直到heroku狠狠把它摔在地上，碎的跟課本上的碎琉璃一樣。<br><img src="https://i.imgur.com/QTixKyK.jpg"></p>
+<p>接下來就是開始麻煩的地方了，我發現照影片做的bot需要我開啟終端才會回應，也就是說想要這隻bot 24小時待命需要我一直開著電腦，當下決定上網找方法解決，然而卻因為找錯方向所以以為discord提供的webhook就是host功能…<br>導致我以為是自己code有問題，但是後來想想自己電腦上都可以，那有可能的原因就是存code的伺服器(github)需要其他檔案,或webhook其實不是host功能。<br><img src="https://i.imgur.com/NHrhM7T.png" alt=""></p>
+<p>再來幾天就是確認這兩個問題，上網瘋狂找資料後發現兩種都有，但是主要問題是搞錯webhook的功能，最後發現要用heroku+github，一個host一個存code，持久化bot的夢想差點就要實現了，直到heroku狠狠把它摔在地上，碎的跟課本上的碎琉璃一樣。<br><img src="https://i.imgur.com/QTixKyK.jpg" alt=""></p>
 <p>好巧不巧，剛好撞上期中考，這件事我只好列入長期追蹤清單。</p>
-<p>在那段時期的沉澱，我不斷思考是甚麼的問題，伺服器, code, 或者只是我的方向又錯了?<br>反正後來還是沒有任何的進展，就算我只丟一個超簡單的bot還是沒辦法成功host，原因未知。<br>期中考前一個禮拜發現 heroku有跟github連動的功能，抱著死馬當活馬醫的心態試了一下，似乎有host? 綠燈是亮了，但是不知道為甚麼bot還是下線中 Q口Q<br><img src="https://i.imgur.com/uMTQACx.jpg"></p>
+<p>在那段時期的沉澱，我不斷思考是甚麼的問題，伺服器, code, 或者只是我的方向又錯了?<br>反正後來還是沒有任何的進展，就算我只丟一個超簡單的bot還是沒辦法成功host，原因未知。<br>期中考前一個禮拜發現 heroku有跟github連動的功能，抱著死馬當活馬醫的心態試了一下，似乎有host? 綠燈是亮了，但是不知道為甚麼bot還是下線中 Q口Q<br><img src="https://i.imgur.com/uMTQACx.jpg" alt=""></p>
 <p>最後那個頻道出了一集有關host bot的影片，他是用repl.it + uptimerobot，一個host+存code，一個監控repl.it有沒有關掉bot，有就重開。<br>PS. repl.it會隔一段時間就自動關掉bot，所以才需要uptimerobot。</p>
 <p>突破了持久化問題，我的bot瞬間進化了很多，差不多是中古到工業革命。</p>
-<p>接下來的問題其實比起前面都還好，我打算在我的bot加一個neko的功能，主要是受到Fredboat這個音樂bot的影響，這個音樂bot藏了很多彩蛋，我記得我第一次不小心用出來的彩蛋是;;explosion(我也不曉得為甚麼我會打這個東西)，接下來是;;neko, ;;magic, ;;hug，反正一堆奇怪的東西都被我試出來了@@<br><img src="https://i.imgur.com/YvdTdp7.png"></p>
-<p>我一開始以為是Fredboat自己有用一個圖庫，後來看了看圖片的link，是通向一個叫cdn.nekos.life的網站底下的文件，我決定也在自己的bot實現這個功能。<br>我最一開始的想法就是網路爬蟲，訪問伺服器然後取得檔案列表，不過我對網路爬蟲只有概念，沒有實作過，所以呢…google!<br>但是這就出現了一個問題，首先爬蟲沒辦法取得伺服器檔案列表(其實我也不知道這個神奇想法到底從哪冒出來的，仔細想的話這當然不行且不合理，誰會希望伺服器的檔案被拿到)，再來是我看到的爬蟲都是處理那種有文字跟圖片的網站，爬蟲的原理就是拿到網頁的原始碼，然後進行處理，過濾不相干的東西，只看的到想看的。但是如果你剛剛自己連了一下cdn.neko.life會發現這根本不是一般的網站。<br><img src="https://i.imgur.com/V7gHDHs.png"></p>
+<p>接下來的問題其實比起前面都還好，我打算在我的bot加一個neko的功能，主要是受到Fredboat這個音樂bot的影響，這個音樂bot藏了很多彩蛋，我記得我第一次不小心用出來的彩蛋是;;explosion(我也不曉得為甚麼我會打這個東西)，接下來是;;neko, ;;magic, ;;hug，反正一堆奇怪的東西都被我試出來了@@<br><img src="https://i.imgur.com/YvdTdp7.png" alt=""></p>
+<p>我一開始以為是Fredboat自己有用一個圖庫，後來看了看圖片的link，是通向一個叫cdn.nekos.life的網站底下的文件，我決定也在自己的bot實現這個功能。<br>我最一開始的想法就是網路爬蟲，訪問伺服器然後取得檔案列表，不過我對網路爬蟲只有概念，沒有實作過，所以呢…google!<br>但是這就出現了一個問題，首先爬蟲沒辦法取得伺服器檔案列表(其實我也不知道這個神奇想法到底從哪冒出來的，仔細想的話這當然不行且不合理，誰會希望伺服器的檔案被拿到)，再來是我看到的爬蟲都是處理那種有文字跟圖片的網站，爬蟲的原理就是拿到網頁的原始碼，然後進行處理，過濾不相干的東西，只看的到想看的。但是如果你剛剛自己連了一下cdn.neko.life會發現這根本不是一般的網站。<br><img src="https://i.imgur.com/V7gHDHs.png" alt=""></p>
 <p>至此，neko指令開發陷入停滯。</p>
-<p>某一天突然靈機一動，把neko.life貼到google上，結果找到了真的可以觀賞的網頁(&#x3D;^･ω･^&#x3D;)<br>而且還找到了nekos.py的模組…似乎是neko.life的製作團隊寫的模組，而且有很多種語言版本(C#, js, python…)，不過在我的電腦上執行不起來，應該是bug。<br>我花了一個下午剖析了nekos.py的原碼，最終發現主要的關鍵是一個叫nekos.life&#x2F;api&#x2F;v2&#x2F;img的網頁，應該也是他們寫的，這個網頁可以隨機找尋圖庫裡面其中一張，並回傳json檔在網頁上，所以爬蟲拿到的就是純粹的json檔，在python裡可以直接用.json()轉換! 基本上這在我的一般python程式可以正常運作。</p>
-<p>不過當我嘗試把code移植到bot的code時，python一直報錯，簡單說就是json格式問題，因為我自己從來沒深入研究過json檔與爬蟲(雖然有爬過文但是看到不是想要的就跳過，所以幾乎沒有充足的經驗)，導致我以為是repl.it不開放requests模組的使用，但是查了一下明明有支援，再度絕望 &#x3D;。&#x3D;</p>
+<p>某一天突然靈機一動，把neko.life貼到google上，結果找到了真的可以觀賞的網頁(=^･ω･^=)<br>而且還找到了nekos.py的模組…似乎是neko.life的製作團隊寫的模組，而且有很多種語言版本(C#, js, python…)，不過在我的電腦上執行不起來，應該是bug。<br>我花了一個下午剖析了nekos.py的原碼，最終發現主要的關鍵是一個叫nekos.life/api/v2/img的網頁，應該也是他們寫的，這個網頁可以隨機找尋圖庫裡面其中一張，並回傳json檔在網頁上，所以爬蟲拿到的就是純粹的json檔，在python裡可以直接用.json()轉換! 基本上這在我的一般python程式可以正常運作。</p>
+<p>不過當我嘗試把code移植到bot的code時，python一直報錯，簡單說就是json格式問題，因為我自己從來沒深入研究過json檔與爬蟲(雖然有爬過文但是看到不是想要的就跳過，所以幾乎沒有充足的經驗)，導致我以為是repl.it不開放requests模組的使用，但是查了一下明明有支援，再度絕望 =。=</p>
 <p>接下來我發呆了一段時間，我思考過很多可能性: 我爬蟲寫爛了, repl.it的requests模組其實跟我VS的是不同版本, 網站有防爬蟲機制。<br>我先檢查了我的code，跟nekos.py原碼比對後，沒差。<br>repl.it的requests跟我裝的都沒差，因為安裝一定都用python官網裝最新的。<br>防爬蟲機制應該在我用python小程式測試時就出現了。</p>
 <p>最後我把爬蟲拿到的網頁原始碼print出來，發現跟我用電腦看到的完全不一樣，真的完全不一樣。</p>
-<p>最後我認為是防爬蟲的機制導致的，因為也只剩下這個可能性了，我加上反”反爬蟲”的headers，成功了。<br>最終neko指令大功告成，我還順便加了fox指令ヽ(&#x3D;^･ω･^&#x3D;)丿<br><img src="https://i.imgur.com/TwSzD5m.png"></p>
-<p>接下來是有關zj的解題數查詢，hunt [id]，我們打算用id去查找使用者的AC數,WA數…<br>有了neko指令的爬蟲知識，這個功能開發基本是沒有難度。<br>可以用爬蟲獲取zj排行榜的網頁原始碼，注意到zj排行榜的url是…page&#x3D;1&amp;，可以用迴圈去取得網頁原始碼，然後找id的位置，再從id位置找CE，這個區塊就是我們獵物的資料。</p>
+<p>最後我認為是防爬蟲的機制導致的，因為也只剩下這個可能性了，我加上反”反爬蟲”的headers，成功了。<br>最終neko指令大功告成，我還順便加了fox指令ヽ(=^･ω･^=)丿<br><img src="https://i.imgur.com/TwSzD5m.png" alt=""></p>
+<p>接下來是有關zj的解題數查詢，hunt [id]，我們打算用id去查找使用者的AC數,WA數…<br>有了neko指令的爬蟲知識，這個功能開發基本是沒有難度。<br>可以用爬蟲獲取zj排行榜的網頁原始碼，注意到zj排行榜的url是…page=1&amp;，可以用迴圈去取得網頁原始碼，然後找id的位置，再從id位置找CE，這個區塊就是我們獵物的資料。</p>
 <p>hunt指令實作完成。</p>
 <p>但是因為hunt裡面使用到大量的字串比對，所以速度蠻慢的，可能需要用剖析器加速。</p>
 <p>(功能開發未完…)</p>
@@ -322,25 +322,10 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

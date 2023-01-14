@@ -242,24 +242,24 @@ $x^2+"/>
 <ul>
 <li>3維球體體積推導:</li>
 </ul>
-<p>$x^2+y^2+z^2&#x3D;r^2$，因為我們需要知道2維切面的半徑，所以先將$z^2$(或任意軸)搬過去，<br>$x^2+y^2&#x3D;r^2-z^2&#x3D;R^2$，現在只要在z軸上走動，就可以知道這個2維切面的半徑為何。<br>現在我們來積分，$V_3 &#x3D; 2\int_{0}^{r} \pi R^2 dz &#x3D; 2\pi \int_{0}^{r} r^2-z^2 dz$。<br>反導函數即為$r^2 z - \frac{1}{3} z^3$，則$V_3 &#x3D; \frac{4}{3}r^3\pi$</p>
+<p>$x^2+y^2+z^2=r^2$，因為我們需要知道2維切面的半徑，所以先將$z^2$(或任意軸)搬過去，<br>$x^2+y^2=r^2-z^2=R^2$，現在只要在z軸上走動，就可以知道這個2維切面的半徑為何。<br>現在我們來積分，$V_3 = 2\int_{0}^{r} \pi R^2 dz = 2\pi \int_{0}^{r} r^2-z^2 dz$。<br>反導函數即為$r^2 z - \frac{1}{3} z^3$，則$V_3 = \frac{4}{3}r^3\pi$</p>
 <ul>
 <li>4維球體體積推導:</li>
 </ul>
-<p>$x^2+y^2+z^2+k^2&#x3D;r^2$，同樣的把戲，$x^2+y^2+z^2&#x3D;r^2-k^2&#x3D;R^2$<br>$V_4 &#x3D; 2\int_{0}{r} \pi \frac{4}{3}R^3 dk$，因為$(r^2-k^2)^{\frac{1}{2}} &#x3D; R$,<br>$\frac{8}{3}\pi \int_{0}^{r} (r^2 - k^2)^{\frac{3}{2}} dk$，這裡需要用到變數代換了，不然根本沒辦法做。<br>$k &#x3D; r (sinu)$,$dk &#x3D; r (cosu) du$，換完變成<br>$\frac{8}{3}\pi \int_{0}^{\frac{\pi}{2}} (r^2 - r^2sin^2u)^{\frac{3}{2}} r(cosu) du$<br>$\frac{8}{3}\pi r^4 \int_{0}{\frac{\pi}{2}} cos^4u du$<br>這邊需要用到$cos2u &#x3D; 2cos^2u - 1$?<br>兩邊平方，$cos^2 2u &#x3D; 4cos^4u - 4cos^2u + 1$,$cos^4u &#x3D; \frac{1}{4}cos^2 2u + cos^2u - \frac{1}{4}$。<br>$\frac{8}{3}\pi r^4 \int_{0}{\frac{\pi}{2}} \frac{1}{4}cos^2 2u + cos^2u - \frac{1}{4} du$，同樣利用上面的公式再換一下，<br>$\frac{8}{3}\pi r^4 \int_{0}{\frac{\pi}{2}} \frac{1}{8}cos 4u + \frac{1}{2}cos 2u + \frac{3}{8} du$，反導函數為$\frac{1}{32}sin4u+\frac{1}{4}sin2u+\frac{3}{8}u$<br>最終得到$V_4 &#x3D; \frac{1}{2} \pi^2 r^4$</p>
+<p>$x^2+y^2+z^2+k^2=r^2$，同樣的把戲，$x^2+y^2+z^2=r^2-k^2=R^2$<br>$V_4 = 2\int_{0}{r} \pi \frac{4}{3}R^3 dk$，因為$(r^2-k^2)^{\frac{1}{2}} = R$,<br>$\frac{8}{3}\pi \int_{0}^{r} (r^2 - k^2)^{\frac{3}{2}} dk$，這裡需要用到變數代換了，不然根本沒辦法做。<br>$k = r (sinu)$,$dk = r (cosu) du$，換完變成<br>$\frac{8}{3}\pi \int_{0}^{\frac{\pi}{2}} (r^2 - r^2sin^2u)^{\frac{3}{2}} r(cosu) du$<br>$\frac{8}{3}\pi r^4 \int_{0}{\frac{\pi}{2}} cos^4u du$<br>這邊需要用到$cos2u = 2cos^2u - 1$?<br>兩邊平方，$cos^2 2u = 4cos^4u - 4cos^2u + 1$,$cos^4u = \frac{1}{4}cos^2 2u + cos^2u - \frac{1}{4}$。<br>$\frac{8}{3}\pi r^4 \int_{0}{\frac{\pi}{2}} \frac{1}{4}cos^2 2u + cos^2u - \frac{1}{4} du$，同樣利用上面的公式再換一下，<br>$\frac{8}{3}\pi r^4 \int_{0}{\frac{\pi}{2}} \frac{1}{8}cos 4u + \frac{1}{2}cos 2u + \frac{3}{8} du$，反導函數為$\frac{1}{32}sin4u+\frac{1}{4}sin2u+\frac{3}{8}u$<br>最終得到$V_4 = \frac{1}{2} \pi^2 r^4$</p>
 <ul>
 <li>5維球體體積推導:</li>
 </ul>
-<p>$x^2+y^2+z^2+k^2+l^2&#x3D;r^2$,$x^2+y^2+z^2+k^2&#x3D;r^2-l^2&#x3D;R^2$<br>依樣畫葫蘆，$2\int_{0}^{r} \frac{1}{2} \pi^2 r^4$，得到$\frac{8}{15} \pi^2 r^5$</p>
+<p>$x^2+y^2+z^2+k^2+l^2=r^2$,$x^2+y^2+z^2+k^2=r^2-l^2=R^2$<br>依樣畫葫蘆，$2\int_{0}^{r} \frac{1}{2} \pi^2 r^4$，得到$\frac{8}{15} \pi^2 r^5$</p>
 <ul>
 <li>n維球體體積推導:</li>
 </ul>
 <p>利用以上的方法將2~10維的體積全列出來</p>
 <p>2: $r^2 \pi$<br>3: $\frac{4}{3} r^3 \pi$<br>4: $\frac{1}{2} r^4 \pi^2$<br>5: $\frac{8}{15} r^5 \pi^2$<br>6: $\frac{1}{6} r^6 \pi^3$<br>7: $\frac{16}{105} r^7 \pi^3$<br>8: $\frac{1}{24} r^8 \pi^4$<br>9: $\frac{32}{945} r^9 \pi^4$<br>10:$\frac{1}{120} r^{10} \pi^5$</p>
 <p>可以發現$\pi$的次方一直都是$\lfloor \frac{n}{2} \rfloor$，以及$r$的次方為$n$</p>
-<p>進一步分成偶數與奇數的話，前面的分數就會有某種規律可循，偶數為$\frac{1}{\frac{n}{2}!}$，而奇數為$\frac{2^{\lceil \frac{n}{2} \rceil}}{\prod_{i&#x3D;1}^{\frac{n-1}{2}} (2i+1)}$<br>故可以整理出通式:</p>
-<p>when n is odd,<br>$V_n &#x3D; \frac{2^{\lceil \frac{n}{2} \rceil}}{\prod_{i&#x3D;1}^{\frac{n-1}{2}} (2i+1)} r^n \pi^{\lfloor \frac{n}{2} \rfloor}$<br>else<br>$V_n &#x3D; \frac{1}{\frac{n}{2}!} r^n \pi^{\lfloor \frac{n}{2} \rfloor}$</p>
-<p>補充: 在上面的推導中寫道 $V_3 &#x3D; 2\int_{0}^{r} \pi R^2 dz$，可以想像為一個圓形乘上z軸上一個小小的高，同樣的想法也可以適用於高維度空間。</p>
+<p>進一步分成偶數與奇數的話，前面的分數就會有某種規律可循，偶數為$\frac{1}{\frac{n}{2}!}$，而奇數為$\frac{2^{\lceil \frac{n}{2} \rceil}}{\prod_{i=1}^{\frac{n-1}{2}} (2i+1)}$<br>故可以整理出通式:</p>
+<p>when n is odd,<br>$V_n = \frac{2^{\lceil \frac{n}{2} \rceil}}{\prod_{i=1}^{\frac{n-1}{2}} (2i+1)} r^n \pi^{\lfloor \frac{n}{2} \rfloor}$<br>else<br>$V_n = \frac{1}{\frac{n}{2}!} r^n \pi^{\lfloor \frac{n}{2} \rfloor}$</p>
+<p>補充: 在上面的推導中寫道 $V_3 = 2\int_{0}^{r} \pi R^2 dz$，可以想像為一個圓形乘上z軸上一個小小的高，同樣的想法也可以適用於高維度空間。</p>
 <p>補充: 球面積是體積的微分(對r)，可以自己想想看為什麼。</p>
 <h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>這個問題算是我想了很久才想出來的，一般高中教材是用旋轉法來計算球體積，但是這個方法拓展到高維，我就不知道怎麼做了，要繞哪一軸旋轉? 轉什麼?<br>既然常用的推不出去，只好從最基礎的定義去推導，才能推廣到高維。<br>思考的過程很有趣，故留筆此篇。</p>
 
@@ -329,25 +329,10 @@ $x^2+"/>
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
