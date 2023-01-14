@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="莫隊算法
+給定一長度為 $n$的數列，有 $q$個詢問，問區間 $l,r$內眾數出現幾次? 有幾個眾數?!可以離線
+
+這題目乍看下是要刻一個比較特殊的線段樹，但是真的需要嗎?
+首先，我們把問題reduce成
+
+給定一長度為 $n$的數列，有兩個索引 $l,r$，有 $q$個操作，使 $l$變大或變小"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="mo&#39;s algorithm"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="莫隊算法
+給定一長度為 $n$的數列，有 $q$個詢問，問區間 $l,r$內眾數出現幾次? 有幾個眾數?!可以離線
+
+這題目乍看下是要刻一個比較特殊的線段樹，但是真的需要嗎?
+首先，我們把問題reduce成
+
+給定一長度為 $n$的數列，有兩個索引 $l,r$，有 $q$個操作，使 $l$變大或變小"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>mo&#39;s algorithm - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>mo's algorithm</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-19
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/algorithm/">#algorithm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/筆記/">筆記</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="莫隊算法"><a href="#莫隊算法" class="headerlink" title="莫隊算法"></a>莫隊算法</h3><blockquote>
+<p>給定一長度為 $n$的數列，有 $q$個詢問，問區間 $l,r$內眾數出現幾次? 有幾個眾數?<br>!可以離線</p>
+</blockquote>
+<p>這題目乍看下是要刻一個比較特殊的線段樹，但是真的需要嗎?</p>
+<p>首先，我們把問題reduce成</p>
+<blockquote>
+<p>給定一長度為 $n$的數列，有兩個索引 $l,r$，有 $q$個操作，使 $l$變大或變小1、使 $r$變大或變小1，問每次操作區間 $l,r$內眾數出現幾次? 有幾個眾數?</p>
+</blockquote>
+<p>這個問題看起來就簡單多了。<br>設<code>app[x]</code>, <code>cnt[c]</code>, <code>maxcur</code>為 $x$出現幾次、出現 $c$次的有幾種數字、目前的眾數是出現幾次。<br>每次移動雙指標時，都去維護<code>app[x], cnt[c], maxcur</code>，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    --cnt[app[x]];</span><br><span class="line">    --app[x];</span><br><span class="line">    ++cnt[app[x]];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (cnt[maxcur] == <span class="number">0</span>)</span><br><span class="line">        --maxcur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    --cnt[app[x]];</span><br><span class="line">    ++app[x];</span><br><span class="line">    ++cnt[app[x]];</span><br><span class="line">    </span><br><span class="line">    maxcur = max(maxcur, app[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//~~</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(q--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//~~</span></span><br><span class="line">    <span class="keyword">if</span> (op == <span class="string">"L l"</span>)</span><br><span class="line">        add(arr[--l]);    <span class="comment">//左指標左移</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="string">"L r"</span>)</span><br><span class="line">        sub(arr[l++]);    <span class="comment">//左指標右移</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="string">"R l"</span>)</span><br><span class="line">        sub(arr[r--]);    <span class="comment">//右指標左移</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="string">"R r"</span>)</span><br><span class="line">        add(arr[++r]);    <span class="comment">//右指標右移</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; maxcur &lt;&lt; <span class="string">' '</span> &lt;&lt; cnt[maxcur] &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這樣的複雜度是$O(q)$。完美解決。</p>
+<p>但是這個問題跟原始問題比起來，差在一個 <strong>移動是連續的</strong>；一個是 <strong>左界右界亂跳</strong>。<br>那我們不妨讓原始題目的詢問左右界排序成連續的樣子。</p>
+<p>依照左界大小將詢問排序，再依照剛剛的做法去做，但是這樣會有一個問題</p>
+<blockquote>
+<p>右界怎麼辦?</p>
+</blockquote>
+<p>如果有很多筆操作，左界都相同，但是右界差距極大，這樣複雜度最差是$O(n^2)$</p>
+<p>有沒有一種辦法去同時把左界排序又能維護好右界遞增呢?<br>有，但是左右界都需要犧牲一點單調性。</p>
+<p>利用分塊的思想，將$n$個元素切成$K$塊，接著將所有詢問按照$L_i$所在的區塊排序，如果在同一個區塊，就再對</p>
+<p>$R_i$做排序。</p>
+<ul>
+<li><p><strong>複雜度分析</strong>:<br>  因為分塊的特性，在同一塊的左界不會移動超過$\frac{N}{K}$次，而左界屬於不同塊的操作，移動次數最多也不會超過N次。所以左界移動複雜度是$O(\frac{NQ}{K})$。<br>  對於右界因為$R_i$是遞增，所以對於同一塊複雜度最多$O(N)$，對不同塊因為交界最多$K$次，每次最多也$O(N)$，所以維護右界複雜度為$O(NK)$。<br>  取$K=\sqrt N$，複雜度為 $O(Q\sqrt N +N \sqrt N)$</p>
+</li>
+<li><p><strong>奇偶優化</strong>:<br>  每一塊的$R_i$都是遞增，因此在遇到交界處時會有一個”大斷層”，導致右界必須移動許多次，但是如果反過來變成奇數塊遞增，而偶數塊遞減，就會讓右界的移動接近連續<br>  實做判斷區塊是否為偶數進行遞增或遞減排序。</p>
+</li>
+<li><p><strong>code:</strong><br>  因為有點長，所以貼連結: <a href="https://pastebin.com/sLbTNxmP" target="_blank" rel="noopener">Mo’s alogrithm</a></p>
+</li>
+</ul>
+<p>練習題: <a href="https://zerojudge.tw/ShowProblem?problemid=b417" target="_blank" rel="noopener">zj b417</a>(模板題),<a href="https://tioj.ck.tp.edu.tw/problems/1699" target="_blank" rel="noopener">tioj 1699</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

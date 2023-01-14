@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個比較特別，不是最速降線，但結果同樣是擺線。這是第二篇。
+
+問題在無摩"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="最速降線問題-變分法"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個比較特別，不是最速降線，但結果同樣是擺線。這是第二篇。
+
+問題在無摩"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>最速降線問題-變分法 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>最速降線問題-變分法</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-04-13
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/筆記/">筆記</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這個問題我最早是高三上從youtube看到的，但是直到最近才開始研究解法。<br>總共三篇不同解法，第一個是約翰·伯努利提出的解法、第二個是歐拉、拉格朗日提出的解法(當初雅各布·伯努利的解法也用到了變分的思想所以就統一寫一起了)、第三個比較特別，不是最速降線，但結果同樣是擺線。<br>這是第二篇。</p>
+<hr>
+<h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>在無摩擦力、只有重力的情況下，一質點從一點A為起點，由速率0開始沿著某曲線滑，至B點(高度不超過A)，且 <strong>耗時最短</strong> ，求此曲線。</p>
+<hr>
+<h1 id="變分法推導"><a href="#變分法推導" class="headerlink" title="變分法推導"></a>變分法推導</h1><p>最速降線問題是在找$\int^{x_1}_{x_0} \sqrt{\frac{1+y’^2}{2gy}} dx$這個式子的極值。(不知道這個式子怎麼來的可以看<a href="https://oemiliatano.github.io/2021/04/13/%E6%9C%80%E9%80%9F%E9%99%8D%E7%B7%9A%E5%95%8F%E9%A1%8C-%E5%85%89%E8%A7%A3%E6%B3%95/" target="_blank" rel="noopener">上一篇</a>)<br>將這類型問題一般化後可以寫出</p>
+<p>$\int^{x_1}_{x_0} F(x, y, y’) dx$</p>
+<p>其中，$y, y’$是$x$的函數。</p>
+<p>我們想要通過選擇最好的y來得到極值，類似於以前一般函數選取好的x值求極值，但是現在是 <strong>選取好的函數再求目標函數極值</strong><br>相仿於一般函數，可以寫出<br>$I(y) = \int^{x_1}_{x_0} F(x, y, y’) dx$，而這個$I$則被稱為泛函數。<br>也相仿於一般函數求極值，若對泛函求導後使其=0，就可以得到極值，但是該怎麼定義$\frac{dI}{dy}$ ?</p>
+<p>假定有一函數$y$可以使得$I$到達極值，可以構造出這樣一個東西: $g(\epsilon) = I(y + \epsilon \eta) = I(\hat{y})$，$\hat{y’} = y’ + \epsilon \eta’$<br>$\eta$是任意函數(但兩端點都必須為0)，$\epsilon$是任意實數，由此將這個問題轉為一般的函數求極值問題。<br><img src="https://imgur.com/x78iM1p.png" alt=""></p>
+<p>通過$g(\epsilon)$對$\epsilon$求導數:</p>
+<p>$\frac{dg}{d\epsilon} = \frac{d}{d\epsilon} \int^{x_1}_{x_0} F(x, \hat{y}, \hat{y’}) dx$</p>
+<p>求導跟積分互換<br>$\frac{dg}{d\epsilon} = \int^{x_1}_{x_0} \frac{d}{d\epsilon} F(x, \hat{y}, \hat{y’}) dx$</p>
+<p>現在要求$dF(x, \hat{y}, \hat{y’})$，利用全微分:<br>$dF = F_x dx + F_{\hat{y}} d\hat{y} + F_{\hat{y’}} d\hat{y’}$<br>兩邊同除$d\epsilon$得</p>
+<p>$\frac{dF}{d\epsilon} = F_x \frac{dx}{d\epsilon} + F_{\hat{y}} \frac{d\hat{y}}{d\epsilon} + F_{\hat{y’}}\frac{d\hat{y’}}{d\epsilon}$<br>(底標代表對那個變數的偏微分)</p>
+<p>明顯$\frac{dx}{d\epsilon}=0$, $\frac{d\hat{y}}{d\epsilon} = \eta$, $\frac{d\hat(y’)}{d\epsilon} = \eta’$</p>
+<p>$\frac{dF}{d\epsilon} = F_{\hat{y}}\eta + F_{\hat{y’}}\eta’$</p>
+<p>將上述結果代回去</p>
+<p>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} F_{\hat{y}}\eta dx + \int_{x_0}^{x_1} F_{\hat{y’}}\eta’ dx$</p>
+<p>將後項分部積分:<br><img src="https://imgur.com/IyiNQDd.png" alt=""></p>
+<p>顯然，$F_{\hat{y’}}\eta|^{x_1}_{x_0} = 0$</p>
+<p>$\int_{x_0}^{x_1} F_{\hat{y}}\eta dx - \int_{x_0}^{x_1} \frac{dF_{\hat{y’}}}{dx}\eta dx$</p>
+<p>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} (F_{\hat{y}} - \frac{dF_{\hat{y’}}}{dx})\eta dx$</p>
+<p>由定義可以知道，當$\epsilon = 0$就可以得到極值，$\frac{dg}{d\epsilon} |^{\epsilon = 0} = 0$，而$\epsilon = 0$時，$\hat{y} = y$, $\hat{y’} = y’$<br>$\frac{dg}{d\epsilon} = \int_{x_0}^{x_1} (F_{y} - \frac{dF_{y’}}{dx})\eta dx$</p>
+<p>最後一步要證明$\int_{a}^{b} f(x)\eta dx = 0$，且$\eta$為任意函數(同樣兩端為0)，則$f(x) = 0$</p>
+<p>定 $r(a) = r(b) = 0$，且$r(x) &gt; 0, x\in[a, b]$</p>
+<p>令 $f(x) = r(x)\eta(x)$</p>
+<p>$\int^{b}_{a} r(x)\eta^2(x) dx = 0$</p>
+<p>因為$r(x)$在$(a,b)$大於0，所以$f(x)$在$(a, b)$中必為0</p>
+<hr>
+<p>利用上面的證明可以知道</p>
+<p>$(F_{y} - \frac{dF_{y’}}{dx}) = 0$</p>
+<p>這就是 <strong>歐拉-拉格朗日方程式</strong></p>
+<p>而這個方程式有兩個特殊形式:</p>
+<ol>
+<li><p>若f(x, y, y’) = f(x, y’)，可寫成 $F_{y’} = C$</p>
+</li>
+<li><p>若f(x, y, y’) = f(y, y’)，可寫成 $F - y’F_{y’} = C$</p>
+</li>
+</ol>
+<hr>
+<h1 id="利用變分法解決最速降線"><a href="#利用變分法解決最速降線" class="headerlink" title="利用變分法解決最速降線"></a>利用變分法解決最速降線</h1><p>回到一開始的式子</p>
+<p>$\int_{x_0}^{x_1} \sqrt{\frac{1+y’^2}{2gy}} dx$</p>
+<p>$\sqrt{\frac{1+y’^2}{2gy}}$就是$F(x, y, y’)$，只需要求解$(F_{y} - \frac{dF_{y’}}{dx}) = 0$就可以得到答案。</p>
+<p>注意到$F$符合第二個特殊形式，故寫成<br>$\sqrt{\frac{1+y’^2}{2gy}} - y’\sqrt{\frac{y’^2}{2(1+y’^2)gy}} = C$<br>整理:<br>$\frac{1+y’^2}{\sqrt{2(1+y’^2)gy}} - \frac{y’^2}{\sqrt{2(1+y’^2)gy}} = C$</p>
+<p>$\frac{1}{\sqrt{2(1+y’^2)gy}}= C$</p>
+<p>$\frac{1}{(1+y’^2)y}= 2gC^2$</p>
+<p>$\frac{1}{(1+y’^2)}= yK$, $K = 2gC^2$</p>
+<p>$y’^2 = (yK)^{-1} - 1$</p>
+<p>$y’ = \sqrt{(yK)^{-1} - 1}$</p>
+<p>$((yK)^{-1} - 1)^{-\frac{1}{2}} dy = dx$</p>
+<p>$(\frac{1 - yK}{yK})^{-\frac{1}{2}} dy = dx$</p>
+<p>$(\frac{yK}{1 - yK})^{\frac{1}{2}} dy = dx$<br>兩邊積分<br>$\int (\frac{yK}{1 - yK})^{\frac{1}{2}} dy = \int dx$</p>
+<p>令$y = \frac{sin^2\theta}{K}$, $dy = \frac{2sin\theta cos\theta}{K} d\theta$</p>
+<p>$\int \frac{2sin^2\theta}{K} d\theta = x$</p>
+<p>$\frac{1}{K}\int 2sin^2\theta d\theta = x$</p>
+<p>$\frac{1}{K}(\theta - \frac{1}{2}sin2\theta) + C = x$</p>
+<p>$\frac{1}{2K}(2\theta - sin2\theta) + C = x$</p>
+<p>整理好，令$\alpha = 2\theta$<br>$x = \frac{1}{4gC^2}(\alpha - sin\alpha) + C$<br>$y = \frac{sin^2\theta}{K} = \frac{1}{4gC^2}(1-cos\alpha)$</p>
+<p>這個即是 <strong>擺線的參數方程式</strong>。</p>
+<hr>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>這個方法比起光解法更難，也更具一般性，通過這個方法也可以解決懸鏈線、最小曲面問題。<br>總的來說，這是一個比光解法更加精采的解法。</p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cust.edu.tw/mathmet/brachistochrone.pdf" target="_blank" rel="noopener">http://www.cust.edu.tw/mathmet/brachistochrone.pdf</a><br><a href="https://zhuanlan.zhihu.com/p/20718489" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/20718489</a><br><a href="http://boson4.phys.tku.edu.tw/fundamentals_of_math_phys/unit-33_Variation__calculus%20_of_variation.html" target="_blank" rel="noopener">http://boson4.phys.tku.edu.tw/fundamentals_of_math_phys/unit-33_Variation__calculus%20_of_variation.html</a><br><a href="https://zh.wikipedia.org/zh-tw/%E5%8F%98%E5%88%86%E6%B3%95" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-tw/%E5%8F%98%E5%88%86%E6%B3%95</a><br><a href="https://en.wikipedia.org/wiki/Fundamental_lemma_of_calculus_of_variations" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fundamental_lemma_of_calculus_of_variations</a><br><a href="https://zh.wikipedia.org/wiki/%E6%AD%90%E6%8B%89-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%96%B9%E7%A8%8B" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E6%AD%90%E6%8B%89-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%96%B9%E7%A8%8B</a><br><a href="https://www.zhihu.com/question/39494645" target="_blank" rel="noopener">https://www.zhihu.com/question/39494645</a><br><a href="https://www.jianshu.com/p/961e890e88b2" target="_blank" rel="noopener">https://www.jianshu.com/p/961e890e88b2</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

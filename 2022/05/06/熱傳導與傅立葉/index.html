@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言微積分(其實是教basic fourier analysis)期末專題。我研究的主題是熱傳導方程式 ，並使用python模擬熱傳導的模型。
+
+介紹傅立葉冷卻定律描述熱在介質中傳播的規律，可以用兩種形式表達:
+
+微分形式，關注局部的熱傳導率$$\frac{\partial u}{\partial "/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="熱傳導與傅立葉"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言微積分(其實是教basic fourier analysis)期末專題。我研究的主題是熱傳導方程式 ，並使用python模擬熱傳導的模型。
+
+介紹傅立葉冷卻定律描述熱在介質中傳播的規律，可以用兩種形式表達:
+
+微分形式，關注局部的熱傳導率$$\frac{\partial u}{\partial "/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>熱傳導與傅立葉 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>熱傳導與傅立葉</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-05-06
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>微積分(其實是教basic fourier analysis)期末專題。<br>我研究的主題是<a href="https://en.wikipedia.org/wiki/Heat_equation" target="_blank" rel="noopener">熱傳導方程式</a> ，並使用python模擬熱傳導的模型。</p>
+<hr>
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>傅立葉冷卻定律描述熱在介質中傳播的規律，可以用兩種形式表達:</p>
+<ol>
+<li><p>微分形式，關注局部的熱傳導率<br>$$\frac{\partial u}{\partial t}=\alpha \nabla^2 u$$</p>
+</li>
+<li><p>積分形式，關注流出/入部分介質表面的熱<br>$$P=-k\oint_S\vec{\nabla}T\cdot\vec{dA}$$</p>
+</li>
+</ol>
+<p>我使用的熱傳導方程就是<a href="https://en.wikipedia.org/wiki/Thermal_conduction#Fourier' target="_blank" rel="noopener"s_law">傅立葉冷卻定律</a> 的微分形式，來描述區域內溫度的演化。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="有限一維模型-數學推導"><a href="#有限一維模型-數學推導" class="headerlink" title="有限一維模型-數學推導"></a>有限一維模型-數學推導</h2><p><img src="https://imgur.com/1fse45u.png" alt=""></p>
+<p>考慮一個理想的長棍，若$t=0$時，長棍上各點的溫度可用$f(x)$表達。<br>若可用一函數$u(x,t)$表達長棍一點的溫度於特定時間，求$u(x,t)$。</p>
+<p>可知熱傳導方程式為: $\frac{\partial u}{\partial t}=\alpha \nabla^2 u$<br>因此處模型只有一維，故式中laplacian可改為: $\frac{\partial u}{\partial t}=\alpha \frac{\partial^2 u}{\partial x^2}$<br>在物理意義上為溫度隨時間改變的速度正比於相鄰溫差之差。</p>
+<p>使用Neumann boundary condition: $\frac{\partial u}{\partial x}(0,t)=\frac{\partial u}{\partial x}(l,t)=0$<br>當然也可以使用Dirichlet boundary condition: $u(0,t)=u(l,t)=0$，但這裡只展示Neumann條件下的推導而已。</p>
+<p>用分離變數法，假設$u(x,t)=X(x)T(t)$。<br>從$\frac{\partial u}{\partial t}=\alpha \nabla^2u$可知，$X(x)T’(t)=\alpha X’’(x)T(t)$。<br>令$\lambda=\alpha T(t)/T’(t)= X(x)/X’’(x)$。</p>
+<p>先解出$X(x)$的部分，$\lambda X’’(x)-X(x)=0$。<br>利用特稱方程解此ODE，$\lambda m^2-1=0\iff m=\pm\sqrt\frac1\lambda$，所以$X(x)$的通解為$X(x)=c_1e^{\frac x{\sqrt\lambda}}+c_2e^{-\frac x{\sqrt\lambda}}$</p>
+<p>檢查邊界條件。<br>$X’(x)=\frac{c_1}{\sqrt\lambda}e^{\frac x{\sqrt\lambda}}-\frac{c_2}{\sqrt\lambda}e^{-\frac x{\sqrt\lambda}}$.<br>$X’(0)=\frac{c_1}{\sqrt\lambda}-\frac{c_2}{\sqrt\lambda}=0\Rightarrow c_1=c_2$<br>$X’(l)=\frac{c_1}{\sqrt\lambda}e^{\frac l{\sqrt\lambda}}-\frac{c_2}{\sqrt\lambda}e^{-\frac l{\sqrt\lambda}}=0=\frac{c_1}{\sqrt\lambda}(e^{\frac{l}{\sqrt\lambda}}-e^{-\frac{l}{\sqrt\lambda}})\Rightarrow e^{\frac{l}{\sqrt\lambda}}=e^{-\frac{l}{\sqrt\lambda}}$</p>
+<p>分別討論$\lambda$的正負:<br>若$\lambda&gt;0$，無解。<br>若$\lambda=0$，$X(x)=0, u(x,t)=0$，此為平凡解。<br>若$\lambda&lt;0$, $e^{i\frac{l}{\sqrt{|\lambda|}}}=e^{-i\frac{l}{\sqrt{|\lambda|}}}$。<br>利用歐拉公式，上式化簡為$2isin(\frac l{\sqrt{|\lambda|}})=0\iff|\lambda|=\frac{l^2}{n^2\pi^2}$。<br>由此可知，$|\lambda|$必滿足$|\lambda|=\frac{l^2}{n^2\pi^2}$。</p>
+<p>回頭解$T(t)$，$\alpha T(t)/T’(t)=\lambda\Rightarrow\alpha T(t)=\lambda T’(t)\Rightarrow\alpha dt=\frac{\lambda}{T}dT\Rightarrow\int\frac \alpha\lambda dt=\int\frac1{T}dT=\frac\alpha\lambda t=ln(T)\Rightarrow ce^{t\frac \alpha\lambda}=T(t)$</p>
+<p>最後，利用上述的解得到$u(x,t)=X(x)T(t)=K_ne^{-\alpha t\frac{n^2\pi^2}{l^2}}cos(x\frac{n\pi}{l})$</p>
+<p>但注意此處有自由變數$n$，而根據此PDE的線性性質(若有$n$個解$f_i$，則$\sum_{i=1}^n f_i$構成解空間)，所以通解要寫成</p>
+<p>$u(x,t)=\sum^{\infty}_{n=0} X_n(x)T_n(t)=\sum^\infty_{n=0}K_ncos(x\frac{n\pi}{l})e^{-\alpha t\frac{n^2\pi^2}{l^2}}$</p>
+<p>當$t=0$時，$u(x,0)=f(x)=\sum^{\infty}_{n=0} X_n(x)T_n(t)=\sum^\infty_{n=0}K_ncos(x\frac{n\pi}{l})$</p>
+<p>若改成用Dirichlet boundary condition，解則變為$u(x,t)=\sum^{\infty}_{n=0} X_n(x)T_n(t)=\sum^\infty_{n=0}K_nsin(x\frac{n\pi}{l})e^{-\alpha t\frac{n^2\pi^2}{l^2}}$</p>
+<p>正是因為這兩種解都牽涉到將函數轉成用三角函數表達，而促使傅立葉發展出傅立葉級數。</p>
+<hr>
+<h2 id="有限一維模型-程式模擬"><a href="#有限一維模型-程式模擬" class="headerlink" title="有限一維模型-程式模擬"></a>有限一維模型-程式模擬</h2><p>我是用python的matplotlib的套件來畫圖，想看這套件的用法請參考我<a href="https://oemiliatano.github.io/2020/04/22/3D-functions/" target="_blank" rel="noopener">以前的文章</a>。<br>定積分用黎曼和計算。</p>
+<p>2D version:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line">l = np.pi</span><br><span class="line">maxn = <span class="number">1000</span></span><br><span class="line">K = [<span class="number">0</span>] * maxn</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="comment">#return np.piecewise(x, [np.logical_and(np.less_equal(x, 3), np.greater_equal(x,2)), np.logical_not(np.logical_and(np.less_equal(x, 3), np.greater_equal(x,2)))], [1, 0])</span></span><br><span class="line">	<span class="keyword">return</span> np.cos(x)</span><br><span class="line">	<span class="comment">#return np.cos(np.sin(x * np.pi / l))</span></span><br><span class="line">	<span class="comment">#return 1/3 * (x**3) - l/2 * (x**2)</span></span><br><span class="line">	<span class="comment">#return (1/5) * (x**5) - ((7 + l) / 4) * (x**4) + ((10 + 7 * l) / 3) * (x**3) - 5*l *(x**2)</span></span><br><span class="line">	<span class="comment">#return np.sin(np.pi * x**2 / (2 * l**2))</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># calculate coefficient cos series</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calKn_cos</span><span class="params">()</span>:</span></span><br><span class="line">	dl = l / maxn</span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(maxn):</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(maxn):</span><br><span class="line">			K[n] += f(dl * i) * np.cos(np.pi * n * dl * i / l)</span><br><span class="line">		K[n] *= (<span class="number">2</span> * dl / l)</span><br><span class="line">	K[<span class="number">0</span>] /= <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># calculate coefficient sin series</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calKn_sin</span><span class="params">()</span>:</span></span><br><span class="line">	dl = l / maxn</span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(maxn):</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(maxn):</span><br><span class="line">			K[n] += f(dl * i) * np.sin(np.pi * n * dl * i / l)</span><br><span class="line">		K[n] *= (<span class="number">2</span> * dl / l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># calculate coefficient</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calKn</span><span class="params">(mode = <span class="string">"cos"</span>)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> mode == <span class="string">"cos"</span>:</span><br><span class="line">		calKn_cos()</span><br><span class="line">	<span class="keyword">elif</span> mode == <span class="string">"sin"</span>:</span><br><span class="line">		calKn_sin()</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		print(<span class="string">"error argument"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># solution function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">u</span><span class="params">(x, t, alpha = <span class="number">1</span>, maxn = <span class="number">1000</span>)</span>:</span></span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(maxn):</span><br><span class="line">		s += K[n] * np.cos(x * n * np.pi / l) * np.exp(-alpha * t * (n * np.pi / l) ** <span class="number">2</span>)</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">0.5</span>, l - <span class="number">0.5</span>, <span class="number">1024</span>)</span><br><span class="line"></span><br><span class="line">calKn()</span><br><span class="line"></span><br><span class="line">plt.plot(X, u(X, <span class="number">0</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=0'</span>)</span><br><span class="line">plt.plot(X, u(X, <span class="number">1</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=1'</span>)</span><br><span class="line">plt.plot(X, u(X, <span class="number">2</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=2'</span>)</span><br><span class="line">plt.plot(X, u(X, <span class="number">4</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=4'</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc = <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>3D version:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line">l = np.pi</span><br><span class="line">maxn = <span class="number">1000</span></span><br><span class="line">K = [<span class="number">0</span>] * maxn</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="comment">#return np.piecewise(x, [np.logical_and(np.less_equal(x, 3), np.greater_equal(x,2)), np.logical_not(np.logical_and(np.less_equal(x, 3), np.greater_equal(x,2)))], [1, 0])</span></span><br><span class="line">	<span class="keyword">return</span> np.cos(x)</span><br><span class="line">	<span class="comment">#return np.cos(np.sin(x * np.pi / l))</span></span><br><span class="line">	<span class="comment">#return 1/3 * (x**3) - l/2 * (x**2)</span></span><br><span class="line">	<span class="comment">#return (1/5) * (x**5) - ((7 + l) / 4) * (x**4) + ((10 + 7 * l) / 3) * (x**3) - 5*l *(x**2)</span></span><br><span class="line">	<span class="comment">#return np.sin(np.pi * x**2 / (2 * l**2))</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calKn_cos</span><span class="params">()</span>:</span></span><br><span class="line">	dl = l / maxn</span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(maxn):</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(maxn):</span><br><span class="line">			K[n] += f(dl * i) * np.cos(np.pi * n * dl * i / l)</span><br><span class="line">		K[n] *= (<span class="number">2</span> * dl / l)</span><br><span class="line">	K[<span class="number">0</span>] /= <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calKn_sin</span><span class="params">()</span>:</span></span><br><span class="line">	dl = l / maxn</span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(maxn):</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(maxn):</span><br><span class="line">			K[n] += f(dl * i) * np.sin(np.pi * n * dl * i / l)</span><br><span class="line">		K[n] *= (<span class="number">2</span> * dl / l)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calKn</span><span class="params">(mode = <span class="string">"cos"</span>)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> mode == <span class="string">"cos"</span>:</span><br><span class="line">		calKn_cos()</span><br><span class="line">	<span class="keyword">elif</span> mode == <span class="string">"sin"</span>:</span><br><span class="line">		calKn_sin()</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		print(<span class="string">"error argument"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">u</span><span class="params">(x, t, alpha = <span class="number">1</span>, maxn = <span class="number">1000</span>)</span>:</span></span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(maxn):</span><br><span class="line">		s += K[n] * np.cos(x * n * np.pi / l) * np.exp(-alpha * t * (n * np.pi / l) ** <span class="number">2</span>)</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = plt.axes(projection = <span class="string">'3d'</span>)</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">0.5</span>, l - <span class="number">0.5</span>, <span class="number">1024</span>)</span><br><span class="line">T = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">512</span>)</span><br><span class="line"></span><br><span class="line">calKn()</span><br><span class="line"></span><br><span class="line">X, T = np.meshgrid(X, T)</span><br><span class="line">U = u(X, T, alpha = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">'x'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'t'</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">'temperature'</span>)</span><br><span class="line">ax.plot_surface(X, T, U, cmap = <span class="string">'rainbow'</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>圖片:</p>
+<p>$f(x) = cos(x), l = 2\pi, \alpha = 0.5$<br><img src="https://i.imgur.com/0yMl4b5.png" alt=""></p>
+<p><img src="https://i.imgur.com/dpwXK3M.png" alt=""></p>
+<p>$f(x) = cos(x), l = \pi, \alpha = 0.5$<br><img src="https://i.imgur.com/wLDnDYE.png" alt=""></p>
+<p><img src="https://i.imgur.com/786ARJu.png" alt=""></p>
+<p>$f(x) = cos(sin(x * \pi/l)), l = 5, \alpha = 0.5$<br><img src="https://i.imgur.com/0LrMCvt.png" alt=""></p>
+<p><img src="https://i.imgur.com/YAOzHtZ.png" alt=""></p>
+<p>$f(x) = \frac15x^5 - \frac{7+l}4x^4+\frac{10+7l}3x^3 - 5lx^2, l=5, \alpha = 0.5$<br><img src="https://i.imgur.com/8kR9wrk.png" alt=""></p>
+<p><img src="https://i.imgur.com/MEFUehg.png" alt=""></p>
+<p>$f(x) = \begin{cases}1&amp;,|x-2.5|&lt;0.5\\0&amp;,\text{else}\end{cases}, l=5, \alpha = 0.5$<br>原函數為方波。可以很清楚的看見吉布斯現象。<br><img src="https://i.imgur.com/YjjszDZ.png" alt=""></p>
+<p><img src="https://i.imgur.com/IR1N5WI.png" alt=""></p>
+<hr>
+<h2 id="無限長一維模型-數學推導"><a href="#無限長一維模型-數學推導" class="headerlink" title="無限長一維模型-數學推導"></a>無限長一維模型-數學推導</h2><p>具邊界條件的模型，距離邊界越近的地方，誤差值越大，若改成使用”無限長”的長棍，則在有限區間內幾乎無誤差值。</p>
+<p>因現在模型為無限長，故沒有邊界條件，但熱方程與初始條件仍一樣。</p>
+<p>同樣，假設$u(x,t)=X(x)T(t)$，同樣也會得到$\lambda=\frac{X(x)}{X’’(x)}=\frac{\alpha T(t)}{T’(t)}$，也同樣要解$\lambda X’’(x)-X(x)=0$。<br>但與有限長的長棍不同處即在此。</p>
+<p>由前一例可知$\lambda &lt; 0$，$X(x)=c_1e^{i\frac{x}{\sqrt{|\lambda|}}}+c_2e^{-i\frac{x}{\sqrt{|\lambda|}}}$<br>因無邊界條件，所以需要用其他方法化簡$X(x)$。<br>把$X(x)$寫成$\frac{c_1+c_2}2e^{i\frac{x}{\sqrt{|\lambda|}}}+\frac{c_1+c_2}2e^{-i\frac{x}{\sqrt{|\lambda|}}}+\frac{c_1-c_2}2e^{i\frac{x}{\sqrt{|\lambda|}}}-\frac{c_1-c_2}2e^{-i\frac{x}{\sqrt{|\lambda|}}}$<br>得到$X(x)=(c_1+c_2)cos(\frac{x}{\sqrt{|\lambda|}})+i(c_1-c_2)sin(\frac{x}{\sqrt{|\lambda|}})=Acos(\frac{x}{\sqrt{|\lambda|}})+Bsin(\frac{x}{\sqrt{|\lambda|}})$</p>
+<p>$T(t)$則與前例一樣，$T(t)=ce^{t\frac \alpha\lambda}$</p>
+<p>得到特解$u_{\lambda}(x,t)=(A_{\lambda}cos(\frac{x}{\sqrt{|\lambda|}})+B_{\lambda}sin(\frac{x}{\sqrt{|\lambda|}}))e^{-\frac{t\alpha}{|\lambda|}}$。<br>為了讓他好看點，令$p=\frac1{\sqrt{|\lambda|}}$。<br>則特解變為: $u_p(x,t)=(A_{p}cos(px)+B_{p}sin(px))e^{-p^2t\alpha}$<br>依據這個PDE的線性性質，即乘上一常數($\Delta p$)後仍為解答，$\sum^\infty_{n=0}\Delta p u_{n\Delta p}(x,t)$為通解。</p>
+<p>$\lim_{\Delta p\to 0}\sum^\infty_{n=0}\Delta p u_{n\Delta p}(x,t)=\int^\infty_0u_p(x,t)dp=\int^\infty_0(A_{p}cos(px)+B_{p}sin(px))e^{-p^2t\alpha}dp=u(x,t)$</p>
+<p>當$t=0$時，$u(x,0)=f(x)=\int^\infty_0(A_{p}cos(px)+B_{p}sin(px))dp$，其中，$A_p=\frac1\pi\int^\infty_{-\infty}f(x)cos(px)dx$ and $B_p=\frac1\pi\int^\infty_{-\infty}f(x)sin(px)dx$</p>
+<p>可以自己驗證看看，這個解仍符合原先的PDE。</p>
+<p>上式可進一步變換成複數型傅立葉轉換，過程與一般的傅立葉積分變成複數型傅立葉轉換一樣，故在此省略，直接寫出公式:<br>$u(x,t)=\frac1{2\pi}\int^{\infty}_{-\infty}F(p)e^{ipx}e^{-t\alpha p^2}dp$ ，其中， $F(p)=\int^{\infty}_{-\infty}f(v)e^{-ipv}dv$</p>
+<p>一般會認為到此結束，但實際上因為$e^{-t\alpha p^2}$這項的存在，導致可以”交換積分順序”。<br>為何如此?<br>根據Fubini’s theorem，只要 $\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}|(e^{ipx}e^{-t\alpha p^2})f(v)e^{-ipv}|dv)dp$ 與 $\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}|(e^{ipx}e^{-t\alpha p^2})f(v)e^{-ipv}|dp)dv$ 兩者都收斂，則<br>$\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}(e^{ipx}e^{-t\alpha p^2})f(v)e^{-ipv}dv)dp$ 與 $\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}(e^{ipx}e^{-t\alpha p^2})f(v)e^{-ipv}dp)dv$同樣收斂，且結果相同。</p>
+<p>檢查 $\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}|e^{ipx}e^{-t\alpha p^2}f(v)e^{-ipv}|dv)dp$ 是否收斂:<br>$\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}|e^{ipx}e^{-t\alpha p^2}f(v)e^{-ipv}|dv)dp=\\\int^{\infty}_{-\infty}e^{-t\alpha p^2}(\int^{\infty}_{-\infty}|e^{ip(x-v)}f(v)|dv)dp=\\\int^{\infty}_{-\infty}e^{-t\alpha p^2}(\int^{\infty}_{-\infty}|f(v)cos(p(x-v))+if(v)sin(p(x-v))|dv)dp=\\\int^{\infty}_{-\infty}e^{-t\alpha p^2}(\int^{\infty}_{-\infty}\sqrt{f^2(v)cos^2(p(x-v))+f^2(v)sin^2(p(x-v))}dv)dp=\\\int^{\infty}_{-\infty}e^{-t\alpha p^2}(\int^{\infty}_{-\infty}|f(v)|dv)dp$</p>
+<p>檢查 $\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}|e^{ipx}e^{-t\alpha p^2}f(v)e^{-ipv}|dp)dv$ 是否收斂的步驟與上面相似，故省略。</p>
+<p>兩者收斂的條件相同，都是需要$f(x)$在$\Bbb R$上絕對收斂，而這也正是傅立葉轉換存在的條件之一。</p>
+<p>注意一般使用傅立葉轉換不能交換積分順序，原因是因為 $\frac{1}{2\pi}\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}|f(v)e^{-i\omega v} e^{i\omega x}| dv) d\omega$ 並不收斂(實際上兩種皆不收斂)。</p>
+<p>利用交換積分順序<br>$u(x,t)=\frac1{2\pi}\int^{\infty}_{-\infty}f(v)(\int^{\infty}_{-\infty}e^{ip(x-v)}e^{-t\alpha p^2}dp)dv$。</p>
+<p>注意中間的積分項<br>$\int^{\infty}_{-\infty}e^{ip(x-v)}e^{-t\alpha p^2}dp=\int^\infty_{-\infty}e^{-t\alpha p^2}cos(p(x-v))+ie^{-t\alpha p^2}sin(p(x-v)),dp$<br>其中虛部為奇函數，故可消去，變為$\int^\infty_{-\infty}e^{-t\alpha p^2}cos(p(x-v))dp$</p>
+<p>這個不定積分無法用初等函數寫出，但其定積分有很多做法: 曲線積分、積分內取微分、級數展開。<br>這裡用”積分內取微分”來解:<br>簡化上面的積分為 $\int^\infty_0e^{-s^2}cos(bs)ds$，<br>$I(b)=\int^\infty_0e^{-s^2}cos(bs)ds$<br>$I’(b)=\int^\infty_0\frac{\partial}{\partial b}(e^{-s^2}cos(bs))ds=\int^\infty_0-se^{-s^2}sin(bs)ds=-\frac12 bI(b)$<br>解此ODE:<br>$I’(b)=-\frac12 bI(b)\Rightarrow I(b)=\frac{\sqrt\pi}2e^{-\frac{b^2}4}$</p>
+<p>令上述積分的$t\alpha p^2=s^2$ and $b=\frac{x-v}{\sqrt{t\alpha}}$，所以，$\int^\infty_{-\infty}e^{-t\alpha p^2}cos(p(x-v))dp=\sqrt\frac{\pi}{t\alpha}e^{-\frac{(x-v)^2}{4t\alpha}}$</p>
+<p>答案變為<br>$u(x,t)=\frac1{2\pi}\int^{\infty}_{-\infty}f(v)(\sqrt\frac{\pi}{t\alpha}e^{-\frac{(x-v)^2}{4t\alpha}})dv=\frac1{2\sqrt{\pi t \alpha}}\int^{\infty}_{-\infty}f(v)e^{-\frac{(x-v)^2}{4t\alpha}}dv$</p>
+<p>因為$t$在分母，會令$t=0$時程式實作不方便，可以令$z=\frac{v-x}{2\sqrt{t\alpha}}$，則最終答案:<br>$$\frac1{\sqrt{\pi}}\int_{\Bbb R}f(x+2z\sqrt{t\alpha})e^{-z^2}dz$$</p>
+<hr>
+<h2 id="無限長一維模型-程式模擬"><a href="#無限長一維模型-程式模擬" class="headerlink" title="無限長一維模型-程式模擬"></a>無限長一維模型-程式模擬</h2><p>這裡牽涉到上下界無限的瑕積分，我寫了兩種方法:<br>第一是直接截斷，將上下界當作一個很大的值，再直接當定積分做；<br>第二是利用變數變換，考慮$\int_{\Bbb R}f(x)dx$，令$x=tan k$，則剛剛的積分可寫為$\int^{\pi/2}_{-\pi/2}f(tan k)\cdot sec^2(k)dk$，如此，上下界無限的積分就可變為一般的定積分，<br>(若要更精確，還可以將$[\pi/2-\Delta k, \pi/2]$以及$[-\pi/2,-\pi/2+\Delta k]$這兩個被捨去的區間一律當作$f(tan(\pm\pi/2\mp\Delta k))\cdot sec^2(\pm\pi/2\mp\Delta k)$計算)<br>(不過在我實際測試中，肉眼看不太出來兩種方法的差別，我猜測是因為收斂速度很快導致的。)</p>
+<p>2D version:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="comment">#return np.piecewise(x, [np.less_equal(abs(x), 1), np.logical_not(np.less_equal(abs(x), 1))], [1, 0])</span></span><br><span class="line">	<span class="keyword">return</span> np.exp(-x**<span class="number">2</span>)</span><br><span class="line">	<span class="comment">#return np.sinc(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tan(k)-subtitute version</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub_u</span><span class="params">(x, t, alpha = <span class="number">1</span>, maxn = <span class="number">10000</span>)</span>:</span></span><br><span class="line">	dk = np.pi / maxn</span><br><span class="line">	coe = dk / np.sqrt(np.pi)</span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>, maxn):</span><br><span class="line">		s += f(x + <span class="number">2</span> * np.tan(-np.pi / <span class="number">2</span> + dk * n) * np.sqrt(t * alpha)) * np.exp(-np.tan(-np.pi / <span class="number">2</span> + dk * n) ** <span class="number">2</span>) * (sec(-np.pi / <span class="number">2</span> + dk * n) ** <span class="number">2</span>)</span><br><span class="line">		</span><br><span class="line">	s += f(x + <span class="number">2</span> * np.tan(-np.pi / <span class="number">2</span> + dk) * np.sqrt(t * alpha)) * np.exp(-np.tan(-np.pi / <span class="number">2</span> + dk) ** <span class="number">2</span>) * (sec(-np.pi / <span class="number">2</span> + dk) ** <span class="number">2</span>)</span><br><span class="line">	s += f(x + <span class="number">2</span> * np.tan(np.pi / <span class="number">2</span> - dk) * np.sqrt(t * alpha)) * np.exp(-np.tan(np.pi / <span class="number">2</span> - dk) ** <span class="number">2</span>) * (sec(np.pi / <span class="number">2</span> - dk) ** <span class="number">2</span>)</span><br><span class="line">	s *= coe</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="comment"># non-subtitute version</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nonsub_u</span><span class="params">(x, t, alpha = <span class="number">1</span>, L = <span class="number">-100</span>, R = <span class="number">100</span>, maxn = <span class="number">10000</span>)</span>:</span></span><br><span class="line">	dk = (R - L) / maxn</span><br><span class="line">	coe = dk / np.sqrt(np.pi)</span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>, maxn - <span class="number">1</span>):</span><br><span class="line">		s += f(x + <span class="number">2</span> * (L + dk * n) * np.sqrt(t * alpha)) * np.exp(-(L + dk * n)**<span class="number">2</span>)</span><br><span class="line">	s *= coe</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">-10</span>, <span class="number">10</span>, <span class="number">1024</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(X, sub_u(X, <span class="number">0</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=0'</span>)</span><br><span class="line">plt.plot(X, sub_u(X, <span class="number">1</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=1'</span>)</span><br><span class="line">plt.plot(X, sub_u(X, <span class="number">2</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=2'</span>)</span><br><span class="line">plt.plot(X, sub_u(X, <span class="number">4</span>, alpha = <span class="number">0.5</span>), label = <span class="string">'t=4'</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc = <span class="number">0</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>3D version:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="comment">#return np.piecewise(x, [np.less_equal(abs(x), 1), np.logical_not(np.less_equal(abs(x), 1))], [1, 0])</span></span><br><span class="line">	<span class="comment">#return np.exp(-x**2)</span></span><br><span class="line">	<span class="keyword">return</span> np.sinc(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># tan(k)-subtitute version</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub_u</span><span class="params">(x, t, alpha = <span class="number">1</span>, maxn = <span class="number">10000</span>)</span>:</span></span><br><span class="line">	dk = np.pi / maxn</span><br><span class="line">	coe = dk / np.sqrt(np.pi)</span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>, maxn):</span><br><span class="line">		s += f(x + <span class="number">2</span> * np.tan(-np.pi / <span class="number">2</span> + dk * n) * np.sqrt(t * alpha)) * np.exp(-np.tan(-np.pi / <span class="number">2</span> + dk * n) ** <span class="number">2</span>) * (sec(-np.pi / <span class="number">2</span> + dk * n) ** <span class="number">2</span>)</span><br><span class="line">		</span><br><span class="line">	s += f(x + <span class="number">2</span> * np.tan(-np.pi / <span class="number">2</span> + dk) * np.sqrt(t * alpha)) * np.exp(-np.tan(-np.pi / <span class="number">2</span> + dk) ** <span class="number">2</span>) * (sec(-np.pi / <span class="number">2</span> + dk) ** <span class="number">2</span>)</span><br><span class="line">	s += f(x + <span class="number">2</span> * np.tan(np.pi / <span class="number">2</span> - dk) * np.sqrt(t * alpha)) * np.exp(-np.tan(np.pi / <span class="number">2</span> - dk) ** <span class="number">2</span>) * (sec(np.pi / <span class="number">2</span> - dk) ** <span class="number">2</span>)</span><br><span class="line">	s *= coe</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="comment"># non-subtitute version</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nonsub_u</span><span class="params">(x, t, alpha = <span class="number">1</span>, L = <span class="number">-100</span>, R = <span class="number">100</span>, maxn = <span class="number">10000</span>)</span>:</span></span><br><span class="line">	dk = (R - L) / maxn</span><br><span class="line">	coe = dk / np.sqrt(np.pi)</span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>, maxn - <span class="number">1</span>):</span><br><span class="line">		s += f(x + <span class="number">2</span> * (L + dk * n) * np.sqrt(t * alpha)) * np.exp(-(L + dk * n)**<span class="number">2</span>)</span><br><span class="line">	s *= coe</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = plt.axes(projection = <span class="string">"3d"</span>)</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">1024</span>)</span><br><span class="line">T = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">512</span>)</span><br><span class="line"></span><br><span class="line">X, T = np.meshgrid(X, T)</span><br><span class="line">U = sub_u(X, T, alpha = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">'x'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'t'</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">'temperature'</span>)</span><br><span class="line">ax.plot_surface(X, T, U, cmap = <span class="string">"rainbow"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>圖片:</p>
+<p>$f(x)=e^{-x^2}, \alpha = 0.5$</p>
+<p>直接截斷計算積分:<br><img src="https://i.imgur.com/33X8liB.png" alt=""></p>
+<p><img src="https://i.imgur.com/JWtbA2G.png" alt=""></p>
+<p>變數替換:<br><img src="https://i.imgur.com/o7MIhvA.png" alt=""></p>
+<p><img src="https://imgur.com/x39ndEL.png" alt=""></p>
+<p>$f(x)=\begin{cases}1&amp;,|x|&lt;1\\0&amp;,\text{else}\end{cases}, \alpha = 0.5$</p>
+<p>直接截斷計算積分:<br><img src="https://imgur.com/OmyMtZZ.png" alt=""></p>
+<p><img src="https://imgur.com/xikIRne.png" alt=""></p>
+<p>變數替換:<br><img src="https://imgur.com/BBRTe9s.png" alt=""></p>
+<p><img src="https://imgur.com/JVYhixq.png" alt=""></p>
+<p>$f(x)=sinc(x), \alpha = 0.5$</p>
+<p>直接截斷計算積分:<br><img src="https://imgur.com/sKGN7F4.png" alt=""></p>
+<p><img src="https://imgur.com/AZEXi9h.png" alt=""></p>
+<p>變數替換:<br><img src="https://imgur.com/uPk9Umj.png" alt=""></p>
+<p><img src="https://imgur.com/aKPUXjc.png" alt=""></p>
+<hr>
+<h2 id="無限長一維模型-離散化-1"><a href="#無限長一維模型-離散化-1" class="headerlink" title="無限長一維模型-離散化 1"></a>無限長一維模型-離散化 1</h2><p>既然都有CFT了，那試試看DFT能不能也產生同樣的效果。<br>將原函數取樣成一個個數據點，接著就可以利用DFT以及非正常(?)IDFT來處理:</p>
+<p>直接寫出答案: $u(n,t)=\frac1{L}\sum^{L-1}_{k=0}(\sum^{L-1}_{m=0}f[m]e^{-i\frac{2\pi}{L}km})e^{i\frac{2\pi}{L}nk}e^{-t\alpha k^2}$<br>其中$\hat{f}[k] = \sum^{L-1}_{m=0}f[m]e^{-i\frac{2\pi}{L}km}$就是DFT。</p>
+<hr>
+<h2 id="無限長一維模型-離散化-1-程式模擬"><a href="#無限長一維模型-離散化-1-程式模擬" class="headerlink" title="無限長一維模型-離散化 1-程式模擬:"></a>無限長一維模型-離散化 1-程式模擬:</h2><p>離散型就沒畫成3D圖了，只有2D疊層圖。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="comment">#return np.piecewise(x, [np.less_equal(abs(x), 1), np.logical_not(np.less_equal(abs(x), 1))], [1, 0])</span></span><br><span class="line">	<span class="keyword">return</span> np.exp(-x**<span class="number">2</span>)</span><br><span class="line">	<span class="comment">#return np.sinc(x)</span></span><br><span class="line"></span><br><span class="line">L = <span class="number">100</span></span><br><span class="line">W_L = np.exp(<span class="number">-2j</span> * np.pi / L)</span><br><span class="line">l, r = <span class="number">-3</span>, <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sample of original function</span></span><br><span class="line"><span class="comment"># n shall be in [0, maxn - 1]</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">samplef</span><span class="params">(n)</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">return</span> f(l + dk * n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># naive DFT</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hatf</span><span class="params">(k)</span>:</span></span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> m <span class="keyword">in</span> range(L):</span><br><span class="line">		s += samplef(m) * (W_L**(k*m))</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="comment"># naive IDFT</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">u</span><span class="params">(n, t, alpha = <span class="number">1</span>)</span>:</span></span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> range(L):</span><br><span class="line">		s += hatf(k) * (W_L**(-k*n)) * np.exp(-t * alpha * (k**<span class="number">2</span>))</span><br><span class="line">	s /= L</span><br><span class="line">	<span class="keyword">return</span> s.real</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">X = np.array([*range(L)])</span><br><span class="line">t0 = u(X, <span class="number">0</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t1 = u(X, <span class="number">1</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t2 = u(X, <span class="number">2</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t3 = u(X, <span class="number">10</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># map the [1, L) to (l, r)</span></span><br><span class="line">X = X * ((r - l) / L)</span><br><span class="line">X = X + l</span><br><span class="line"></span><br><span class="line">plt.bar(X, t0, width = <span class="number">0.1</span>, label = <span class="string">'t=0'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t1, width = <span class="number">0.1</span>, label = <span class="string">'t=1'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t2, width = <span class="number">0.1</span>, label = <span class="string">'t=2'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t3, width = <span class="number">0.1</span>, label = <span class="string">'t=10'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc = <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>圖片:</p>
+<p>$f(x)=e^{-x^2},\alpha = 0.5$<br><img src="https://imgur.com/rJMNtSC.png" alt=""></p>
+<p>$f(x)=\begin{cases}1&amp;,|x|&lt;1\\0&amp;,\text{else}\end{cases}, \alpha = 0.5$<br><img src="https://imgur.com/sWiby2j.png" alt=""></p>
+<p>$f(x)=sinc(x), \alpha = 0.5$<br><img src="https://imgur.com/KMF1DH4.png" alt=""></p>
+<p>雖然看起來蠻正確的，但對比連續的模型誤差蠻大的，看下圖:</p>
+<p>$f(x)=e^{-x^2},\alpha = 0.5$</p>
+<p>離散模擬:<br><img src="https://imgur.com/cnGY4dc.png" alt=""></p>
+<p>連續模擬:<br><img src="https://imgur.com/urTBuA3.png" alt=""></p>
+<p>我猜測是因為隨隨便便就把$e^{-t\alpha k^2}$離散化導致的。</p>
+<hr>
+<h2 id="無限長一維模型-離散化-2"><a href="#無限長一維模型-離散化-2" class="headerlink" title="無限長一維模型-離散化 2"></a>無限長一維模型-離散化 2</h2><p>仔細想想剛剛那樣不嚴謹的轉換有點糟糕，認真分析一下:<br>最開始的解為:<br>$u(x,t)=\frac1{2\pi}\int^{\infty}_{-\infty}(\int^{\infty}_{-\infty}f(v)e^{-ipv}dv)e^{ipx}e^{-t\alpha p^2}dp$</p>
+<p>左思右想，這不就是$u(x, t)=\mathscr F^{-1}[\mathscr F[f(x)]\cdot e^{-t\alpha p^2}]$。<br>改寫一下，$u(x,t)=(f * \mathscr F^{-1}[e^{-t\alpha p^2}])(x)$<br>先計算出$\mathscr F^{-1}[e^{-t\alpha p^2}]=\frac1{\sqrt{\pi t\alpha}}e^{-\frac{x^2}{4t\alpha}}=G_t(x)$<br>所以答案又可以寫成$u(x,t) = (f * G_t)(x)$</p>
+<p>先寫個連續的摺積試試看效果:<br><img src="https://imgur.com/NKQ1LOX.png" alt=""></p>
+<p><img src="https://imgur.com/WGEMj0X.png" alt=""></p>
+<p><img src="https://imgur.com/ES6pZWq.png" alt=""></p>
+<p>可以看見都沒有剛剛隨便離散導致的誤差問題。</p>
+<p>那既然，連續的摺積可以了，那離散的呢?</p>
+<p>先切樣本出來，假設我們是在$[l,r]$上切出$L$個樣本。<br>$f[n]:=f(l + \Delta k * n),n\in[0,L)$，其中$\Delta k = (r-l)/L$<br>$G_t[n]:=G_t(1 + \Delta k * n),n\in[0,L)$</p>
+<p>將摺積離散化後: $u(n,t)=\Delta k \sum_{m=0}^{2L-1}f[n-m]G_t[m]$</p>
+<p>裡面的$\Delta k$是歸一化係數，一定要乘，否則數據會失準。</p>
+<hr>
+<h2 id="無限長一維模型-離散化-2-程式模擬"><a href="#無限長一維模型-離散化-2-程式模擬" class="headerlink" title="無限長一維模型-離散化 2-程式模擬"></a>無限長一維模型-離散化 2-程式模擬</h2><p>實作上有個小缺陷，當$t=0$時，會產生divided by zero exception所以我用$t=0.01$去逼近。<br>那如果從數學的角度看，當$\lim_{t\to0}$時，$\mathscr F^{-1}[e^{-t\alpha p^2}]=\delta(x)$<br>$(f * \delta)(x)=f(x)$，所以數學上是沒問題的。</p>
+<p>很巧合地(應該是必然的結果)，$\lim_{t\to0}\frac1{\sqrt{\pi t\alpha}}e^{-\frac{x^2}{4t\alpha}}$，可以寫成另一種形式(令$a=2\sqrt{t\alpha}$): $\lim_{a\to0}\frac1{a\sqrt{\pi}}e^{-\frac{x^2}{a^2}}$，而這正是$\delta(x)$在分佈意義上的定義。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> np.piecewise(x, [np.less_equal(abs(x), <span class="number">1</span>), np.logical_not(np.less_equal(abs(x), <span class="number">1</span>))], [<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">	<span class="comment">#return np.exp(-x**2)</span></span><br><span class="line">	<span class="comment">#return np.sinc(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># heat transfer characteristic function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">G</span><span class="params">(x, t, alpha)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0.5</span> * np.sqrt(<span class="number">1</span> / (t * alpha * np.pi)) * np.exp(-(x**<span class="number">2</span>) / (<span class="number">4</span> * t * alpha))</span><br><span class="line"></span><br><span class="line">L = <span class="number">100</span></span><br><span class="line">l, r = <span class="number">-3</span>, <span class="number">3</span></span><br><span class="line"></span><br><span class="line">sf = np.array([<span class="number">0.0</span>] * (<span class="number">3</span>*L))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">samplef</span><span class="params">()</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(L):</span><br><span class="line">		sf[i] = f(l + dk * i)</span><br><span class="line"></span><br><span class="line">sG = np.array([<span class="number">0.0</span>] * (<span class="number">3</span>*L))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sampleG</span><span class="params">(t, alpha)</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(L):</span><br><span class="line">		sG[i] = G(l + dk * i, t, alpha)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">u</span><span class="params">(n, t, alpha = <span class="number">1</span>)</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">if</span> t == <span class="number">0</span>: <span class="keyword">return</span> sf[n];</span><br><span class="line">	sampleG(t, alpha)</span><br><span class="line">	s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> m <span class="keyword">in</span> range(<span class="number">2</span> * L):</span><br><span class="line">		s += sf[n - m] * sG[m]</span><br><span class="line">	s *= dk</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line"><span class="comment"># sample the original function first</span></span><br><span class="line">samplef()</span><br><span class="line">X = np.array([*range(<span class="number">2</span> * L)])</span><br><span class="line"></span><br><span class="line">t0 = u(X, <span class="number">0.01</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t1 = u(X, <span class="number">1</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t2 = u(X, <span class="number">4</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t3 = u(X, <span class="number">10</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t4 = u(X, <span class="number">50</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># map the [1, 2L-1] to [2l, 2r)</span></span><br><span class="line">X = X * ((r - l) / L)</span><br><span class="line">X = X + l*<span class="number">2</span></span><br><span class="line"></span><br><span class="line">plt.bar(X, t0, width = <span class="number">0.1</span>, label = <span class="string">'t=0.01'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t1, width = <span class="number">0.1</span>, label = <span class="string">'t=1'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t2, width = <span class="number">0.1</span>, label = <span class="string">'t=4'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t3, width = <span class="number">0.1</span>, label = <span class="string">'t=10'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t4, width = <span class="number">0.1</span>, label = <span class="string">'t=50'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc = <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>圖片:</p>
+<p>$f(x)=e^{-x^2}, l = -3, r = 3, L = 100, \alpha = 0.5$<br><img src="https://imgur.com/C6GTC9W.png" alt=""></p>
+<p>$f(x)=\begin{cases}1&amp;,|x|&lt;1\\0&amp;,\text{else}\end{cases}, l = -3, r = 3, L = 100, \alpha = 0.5$<br><img src="https://imgur.com/l83G7J0.png" alt=""></p>
+<p>$f(x)=sinc(x), l = -3, r = 3, L = 100, \alpha = 0.5$<br><img src="https://imgur.com/1QVyy7D.png" alt=""></p>
+<p>顯然結果比隨便離散化好多了。</p>
+<hr>
+<h2 id="無限長一維模型-離散化-FFT-ver"><a href="#無限長一維模型-離散化-FFT-ver" class="headerlink" title="無限長一維模型-離散化-FFT ver."></a>無限長一維模型-離散化-FFT ver.</h2><p>那既然有摺積了，何不來點FFT加速?</p>
+<p>$f[n]:=f(l + \Delta k * n),n\in[0,L)$ ，其中 $\Delta k = (r-l)/L$<br>$G_t[n]:=G_t(1 + \Delta k * n),n\in[0,L)$</p>
+<p>$u(n,t)=(f*G_t)[n]=\mathscr F^{-1}[\mathscr F[f]\cdot\mathscr F[G_t]][n]$</p>
+<p>將FFT套用進DFT，就可以加速整體運算。</p>
+<hr>
+<h2 id="無限長一維模型-離散化-FFT-ver-程式模擬"><a href="#無限長一維模型-離散化-FFT-ver-程式模擬" class="headerlink" title="無限長一維模型-離散化-FFT ver.-程式模擬"></a>無限長一維模型-離散化-FFT ver.-程式模擬</h2><p>這裡我參考正向的蝶形網路，先將數據點重新排列，再不斷的計算小部分的傅立葉轉換。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">eps = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sec</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / np.cos(x);</span><br><span class="line"></span><br><span class="line"><span class="comment"># original function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> np.piecewise(x, [np.less_equal(abs(x), <span class="number">1</span>), np.logical_not(np.less_equal(abs(x), <span class="number">1</span>))], [<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">	<span class="comment">#return np.exp(-x**2)</span></span><br><span class="line">	<span class="comment">#return np.sinc(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># heat transfer characteristic function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">G</span><span class="params">(x, t, alpha)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0.5</span> * np.sqrt(<span class="number">1</span> / (t * alpha * np.pi)) * np.exp(-(x**<span class="number">2</span>) / (<span class="number">4</span> * t * alpha))</span><br><span class="line"></span><br><span class="line">L = <span class="number">256</span></span><br><span class="line">l, r = <span class="number">-3</span>, <span class="number">3</span></span><br><span class="line"></span><br><span class="line">sf = np.zeros((L), dtype = complex)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">samplef</span><span class="params">()</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(L):</span><br><span class="line">		sf[i] = f(l + dk * i)</span><br><span class="line"></span><br><span class="line">sG = np.zeros((L), dtype = complex)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sampleG</span><span class="params">(t, alpha)</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(L):</span><br><span class="line">		sG[i] = G(l + dk * i, t, alpha)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fft</span><span class="params">(X, mode = <span class="string">'fft'</span>)</span>:</span></span><br><span class="line">	tmp = np.zeros((<span class="number">2</span>, (Len:=len(X))), dtype = complex)</span><br><span class="line">	tmp[<span class="number">0</span>] = np.copy(X)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># reorder</span></span><br><span class="line">	N = len(tmp[<span class="number">0</span>])</span><br><span class="line">	j = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, N):</span><br><span class="line">		k = N &gt;&gt; <span class="number">1</span></span><br><span class="line">		<span class="keyword">while</span> <span class="keyword">not</span> ((j := j ^ k) &amp; k):</span><br><span class="line">			k &gt;&gt;= <span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> (i &gt; j):</span><br><span class="line">			tmp[<span class="number">0</span>][i], tmp[<span class="number">0</span>][j] = tmp[<span class="number">0</span>][j], tmp[<span class="number">0</span>][i]</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># fft</span></span><br><span class="line">	N = <span class="number">2</span></span><br><span class="line">	W = np.exp((<span class="number">-1</span> <span class="keyword">if</span> mode == <span class="string">'fft'</span> <span class="keyword">else</span> <span class="number">1</span>) * <span class="number">2j</span> * np.pi / N)</span><br><span class="line">	lev = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> N &lt;= Len:</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(Len):</span><br><span class="line">			<span class="keyword">if</span> i % N &lt; (N &gt;&gt; <span class="number">1</span>):</span><br><span class="line">				base = (i // N) * N</span><br><span class="line">				tmp[(lev &amp; <span class="number">1</span>) ^ <span class="number">1</span>][(i + (<span class="number">1</span> &lt;&lt; lev)) % N + base] += tmp[lev &amp; <span class="number">1</span>][i]</span><br><span class="line">				tmp[(lev &amp; <span class="number">1</span>) ^ <span class="number">1</span>][i % N + base] += tmp[lev &amp; <span class="number">1</span>][i]</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				base = (i // N) * N</span><br><span class="line">				tmp[(lev &amp; <span class="number">1</span>) ^ <span class="number">1</span>][(i + (<span class="number">1</span> &lt;&lt; lev)) % N + base] += tmp[lev &amp; <span class="number">1</span>][i] * ( W ** ((i + (<span class="number">1</span> &lt;&lt; lev)) % N) )</span><br><span class="line">				tmp[(lev &amp; <span class="number">1</span>) ^ <span class="number">1</span>][i % N + base] += tmp[lev &amp; <span class="number">1</span>][i] * ( W ** (i % N) )</span><br><span class="line">		tmp[lev &amp; <span class="number">1</span>] = np.zeros((Len))</span><br><span class="line">		W **= <span class="number">0.5</span></span><br><span class="line">		lev += <span class="number">1</span></span><br><span class="line">		N &lt;&lt;= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> tmp[(lev) &amp; <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ifft</span><span class="params">(X)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> fft(X, mode = <span class="string">'ifft'</span>) / len(X)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calu</span><span class="params">(t, alpha)</span>:</span></span><br><span class="line">	dk = (r - l) / L</span><br><span class="line">	<span class="keyword">if</span> t == <span class="number">0</span>: <span class="keyword">return</span> sf[n];</span><br><span class="line">	sampleG(t, alpha)</span><br><span class="line">	</span><br><span class="line">	cpsf = np.append(sf, np.zeros((L)))</span><br><span class="line">	cpsG = np.append(sG, np.zeros((L)))</span><br><span class="line">	s = ifft(fft(cpsf) * fft(cpsG))</span><br><span class="line">	s *= dk</span><br><span class="line">	<span class="keyword">return</span> s.real</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">u</span><span class="params">(n, t, alpha = <span class="number">1</span>)</span>:</span></span><br><span class="line">	s = calu(t, alpha)</span><br><span class="line">	<span class="keyword">return</span> s[n]</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">samplef()</span><br><span class="line">X = np.array([*range(<span class="number">2</span> * L)])</span><br><span class="line"></span><br><span class="line">t0 = u(X, <span class="number">0.01</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t1 = u(X, <span class="number">1</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t2 = u(X, <span class="number">4</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t3 = u(X, <span class="number">10</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line">t4 = u(X, <span class="number">50</span>, alpha = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">X = X * ((r - l) / L)</span><br><span class="line">X = X + l*<span class="number">2</span></span><br><span class="line"></span><br><span class="line">plt.bar(X, t0, width = <span class="number">0.1</span>, label = <span class="string">'t=0.01'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t1, width = <span class="number">0.1</span>, label = <span class="string">'t=1'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t2, width = <span class="number">0.1</span>, label = <span class="string">'t=4'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t3, width = <span class="number">0.1</span>, label = <span class="string">'t=10'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line">plt.bar(X, t4, width = <span class="number">0.1</span>, label = <span class="string">'t=50'</span>, alpha = <span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc = <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>圖片:</p>
+<p>$f(x)=e^{-x^2}, l = -3, r = 3, L = 256, \alpha = 0.5$<br><img src="https://imgur.com/us07TMl.png" alt=""></p>
+<p>$f(x)=\begin{cases}1&amp;,|x|&lt;1\\0&amp;,\text{else}\end{cases}, l = -3, r = 3, L = 256, \alpha = 0.5$<br><img src="https://imgur.com/566gh5Q.png" alt=""></p>
+<p>$f(x)=sinc(x), l = -3, r = 3, L = 256, \alpha = 0.5$<br><img src="https://imgur.com/D9eJqx8.png" alt=""></p>
+<hr>
+<h1 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h1><p>這次的專題做的特別久，大概花了我3、4天的時間，但也收穫頗豐。<br>複習了以前做過的ODE解法，也學到了一點PDE解法、Leibniz integral rule、還有數值方法的技巧。<br>雖然推導過程不算太嚴謹，有一些步驟我沒有辦法判斷是否合法，例如從有限變成無限時，要乘上一常數，然後取極限，且這個常數是解的參數，從直覺上來講，這感覺就非法的，但結果是對的。<br>不確定其他類似的PDE也可以這樣做，希望有人可以指點迷津。</p>
+<p>最後的離散化應該是我苦惱最久的，前面的連續版本只花一個晚上就推導出來了，之後就開始寫code、debug，寫完之後才處理離散化的問題，接著想了一整天才想到怎麼好好離散化。</p>
+<p>blog的上一篇跟這篇隔了整整一年呢。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

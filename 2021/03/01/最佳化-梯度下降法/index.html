@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言寫完了牛頓法 ，來寫梯度下降法。擬牛頓法有點深奧，應該暫時不會寫。
+
+主體想法類似於牛頓法，但是少了Hessian矩陣的計算:
+迭代公式:$x_{k+1}=x_k - \alpha \nabla f(x_k)$同樣，這邊$x$是一堆變量$a, b, c …$。
+$\nabla f(x_k)$為梯"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="最佳化-梯度下降法(簡單版)"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言寫完了牛頓法 ，來寫梯度下降法。擬牛頓法有點深奧，應該暫時不會寫。
+
+主體想法類似於牛頓法，但是少了Hessian矩陣的計算:
+迭代公式:$x_{k+1}=x_k - \alpha \nabla f(x_k)$同樣，這邊$x$是一堆變量$a, b, c …$。
+$\nabla f(x_k)$為梯"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>最佳化-梯度下降法(簡單版) - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>最佳化-梯度下降法(簡單版)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-03-01
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/algorithm/">#algorithm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>寫完了<a href="https://oemiliatano.github.io/2021/03/01/%E6%9C%80%E4%BD%B3%E5%8C%96-%E7%89%9B%E9%A0%93%E6%B3%95/" target="_blank" rel="noopener">牛頓法</a> ，來寫梯度下降法。<br>擬牛頓法有點深奧，應該暫時不會寫。</p>
+<hr>
+<h1 id="主體"><a href="#主體" class="headerlink" title="主體"></a>主體</h1><p>想法類似於牛頓法，但是少了Hessian矩陣的計算:</p>
+<p>迭代公式:<br>$x_{k+1}=x_k - \alpha \nabla f(x_k)$<br>同樣，這邊$x$是一堆變量$a, b, c …$。</p>
+<p>$\nabla f(x_k)$為梯度，可以利用對各變數偏微分得到，例如:<br>$\nabla f(x, y) = \frac{\partial f}{\partial x}(x, y)i + \frac{\partial f}{\partial y}(x, y)j$</p>
+<p>而$\alpha$則是一個調整係數，一般都是在區間(0, 1]裡，具體什麼用途，必須配合等下的例子才能說明。</p>
+<hr>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">f = <span class="keyword">lambda</span> x, y: np.sqrt(x ** <span class="number">2</span> + y ** <span class="number">2</span> / <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfdx</span><span class="params">(x0, y0)</span>:</span></span><br><span class="line">    h = <span class="number">1e-6</span></span><br><span class="line">    <span class="keyword">return</span> (f(x0 + h, y0) - f(x0, y0)) / h</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfdy</span><span class="params">(x0, y0)</span>:</span></span><br><span class="line">    h = <span class="number">1e-6</span></span><br><span class="line">    <span class="keyword">return</span> (f(x0, y0 + h) - f(x0, y0)) / h</span><br><span class="line"></span><br><span class="line"><span class="comment"># 梯度矩陣</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">grad</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.array([dfdx(x, y), dfdy(x, y)])</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">-5</span>, <span class="number">10</span>, <span class="number">256</span>)</span><br><span class="line">Y = np.linspace(<span class="number">-5</span>, <span class="number">10</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">X, Y = np.meshgrid(X, Y)</span><br><span class="line">Z = f(X, Y)</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line">C = plt.contour(X, Y, Z)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 調整係數</span></span><br><span class="line">a = <span class="number">.8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 起始點</span></span><br><span class="line">preP = np.array([<span class="number">8.3</span>, <span class="number">7.6</span>])</span><br><span class="line">nowP = preP - grad(preP[<span class="number">0</span>], preP[<span class="number">1</span>]) * a</span><br><span class="line">plt.plot((preP[<span class="number">0</span>], nowP[<span class="number">0</span>]), (preP[<span class="number">1</span>], nowP[<span class="number">1</span>]), <span class="string">'bo-'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 迭代</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span>):</span><br><span class="line">	preP = nowP</span><br><span class="line">    nowP = preP - grad(preP[<span class="number">0</span>], preP[<span class="number">1</span>]) * a</span><br><span class="line">    plt.plot((preP[<span class="number">0</span>], nowP[<span class="number">0</span>]), (preP[<span class="number">1</span>], nowP[<span class="number">1</span>]), <span class="string">'ro-'</span>)</span><br><span class="line">    </span><br><span class="line">print(nowP)</span><br><span class="line">print(f(nowP[<span class="number">0</span>], nowP[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p><img src="https://imgur.com/O1w0iLp.gif" alt=""></p>
+<blockquote>
+<p>$\sqrt{x^2 + \frac{y^2}{3}}$, 起始值=(8.3, 7.6), $\alpha = 1$, 迭代次數 16<br>收斂值 $(x,y) = (-0.00243513, -0.10515567), f(x, y) = 0.06076047183997639$</p>
+</blockquote>
+<p><img src="https://imgur.com/3XIyWRX.gif" alt=""></p>
+<blockquote>
+<p>$xe^{-x^2 - y^2}$, 起始值=(0.3, 0.6), $\alpha = 0.7$, 迭代次數 4<br>收斂值 $(x,y) = (-0.7073123, 0.11798947), f(x, y) = -0.42295258860276885$</p>
+</blockquote>
+<p><img src="https://imgur.com/r7VMoej.png" alt=""></p>
+<blockquote>
+<p>$(3x - 2)^2(y - 5)^2 - 1$, 起始值=(-4, 0), $\alpha = 0.1$, 迭代次數 1<br>收斂值 <strong>無法收斂</strong><br>註解: 無法收斂的原因在下面會講</p>
+</blockquote>
+<p><img src="https://imgur.com/743JHoP.gif" alt=""></p>
+<blockquote>
+<p>$(3x - 2)^2(y - 5)^2 - 1$, 起始值=(-4, 0), $\alpha = 0.001$, 迭代次數 100<br>收斂值 $(x,y) = (0.65374851, 3.42158651), f(x, y) = -0.9962581603349078$</p>
+</blockquote>
+<p><img src="https://imgur.com/5q34ALw.gif" alt=""></p>
+<blockquote>
+<p>$(2x + 5)^2(213y - 0.65)^2 - 5$, 起始值=(0, 0), $\alpha = 0.1$, 迭代次數 4<br>收斂值 <strong>無法收斂</strong></p>
+</blockquote>
+<hr>
+<h1 id="觀察結論"><a href="#觀察結論" class="headerlink" title="觀察結論"></a>觀察結論</h1><p>以上面的結果與其餘未放上來的資料來說，這個版本的梯度下降法不那麼實用。<br>當我們的函數值在 <strong>某點梯度極大</strong> ，我們的迭代點將會因為這個梯度”衝過頭”，更糟糕的是，衝過頭後的點梯度可能會更大(類似遊樂園的海盜船，但是停不下來)，導致 <strong>無法收斂</strong> 的情況，上面雖然只放了兩個例子，但是非常容易構造此種函數。</p>
+<p>因為這樣子，所以才需要引入 <strong>調整係數</strong> ，但是又出現了另一個缺點，收斂太慢。<br>調整係數低確實可以提高收斂的機率，但是以此為代價，迭代次數亦會跟著成長。<br><img src="https://imgur.com/w4M2p3m.gif" alt=""></p>
+<blockquote>
+<p>衝過頭以致無法收斂的例子</p>
+</blockquote>
+<p><img src="https://imgur.com/JtNIGIb.gif" alt=""></p>
+<blockquote>
+<p>將調整係數調低後收斂</p>
+</blockquote>
+<p>當然這些問題其實可以透過一系列手段解決，而這些手段留在以後再說。</p>
+<hr>
+<h1 id="梯度下降法與牛頓法比較"><a href="#梯度下降法與牛頓法比較" class="headerlink" title="梯度下降法與牛頓法比較"></a>梯度下降法與牛頓法比較</h1><p>!藍色為牛頓法<br>!紅色為梯度下降法</p>
+<p><img src="https://imgur.com/75zlqjD.gif" alt=""></p>
+<blockquote>
+<p>$(2x + 5)^2(213y - 0.65)^2 - 5$, 起始值=(0, 0), 迭代次數 6</p>
+</blockquote>
+<p><img src="https://imgur.com/WIR1zVT.gif" alt=""></p>
+<blockquote>
+<p>$(3x - 2)^2(y - 5)^2 - 1$, 起始值=(0, 0), 迭代次數 30<br>註解: 牛頓法在第5次就收斂了</p>
+</blockquote>
+<p><img src="https://imgur.com/ad9d7iA.gif" alt=""></p>
+<blockquote>
+<p>$xe^{-x^2 - y^2}$, 起始值=(0.3, 0.6), 迭代次數 10</p>
+</blockquote>
+<p><img src="https://imgur.com/2zusW8m.gif" alt=""></p>
+<blockquote>
+<p>$xe^{-x^2 - y^2}$, 起始值=(1, 0.2), 迭代次數 10</p>
+</blockquote>
+<p><img src="https://imgur.com/W0lxt00.gif" alt=""></p>
+<blockquote>
+<p>$\sqrt{x^2 + \frac{y^2}{3}}$, 起始值=(8.3, 7.6), 迭代次數 10</p>
+</blockquote>
+<p>可以知道牛頓法的收斂速度比梯度下降要快上許多，可以形象化理解為，梯度下降就是找周圍最陡峭、與等高線垂直的方向走，而牛頓法不只考慮最陡峭，同時考慮是否會變平緩或陡峭。</p>
+<p>感覺梯度下降法如果調整係數低一點，穩定度會比牛頓法好上許多。但是收斂步驟增多又變成一大問題。<br>牛頓法收斂快，但是不穩定，尤其是Hessian逆矩陣對於運算效率是一種負擔。<br>兩者各有其問題、優點，或許可以在 <strong>擬牛頓法</strong> 、 <strong>變形梯度下降</strong> 找到更好的最佳化方法?</p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://zh.wikipedia.org/zh-tw/%E7%89%9B%E9%A1%BF%E6%B3%95" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-tw/%E7%89%9B%E9%A1%BF%E6%B3%95</a><br><a href="https://en.wikipedia.org/wiki/Newton&#39;s_method_in_optimization" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Newton&#39;s_method_in_optimization</a><br><a href="https://en.wikipedia.org/wiki/Gradient" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Gradient</a><br><a href="https://en.wikipedia.org/wiki/Hessian_matrix" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Hessian_matrix</a><br><a href="https://zhuanlan.zhihu.com/p/46536960" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46536960</a><br><a href="https://zhuanlan.zhihu.com/p/37524275" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37524275</a><br><a href="https://www.zhihu.com/question/19723347" target="_blank" rel="noopener">https://www.zhihu.com/question/19723347</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

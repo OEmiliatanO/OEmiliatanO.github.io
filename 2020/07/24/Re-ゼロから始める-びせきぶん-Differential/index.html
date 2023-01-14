@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="有了極限的概念，微分就比較好理解了(或許吧lul
+微分
+定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$
+
+"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="從零開始的微積分 Differential"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="有了極限的概念，微分就比較好理解了(或許吧lul
+微分
+定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$
+
+"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>從零開始的微積分 Differential - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>從零開始的微積分 Differential</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-07-24
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/筆記/">筆記</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>有了極限的概念，微分就比較好理解了(或許吧lul</p>
+<h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><blockquote>
+<p>定義一函數的平均變化率為$\frac{f(x+h)-f(x)}{h}$，則$\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$為該函數在點$x$的瞬間變化率。又可以寫成$\frac{df(x)}{dx}$</p>
+</blockquote>
+<p>有些人會把$\frac{df(x)}{dx}$當作一種表示方法:$f(x)$對$x$微分，但是我認為以另一種方式去理解的話會有更加深刻的看法。</p>
+<p>對於一個曲線，我們可以取兩點$a, b$，並且得知兩點之間的平均變化率。<br><img src="https://i.imgur.com/6SHD6c1.png" alt=""><br>而現在我們把$|b-a|$慢慢縮小<br><img src="https://i.imgur.com/3LotS8m.png" alt=""><br>越來越小…<br><img src="https://i.imgur.com/l2gYfeP.png" alt=""><br>我們可以寫成$dx = b - a$，表示一個微小的$x$變化，同樣的這個曲線的輸出值$f(x)$，也會有個微小的輸出變化$dy = f(b) - f(a) = f(a + dx) - f(a)$，而這段的平均變化率寫成$\frac{dy}{dx}$。<br>所以$dx, dy$是可以有意義的，不只是表示而已，至少我這樣理解一直都是對的，知道這點會讓以後的微積分運算變得直覺許多。</p>
+<h1 id="具象化微分公式"><a href="#具象化微分公式" class="headerlink" title="具象化微分公式"></a>具象化微分公式</h1><p><strong>加法:</strong> $\frac{d(f(x) + g(x))}{dx}=\frac{df(x)}{dx} + \frac{dg(x)}{dx}$<br>$f(x)+g(x)$可以看成兩條線相連，而$df(x)$、$dg(x)$則是微小的變化量，寫成$d(f(x) + g(x))=df(x) + dg(x)$，同除$dx$，取極限，噹噹(｡A｡)</p>
+<p><strong>乘法:</strong> $\frac{d(f(x)g(x))}{dx}=\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx}$<br>$f(x)\times g(x)$可以看成一個矩形的面積，<br><img src="https://i.imgur.com/niLqoBt.png" alt=""><br>求面積變化量相當於微小的變化量$df(x)g(x)$、$dg(x)f(x)$與$dg(x)df(x)$的和。<br>寫成$d(f(x)g(x)) = df(x)g(x) + dg(x)f(x) + df(x)dg(x)$，兩邊同除$dx$，取極限$\lim\limits_{dx\to 0}$，得到$\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx} + \frac{dg(x)df(x)}{dx}$<br>最後一項會因為$dg(x)$取了極限而為0(或是$df(x)$都可以，看你的$dx$要跟誰除)。<br>最後就成為了$\frac{f(x)\times g(x)}{dx}=\frac{df(x)g(x)}{dx} + \frac{dg(x)f(x)}{dx}$</p>
+<p><strong>減法:</strong> $\frac{d(f(x) - g(x))}{dx}=\frac{df(x)}{dx} - \frac{dg(x)}{dx}$<br>就跟加法一樣的想法，不多贅述。</p>
+<p><strong>除法:</strong> $\frac{d\frac{f(x)}{g(x)}}{dx} = \frac{\frac{df(x)g(x)}{dx}-\frac{dg(x)f(x)}{dx}}{g^2(x)}$<br>這個我不知道怎麼具象化出來…只能用代數去解了(´・ω・`)<br>$h(x) = \frac{f(x)}{g(x)}$<br>$h(x)g(x) = f(x)$<br>$\frac{dh(x)g(x)}{dx} + \frac{dg(x)h(x)}{dx} = \frac{df(x)}{dx}$</p>
+<p>$\frac{dh(x)g(x)}{dx} = \frac{df(x)}{dx} - \frac{dg(x)h(x)}{dx}$</p>
+<p>$\frac{dh(x)}{dx} = \frac{\frac{df(x)}{dx} - \frac{dg(x)h(x)}{dx}}{g(x)}$</p>
+<p>$\frac{dh(x)}{dx} = \frac{\frac{df(x)}{dx} - \frac{dg(x)\frac{f(x)}{g(x)}}{dx}}{g(x)}$</p>
+<p>$\frac{dh(x)}{dx} = \frac{df(x)g(x)}{dx g^2(x)} - \frac{dg(x)f(x)}{dx g^2(x)}$</p>
+<p>$\frac{d\frac{f(x)}{g(x)}}{dx} = \frac{\frac{df(x)g(x)}{dx}-\frac{dg(x)f(x)}{dx}}{g^2(x)}$</p>
+<p><strong>冪次:</strong> $\frac{dx^n}{dx} = nx^{n-1}$</p>
+<ul>
+<li>從$n=2$開始，可以想像一個$x\times x$的正方形，其變化量是$d(x^2)=2dx \times x + dx^2$，同除$dx$，取$dx\to 0$的極限下，會讓$dx$接近0而被消去</li>
+<li>$n=3$，想像一個$x\times x\times x$的立方體，變化量是$d(x^3) = 3dx\times x^2 + 3dx^2\times x + dx^3$，同上面的操作。</li>
+<li>$n=4$，無法想像但是可以找到一些規律，變化量是$d(x^4) = 4dx\times x^3 …$之類的，因為之後的項全都有$dx$，所以都會被忽略掉。</li>
+<li>$n=n$，可以想到$d(x^n) = ndx\times x^{n-1}…$，得到$\frac{dx^n}{dx} = nx^{n-1}$</li>
+</ul>
+<p><strong>鏈式:</strong> $\frac{dg(f(x))}{dx} = \frac{dg(f(x))}{df(x)}\frac{df(x)}{dx}$<br><img src="https://i.imgur.com/GHv9s4W.png" alt=""><br>把$f(x)$看做一個數$k$<br><img src="https://i.imgur.com/AgxsFsW.png" alt=""><br>可以寫出$\frac{dg(k)}{dk} \times dk = dg(k)$，其中$dg(k)$為這個函數$g(x)$的變化量。<br>將$k$寫回去後，$\frac{dg(f(x))}{df(x)} \times df(x) = dg(f(x))$，同除$dx$，$\frac{dg(f(x))}{df(x)} \times \frac{df(x)}{dx} = \frac{dg(f(x))}{dx}$</p>
+<h1 id="隱微分"><a href="#隱微分" class="headerlink" title="隱微分"></a>隱微分</h1><p>相信一開始學到圓方程式如何微分時，大部分人都會感到困惑。<br>書上都直接寫$x^2+y^2=r^2$，微分$2xdx+2ydy=0$，做一下對調$-\frac{x}{y}=\frac{dy}{dx}$，就好了。<br>看起來很對，但是很奇怪，我們到底在對甚麼微分?</p>
+<p>其實本質上仍然是對$x$微分，只是書本常常省略(可能只是我看的書沒寫)。<br>假設$y=f(x)$，$x^2+f(x)^2=r^2$對$x$微分，$2x+2f(x)\frac{df(x)}{dx}=0$，排列一下$\frac{df(x)}{dx}=-\frac{x}{f(x)}$，把$f(x)$換成$y$，這跟上面那個微分方式是等價的。</p>
+<p>隱微分對於複雜的方程式非常有用。</p>
+<h1 id="泰勒展開式"><a href="#泰勒展開式" class="headerlink" title="泰勒展開式"></a>泰勒展開式</h1><p>有些函數很難求出某些特定值，例如$cos 9.02323$這種，如果可以把它寫成多項式的話，就可以得到近似值。<br>我們說某個多項式等於某個函數，只要他們的各階導數相同。</p>
+<p>推導(以$cos x$當例子):<br>我們假設有一個多項式$ax^2+bx+c$，我們要讓他盡量等於$cos x$，首先注意到的是$cos 0=1$，所以$c=1$。<br>接著$\frac{dcos x}{dx}=-sinx$，而$-sin 0 = 0$；$ax^2+bx+c$微分後$2ax+b$，$x=0$時應該要是0所以$b=0$。<br>再微一次就可以知道$a=-\frac{1}{2}$，這樣我們就得到了一個接近$cos x$的二次函數。</p>
+<p>顯然我們可以對cos無限求導，也就是說，我們需要一個無限多項的函數來表達，<br>$a0+a_1x^1+a_2x^2+a_3x^3…$<br>通過上述的規則可知，$a_0=1$, $a_1=0$, $a_2=-\frac{1}{2}$, $a_3=0$, $a_4=\frac{1}{24}$…</p>
+<p>一般化形式:<br>$a0+a_1x^1+a_2x^2+a_3x^3…$=$f(x)$</p>
+<p>$a_0=f(0)$, $a_1=\frac{df}{dx}(0)$, $a_2=\frac{\frac{d^2f}{dx^2}(0)}{2}$, $a_3=\frac{\frac{d^3f}{dx^3}(0)}{6}$…，通過這步驟可以發現$a_k=\frac{f^{(k)}(0)}{k!}$，<br>所以$f(x)=\sum_{k=0}^\infty{\frac{f^{(k)}(0)}{k!}x^k}$，寫出泰勒展開式了!<br>如果已知$f^{(k)}(a)$可以寫成$f(x)=\sum_{k=0}^\infty{\frac{f^{(k)}(a)}{k!}(x-a)^k}$ (偏移)</p>
+<h2 id="精選題目區"><a href="#精選題目區" class="headerlink" title="精選題目區"></a>精選題目區</h2><ol>
+<li><p>$h(x)=\sqrt[3]{x^2+\sqrt{x^3+1}}$, 求$\frac{dh(x)}{dx}$</p>
+</li>
+<li><p>求過圓$x^2+y^2=25$上一點$(3,-4)$的切線方程式?</p>
+</li>
+<li><p>$x^{\frac{2}{3}}+y^{\frac{2}{3}}=a^{\frac{2}{3}}, a&gt;0$，證明過其上任一點的切線，被坐標軸截出線段長度為一常數。<br>$x^{\frac{2}{3}}+y^{\frac{2}{3}}=r$被稱為星狀圖<br><img src="https://i.imgur.com/5lwwqFZ.png" alt=""></p>
+</li>
+<li><p>求$\frac{dsin^{-1}(x)}{dx}$</p>
+</li>
+<li><p>求$\frac{dsin^2(x)}{dx}$</p>
+</li>
+<li><p>$sin(x+y)=y^2cos(x)$, 求$\frac{dy}{dx}$</p>
+</li>
+<li><p>求$\frac{da^x}{dx}$, $a$是一常數且$a\in \Bbb{R}$</p>
+</li>
+<li><p>求$\frac{e^{sec3x}}{dx}$</p>
+</li>
+<li><p>求$\frac{dln(x)}{dx}, x&gt;0$</p>
+</li>
+<li><p>$f(x)=\pi^{e^{x^{\sqrt{10}}}}$, 求$\frac{df(x)}{dx}$</p>
+</li>
+<li><p>求$\frac{d\log_a x}{dx}$</p>
+</li>
+<li><p>$y=\frac{x^{\frac{3}{4}}\sqrt{x^2+1}}{(3x+2)^5}$, 求$\frac{dy}{dx}$</p>
+</li>
+<li><p>求$\frac{dx^{x^{x}}}{dx}, x&gt;0$</p>
+</li>
+<li><p>求$\frac{d(sinx)^{lnx}}{dx}, x&gt;0$</p>
+</li>
+<li><p>一倒立的圓錐形容器，高$4m$，底半徑$2m$，現以$2m^3/min$的速率倒入水，則當水面高$3m$時，水面升高的速率? 加速度? (hint: $V=\frac{1}{3}\pi r^2h$)</p>
+</li>
+<li><p>一時鐘時針長$8mm$，分針長$4mm$，則在1點時，兩針針尖距離的變化率(mm/hr)?</p>
+</li>
+<li><p>一粒子P在平面上運動，時間$t, t&gt;0$，位置為曲線$xy+2x=2t$與$y=x^2t$的交點，則$t=2$時P與原點的距離變化率?</p>
+</li>
+<li><p>一雪球體積融化的速度與表面積成正比。假設經過3小時體積融化一半，則在何時完全融化?</p>
+</li>
+</ol>
+<p>題目來源: <a href="http://www.math.ntu.edu.tw/~hchu/Calculus/" target="_blank" rel="noopener">http://www.math.ntu.edu.tw/~hchu/Calculus/</a> (感謝講義製作人!)</p>
+<h2 id="題目講解區"><a href="#題目講解區" class="headerlink" title="題目講解區:"></a>題目講解區:</h2><ol>
+<li><p>連鎖律<br><strong>Answer:</strong> $\frac{1}{3}(x^2+\sqrt{x^3+1})^{-\frac{2}{3}}(2x+\frac{3x^2}{2\sqrt{x^3+1}})$</p>
+</li>
+<li><p>隱微分<br><strong>Answer:</strong> $\frac{3}{4}(x-3)=y+4$</p>
+</li>
+<li><p>隱微分後找到在$(x_0, y_0)$的x-軸截距及y-軸截距。</p>
+</li>
+<li><p>需要用到定理: $(f^{-1})’ (b) = \frac{1}{(f)’ (f^{-1}(b))}$，請自行證明<br><strong>Answer:</strong> $\frac{1}{\sqrt{1-x^2}}$</p>
+</li>
+<li><p>連鎖律<br><strong>Answer:</strong> $sin 2x$</p>
+</li>
+<li><p>隱微分+連鎖律<br><strong>Answer:</strong> $\frac{cos(x+y)+y^2sin x}{2ycosx -cos(x+y)}$</p>
+</li>
+<li><p>利用自然對數的性質<br><strong>Answer:</strong> $2^xln 2$</p>
+</li>
+<li><p>自然對數、三角函數微分<br><strong>Answer:</strong> $e^{sec3x}3tan(3x)sec(3x)$</p>
+</li>
+<li><p>反函數定理(參p4)<br><strong>Answer:</strong> $\frac{1}{x}$</p>
+</li>
+<li><p>連鎖律<br><strong>Answer:</strong> $ln(\pi)\pi ^{e^{x^{\sqrt{10}}}}e^{x^{\sqrt{10}}}\sqrt{10}x^{\sqrt{10}-1}$</p>
+</li>
+<li><p>一般對數轉換成自然對數<br><strong>Answer:</strong> $\frac{1}{xln a}$</p>
+</li>
+<li><p>對數微分法:<br>設$y=f(x)$，兩邊取$ln$，$ln|y|=ln|f(x)|$，微分$\frac{dln|y|}{dx}=\frac{ln|f(x)|}{dx}$<br>$\frac{dy}{|y|dx}=\frac{df(x)}{|f(x)|dx}$，得$\frac{dy}{dx}=\frac{df(x)}{dx}$</p>
+<p>套用到這題，$ln y = ln(x^{\frac{3}{4}}\sqrt{x^2+1}) - ln(3x+2)^5$，微分後你就知道怎麼做了 :)<br><strong>Answer:</strong> $\frac{x^{\frac{3}{4}}\sqrt{x^2+1}}{(3x+2)^5}(\frac{3}{4x}+\frac{x}{x^2+1}-\frac{15}{3x+2})$</p>
+</li>
+<li><p>同樣是對數微分法<br><strong>Answer:</strong> $[x^x(1 + ln x)lnx + x^{x-1}]x^{x^x}$</p>
+</li>
+<li><p>又是對數微分法<br><strong>Answer:</strong> $(\frac{ln(sinx)}{x}+ln(x)cot(x))(sinx)^{lnx}$</p>
+</li>
+<li><p>(施工中)<br><strong>Answer:</strong> $\frac{8}{9\pi}$, $\frac{128}{243\pi ^2}$</p>
+</li>
+<li><p>(施工中)<br><strong>Answer:</strong> $-\frac{22}{3\sqrt{5-2\sqrt{3}}}\pi$</p>
+</li>
+<li><p>(施工中)<br><strong>Answer:</strong> $\frac{sqrt{5}}{2}^3$</p>
+</li>
+<li><p>(施工中)<br><strong>Answer:</strong> $\frac{3\sqrt[3]{2}}{\sqrt[3]{2}-1}$</p>
+</li>
+</ol>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

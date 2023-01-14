@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言在2020的最後一天完成這件事，剩下的留待明年吧…
+在知道有解析研拓這種東西後，我試著把一些高中的函數展開，比如log, sin, cos, exponential，但是階乘這個常見的東西卻困擾著我，到底要怎麼展開。
+
+推導首先考慮這個函數: $f(k,m)=\int_0^1 x^k (1-x)"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="階乘推導至Gamma函數"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言在2020的最後一天完成這件事，剩下的留待明年吧…
+在知道有解析研拓這種東西後，我試著把一些高中的函數展開，比如log, sin, cos, exponential，但是階乘這個常見的東西卻困擾著我，到底要怎麼展開。
+
+推導首先考慮這個函數: $f(k,m)=\int_0^1 x^k (1-x)"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>階乘推導至Gamma函數 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>階乘推導至Gamma函數</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-12-31
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/筆記/">筆記</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在2020的最後一天完成這件事，剩下的留待明年吧…</p>
+<p>在知道有解析研拓這種東西後，我試著把一些高中的函數展開，比如log, sin, cos, exponential，但是階乘這個常見的東西卻困擾著我，到底要怎麼展開。</p>
+<hr>
+<h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>首先考慮這個函數: $f(k,m)=\int_0^1 x^k (1-x)^m dx$，為甚麼需要這個函數呢? 當我們對它分部積分後會得到</p>
+<blockquote>
+<p>$f(k,m) = \frac{m}{k+1}f(k+1,m-1)$</p>
+</blockquote>
+<p>這樣一個遞迴式。<br>把它展開後會得到$f(k,m)=\frac{m!}{\prod_{i=1}^{m+1}(k+i)}$，移項得到$f(k,m)\prod_{i=1}^{m+1}(k+i)=m!$<br>這算是階乘展開的第一步，雖然這個形式還只能代正整數。<br>我們繼續把它展開，無法代除了正整數以外是因為這部分$\prod_{i=1}^{m+1}(k+i)$，如果可以把它消掉或許可以成功拓展。<br>令$k=\frac{a}{b}$，整理上面的公式得，</p>
+<blockquote>
+<p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!}{\prod_{i=1}^{m+1}(\frac{a}{b}+i)}$<br>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \frac{m!b^{m+1}}{\prod_{i=1}^{m+1}(a+ib)}$</p>
+</blockquote>
+<p>如果取極限$a \to 1$, $b \to 0$，右邊式子的分數就會消掉，但是上面的$b^{m+1}$很礙事，既然解決不了問題，就解決造成問題的東西，<br>先把$b^{m+1}$弄去左邊，再取極限</p>
+<blockquote>
+<p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = m!$</p>
+</blockquote>
+<p>現在我們focus在積分上，我們期望把積分裡面的$x^{\frac{a}{b}}$去掉，令$x=k^c$, $dx = ck^{c-1}dk$</p>
+<blockquote>
+<p>$\int_0^1 x^{\frac{a}{b}} (1-x)^m dx = \int_0^1 k^{\frac{ac}{b}} (1-k^c)^m ck^{c-1} dk$</p>
+</blockquote>
+<p>要把$x^{\frac{a}{b}}$(也就是$k^{\frac{ac}{b}}$)，必須使$\frac{ac}{b}+c-1=0$，解出$c=\frac{b}{a+b}$。<br>將上面的極限式換掉</p>
+<blockquote>
+<p>$\lim_{a \to 1} lim_{b \to 0} b^{-(m+1)}\int_0^1 \frac{b}{a+b}{(1-k^{\frac{b}{a+b}})}^m dk = m!$<br>$\lim_{a \to 1} lim_{b \to 0} (a+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{a+b}}}{\frac{b}{a+b}}})^m dk = m!$<br>$lim_{b \to 0} (1+b)^{-(m+1)}\int_0^1 ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$<br>$\int_0^1 lim_{b \to 0} ({\frac{1-k^{\frac{b}{1+b}}}{\frac{b}{1+b}}})^m dk = m!$</p>
+</blockquote>
+<p>考慮一極限$lim_{x \to 0} \frac{1-k^x}{x}$，根據那個好用到不行的法則，得到$lim_{x \to 0} \frac{1-k^x}{x} = -ln k$。</p>
+<blockquote>
+<p>$\int_0^1 (-ln k)^m dk = m!$</p>
+</blockquote>
+<p>令$k=e^{-t}$, $dk = -e^{-t}dt$</p>
+<blockquote>
+<p>$\int_{\infty}^0 -t^m e^{-t} dt = m!$<br>$\int_0^{\infty} t^m e^{-t} dt = m!$</p>
+</blockquote>
+<p>至此，我們可以代入奇怪的數進階乘了d(`･∀･)b<br>甚至可以對$e^{-t}$泰勒展開，拓展到複數域。</p>
+<p>小常識: 階乘其實有很多種解析方式，每種都會產生不同的函數，這只是其中一種，也是實務上使用最多的一種，因為可以連結到Gamma function: $\Gamma(x) = (x-1)!$</p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cust.edu.tw/mathmet/graph/gamma-prop.htm" target="_blank" rel="noopener">http://www.cust.edu.tw/mathmet/graph/gamma-prop.htm</a><br><a href="https://cosx.org/2013/01/lda-math-gamma-function/" target="_blank" rel="noopener">https://cosx.org/2013/01/lda-math-gamma-function/</a><br><a href="https://zhuanlan.zhihu.com/p/114041258" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/114041258</a><br><a href="https://www.csie.ntu.edu.tw/~b89089/link/gammaFunction.pdf" target="_blank" rel="noopener">https://www.csie.ntu.edu.tw/~b89089/link/gammaFunction.pdf</a><br><a href="https://kknews.cc/zh-tw/education/vlkv53a.html" target="_blank" rel="noopener">https://kknews.cc/zh-tw/education/vlkv53a.html</a><br><a href="http://sgpwe.izt.uam.mx/files/users/uami/jdf/proyectos/Euler_integral.pdf" target="_blank" rel="noopener">http://sgpwe.izt.uam.mx/files/users/uami/jdf/proyectos/Euler_integral.pdf</a></p>
+<hr>
+<p>新年新希望: 數學15級, 英文15級, 自然15級, 研究Gamma function, 補完vpython, 共形映射的文章, 學好abstract algebra, linear algebra, real/complex analysis</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

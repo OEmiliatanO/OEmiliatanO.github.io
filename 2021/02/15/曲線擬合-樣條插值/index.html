@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言學測前被人推坑過曲線插值，現在就來寫寫看。被推坑的是多項式插值但是這篇不是多項式，而是樣條函數。
+
+介紹跟多項式插值不一樣的點有
+
+用低次的樣條函數比較不會產生高次多項式函數的”亂流”，且效果不錯
+
+預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="曲線插值-三次樣條函數"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言學測前被人推坑過曲線插值，現在就來寫寫看。被推坑的是多項式插值但是這篇不是多項式，而是樣條函數。
+
+介紹跟多項式插值不一樣的點有
+
+用低次的樣條函數比較不會產生高次多項式函數的”亂流”，且效果不錯
+
+預測全球人口的多項式擬合，次數到8時會產生反常結果(source: 10-1 線性迴歸：曲線擬合"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>曲線插值-三次樣條函數 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>曲線插值-三次樣條函數</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-02-15
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>學測前被人推坑過曲線插值，現在就來寫寫看。<br>被推坑的是<a href="http://mirlab.org/jang/books/matlabprogramming4guru/10-1_regressionLin4curveFitting.asp?title=10-1%20%BDu%A9%CA%B0j%C2k%A1G%A6%B1%BDu%C0%C0%A6X" target="_blank" rel="noopener">多項式插值</a><br>但是這篇不是多項式，而是樣條函數。</p>
+<hr>
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>跟多項式插值不一樣的點有</p>
+<ul>
+<li><p>用低次的樣條函數比較不會產生高次多項式函數的”亂流”，且效果不錯<br><img src="https://imgur.com/KIkT758.png" alt=""></p>
+<blockquote>
+<p>預測全球人口的多項式擬合，次數到8時會產生反常結果(source: <a href="http://mirlab.org/jang/books/matlabprogramming4guru/10-1_regressionLin4curveFitting.asp?title=10-1%20%BDu%A9%CA%B0j%C2k%A1G%A6%B1%BDu%C0%C0%A6X" target="_blank" rel="noopener">10-1 線性迴歸：曲線擬合</a>)</p>
+</blockquote>
+</li>
+<li><p>並非一個函數用到底，而是利用取樣點之間作分割，分成小區間，利用某些特性做連結，以達到光滑的目的<br><img src="https://imgur.com/n1fSqrR.png" alt=""></p>
+<blockquote>
+<p>上面是每個子區間都是次數=1的樣子，當然可以使用次數更高的函數</p>
+</blockquote>
+</li>
+</ul>
+<p>高中都學過「插值法」，用來算不在log表上的數字或是求多項式，而樣條插值是利用分段的函數，構成一個大函數，預測內插值。</p>
+<p><img src="https://4.bp.blogspot.com/-Tw4BlGwhpQg/VSK_3PKjU8I/AAAAAAAAoEk/54rgZCaoxTk/s1600/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%2B2015-04-07%2B%E4%B8%8A%E5%8D%8812.49.48.png" alt=""></p>
+<blockquote>
+<p>線性樣條插值，最簡單的插值法，高中常用(source: <a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">三次樣條插值</a>)</p>
+</blockquote>
+<p>線性插值雖然簡單，但無法滿足工程上「光滑」的需求，於是三次樣條就誕生了，最高次數為三能確保不過度扭曲，又可以確保光滑。</p>
+<hr>
+<h1 id="推導"><a href="#推導" class="headerlink" title="推導"></a>推導</h1><p>假設有一複雜函數$f(x)$(難以評估)，需要用簡單函數$s(x)$去逼近，我們現在有$n+1$個取樣點$x_0, x_1$…$x_n$，由此分割出$n$個子區間，<br>$x_0$, $x_1$中間的樣條函數為$s_1(x)$，$x_{i-1}$, $x_i$中間的樣條函數為$s_i(x)$，$i \in [1,n]$<br>那該如何求出$s_i(x) = q_i x^3 + r_i x^2 + s_i x + t_i$ ?<br>我們有以下條件:</p>
+<ul>
+<li>$s_i(x_i) = s_{i+1}(x_i)$</li>
+<li>$s_i’(x_i) = s_{i+1}’(x_i)$</li>
+<li>$s_i’’(x_i) = s_{i+1}’’(x_i)$<br>因為m=3，可知所有$s_i’’(x)$為同一直線，可寫出直線</li>
+</ul>
+<blockquote>
+<p>$\frac{y-s_i’’(x_i)}{x-x_i}=\frac{s_i’’(x_{i-1})-s_i’’(x_i)}{x_{i-1}-x_i}$</p>
+</blockquote>
+<p>整理一下</p>
+<blockquote>
+<p>$s_i’’(x)=y=(s_i’’(x_{i-1})-s_i’’(x_i))\frac{x-x_i}{x_{i-1}-x_i}+s_i’’(x_i)$</p>
+</blockquote>
+<p>積分，這邊將$s_i’’(x_i)$寫成$m_i$($m_i$是對應到$x_i$的$i$，因為所有的$s_i’’(x)$都是同一條直線，如果是對應到$s_i$，$m_i$就不會有變化)</p>
+<blockquote>
+<p>$s_i’’(x) = (m_{i-1}-m_i)\frac{x-x_i}{x_{i-1}-x_i}+m_i$<br>$s_i’’(x) = \frac{x-x_i}{x_{i-1}-x_i}m_{i-1} + \frac{x_{i-1}-x}{x_{i-1}-x_i}m_i$<br>$s_i’(x) = \frac{(x-x_i)^2}{2(x_{i-1}-x_i)}m_{i-1}-\frac{(x_{i-1}-x)^2}{2(x_{i-1}-x_i)}m_i+C_1$<br>$s_i(x) = \frac{(x-x_i)^3}{6(x_{i-1}-x_i)}m_{i-1}+\frac{(x_{i-1}-x)^3}{6(x_{i-1}-x_i)}m_i+C_1x+C_2$</p>
+</blockquote>
+<p>現在要求$C_1$, $C_2$，將$s_i(x_i)$寫成$y_i$(同樣，是對應$x_i$)，過程略…</p>
+<blockquote>
+<p>$C_1 = \frac{y_i-y_{i-1}}{x_i-x_{i-1}}-\frac{x_i-x_{i-1}}{6}(m_i - m_{i-1})$<br>$C_2 = y_i-\frac{y_i-y_{i-1}}{x_i-x_{i-1}}x_i-\frac{x_{i-1}-x_i}{6}(m_ix_{i-1}-m_{i-1}x_i)$</p>
+</blockquote>
+<p>利用算好的$C_1$, $C_2$將$s_i(x)$寫完整</p>
+<blockquote>
+<p>$s_i(x)=\frac{(x-x_i)^3}{6(x_{i-1}-x_i)}m_{i-1}+\frac{(x_{i-1}-x)^3}{6(x_{i-1}-x_i)}m_i+ [\frac{y_i-y_{i-1}}{x_i-x_{i-1}}-\frac{x_i-x_{i-1}}{6}(m_i - m_{i-1})]x$<br>$+y_i-\frac{y_i-y_{i-1}}{x_i-x_{i-1}}x_i-\frac{x_{i-1}-x_i}{6}(m_ix_{i-1}-m_{i-1}x_i)$</p>
+</blockquote>
+<p>現在只有$m_i$需要求解，這時需要用$s_i’(x_i) = s_{i+1}’(x_i)$，注意這時是要先把$s_i(x)$跟$s_{i+1}(x)$寫出來再代$x_i$，不然容易搞混。<br>整理等式極為繁瑣，在此直接給出最後整理好的結果</p>
+<blockquote>
+<p>$\frac{6}{x_{i-1}-x_{i+1}}(\frac{y_i-y_{i-1}}{x_i-x_{i-1}}-\frac{y_{i+1}-y_i}{x_{i+1}-x_i}) = \frac{x_{i-1}-x_i}{x_{i-1}-x_{i+1}}m_{i-1} + 2m_i + \frac{x_i-x_{i+1}}{x_{i-1}-x{i+1}}m_{i+1}$</p>
+</blockquote>
+<p>代換一下，等下比較好寫</p>
+<blockquote>
+<p>$k_i = a_im_{i-1} + 2m_i + c_im_{i+1}$, $i \in [1, n-1]$ –(1)</p>
+</blockquote>
+<p>我們有$m_i$, $i \in [0,n]$共$n+1$個未知數要求解，但是上面只有$n-1$個方程式，剩下兩個需要從邊界條件中得到<br>邊界條件分三種:</p>
+<ul>
+<li>$s_1’(x_0)=f’(x_0)$, $s_n’(x_n)=f’(x_n)$</li>
+<li>$s_1’’(x_0)=f’’(x_0)$, $s_n’’(x_n)=f’’(x_n)$</li>
+<li>$s_1’(x_0)=s_n(x_n)$, $s_1’’(x_0)=s_n’’(x_n)$</li>
+</ul>
+<h2 id="邊界條件"><a href="#邊界條件" class="headerlink" title="邊界條件"></a>邊界條件</h2><p>邊界條件有許多種，每種都會對樣條函式產生不盡相同的影響。<br><img src="https://1.bp.blogspot.com/-OzV3YgFSP2Q/VSLTPL_3uKI/AAAAAAAAoFg/kyL15pyxTXY/s1600/26193013-20d427db372c4913b3337945008177a7.png" alt=""></p>
+<blockquote>
+<p>source: <a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">三次樣條插值</a></p>
+</blockquote>
+<ul>
+<li>第一種:<br>先將$s_1’(x_0)$, $s_n’(x_n)$寫出來</li>
+</ul>
+<blockquote>
+<p>$y_0’=f’(x_0)=s_1’(x_0)=\frac{x_0-x_1}{2}m_0-\frac{y_1-y_0}{x_1-x_0}-\frac{1}{6}(x_1-x_0)(m_1-m_0)$<br>$y_n’=f’(x_n)=s_n’(x_n)=-\frac{x_{n-1}-x_n}{2}m_n+\frac{y_n-y_{n-1}}{x_n-x_{n-1}}-\frac{1}{6}(x_n-x_{n-1})(m_n-m_{n-1})$</p>
+</blockquote>
+<blockquote>
+<p>$y_0’+\frac{y_1-y_0}{x_1-x_0}=\frac{x_0-x_1}{2}m_0-\frac{1}{6}(x_1-x_0)(m_1-m_0)$<br>$y_n’-\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=-\frac{x_{n-1}-x_n}{2}m_n-\frac{1}{6}(x_n-x_{n-1})(m_n-m_{n-1})$</p>
+</blockquote>
+<blockquote>
+<p>$k_0=\frac{6}{x_0-x_1}(y_0’+\frac{y_1-y_0}{x_1-x_0})=2m_0+m_1$<br>$k_n=\frac{6}{x_{n-1}-x_n}(\frac{y_n-y_{n-1}}{x_n-x_{n-1}}-y_n’)=m_{n-1}+2m_n$</p>
+</blockquote>
+<p>利用那$n-1$個條件與算好的邊界條件寫出矩陣<br>$\begin{bmatrix} 2 &amp; 1 \\ a_1 &amp; 2 &amp; c_1 &amp; \\ &amp; a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; &amp; &amp; … \\ &amp;  &amp;  &amp;  &amp;  &amp; 1 &amp; 2\end{bmatrix}\vec{m}=\vec{k}$<br>解矩陣的步驟就等下再寫。</p>
+<ul>
+<li>第二種:</li>
+</ul>
+<blockquote>
+<p>$s_1’’(x_0)=f’’(x_0)=m_0$<br>$s_n’’(x_n)=f’’(x_n)=m_n$</p>
+</blockquote>
+<p>由上面的等式知</p>
+<blockquote>
+<p>$k_1-a_1m_0=+2m_1+c_1m_2$<br>$k_{n-1}-c_{n-1}m_n=a_{n-1}m_{n-2}+2m_{n-1}$</p>
+</blockquote>
+<p>寫出矩陣<br>$\begin{bmatrix} 2 &amp; c_1 \\ a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; a_3 &amp; 2 &amp; c_3 &amp; \\ &amp; &amp; &amp; … \\ &amp;  &amp;  &amp;  &amp;  &amp; a_{n-1} &amp; 2\end{bmatrix}\vec{m}= \begin{bmatrix}k_1-a_1f’’(x_0) \\ k2 \\ … \\ k_{n-1}-c_{n-1}f’’(x_n) \end{bmatrix}$<br>注意這裡的$\vec{m}$是$m_1$到$m_{n-1}$。</p>
+<ul>
+<li>第三種:</li>
+</ul>
+<blockquote>
+<p>$s_1’(x_0)=s_n’(x_n)$<br>$s_1’’(x_0)=s_n’’(x_n)$</p>
+</blockquote>
+<p>由第二個等式可知</p>
+<blockquote>
+<p>$m_0 = m_n$</p>
+</blockquote>
+<p>現在我們只有$n$個未知數需要求解<br>由第一個等式，知</p>
+<blockquote>
+<p>$2(x_0-x_1+x_{n-1}-x_n)m_0+(x_0-x_1)m_1+(x_{n-1}-x_n)m_{n-1}=6(\frac{y_1-y_0}{x_1-x_0}+\frac{y_n-y_{n-1}}{x_n-x_{n-1}})$</p>
+</blockquote>
+<p>代換</p>
+<blockquote>
+<p>$a_0m_0+b_0m_1+c_0m_{n-1}=k_0$</p>
+</blockquote>
+<p>再由(1)得</p>
+<blockquote>
+<p>$k_{n-1}=a_{n-1}m_{n-2}+2m_{n-1}+c_{n-1}m_n$</p>
+</blockquote>
+<p>寫出矩陣<br>$\begin{bmatrix} a_0 &amp; b_0 &amp; &amp; … &amp; &amp; &amp; c_0 \\ a_1 &amp; 2 &amp; c_1 &amp; \\  &amp; a_2 &amp; 2 &amp; c_2 &amp; \\ &amp; &amp; &amp; … \\ c_{n-1} &amp;  &amp;  &amp; …  &amp;  &amp; a_{n-1} &amp; 2\end{bmatrix}\vec{m}=\vec{k}$<br>$\vec{m}$是從$0~n-1$，$\vec{k}$同理。</p>
+<hr>
+<h2 id="解方程"><a href="#解方程" class="headerlink" title="解方程"></a>解方程</h2><p>算出來的矩陣為$A$，寫出等式$A\vec{m}=\vec{k}$<br>將$A$拆解成$LU$矩陣，<br>$L = \begin{bmatrix} d_0 &amp; &amp; &amp; &amp; &amp; \\ l_1 &amp; d_1 &amp; &amp; \\  &amp; l_2 &amp; d_2 &amp; &amp; \\ &amp; &amp; &amp; … \\ &amp; &amp; &amp; &amp; l_n &amp; d_n\end{bmatrix}$<br>$U = \begin{bmatrix} 1 &amp; u_0 &amp; &amp; &amp;  \\ &amp; 1 &amp; u_1 &amp; \\ &amp; &amp; 1 &amp; u_2 &amp; \\ &amp; &amp; &amp; … &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; u_{n-1} \\ &amp; &amp; &amp; &amp; &amp; 1 \end{bmatrix}$</p>
+<p>根據使用的邊界條件不同而有所不同，而第一,二種步驟是相同的<br>先推出$d,l,u$的遞推關係，解出$\vec{w}$ ($U\vec{m}$)<br>在利用$U\vec{m}=\vec{w}$解出$\vec{m}$</p>
+<ul>
+<li>第一種:</li>
+</ul>
+<p>由$A=LU$可以觀察到</p>
+<blockquote>
+<p>$d_0=2,u_0=\frac{1}{2}$<br>$l_i=a_i$<br>$d_i=2-u_{i-1}l_i$<br>$u_i=\frac{c_i}{d_i}$</p>
+</blockquote>
+<p>由$L\vec{w}=\vec{k}$知</p>
+<blockquote>
+<p>$w_0=\frac{k_0}{d_0}$<br>$w_i=\frac{k_i-l_iw_{i-1}}{d_i}$</p>
+</blockquote>
+<p>再由$U\vec{m}=\vec{w}$得</p>
+<blockquote>
+<p>$m_n=w_n$<br>$m_i=w_i-u_im_{i+1}$</p>
+</blockquote>
+<ul>
+<li>第二種:</li>
+</ul>
+<p>由$A=LU$可以觀察到</p>
+<blockquote>
+<p>$d_1=2$<br>$l_i=a_i$<br>$d_i=2-l_iu_{i-1}$<br>$u_i=\frac{c_i}{d_i}$</p>
+</blockquote>
+<p>由$L\vec{w}=\vec{k}$知</p>
+<blockquote>
+<p>$w_1=\frac{k_1}{d_1}$<br>$w_i=\frac{k_i-l_iw_{i-1}}{d_i}$</p>
+</blockquote>
+<p>再由$U\vec{m}=\vec{w}$得</p>
+<blockquote>
+<p>$m_n=w_n$<br>$m_i=w_i-u_im_{i+1}$</p>
+</blockquote>
+<ul>
+<li>第三種:</li>
+</ul>
+<p>這個無法用上面的方法拆，只能用高斯$O(n^3)$求逆矩陣</p>
+<p>現在有了具體的步驟就可以寫出程式了。<br>解第一二種矩陣的方法有個具體的名字: 追趕法，不多介紹，畢竟不是主角。</p>
+<hr>
+<h1 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h1><p>(目前只有第一,二種邊界條件)</p>
+<ul>
+<li><p>目標函數:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">exp</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">df</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = <span class="number">10e-8</span>;</span><br><span class="line">    <span class="keyword">if</span> (isnan(f(x + dx)) || isinf(f(x + dx)))</span><br><span class="line">        <span class="keyword">return</span> (f(x) - f(x - dx)) / dx;</span><br><span class="line">    <span class="keyword">return</span> (f(x + dx) - f(x)) / dx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ddf</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dx = <span class="number">10e-8</span>;</span><br><span class="line">    <span class="keyword">if</span> (isnan(df(x + dx)) || isinf(df(x + dx)))</span><br><span class="line">        <span class="keyword">return</span> (df(x) - df(x - dx)) / dx;</span><br><span class="line">    <span class="keyword">return</span> (df(x + dx) - df(x)) / dx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>採樣點, 邊界類型設定</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">double</span> datSeed = <span class="number">1</span>, datStep = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> dataCnt = <span class="number">50</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">double</span> st = datSeed, ed = datSeed + ((<span class="keyword">double</span>)dataCnt - <span class="number">1.0</span>) * datStep, step = <span class="number">0.001</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> Type = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSample</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; v, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    v.clear(); u.clear();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> x = datSeed;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataCnt; x += datStep, ++i)</span><br><span class="line">        v.emplace_back(x), u.emplace_back(f(x));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩陣A, 向量k的設定</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bondType1_SetMat</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&gt;&amp; A, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    k[<span class="number">0</span>] = <span class="number">6</span> * (SampleY[<span class="number">1</span>] - SampleY[<span class="number">0</span>] - df(SampleX[<span class="number">0</span>])) / (g[<span class="number">1</span>] * g[<span class="number">1</span>]);</span><br><span class="line">    k[SampleN] = <span class="number">6</span> * ((SampleY[SampleN - <span class="number">1</span>] - SampleY[SampleN]) / g[SampleN] - df(SampleX[SampleN])) / g[SampleN];</span><br><span class="line"></span><br><span class="line">    A.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; SampleN + <span class="number">1</span>; ++i)</span><br><span class="line">        A[i].resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; SampleN; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        A[i][i - <span class="number">1</span>] = g[i] / (g[i] + g[i + <span class="number">1</span>]);</span><br><span class="line">        A[i][i] = <span class="number">2</span>;</span><br><span class="line">        A[i][i + <span class="number">1</span>] = g[i + <span class="number">1</span>] / (g[i] + g[i + <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    A[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">2</span>, A[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">1</span>, A[SampleN][SampleN] = <span class="number">2</span>, A[SampleN][SampleN - <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bondType2_SetMat</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&gt;&amp; A, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    k[<span class="number">1</span>] -= (SampleX[<span class="number">0</span>] - SampleX[<span class="number">1</span>]) * ddf(SampleX[<span class="number">0</span>]) / (SampleX[<span class="number">0</span>] - SampleX[<span class="number">2</span>]);</span><br><span class="line">    k[SampleN - <span class="number">1</span>] -= (SampleX[SampleN - <span class="number">1</span>] - SampleX[SampleN]) * ddf(SampleX[SampleN]) / (SampleX[SampleN - <span class="number">2</span>] - SampleX[SampleN]);</span><br><span class="line"></span><br><span class="line">    A.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; SampleN + <span class="number">1</span>; ++i)</span><br><span class="line">        A[i].resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; SampleN - <span class="number">1</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        A[i][i - <span class="number">1</span>] = g[i] / (g[i] + g[i + <span class="number">1</span>]);</span><br><span class="line">        A[i][i] = <span class="number">2</span>;</span><br><span class="line">        A[i][i + <span class="number">1</span>] = g[i + <span class="number">1</span>] / (g[i] + g[i + <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    A[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">2</span>, A[<span class="number">1</span>][<span class="number">2</span>] = (SampleX[<span class="number">1</span>] - SampleX[<span class="number">2</span>]) / (SampleX[<span class="number">0</span>] - SampleX[<span class="number">2</span>]);</span><br><span class="line">    A[SampleN - <span class="number">1</span>][SampleN - <span class="number">1</span>] = <span class="number">2</span>, A[SampleN - <span class="number">1</span>][SampleN - <span class="number">2</span>] = (SampleX[SampleN - <span class="number">2</span>] - SampleX[SampleN - <span class="number">1</span>]) / (SampleX[SampleN - <span class="number">2</span>] - SampleX[SampleN]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解矩陣</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bondType1</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&gt;&amp; A, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; m, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; l, d, u, w;</span><br><span class="line">    l.resize(SampleN + <span class="number">1</span>); d.resize(SampleN + <span class="number">1</span>); u.resize(SampleN + <span class="number">1</span>), w.resize(SampleN + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    d[<span class="number">0</span>] = A[<span class="number">0</span>][<span class="number">0</span>], u[<span class="number">0</span>] = A[<span class="number">0</span>][<span class="number">1</span>] / d[<span class="number">0</span>], w[<span class="number">0</span>] = k[<span class="number">0</span>] / d[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= SampleN; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        l[i] = A[i][i - <span class="number">1</span>];</span><br><span class="line">        d[i] = A[i][i] - l[i] * u[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (i &lt; SampleN)</span><br><span class="line">            u[i] = A[i][i + <span class="number">1</span>] / d[i];</span><br><span class="line">        w[i] = (k[i] - l[i] * w[i - <span class="number">1</span>]) / d[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    m[SampleN] = w[SampleN];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = SampleN - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        m[i] = w[i] - m[i + <span class="number">1</span>] * u[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bondType2</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&gt;&amp; A, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; m, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; l, d, u, w;</span><br><span class="line">    l.resize(SampleN + <span class="number">1</span>); d.resize(SampleN + <span class="number">1</span>); u.resize(SampleN + <span class="number">1</span>), w.resize(SampleN + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    d[<span class="number">1</span>] = <span class="number">2</span>, u[<span class="number">1</span>] = A[<span class="number">1</span>][<span class="number">2</span>] / d[<span class="number">1</span>], w[<span class="number">1</span>] = k[<span class="number">1</span>] / d[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; SampleN; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        l[i] = A[i][i - <span class="number">1</span>];</span><br><span class="line">        d[i] = <span class="number">2</span> - l[i] * u[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (i &lt; SampleN - <span class="number">1</span>)</span><br><span class="line">            u[i] = A[i][i + <span class="number">1</span>] / d[i];</span><br><span class="line">        w[i] = (k[i] - l[i] * w[i - <span class="number">1</span>]) / d[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    m[SampleN - <span class="number">1</span>] = w[SampleN - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = SampleN - <span class="number">2</span>; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        m[i] = w[i] - m[i + <span class="number">1</span>] * u[i];</span><br><span class="line">    &#125;</span><br><span class="line">    m[<span class="number">0</span>] = ddf(SampleX[<span class="number">0</span>]);</span><br><span class="line">    m[SampleN] = ddf(SampleX[SampleN]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>樣條函數</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">s</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((x &lt; SampleX[<span class="number">0</span>]) || (x &gt; *SampleX.rbegin()))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (x &gt; SampleX[i]) ++i;</span><br><span class="line">    <span class="keyword">double</span> res = <span class="number">0.0</span>;</span><br><span class="line">    res = (x - SampleX[i]) * (x - SampleX[i]) * (x - SampleX[i]) * m[i - <span class="number">1</span>] + (SampleX[i - <span class="number">1</span>] - x) * (SampleX[i - <span class="number">1</span>] - x) * (SampleX[i - <span class="number">1</span>] - x) * m[i];</span><br><span class="line">    res /= (<span class="number">6</span> * g[i]);</span><br><span class="line">    res += ((SampleY[i - <span class="number">1</span>] - SampleY[i]) / g[i] + g[i] * (m[i] - m[i - <span class="number">1</span>]) / <span class="number">6</span>) * x;</span><br><span class="line">    res += SampleY[i] - (g[i] * g[i] * m[i]) / <span class="number">6</span> - ((SampleY[i - <span class="number">1</span>] - SampleY[i]) / g[i] + (m[i] - m[i - <span class="number">1</span>]) * g[i] / <span class="number">6</span>) * SampleX[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主函式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    setSample(SampleX, SampleY);</span><br><span class="line"></span><br><span class="line">    SampleN = SampleX.size() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    g.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= SampleN; ++i)</span><br><span class="line">        g[i] = SampleX[i - <span class="number">1</span>] - SampleX[i];</span><br><span class="line"></span><br><span class="line">    k.resize(SampleN + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; SampleN; ++i)</span><br><span class="line">        k[i] = ((SampleY[i - <span class="number">1</span>] - SampleY[i]) / g[i] + (SampleY[i + <span class="number">1</span>] - SampleY[i]) / g[i + <span class="number">1</span>]) * <span class="number">6</span> / (g[i] + g[i + <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    m.resize(SampleN + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (Type == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        bondType1_SetMat(A, k);</span><br><span class="line">        bondType1(A, m, k);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (Type == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        bondType2_SetMat(A, k);</span><br><span class="line">        bondType2(A, m, k);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fstream fs;</span><br><span class="line">    fs.open(<span class="string">"function.txt"</span>, ios::out);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">double</span> x = st; x &lt;= ed; x += step)</span><br><span class="line">    &#123;</span><br><span class="line">        fs &lt;&lt; f(x) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        fs &lt;&lt; s(x) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fs.close();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; st &lt;&lt; <span class="string">" "</span> &lt;&lt; ed &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函式可視化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"function.txt"</span>, <span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">10.9</span>, <span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">a = []</span><br><span class="line">b = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> x:</span><br><span class="line">    s = f.readline()</span><br><span class="line">    a.append(float(s.strip()))</span><br><span class="line">    s = f.readline()</span><br><span class="line">    b.append(float(s.strip()))</span><br><span class="line"></span><br><span class="line">y1 = np.array(a) <span class="comment"># real blue</span></span><br><span class="line"><span class="comment">#print(y1)</span></span><br><span class="line">y2 = np.array(b) <span class="comment"># predict orange</span></span><br><span class="line"><span class="comment">#print(y2)</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>花了兩天的時間終於結束整個推導過程跟code debug，原本以為會很簡單，沒想到過程的推導繁瑣至極…這大概是有史以來寫過最長的一篇文了。</p>
+<p>樣條函數的擬合效果挺不錯的，只要約6, 7個採樣點就可以很好的擬合出原本的函數，只是在某些一些點無法微分的函數擬合效果不是很好，只能增加採樣點。<br>(紅色是目標函數, 綠色是第一種邊界條件, 藍色是第二種)</p>
+<p><img src="https://imgur.com/hytXkXP.png" alt=""></p>
+<blockquote>
+<p>$e^x$, <code>datSeed = 1, datStep = 1, dataCnt = 6</code></p>
+</blockquote>
+<p><img src="https://imgur.com/WlSwGnm.png" alt=""></p>
+<blockquote>
+<p>$\frac{3}{x^2}$, <code>datSeed = 1, datStep = 1, dataCnt = 6</code></p>
+</blockquote>
+<p><img src="https://imgur.com/UoE0L3D.png" alt=""></p>
+<blockquote>
+<p>$\frac{3}{x^2}$, <code>datSeed = 1, datStep = 0.1, dataCnt = 50</code></p>
+</blockquote>
+<p><img src="https://imgur.com/fPh6bwY.png" alt=""></p>
+<blockquote>
+<p>$sin(cos(x))$, <code>datSeed = 1, datStep = 0.3, dataCnt = 7</code></p>
+</blockquote>
+<p><img src="https://imgur.com/Ky3TnK4.png" alt=""></p>
+<blockquote>
+<p>$sin(\sqrt{x})$, <code>datSeed = 1, datStep = 0.3, dataCnt = 7</code></p>
+</blockquote>
+<p><img src="https://imgur.com/F9CBySG.png" alt=""></p>
+<blockquote>
+<p>$|x - 1.5| \times e^{sin(|-0.1x|)}$, <code>datSeed = 1, datStep = 0.3, dataCnt = 7</code></p>
+</blockquote>
+<p><img src="https://imgur.com/80opHHs.png" alt=""></p>
+<blockquote>
+<p>$\frac{1}{1 + 25x^2}$, <code>datSeed = -1, datStep = 0.4, dataCnt = 6</code></p>
+</blockquote>
+<p><img src="https://imgur.com/LZp794H.png" alt=""></p>
+<blockquote>
+<p>$\frac{1}{1 + 25x^2}$, <code>datSeed = -1, datStep = 0.1, dataCnt = 21</code></p>
+</blockquote>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://zhuanlan.zhihu.com/p/62860859" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62860859</a><br><a href="https://zh.wikipedia.org/zh-tw/%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-tw/%E6%A0%B7%E6%9D%A1%E5%87%BD%E6%95%B0</a><br><a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8F%92%E5%80%BC" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8F%92%E5%80%BC</a><br><a href="https://zh.wikipedia.org/wiki/%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1</a><br><a href="https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html" target="_blank" rel="noopener">https://mropengate.blogspot.com/2015/04/cubic-spline-interpolation.html</a><br><a href="http://math.ecnu.edu.cn/~jypan/Teaching/NA/ch02e.pdf" target="_blank" rel="noopener">http://math.ecnu.edu.cn/~jypan/Teaching/NA/ch02e.pdf</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

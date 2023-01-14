@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言在學校被問到賽局理論的東西，想起自己以前有學過sg函數這種東西，那時候覺得挺玄的，也沒認真推導跟思考，直接拿來用在題目上，感覺就像在玩「魔法」一樣。現在有能力也有時間可以好好推導這個東西了。
+
+一切起源自石頭某一天，有兩個極度聰明的小孩在玩遊戲，有$n$堆石頭，每堆有$a_n$顆石頭，每回合可以"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="SG定理與SG函數推導"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言在學校被問到賽局理論的東西，想起自己以前有學過sg函數這種東西，那時候覺得挺玄的，也沒認真推導跟思考，直接拿來用在題目上，感覺就像在玩「魔法」一樣。現在有能力也有時間可以好好推導這個東西了。
+
+一切起源自石頭某一天，有兩個極度聰明的小孩在玩遊戲，有$n$堆石頭，每堆有$a_n$顆石頭，每回合可以"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>SG定理與SG函數推導 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>SG定理與SG函數推導</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-03-09
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/筆記/">筆記</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在學校被問到賽局理論的東西，想起自己以前有學過sg函數這種東西，那時候覺得挺玄的，也沒認真推導跟思考，直接拿來用在題目上，感覺就像在玩「魔法」一樣。<br>現在有能力也有時間可以好好推導這個東西了。</p>
+<hr>
+<h1 id="一切起源自石頭"><a href="#一切起源自石頭" class="headerlink" title="一切起源自石頭"></a>一切起源自石頭</h1><p>某一天，有兩個極度聰明的小孩在玩遊戲，有$n$堆石頭，每堆有$a_n$顆石頭，每回合可以從任意一堆拿走$k$顆石頭，若無法再拿走石頭即輸，問在兩方採最優策略下是先手勝(N)或是先手敗(P)?</p>
+<hr>
+<h1 id="sg函數推導"><a href="#sg函數推導" class="headerlink" title="sg函數推導"></a>sg函數推導</h1><p>每次遇到這種問題時，都是同樣的模式，先討論$n=1, k=1$的情況:<br>根據剩餘的石頭數量，可以畫出有向圖，每點代表石頭剩餘數量:<br><img src="https://imgur.com/ojhNdHp.png" alt=""></p>
+<blockquote>
+<p>左下數字代表剩餘石頭數量</p>
+</blockquote>
+<p>可以知道當$a_1$是奇數時先手勝，反之。</p>
+<p>而當$k=2$:<br><img src="https://imgur.com/XJquJbn.png" alt=""></p>
+<p>由上圖可知兩個規則:</p>
+<ol>
+<li>只要可以轉移到的狀態中有P，此點為N</li>
+<li>若只能轉移到N，此點為P</li>
+</ol>
+<p>由上面的規則就可以從終點回推到起點，就知道起點是先手敗或是先手勝。</p>
+<p>現在或許可以思考$n&gt;1$的情形了，為了方便討論先固定$a_i = 1, i \in [1,n]$, $k=1$<br>$n=2$時，是先手敗(P)<br>$n=3$時，是先手勝(N)<br>$n=4$時，是先手敗(P)<br>…以此類推。</p>
+<p>大膽做個猜想，若每堆的狀態N有奇數個，就是先手勝，若是偶數個，就是先手敗。<br>很可惜，這個想法在$a_i=1$時是對的；但是當$a_i$可以為2時可以找到反例:<br><img src="https://imgur.com/cq7jn33.png" alt=""></p>
+<blockquote>
+<p>上圖代表兩堆石頭($a_1 = 2, a_2 = 1$)各自的狀態圖</p>
+</blockquote>
+<p>仔細觀察剛剛$a_i=1$的圖與$a_i=2$的差別，可以感覺的出來，他們有某種層級結構，不如就將$a_i=1$的圖命為: <strong>一階</strong> (1!)，而$a_i=2$則命為: <strong>二階</strong> (2!)。<br>特別的，若是P點則稱: <strong>零階</strong> (0!)<br><img src="https://imgur.com/Nwa4QUy.png" alt=""></p>
+<p>既然有一跟二了，那就會有三吧?<br>觀察二階圖形，他可以轉移到一階與零階，三階應當也有這種特性，可以轉移到零階，也可以轉移到一階、二階。<br><img src="https://imgur.com/JPeNHzr.png" alt=""><br>這種型態應該在$k=3$時才能出現，以此類推， <strong>$a$階只能在$k=a$時才會出現</strong> 。<br>並且可以得知「階」的另一個特性， <strong>$a$階可以轉移到$0$~$a-1$階</strong> ，其中0階可以升階，只是後手可以把他再降回原階，等同於局面沒有變動。<br>注意這裡可以將「階」定義到一個點上，可以自行思考為什麼。</p>
+<p>而現在又出現一個問題了:<br>當$k = 2$，<br>若$a_i=3$，他的階數為多少? 將$a_i=3$畫出來，是P點，應為零階<br>而$a_i=4$，是N點，但是他轉移的狀態不像剛剛定義的「階」，這代表剛剛的定義需要擴展，不如先停下來；討論剛剛階的性質。<br><img src="https://imgur.com/PtEkcG3.png" alt=""></p>
+<hr>
+<p>先轉回來研究「階」組合起來的性質，若有兩堆石頭，為$a_1 = a, a_2 = b$，<br>$a = 0, b = 0$，是先手敗。(0! + 0! = P)<br>$a = 0, b = 1$，是先手勝。(0! + 1! = N)<br>$a = 0, b = 2$，是先手勝。(0! + 2! = N)<br>$a = 1, b = 1$，是先手敗。(1! + 1! = P)<br>$a = 1, b = 2$，是先手勝。(1! + 2! = N)<br>$a = 2, b = 2$，是先手敗。(2! + 2! = P)</p>
+<p>觀察勝負的規律，當$a = b$是先手敗，其餘都是先手勝。</p>
+<p>利用一點邏輯思考，當$a = b$，每當先手將其中一堆降階，後手總是可以將另一堆降為同一階，無論先手怎麼操作，狀態都會收斂到兩方皆為先手敗的狀態，導致先手敗。<br>而當$a \ne b, a &gt; b$，先手總是可以將第一堆石頭降階，與第二堆同階，造成與剛剛相同的情況，但是是後手敗。</p>
+<p>於是就驗證出了這個規則: <strong>兩同階為P，兩異階為N</strong></p>
+<p>回過頭來思考$n=1, a_i=4, k=2$究竟該怎麼定義到階上。<br>記得泰勒展開式嗎? 雖然完全無關，但是其中有個思想似乎可以套用在這邊，若$f(x)=g(x)$，則$f^{(n)}(x)=g^{(n)}(x)$，只要兩者特性完全相同，就可以判定兩者相同。</p>
+<p>稱 $a_i=4$ 為 $x$ 階，將其與0階組合看看，是N；與1階，是P；與2階，是N。<br>寫成數學式子:<br>$x! + 0! = N$<br>$x! + 1! = P$<br>$x! + 2! = N$<br>他與1階的特性完全相同，所以可以說它是1階。</p>
+<p>這時「階」的定義已經被擴展了，我們可以用組合已知階，來判斷其為哪一階。</p>
+<p>不過這樣的數學定義不太簡潔，似乎可以簡化? 再深入研究看看$a_i=4$；上面的數學式子其實可以展開:<br>$x! + 0! = N$<br>|-&gt;  $0! + 0! = P$(雖然看起來是先手敗，但其實是上一局的後手敗)<br>|-&gt;  $2! + 0! = N$</p>
+<p>$x! + 1! = P$<br>|-&gt;  $0! + 1! = N$(雖然看起來是先手勝，但其實是上一局的後手勝)<br>|-&gt;  $2! + 1! = N$</p>
+<p>$x! + 2! = N$<br>|-&gt;  $0! + 2! = N$<br>|-&gt;  $2! + 2! = P$(雖然看起來是先手勝，但其實是上一局的後手勝)</p>
+<p>發現一個規則，只要展開後是全N，即為先手敗，同時此點也是這階，或許還沒有足夠的證據看出來規律，我們來討論$k=3$的$a_i=5$<br><img src="https://imgur.com/ibeKI5R.png" alt=""></p>
+<p>$x! + 0! = N$<br>|-&gt;  $0! + 0! = P$<br>|-&gt;  $2! + 0! = N$<br>|-&gt;  $3! + 0! = N$</p>
+<p>$x! + 1! = P$<br>|-&gt;  $0! + 1! = N$<br>|-&gt;  $2! + 1! = N$<br>|-&gt;  $3! + 1! = N$<br>…(下略)</p>
+<p>若$x$與組合的階$y$為同階，結果為P，而結果為P就代表，$x$可以轉移的所有狀態必跟$y$不同階。<br>而因為可以轉移的狀態[0, 1, 2, 3]只會有一個缺失，可以確定這個缺失必與$y$同階，故寫出以下式子:<br>$sg(status) = mex(sg(nextStatus)|status \to nextStatus)$<br>其中$mex$為最小的未出現的非負整數。</p>
+<p>這下我們有一個好用的數學式子，來幫助我們表達一個狀態的「階」。</p>
+<p>此時可以輕易判斷當$n=1$、任意$a_1,k$是先手勝或是先手敗。<br>但$n&gt;1$的情況又要如何判斷?</p>
+<hr>
+<h1 id="Nim-sum"><a href="#Nim-sum" class="headerlink" title="Nim-sum"></a>Nim-sum</h1><p>剛剛的問題是，石頭可以從任意一堆拿$k$顆，現在改成可以從任意一堆拿任意顆，情況似乎變複雜了，但是實際上變簡單了。<br>設每堆石頭為$a_i$顆，而每堆其實就代表一局遊戲。<br>現在有$n$局: $a_1,a_2,a_3…,a_n$，而$a_i \oplus a_j$代表將第$i$局遊戲與第$j$局組合起來一起玩。<br>同時$a_i$也可以說是一種狀態，$\oplus$即是將兩種狀態組合成一種狀態。</p>
+<p>直覺告訴我們，只要在每一局遊戲中都採取最佳策略，那就會贏下整場遊戲，因此$\oplus$滿足交換律，亦即先玩完第一場或先玩完第二場都沒差。<br>接著我們也知道$(a_i \oplus a_j) \oplus a_k = a_i \oplus (a_j \oplus a_k)$，因為把兩局遊戲組合後，就算是一局大遊戲，先玩完也不影響整體勝負。<br>以及其他直覺的結論 $a_i \oplus 0 = a_i$、若$a_i = a_j$, $a_i \oplus a_j = P = 0$</p>
+<p>利用剛剛推導出來的sg函數，我們可以知道某個狀態的階，進而判斷是先手勝或是先手敗。<br>特別的，$n=1$時，$sg(a) = a$。</p>
+<p>根據sg函數的定義寫出$sg(a_1 \oplus a_2 … \oplus a_n) = mex(sg(a_1 \oplus … \oplus a_i’ … \oplus a_n) | a_i \to a_i’)$，這樣子可以反推回去，決定是究竟是先手勝或是先手敗。<br>然而每局的狀態難以這樣一一列舉，為了簡化情況，我們先討論$n = 2$:<br>$sg(0 \oplus 0) = P = 0$<br>$sg(0 \oplus a) = sg(a) = a$<br>$sg(a \oplus b) = P = 0$, 如果$a = b$<br>$sg(a \oplus b) = N$, 如果$a \ne b$</p>
+<p>看著這個運算規則，越看越像xor，做個猜想: 在$n$為任意正整數下，$\oplus$與xor是等價的。<br>為此我們必須證明兩者等價:</p>
+<p>當$a_i = 0, i \in [1, n]$，是終盤，兩者定義符合。</p>
+<p>當$a_1$ $xor$ $a_2$ $xor$ … $a_n=0$，無法將其中一個數字改變，且維持$xor$和為0；換句話說，當$xor$和為0，下一步只會讓$xor$和為非0。<br>這其實就是最上面提到的第二點規則: <strong>若只能轉移到N，此點為P</strong> 。<br>證明這點很簡單，若將其中一數改成$a_i’$，而$xor$和變為$X$，<br>則$a_1$ $xor$ … $a_i’$… $a_n$ $=X=0$ $xor$ $a_i$ $xor$ $a_i’$，但是$a_i’&lt;a_i$，故$X = 0$ $xor$ $a_i’$ $xor$ $a_i \ne 0$<br>得證。</p>
+<p>當$a_1$ $xor$ $a_2$ $xor$ … $a_n = X \ne 0$，可以將其中一數改變，並使$xor$和為0。<br>這也對應到最上面第一點規則: <strong>只要可以轉移到的狀態中有P，此點為N</strong> 。<br>若將$a_i$改成$a_i$ $xor$ $X$，則$xor$和為0。此時$a_i$ $xor$ $X$就是$a_i’$。<br>但是還必須證明$a_i’ &lt; a_i$，假設$X$在二進位下最高位1是第$k$位，則必有某$a_i$滿足二進位下第$k$位為1，顯然，$a_i$ $xor$ $X$第$k$位為0，得證$a_i’ &lt; a_i$。</p>
+<p>現在我們可以非常迅速的計算一整個大遊戲的狀態了，因為$\oplus$與xor是等價，所以只要將$sg(a_1 \oplus a_2 … a_n)$裡面的值全部做xor運算即可。</p>
+<p>必勝策略也顯而易見，先手只需要每次都使下一個狀態為0，即可獲勝。</p>
+<hr>
+<h1 id="回到最初的問題"><a href="#回到最初的問題" class="headerlink" title="回到最初的問題"></a>回到最初的問題</h1><p>回到一開始的問題，看似可以依剛才的結論，全部xor後判斷，但是實際上因為「無法任意改變數字」而存在錯誤，上面的證明有一步是將$a_i$變為$a_i$ $xor$ $X$，這代表$a_i$可能變成$0$ ~ $a_i-1$中任意一數，但是因為這個問題有拿走數的限制$k$，所以無法對所有狀態成立。<br>而一開始推導出來的「階」正好滿足此性質。($n$階可以轉移至$0$ ~ $n-1$階)<br>只要將一開始的每個狀態取sg()，就可以得知階數，最後再將全部xor起來，非0即為先手勝，0則為先手敗。</p>
+<p>可能你會注意到0階接下來的轉移似乎有點問題，但是因為可以由後手轉移回0階，最終都會收斂至先手敗，所以對整體局面還是一樣。</p>
+<hr>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>只要先依$k$構建一DAG，從終盤逆推回去找到sg值，再將所有局面的sg值xor起來，就可以判斷問題解答。<br>寫成數學式子: $sg($$sg(a_1)$ $xor$ $sg(a_2)$ … $xor$ $sg(a_n)$$)$ = $sg(a_1)$ $xor$ $sg(a_2)$ … $xor$ $sg(a_n)$。</p>
+<hr>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>這次研究的題目真硬，雖然學過了但是還是試著從零開始推導，結果真的推導出同樣的結論，這種過程真的挺好玩的，就像是在創造新的結構一樣，可以發現許多以前不曾想過的東西。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

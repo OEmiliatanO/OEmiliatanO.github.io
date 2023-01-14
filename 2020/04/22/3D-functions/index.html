@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<meta name="google-site-verification" content="cKKL51w5M9KKkcDV4oRp6uoqdWe4B1t0Vwcvh14F2u4" />
+	
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="昨天一個心血來潮，想自己做看看可視化函數。
+我一開始想用C++寫，但是想到python在這方面似乎比較簡單，所以我就決定使用python來做(懶)
+我是用Anaconda做的，畢竟裡面都已經裝好了，不用白不用。
+首先我第一個做的是二維平面的圖:
+code:
+123456789101112131415"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Emilia"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="python - 可視化函數"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="昨天一個心血來潮，想自己做看看可視化函數。
+我一開始想用C++寫，但是想到python在這方面似乎比較簡單，所以我就決定使用python來做(懶)
+我是用Anaconda做的，畢竟裡面都已經裝好了，不用白不用。
+首先我第一個做的是二維平面的圖:
+code:
+123456789101112131415"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Emilia&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttps://i.imgur.com/TwBXHXQ.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>python - 可視化函數 - Emilia&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189790752-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-189790752-1');
+	</script>
+
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">It's not gifted but determined</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/TwBXHXQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>python - 可視化函數</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/code/">#code</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Project/">Project</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>昨天一個心血來潮，想自己做看看可視化函數。<br><img src="https://i.imgur.com/nHKmZlc.png" alt=""></p>
+<p>我一開始想用C++寫，但是想到python在這方面似乎比較簡單，所以我就決定使用python來做(懶)</p>
+<p>我是用Anaconda做的，畢竟裡面都已經裝好了，不用白不用。</p>
+<p>首先我第一個做的是二維平面的圖:<br><img src="https://i.imgur.com/9QijOUV.png" alt=""></p>
+<p><strong>code:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line">f = <span class="keyword">lambda</span> x: x * x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 產生一段從-10到10的數字，間隔 0.125</span></span><br><span class="line">x = np.arange(<span class="number">-10</span>, <span class="number">10</span>, <span class="number">.125</span>)</span><br><span class="line">y = f(x)</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>非常之簡單。</p>
+<p>接著是兩個圖交疊的:<br><img src="https://i.imgur.com/aNHenMI.png" alt=""></p>
+<p><strong>code:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將上面的code改一下就好了</span></span><br><span class="line">f = <span class="keyword">lambda</span> x: <span class="number">10</span> * np.sin(x)</span><br><span class="line">g = <span class="keyword">lambda</span> x: x * x</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">-10</span>, <span class="number">10</span>, <span class="number">.125</span>)</span><br><span class="line">y1 = f(x)</span><br><span class="line">y2 = g(x)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>似乎有點過於簡單了?</p>
+<p>接著是3D的圖形，根據我上網找的資料，需要用到<code>mpl_toolkits.mplot3d</code>裡面的<code>Axes3D</code>。<br>因為現在是x, y會產生一個面，然後再根據在面上的某個位置，決定畫在Z軸的哪裡。<br>所以我們需要<code>np.meshgrid(x, y)</code>這個函式來產生這個面。</p>
+<p>三維:<br><img src="https://i.imgur.com/tcf81OH.png" alt=""></p>
+<p><strong>code:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax = Axes3D(fig)</span></span><br><span class="line"><span class="comment"># 2022.5.18 更新</span></span><br><span class="line"><span class="comment"># 上述寫法已經被拋棄，應該改成</span></span><br><span class="line">ax = plt.axes(projection = <span class="string">"3d"</span>)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">'x'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'y'</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">'z'</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">.125</span>)</span><br><span class="line">y = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">.125</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 產生輸入面</span></span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line"></span><br><span class="line">Z = X + Y</span><br><span class="line"></span><br><span class="line">ax.plot_surface(X, Y, Z)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>覺得好像只是單一顏色好像太單調了。<br>順便也把圖形弄得複雜一點。</p>
+<p>$f(x, y) = x^2+y^2$:<br><img src="https://i.imgur.com/dX6inWg.png" alt=""></p>
+<p>$f(x, y) = \sqrt{x^2+y^2}$:<br><img src="https://i.imgur.com/an0LC6v.png" alt=""></p>
+<p>$f(x, y) = cos(\sqrt{x^2+y^2})$:<br><img src="https://i.imgur.com/UyBqdjK.png" alt=""></p>
+<p>$f(x, y) = sin(\sqrt{x^2+y^2})$:<br><img src="https://i.imgur.com/xhifgrA.png" alt=""></p>
+<p>$f(x, y) = sin(x \times y)$ :<br><img src="https://i.imgur.com/2oeIN7U.png" alt=""></p>
+<p>$f(x, y) = sin(exp(x^2 + y^2))$: (xy平面上視角)<br><img src="https://i.imgur.com/UPJvyDW.png" alt=""></p>
+<p><strong>code</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">fig &#x3D; plt.figure()</span><br><span class="line"># ax &#x3D; Axes3D(fig)</span><br><span class="line">ax &#x3D; plt.axes(projection &#x3D; &quot;3d&quot;)</span><br><span class="line"></span><br><span class="line">ax.view_init(45, 45)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(&#39;x&#39;)</span><br><span class="line">ax.set_ylabel(&#39;y&#39;)</span><br><span class="line">ax.set_zlabel(&#39;z&#39;)</span><br><span class="line"></span><br><span class="line">ax.set_zlim3d(-3, 3)</span><br><span class="line"></span><br><span class="line">x &#x3D; np.arange(-5, 5, .125)</span><br><span class="line">y &#x3D; np.arange(-5, 5, .125)</span><br><span class="line"></span><br><span class="line">X, Y &#x3D; np.meshgrid(x, y)</span><br><span class="line"></span><br><span class="line">Z &#x3D; f(X, Y)</span><br><span class="line"></span><br><span class="line"># rstride, cstride 相當於row, column的解析度，數值越高解析度越低，可以自己調調看</span><br><span class="line"># cmap則是顏色映射表，有許多預設種類</span><br><span class="line">ax.plot_surface(X, Y, Z, rstride &#x3D; 1, cstride &#x3D; 1, cmap &#x3D; &#39;rainbow&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>我們還有一個複數域沒用到，但是當我試著想畫出複數域時，問題開始變得棘手了…<br>當我們輸入進一個複數$a+bi$時需要兩個變數$(a, b)$去記錄，而函數輸出是$c+di$也需要兩個變數$(c, d)$去記錄。<br>很明顯的我們需要四個軸來表示，但是我們就算畫出來了，我們也無法理解(吧，還是只有我無法理解?</p>
+<p>我上網找到幾個方法:</p>
+<ol>
+<li>只畫實部</li>
+<li>只畫虛部</li>
+<li>畫在複數平面上，對於原點的距離</li>
+<li>畫複數平面上的方位角</li>
+<li>用顏色代表第四維度</li>
+<li>Conformal map，共形映射</li>
+</ol>
+<p>前四個方法都需要犧牲一點東西。<br>只畫實部、只畫虛部就不多講了。值得注意的是，通常會把方位角代進sin()，以此讓它變成連續的。<br>PS. 可以使用<code>mpmath</code>的<code>arg()</code>算方位角</p>
+<p>$f(x) = x^2 + 1$(未用sin):<br><img src="https://i.imgur.com/gukQCpn.png" alt=""><br>$f(x) = x^2 + 1$(使用sin):<br><img src="https://i.imgur.com/hLVuzCQ.png" alt=""></p>
+<p>巴尼斯G函數的複數平面上的方位角(未用sin):<br><img src="https://i.imgur.com/7PnpifK.png" alt=""><br>巴尼斯G函數的複數平面上的方位角(使用sin):<br><img src="https://i.imgur.com/YBGoMnj.png" alt=""></p>
+<p>第五個方法需要用到colormap，彩色映射的方法。</p>
+<p><strong>code:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> mpmath</span><br><span class="line"></span><br><span class="line"><span class="comment"># f(x) = x ** 2 + 1</span></span><br><span class="line">f = <span class="keyword">lambda</span> x: np.power(x, <span class="number">2</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = plt.axes(projection = <span class="string">"3d"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定視角</span></span><br><span class="line">ax.view_init(<span class="number">45</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># f(a + bi) = c + di</span></span><br><span class="line">ax.set_xlabel(<span class="string">'a'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'b'</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">'c'</span>)</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">.125</span>)</span><br><span class="line">b = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">.125</span>)</span><br><span class="line"></span><br><span class="line">A, B = np.meshgrid(a, b)</span><br><span class="line">an, bn = A.shape</span><br><span class="line">C, D = A * <span class="number">0</span>, A * <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(an):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(bn):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            z = mpmath.mp.mpc(A[i, j], B[i, j])</span><br><span class="line">            w = f(z)</span><br><span class="line">            </span><br><span class="line">            C[i, j] = w.real</span><br><span class="line">            D[i, j] = w.imag</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">except</span> (ValueError, TypeError, ZeroDivisionError):</span><br><span class="line">            <span class="comment"># do something...</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用顏色代表虛部</span></span><br><span class="line">color_dimension = D</span><br><span class="line">minn, maxx = color_dimension.min(), color_dimension.max()</span><br><span class="line">norm = matplotlib.colors.Normalize()</span><br><span class="line">m = plt.cm.ScalarMappable(norm = norm, cmap = <span class="string">'jet'</span>)</span><br><span class="line">fcolors = m.to_rgba(color_dimension)</span><br><span class="line"></span><br><span class="line">surf = ax.plot_surface(A, B, C, rstride = <span class="number">1</span>, cstride = <span class="number">1</span>, facecolors = fcolors, vmin = minn, vmax = maxx)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 右邊那條</span></span><br><span class="line">plt.colorbar(m)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>$f(x) = x^2 + 1$<br><img src="https://i.imgur.com/qmrPOYI.png" alt=""></p>
+<p>$f(x) = x^\pi$<br><img src="https://i.imgur.com/fPHHC5L.png" alt=""></p>
+<p>$f(x) = sin(x) \times cos(x)$<br><img src="https://i.imgur.com/rjTaflP.png" alt=""></p>
+<p>至於第六個方法，待研究…</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Emilia<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
