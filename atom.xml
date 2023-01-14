@@ -34,21 +34,6 @@
   </entry>
   
   <entry>
-    <title>8.31 仲秋夜</title>
-    <link href="http://yoursite.com/2022/08/31/8-31-%E4%BB%B2%E7%A7%8B%E5%A4%9C/"/>
-    <id>http://yoursite.com/2022/08/31/8-31-%E4%BB%B2%E7%A7%8B%E5%A4%9C/</id>
-    <published>2022-08-30T20:37:28.000Z</published>
-    <updated>2022-08-30T20:38:04.000Z</updated>
-    
-    
-    
-    
-    <category term="隨筆" scheme="http://yoursite.com/categories/%E9%9A%A8%E7%AD%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>熱傳導與傅立葉</title>
     <link href="http://yoursite.com/2022/05/06/%E7%86%B1%E5%82%B3%E5%B0%8E%E8%88%87%E5%82%85%E7%AB%8B%E8%91%89/"/>
     <id>http://yoursite.com/2022/05/06/%E7%86%B1%E5%82%B3%E5%B0%8E%E8%88%87%E5%82%85%E7%AB%8B%E8%91%89/</id>
@@ -482,6 +467,31 @@
     <summary type="html">&lt;p&gt;有了極限的概念，微分就比較好理解了(或許吧lul&lt;/p&gt;
 &lt;h2 id=&quot;微分&quot;&gt;&lt;a href=&quot;#微分&quot; class=&quot;headerlink&quot; title=&quot;微分&quot;&gt;&lt;/a&gt;微分&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;定義一函數的平均變化率為$\frac{f(x+h)</summary>
+      
+    
+    
+    
+    <category term="筆記" scheme="http://yoursite.com/categories/%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>從零開始的微積分 Limitation</title>
+    <link href="http://yoursite.com/2020/07/16/Re-%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B-%E3%81%B3%E3%81%9B%E3%81%8D%E3%81%B6%E3%82%93-limitation/"/>
+    <id>http://yoursite.com/2020/07/16/Re-%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B-%E3%81%B3%E3%81%9B%E3%81%8D%E3%81%B6%E3%82%93-limitation/</id>
+    <published>2020-07-15T17:43:52.000Z</published>
+    <updated>2021-02-17T16:36:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>極限應該是大部分人學習微積分第一個學的吧。<br>很多人都會把極限當成純粹把數字帶進去，尤其是初學者，然而如果是以這種方式去了解，之後面對不連續的函數時，將會感到困惑、不直覺，只有了解極限的定義後才可以有好的觀念去處理之後的問題。</p><h1 id="序列極限"><a href="#序列極限" class="headerlink" title="序列極限:"></a>序列極限:</h1><blockquote><p>設$ { x_n } , x_n \in R, L \in R, n&#x3D;1,2…$，存在任意實數$\epsilon$與$N$使得當$n&gt;N$，存在$|x_n - L| &lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。</p></blockquote><p>這是柯西在19世紀給出的極限的定義，而正是這種定義使現代微積分(極限微積分)與古典微積分(無窮小微積分)畫上了界線。</p><p>舉個例子，${0.1, 0.001, 0.0001, 0.00001, …, 10^{-k}}$，我們可以找到任意實數，存在$|x_n - 0|&lt; \epsilon$，所以這個序列存在極限值0。<br>理解了序列極限，函數極限就不難理解了。</p><h1 id="函數極限"><a href="#函數極限" class="headerlink" title="函數極限:"></a>函數極限:</h1><p><img src="https://i.imgur.com/rRIjuNg.jpg"></p><blockquote><p>假設有一個實函數$f(x)$，而對於點$x$可以找到任意實數$\delta$使得$|x - c|&lt; \delta$，如果我們可以找到任意實數$\epsilon$，以及一個實數$L$，使得$|f(x)- L|&lt; \epsilon$，則我們說$\lim\limits_{x\to c} f(x) &#x3D; L$</p></blockquote><p>利用剛剛的序列極限思想，可以很輕鬆的理解，一個序列${x_k}$不斷趨近於$c$，同時定義序列${f(x_1), f(x_2), f(x_3), …, f(x_k)}$，可以找到任意實數使$|f(x_n)-L|&lt; \epsilon$，則此函數在$c$上的極限值為$L$</p><p>我以前常常思考 “趨近”是否就是”等於”?<br>後來我認為，這兩種觀念不該混為一談，別再問”趨近”是不是”等於”了，這兩個根本無法比較。<br>趨近是指一個序列的極限值為某數，所以一般寫 某個極限&#x3D;某個數字，是指說 這個序列的極限值&#x3D;某個數字。</p><p>再補充一點，當時柯西寫出極限定義時，實數還是不完備的，可能中間還有奇怪的數字(A理數, B理數…)，之後由許多數學家寫出實數基本定理後才使上面的定義變嚴謹。<br>實數基本定理證明了實數是連續的，且只要兩實數中間無任何實數則兩實數相等。</p><h1 id="極限性質"><a href="#極限性質" class="headerlink" title="極限性質"></a>極限性質</h1><p><em>只有當右側極限存在才成立。</em><br>$\lim\limits_{n\to c} k\times f(n) &#x3D; k \times \lim\limits_{n\to c} f(n)$<br>$\lim\limits_{n\to c} [f(n) + g(n)] &#x3D; \lim\limits_{n\to c} f(n) + \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) - g(n)] &#x3D; \lim\limits_{n\to c} f(n) - \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) \times g(n)] &#x3D; \lim\limits_{n\to c} f(n) \times \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} \frac{f(n)}{g(n)} &#x3D; \frac{\lim\limits_{n\to c} f(n)}{\lim\limits_{n\to c} g(n)}$</p><h1 id="精選題目區"><a href="#精選題目區" class="headerlink" title="精選題目區:"></a>精選題目區:</h1><ol><li>$\lim\limits_{x\to 0} \frac{|x|}{x}$</li><li>$\lim\limits_{x\to 3^+} \lfloor x \rfloor$, $\lim\limits_{x\to 3^-} \lfloor x \rfloor$</li><li>$\lim\limits_{x\to 2^+} \frac{x-3}{x^2-4}, \lim\limits_{x\to 2^-} \frac{x-3}{x^2-4}$</li><li>$\lim\limits_{x\to 2} \frac{(x-2)^2}{x^2-4}$</li><li>$\lim\limits_{x\to 2^+} tan^{-1} \frac{1}{x-2}$</li><li>$\lim\limits_{\theta \to 0} \frac{\sin \theta}{\theta}$</li><li>$\lim\limits_{\theta \to 0} \frac{\sin (\theta - 1)}{\theta - 1}, \lim\limits_{\theta \to 1} \frac{\sin (\theta - 1)}{\theta - 1}$</li><li>$\lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta}, \lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta ^2}$</li><li>$\lim\limits_{x\to 0} tan x \sin \frac{1}{x}$</li></ol><h1 id="題目講解區"><a href="#題目講解區" class="headerlink" title="題目講解區:"></a>題目講解區:</h1><ol><li><p>左極限、右極限不同，所以不存在極限。<br><strong>Answer:不存在極限</strong></p></li><li><p>如果你把它的函數圖形畫出來，你就會知道了。<br><img src="https://i.imgur.com/reuzeIU.png"><br><strong>Answer:3,2</strong></p></li><li><p>(a)上方極限為-1，下方為0，則極限值為$- \infty$<br>(b)上方極限為-1，下方為-0，則極限值為$\infty$<br><strong>Answer:</strong> $- \infty$,$\infty$</p></li><li><p>先把x-2這個因式消掉就可以了。<br><strong>Answer:0</strong></p></li><li><p>實際上這個等同於$\lim\limits_{x\to 0^+} tan^{-1} \frac{1}{x}$，而又等同於$\lim\limits_{x\to \infty ^+} tan^{-1} x$，這下你就知道了。<br><strong>Answer:</strong> $\frac{\pi}{2}$</p></li><li><p>需要用到夾擠定理(三明治定理)，依下圖可以寫出不等式$\frac{\sin \theta}{2} \leq \frac{\pi \theta}{2 \pi} \leq \frac{tan \theta}{2}$(三角形與扇形面積)，解出來就得到答案。<br><img src="https://i.imgur.com/69xvwLs.png"><br><strong>Answer:1</strong></p></li><li><p>同樣的，兩個都可以將$\theta -1$替換掉，跟第五題一樣。<br><strong>Answer:</strong> $\sin 1$, <strong>1</strong></p></li><li><p>$\frac{\cos \theta -1}{2}&#x3D; \sin^2 \frac{\theta}{2}$，使用這個公式就好(ゝ∀･)<br><strong>Answer:0</strong>, $- \frac{1}{2}$</p></li><li><p>$-1 \leq \sin \frac{1}{x} \leq 1$，$-tan x \leq \sin \frac{1}{x} \leq tan x$，當x趨近於0，$0 \leq \sin \frac{1}{x} \leq 0$(夾擠定理)。<br><strong>Answer:0</strong></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;極限應該是大部分人學習微積分第一個學的吧。&lt;br&gt;很多人都會把極限當成純粹把數字帶進去，尤其是初學者，然而如果是以這種方式去了解，之後面對不連續的函數時，將會感到困惑、不直覺，只有了解極限的定義後才可以有好的觀念去處理之後的問題。&lt;/p&gt;
+&lt;h1 id=&quot;序列極限&quot;&gt;&lt;a </summary>
       
     
     

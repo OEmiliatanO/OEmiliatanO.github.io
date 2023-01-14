@@ -1,5 +1,4 @@
 http://yoursite.com/2023/01/14/test/
-http://yoursite.com/2022/08/31/8-31-%E4%BB%B2%E7%A7%8B%E5%A4%9C/
 http://yoursite.com/2022/05/06/%E7%86%B1%E5%82%B3%E5%B0%8E%E8%88%87%E5%82%85%E7%AB%8B%E8%91%89/
 http://yoursite.com/2020/04/22/3D-functions/
 http://yoursite.com/2020/04/19/base-articles/
