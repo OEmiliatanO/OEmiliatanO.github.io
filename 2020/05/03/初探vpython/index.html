@@ -18,7 +18,8 @@
         <meta name="description" content="折騰了六天的課，終於可以好好休息一天了 -_-
 初次聽到vpython這個套件是在電腦課上聽到的，當初沒甚麼興趣，現在倒是來了興致少了時間…
 等加速度運動這是課本裡運動學最簡單的東西。
-首先定義好物件。12345import vpython as vpmonitor = vp.canvas(titl"/>
+首先定義好物件。
+12345import vpython as vpmonitor = vp.canvas(tit"/>
     
 
     <!--Author-->
@@ -36,7 +37,8 @@
         <meta property="og:description" content="折騰了六天的課，終於可以好好休息一天了 -_-
 初次聽到vpython這個套件是在電腦課上聽到的，當初沒甚麼興趣，現在倒是來了興致少了時間…
 等加速度運動這是課本裡運動學最簡單的東西。
-首先定義好物件。12345import vpython as vpmonitor = vp.canvas(titl"/>
+首先定義好物件。
+12345import vpython as vpmonitor = vp.canvas(tit"/>
     
 
     <!--Open Graph Site Name-->
@@ -105,7 +107,7 @@
     <!-- favicon -->
     
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -163,7 +165,7 @@
                     </li>
                 
                     <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
                             
                                 <i class="fa fa-github fa-stack-2x"></i>
                             
@@ -229,11 +231,15 @@
                 <p>折騰了六天的課，終於可以好好休息一天了 -_-</p>
 <p>初次聽到vpython這個套件是在電腦課上聽到的，當初沒甚麼興趣，現在倒是來了興致少了時間…</p>
 <h2 id="等加速度運動"><a href="#等加速度運動" class="headerlink" title="等加速度運動"></a>等加速度運動</h2><p>這是課本裡運動學最簡單的東西。</p>
-<p>首先定義好物件。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vpython <span class="keyword">as</span> vp</span><br><span class="line"></span><br><span class="line">monitor = vp.canvas(title = <span class="string">"uniform accelerated motion"</span>)</span><br><span class="line">ground = vp.box(pos = vp.vector(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>), size = vp.vector(<span class="number">10</span>, <span class="number">0.4</span>, <span class="number">2</span>))</span><br><span class="line">cube = vp.box(pos = vp.vector(<span class="number">-4.9</span>, <span class="number">0.3</span>, <span class="number">-0.8</span>), size = vp.vector(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>), color = vp.color.purple)</span><br></pre></td></tr></table></figure></p>
-<p>注意他size是指整個物體的長寬高，而不是從pos開始算。<br><img src="https://i.imgur.com/2qUar1y.png" alt=""><br>所以上面的正方體座標就是(0.5, 0.5, 0.5), (-0.5, 0.5, 0.5), (0.5, -0.5, 0.5)…</p>
+<p>首先定義好物件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vpython <span class="keyword">as</span> vp</span><br><span class="line"></span><br><span class="line">monitor = vp.canvas(title = <span class="string">&quot;uniform accelerated motion&quot;</span>)</span><br><span class="line">ground = vp.box(pos = vp.vector(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>), size = vp.vector(<span class="number">10</span>, <span class="number">0.4</span>, <span class="number">2</span>))</span><br><span class="line">cube = vp.box(pos = vp.vector(-<span class="number">4.9</span>, <span class="number">0.3</span>, -<span class="number">0.8</span>), size = vp.vector(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>), color = vp.color.purple)</span><br></pre></td></tr></table></figure>
+
+<p>注意他size是指整個物體的長寬高，而不是從pos開始算。<br><img src="https://i.imgur.com/2qUar1y.png"><br>所以上面的正方體座標就是(0.5, 0.5, 0.5), (-0.5, 0.5, 0.5), (0.5, -0.5, 0.5)…</p>
 <p>定義部分應該很好理解。</p>
-<p>物件運動的部分<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0.1</span></span><br><span class="line">v = <span class="number">0</span></span><br><span class="line">dt = <span class="number">0.01</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> cube.pos.x &lt; <span class="number">4.9</span>:</span><br><span class="line">    vp.rate(<span class="number">1000</span>)</span><br><span class="line">    cube.pos.x += dt * v</span><br><span class="line">    v += a * dt</span><br></pre></td></tr></table></figure></p>
-<p>就只是這樣而已，很簡單。<br>但是你會發現一開始的鏡頭會被地板擋住，可以使用vp.canvas(…, center = vp.vector(x, y, z), …)來調整</p>
+<p>物件運動的部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0.1</span></span><br><span class="line">v = <span class="number">0</span></span><br><span class="line">dt = <span class="number">0.01</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> cube.pos.x &lt; <span class="number">4.9</span>:</span><br><span class="line">    vp.rate(<span class="number">1000</span>)</span><br><span class="line">    cube.pos.x += dt * v</span><br><span class="line">    v += a * dt</span><br></pre></td></tr></table></figure>
+
+<p>就只是這樣而已，很簡單。<br>但是你會發現一開始的鏡頭會被地板擋住，可以使用vp.canvas(…, center &#x3D; vp.vector(x, y, z), …)來調整</p>
 <p>就先這樣了…以後還有時間再更新…</p>
 
 

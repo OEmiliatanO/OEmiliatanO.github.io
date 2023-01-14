@@ -103,7 +103,7 @@
     <!-- favicon -->
     
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -161,7 +161,7 @@
                     </li>
                 
                     <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
                             
                                 <i class="fa fa-github fa-stack-2x"></i>
                             
@@ -233,45 +233,45 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>極限應該是大部分人學習微積分第一個學的吧。<br>很多人都會把極限當成純粹把數字帶進去，尤其是初學者，然而如果是以這種方式去了解，之後面對不連續的函數時，將會感到困惑、不直覺，只有了解極限的定義後才可以有好的觀念去處理之後的問題。</p>
 <h1 id="序列極限"><a href="#序列極限" class="headerlink" title="序列極限:"></a>序列極限:</h1><blockquote>
-<p>設$ { x_n } , x_n \in R, L \in R, n=1,2…$，存在任意實數$\epsilon$與$N$使得當$n&gt;N$，存在$|x_n - L| &lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。</p>
+<p>設$ { x_n } , x_n \in R, L \in R, n&#x3D;1,2…$，存在任意實數$\epsilon$與$N$使得當$n&gt;N$，存在$|x_n - L| &lt; \epsilon$，則稱序列${x_n}$存在極限值$L$。</p>
 </blockquote>
 <p>這是柯西在19世紀給出的極限的定義，而正是這種定義使現代微積分(極限微積分)與古典微積分(無窮小微積分)畫上了界線。</p>
 <p>舉個例子，${0.1, 0.001, 0.0001, 0.00001, …, 10^{-k}}$，我們可以找到任意實數，存在$|x_n - 0|&lt; \epsilon$，所以這個序列存在極限值0。<br>理解了序列極限，函數極限就不難理解了。</p>
-<h1 id="函數極限"><a href="#函數極限" class="headerlink" title="函數極限:"></a>函數極限:</h1><p><img src="https://i.imgur.com/rRIjuNg.jpg" alt=""></p>
+<h1 id="函數極限"><a href="#函數極限" class="headerlink" title="函數極限:"></a>函數極限:</h1><p><img src="https://i.imgur.com/rRIjuNg.jpg"></p>
 <blockquote>
-<p>假設有一個實函數$f(x)$，而對於點$x$可以找到任意實數$\delta$使得$|x - c|&lt; \delta$，如果我們可以找到任意實數$\epsilon$，以及一個實數$L$，使得$|f(x)- L|&lt; \epsilon$，則我們說$\lim\limits_{x\to c} f(x) = L$</p>
+<p>假設有一個實函數$f(x)$，而對於點$x$可以找到任意實數$\delta$使得$|x - c|&lt; \delta$，如果我們可以找到任意實數$\epsilon$，以及一個實數$L$，使得$|f(x)- L|&lt; \epsilon$，則我們說$\lim\limits_{x\to c} f(x) &#x3D; L$</p>
 </blockquote>
 <p>利用剛剛的序列極限思想，可以很輕鬆的理解，一個序列${x_k}$不斷趨近於$c$，同時定義序列${f(x_1), f(x_2), f(x_3), …, f(x_k)}$，可以找到任意實數使$|f(x_n)-L|&lt; \epsilon$，則此函數在$c$上的極限值為$L$</p>
-<p>我以前常常思考 “趨近”是否就是”等於”?<br>後來我認為，這兩種觀念不該混為一談，別再問”趨近”是不是”等於”了，這兩個根本無法比較。<br>趨近是指一個序列的極限值為某數，所以一般寫 某個極限=某個數字，是指說 這個序列的極限值=某個數字。</p>
+<p>我以前常常思考 “趨近”是否就是”等於”?<br>後來我認為，這兩種觀念不該混為一談，別再問”趨近”是不是”等於”了，這兩個根本無法比較。<br>趨近是指一個序列的極限值為某數，所以一般寫 某個極限&#x3D;某個數字，是指說 這個序列的極限值&#x3D;某個數字。</p>
 <p>再補充一點，當時柯西寫出極限定義時，實數還是不完備的，可能中間還有奇怪的數字(A理數, B理數…)，之後由許多數學家寫出實數基本定理後才使上面的定義變嚴謹。<br>實數基本定理證明了實數是連續的，且只要兩實數中間無任何實數則兩實數相等。</p>
-<h1 id="極限性質"><a href="#極限性質" class="headerlink" title="極限性質"></a>極限性質</h1><p><em>只有當右側極限存在才成立。</em><br>$\lim\limits<em>{n\to c} k\times f(n) = k \times \lim\limits</em>{n\to c} f(n)$<br>$\lim\limits<em>{n\to c} [f(n) + g(n)] = \lim\limits</em>{n\to c} f(n) + \lim\limits<em>{n\to c} g(n)$<br>$\lim\limits</em>{n\to c} [f(n) - g(n)] = \lim\limits<em>{n\to c} f(n) - \lim\limits</em>{n\to c} g(n)$<br>$\lim\limits<em>{n\to c} [f(n) \times g(n)] = \lim\limits</em>{n\to c} f(n) \times \lim\limits<em>{n\to c} g(n)$<br>$\lim\limits</em>{n\to c} \frac{f(n)}{g(n)} = \frac{\lim\limits<em>{n\to c} f(n)}{\lim\limits</em>{n\to c} g(n)}$</p>
+<h1 id="極限性質"><a href="#極限性質" class="headerlink" title="極限性質"></a>極限性質</h1><p><em>只有當右側極限存在才成立。</em><br>$\lim\limits_{n\to c} k\times f(n) &#x3D; k \times \lim\limits_{n\to c} f(n)$<br>$\lim\limits_{n\to c} [f(n) + g(n)] &#x3D; \lim\limits_{n\to c} f(n) + \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) - g(n)] &#x3D; \lim\limits_{n\to c} f(n) - \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} [f(n) \times g(n)] &#x3D; \lim\limits_{n\to c} f(n) \times \lim\limits_{n\to c} g(n)$<br>$\lim\limits_{n\to c} \frac{f(n)}{g(n)} &#x3D; \frac{\lim\limits_{n\to c} f(n)}{\lim\limits_{n\to c} g(n)}$</p>
 <h1 id="精選題目區"><a href="#精選題目區" class="headerlink" title="精選題目區:"></a>精選題目區:</h1><ol>
 <li>$\lim\limits_{x\to 0} \frac{|x|}{x}$</li>
-<li>$\lim\limits<em>{x\to 3^+} \lfloor x \rfloor$, $\lim\limits</em>{x\to 3^-} \lfloor x \rfloor$</li>
-<li>$\lim\limits<em>{x\to 2^+} \frac{x-3}{x^2-4}, \lim\limits</em>{x\to 2^-} \frac{x-3}{x^2-4}$</li>
+<li>$\lim\limits_{x\to 3^+} \lfloor x \rfloor$, $\lim\limits_{x\to 3^-} \lfloor x \rfloor$</li>
+<li>$\lim\limits_{x\to 2^+} \frac{x-3}{x^2-4}, \lim\limits_{x\to 2^-} \frac{x-3}{x^2-4}$</li>
 <li>$\lim\limits_{x\to 2} \frac{(x-2)^2}{x^2-4}$</li>
 <li>$\lim\limits_{x\to 2^+} tan^{-1} \frac{1}{x-2}$</li>
 <li>$\lim\limits_{\theta \to 0} \frac{\sin \theta}{\theta}$</li>
-<li>$\lim\limits<em>{\theta \to 0} \frac{\sin (\theta - 1)}{\theta - 1}, \lim\limits</em>{\theta \to 1} \frac{\sin (\theta - 1)}{\theta - 1}$</li>
-<li>$\lim\limits<em>{\theta \to 0} \frac{\cos \theta -1}{\theta}, \lim\limits</em>{\theta \to 0} \frac{\cos \theta -1}{\theta ^2}$</li>
+<li>$\lim\limits_{\theta \to 0} \frac{\sin (\theta - 1)}{\theta - 1}, \lim\limits_{\theta \to 1} \frac{\sin (\theta - 1)}{\theta - 1}$</li>
+<li>$\lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta}, \lim\limits_{\theta \to 0} \frac{\cos \theta -1}{\theta ^2}$</li>
 <li>$\lim\limits_{x\to 0} tan x \sin \frac{1}{x}$</li>
 </ol>
 <h1 id="題目講解區"><a href="#題目講解區" class="headerlink" title="題目講解區:"></a>題目講解區:</h1><ol>
 <li><p>左極限、右極限不同，所以不存在極限。<br><strong>Answer:不存在極限</strong></p>
 </li>
-<li><p>如果你把它的函數圖形畫出來，你就會知道了。<br><img src="https://i.imgur.com/reuzeIU.png" alt=""><br><strong>Answer:3,2</strong></p>
+<li><p>如果你把它的函數圖形畫出來，你就會知道了。<br><img src="https://i.imgur.com/reuzeIU.png"><br><strong>Answer:3,2</strong></p>
 </li>
 <li><p>(a)上方極限為-1，下方為0，則極限值為$- \infty$<br>(b)上方極限為-1，下方為-0，則極限值為$\infty$<br><strong>Answer:</strong> $- \infty$,$\infty$</p>
 </li>
 <li><p>先把x-2這個因式消掉就可以了。<br><strong>Answer:0</strong></p>
 </li>
-<li><p>實際上這個等同於$\lim\limits<em>{x\to 0^+} tan^{-1} \frac{1}{x}$，而又等同於$\lim\limits</em>{x\to \infty ^+} tan^{-1} x$，這下你就知道了。<br><strong>Answer:</strong> $\frac{\pi}{2}$</p>
+<li><p>實際上這個等同於$\lim\limits_{x\to 0^+} tan^{-1} \frac{1}{x}$，而又等同於$\lim\limits_{x\to \infty ^+} tan^{-1} x$，這下你就知道了。<br><strong>Answer:</strong> $\frac{\pi}{2}$</p>
 </li>
-<li><p>需要用到夾擠定理(三明治定理)，依下圖可以寫出不等式$\frac{\sin \theta}{2} \leq \frac{\pi \theta}{2 \pi} \leq \frac{tan \theta}{2}$(三角形與扇形面積)，解出來就得到答案。<br><img src="https://i.imgur.com/69xvwLs.png" alt=""><br><strong>Answer:1</strong></p>
+<li><p>需要用到夾擠定理(三明治定理)，依下圖可以寫出不等式$\frac{\sin \theta}{2} \leq \frac{\pi \theta}{2 \pi} \leq \frac{tan \theta}{2}$(三角形與扇形面積)，解出來就得到答案。<br><img src="https://i.imgur.com/69xvwLs.png"><br><strong>Answer:1</strong></p>
 </li>
 <li><p>同樣的，兩個都可以將$\theta -1$替換掉，跟第五題一樣。<br><strong>Answer:</strong> $\sin 1$, <strong>1</strong></p>
 </li>
-<li><p>$\frac{\cos \theta -1}{2}= \sin^2 \frac{\theta}{2}$，使用這個公式就好(ゝ∀･)<br><strong>Answer:0</strong>, $- \frac{1}{2}$</p>
+<li><p>$\frac{\cos \theta -1}{2}&#x3D; \sin^2 \frac{\theta}{2}$，使用這個公式就好(ゝ∀･)<br><strong>Answer:0</strong>, $- \frac{1}{2}$</p>
 </li>
 <li><p>$-1 \leq \sin \frac{1}{x} \leq 1$，$-tan x \leq \sin \frac{1}{x} \leq tan x$，當x趨近於0，$0 \leq \sin \frac{1}{x} \leq 0$(夾擠定理)。<br><strong>Answer:0</strong></p>
 </li>

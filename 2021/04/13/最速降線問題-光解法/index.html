@@ -103,7 +103,7 @@
     <!-- favicon -->
     
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Emilia's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
@@ -161,7 +161,7 @@
                     </li>
                 
                     <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
                             
                                 <i class="fa fa-github fa-stack-2x"></i>
                             
@@ -237,29 +237,29 @@
 <hr>
 <h1 id="光解法"><a href="#光解法" class="headerlink" title="光解法"></a>光解法</h1><p>約翰·伯努利(歐拉的老師)提出這個解法。</p>
 <p>由費馬原理可以知道光總是走耗時最少的路徑，可以利用光來類比質點，求得最速路徑。</p>
-<p>首先，可以知道一質點垂直方向下降$y$時的速度，$v = \sqrt{2gy}$。<br>可以構造出無限多層、但總厚度固定的不同介質，使得光速也滿足上面的速度條件。<br>又由於折射定律$\frac{sin\theta_k}{v_k} = C$<br><img src="https://imgur.com/3NYHjHZ.png" alt=""><br>得$\frac{sin\theta}{\sqrt{y}} = C\sqrt{2g}$</p>
+<p>首先，可以知道一質點垂直方向下降$y$時的速度，$v &#x3D; \sqrt{2gy}$。<br>可以構造出無限多層、但總厚度固定的不同介質，使得光速也滿足上面的速度條件。<br>又由於折射定律$\frac{sin\theta_k}{v_k} &#x3D; C$<br><img src="https://imgur.com/3NYHjHZ.png"><br>得$\frac{sin\theta}{\sqrt{y}} &#x3D; C\sqrt{2g}$</p>
 <p>這個式子代表，這個曲線的任一點都滿足此條件，由此可以計算出此曲線。</p>
-<p>將$sin\theta$換成$dx,dy,ds$的形式:<br>$\frac{\frac{dx}{ds}}{\sqrt{y}} = C’$</p>
-<p>$\frac{\frac{dx}{\sqrt{dx^2 + dy^2}}}{\sqrt{y}} = C’$</p>
-<p>$\frac{\frac{dx^2}{dx^2 + dy^2}}{y} = C’^2$</p>
-<p>$\frac{dx^2}{dx^2 + dy^2} = yK$, $K = 2gC^2$</p>
-<p>左式上下同除$dx^2$<br>$\frac{1}{1 + y’^2} = yK$</p>
-<p>$y’^2 = (yK)^{-1} - 1$</p>
-<p>$y’ = \sqrt{(yK)^{-1} - 1}$</p>
-<p>$((yK)^{-1} - 1)^{-\frac{1}{2}} dy = dx$</p>
-<p>$(\frac{1 - yK}{yK})^{-\frac{1}{2}} dy = dx$</p>
-<p>$(\frac{yK}{1 - yK})^{\frac{1}{2}} dy = dx$<br>兩邊積分<br>$\int (\frac{yK}{1 - yK})^{\frac{1}{2}} dy = \int dx$</p>
-<p>令$y = \frac{sin^2\theta}{K}$, $dy = \frac{2sin\theta cos\theta}{K} d\theta$</p>
-<p>$\int \frac{2sin^2\theta}{K} d\theta = x$</p>
-<p>$\frac{1}{K}\int 2sin^2\theta d\theta = x$</p>
-<p>$\frac{1}{K}(\theta - \frac{1}{2}sin2\theta) + C = x$</p>
-<p>$\frac{1}{2K}(2\theta - sin2\theta) + C = x$</p>
-<p>整理好，令$\alpha = 2\theta$<br>$x = \frac{1}{4gC^2}(\alpha - sin\alpha) + C$<br>$y = \frac{sin^2\theta}{K} = \frac{1}{4gC^2}(1-cos\alpha)$</p>
-<p>這個即是 <strong>擺線的參數方程式</strong>。</p>
+<p>將$sin\theta$換成$dx,dy,ds$的形式:<br>$\frac{\frac{dx}{ds}}{\sqrt{y}} &#x3D; C’$</p>
+<p>$\frac{\frac{dx}{\sqrt{dx^2 + dy^2}}}{\sqrt{y}} &#x3D; C’$</p>
+<p>$\frac{\frac{dx^2}{dx^2 + dy^2}}{y} &#x3D; C’^2$</p>
+<p>$\frac{dx^2}{dx^2 + dy^2} &#x3D; yK$, $K &#x3D; 2gC^2$</p>
+<p>左式上下同除$dx^2$<br>$\frac{1}{1 + y’^2} &#x3D; yK$</p>
+<p>$y’^2 &#x3D; (yK)^{-1} - 1$</p>
+<p>$y’ &#x3D; \sqrt{(yK)^{-1} - 1}$</p>
+<p>$((yK)^{-1} - 1)^{-\frac{1}{2}} dy &#x3D; dx$</p>
+<p>$(\frac{1 - yK}{yK})^{-\frac{1}{2}} dy &#x3D; dx$</p>
+<p>$(\frac{yK}{1 - yK})^{\frac{1}{2}} dy &#x3D; dx$<br>兩邊積分<br>$\int (\frac{yK}{1 - yK})^{\frac{1}{2}} dy &#x3D; \int dx$</p>
+<p>令$y &#x3D; \frac{sin^2\theta}{K}$, $dy &#x3D; \frac{2sin\theta cos\theta}{K} d\theta$</p>
+<p>$\int \frac{2sin^2\theta}{K} d\theta &#x3D; x$</p>
+<p>$\frac{1}{K}\int 2sin^2\theta d\theta &#x3D; x$</p>
+<p>$\frac{1}{K}(\theta - \frac{1}{2}sin2\theta) + C &#x3D; x$</p>
+<p>$\frac{1}{2K}(2\theta - sin2\theta) + C &#x3D; x$</p>
+<p>整理好，令$\alpha &#x3D; 2\theta$<br>$x &#x3D; \frac{1}{4gC^2}(\alpha - sin\alpha) + C$<br>$y &#x3D; \frac{sin^2\theta}{K} &#x3D; \frac{1}{4gC^2}(1-cos\alpha)$</p>
+<p>這個即是 __擺線的參數方程式__。</p>
 <hr>
 <h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>這個方法跟變分法比起來缺乏一般性，但這不影響這個解法非常精采。<br>表面上看起來缺乏變分的想法，但實際上，「光的路徑」這一概念可以連結到最小作用量，也就是說，這個解法將變分包裝了起來，本質上還是變分的想法。</p>
 <hr>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cust.edu.tw/mathmet/brachistochrone.pdf" target="_blank" rel="noopener">http://www.cust.edu.tw/mathmet/brachistochrone.pdf</a><br><a href="https://zhuanlan.zhihu.com/p/20718489" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/20718489</a><br><a href="http://boson4.phys.tku.edu.tw/fundamentals_of_math_phys/unit-33_Variation__calculus%20_of_variation.html" target="_blank" rel="noopener">http://boson4.phys.tku.edu.tw/fundamentals_of_math_phys/unit-33_Variation__calculus%20_of_variation.html</a><br><a href="https://zh.wikipedia.org/zh-tw/%E5%8F%98%E5%88%86%E6%B3%95" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-tw/%E5%8F%98%E5%88%86%E6%B3%95</a><br><a href="https://en.wikipedia.org/wiki/Fundamental_lemma_of_calculus_of_variations" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fundamental_lemma_of_calculus_of_variations</a><br><a href="https://zh.wikipedia.org/wiki/%E6%AD%90%E6%8B%89-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%96%B9%E7%A8%8B" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E6%AD%90%E6%8B%89-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%96%B9%E7%A8%8B</a><br><a href="https://www.zhihu.com/question/39494645" target="_blank" rel="noopener">https://www.zhihu.com/question/39494645</a><br><a href="https://www.jianshu.com/p/961e890e88b2" target="_blank" rel="noopener">https://www.jianshu.com/p/961e890e88b2</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="http://www.cust.edu.tw/mathmet/brachistochrone.pdf">http://www.cust.edu.tw/mathmet/brachistochrone.pdf</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20718489">https://zhuanlan.zhihu.com/p/20718489</a><br><a target="_blank" rel="noopener" href="http://boson4.phys.tku.edu.tw/fundamentals_of_math_phys/unit-33_Variation__calculus%20_of_variation.html">http://boson4.phys.tku.edu.tw/fundamentals_of_math_phys/unit-33_Variation__calculus%20_of_variation.html</a><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E5%8F%98%E5%88%86%E6%B3%95">https://zh.wikipedia.org/zh-tw/%E5%8F%98%E5%88%86%E6%B3%95</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fundamental_lemma_of_calculus_of_variations">https://en.wikipedia.org/wiki/Fundamental_lemma_of_calculus_of_variations</a><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%AD%90%E6%8B%89-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%96%B9%E7%A8%8B">https://zh.wikipedia.org/wiki/%E6%AD%90%E6%8B%89-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%96%B9%E7%A8%8B</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/39494645">https://www.zhihu.com/question/39494645</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/961e890e88b2">https://www.jianshu.com/p/961e890e88b2</a></p>
 
 
                 

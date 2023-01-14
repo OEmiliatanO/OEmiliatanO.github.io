@@ -365,14 +365,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/games/</loc>
+    <loc>http://yoursite.com/tags/data-structure/</loc>
     <lastmod>2023-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/data-structure/</loc>
+    <loc>http://yoursite.com/tags/games/</loc>
     <lastmod>2023-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
